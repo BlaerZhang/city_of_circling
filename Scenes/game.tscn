@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://dp3mcejhnb8el"]
+
+[ext_resource type="Script" uid="uid://1la68wpoh45t" path="res://Scripts/shop.gd" id="2_qxrlw"]
+
+[node name="Game" type="Node"]
+
+[node name="Affairs Shop" type="Node" parent="."]
+script = ExtResource("2_qxrlw")

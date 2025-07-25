@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="Item" load_steps=3 format=3 uid="uid://by1m8kfkrax3j"]
+
+[ext_resource type="Script" uid="uid://d0fc2fb7vpwyv" path="res://Scripts/item.gd" id="1_14vcy"]
+[ext_resource type="Texture2D" uid="uid://ddvm3b6nxxten" path="res://icon.svg" id="1_n6o7i"]
+
+[resource]
+script = ExtResource("1_14vcy")
+item_name = "watermelon"
+icon = ExtResource("1_n6o7i")
+item_type = 0
+metadata/_custom_type_script = "uid://d0fc2fb7vpwyv"

@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="ItemsForSale" load_steps=2 format=3 uid="uid://1d4usum3mon0"]
+
+[ext_resource type="Script" uid="uid://b6hw5ca1j2m70" path="res://Scripts/items_for_sale.gd" id="1_2rtgt"]
+
+[resource]
+script = ExtResource("1_2rtgt")
+item_list = Dictionary[String, int]({})
+price = 3
+belonging_shop = 0
+pool_index = 2
+weight_in_pool = 1.0
+metadata/_custom_type_script = "uid://b6hw5ca1j2m70"
