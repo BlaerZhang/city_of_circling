@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="PrizeItems" load_steps=2 format=3 uid="uid://trmwbte5hvg0"]
+
+[ext_resource type="Script" uid="uid://bvl7w0dl5jg5h" path="res://Scripts/prize_items.gd" id="1_n6ts2"]
+
+[resource]
+script = ExtResource("1_n6ts2")
+prize_name_text = "Draw Coupon x1 + Reroll"
+item_list = Dictionary[String, int]({
+"draw coupon": 1
+})
+sources_of_prize = Array[int]([4, 5, 6, 7, 8, 9])
+weight_in_pool = 15.0
+metadata/_custom_type_script = "uid://bvl7w0dl5jg5h"

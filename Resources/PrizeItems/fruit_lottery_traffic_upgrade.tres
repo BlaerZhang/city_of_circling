@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="PrizeItems" load_steps=2 format=3 uid="uid://bu1ik6ku0rf6m"]
+
+[ext_resource type="Script" uid="uid://bvl7w0dl5jg5h" path="res://Scripts/prize_items.gd" id="1_xunrv"]
+
+[resource]
+script = ExtResource("1_xunrv")
+prize_name_text = "Traffic Upgrade Coupon x1"
+item_list = Dictionary[String, int]({
+"traffic upgrade coupon": 1
+})
+sources_of_prize = Array[int]([4, 5, 6, 7, 8, 9])
+weight_in_pool = 1.0
+metadata/_custom_type_script = "uid://bvl7w0dl5jg5h"

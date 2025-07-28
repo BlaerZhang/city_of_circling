@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="Item" load_steps=3 format=3 uid="uid://cswec6sr36bwd"]
+
+[ext_resource type="Texture2D" uid="uid://ddvm3b6nxxten" path="res://icon.svg" id="1_7u7ep"]
+[ext_resource type="Script" uid="uid://d0fc2fb7vpwyv" path="res://Scripts/item.gd" id="2_c7vgd"]
+
+[resource]
+script = ExtResource("2_c7vgd")
+item_name = "traffic upgrade coupon"
+icon = ExtResource("1_7u7ep")
+item_type = 1
+metadata/_custom_type_script = "uid://d0fc2fb7vpwyv"

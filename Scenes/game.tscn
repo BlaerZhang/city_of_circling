@@ -1,8 +1,21 @@
-[gd_scene load_steps=2 format=3 uid="uid://dp3mcejhnb8el"]
+[gd_scene load_steps=4 format=3 uid="uid://dp3mcejhnb8el"]
 
 [ext_resource type="Script" uid="uid://1la68wpoh45t" path="res://Scripts/shop.gd" id="2_qxrlw"]
+[ext_resource type="PackedScene" uid="uid://b8imxf8a6f2lg" path="res://Scenes/spin_wheel.tscn" id="2_wrm1d"]
+[ext_resource type="FontFile" uid="uid://ddjdlqyab7oe0" path="res://Assets/Fonts/Kenney Bold.ttf" id="3_wrm1d"]
 
 [node name="Game" type="Node"]
 
 [node name="Affairs Shop" type="Node" parent="."]
 script = ExtResource("2_qxrlw")
+
+[node name="Spin Wheel" parent="." instance=ExtResource("2_wrm1d")]
+sector_color_palette = Array[Color]([Color(0.883856, 0.768843, 0.98255, 1), Color(1.40542e-05, 0.93315, 0.975076, 1), Color(0.984642, 0.781774, 0.539511, 1), Color(0.564352, 0.927558, 0.505862, 1)])
+inner_radius = 32
+line_width = 1
+text_font = ExtResource("3_wrm1d")
+text_width = -1.0
+text_size = 16.0
+text_color = Color(0, 0, 0, 1)
+text_radius = 128.0
+current_source = 0

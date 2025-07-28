@@ -1,0 +1,21 @@
+[gd_scene load_steps=2 format=3 uid="uid://b8imxf8a6f2lg"]
+
+[ext_resource type="Script" uid="uid://daxofde26of36" path="res://Scripts/spin_wheel.gd" id="1_158hs"]
+
+[node name="Spin Wheel" type="Control"]
+layout_mode = 3
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_158hs")
+background_color = Color(0.973964, 0.817318, 0, 1)
+sector_color_palette = null
+text_width = null
+text_size = null
+text_color = null
+text_radius = null
+current_source = null

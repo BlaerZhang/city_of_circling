@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="Item" load_steps=3 format=3 uid="uid://cdeg5hvtyf8j3"]
+
+[ext_resource type="Texture2D" uid="uid://ddvm3b6nxxten" path="res://icon.svg" id="1_q2u65"]
+[ext_resource type="Script" uid="uid://d0fc2fb7vpwyv" path="res://Scripts/item.gd" id="2_8k4kw"]
+
+[resource]
+script = ExtResource("2_8k4kw")
+item_name = "hp potion"
+icon = ExtResource("1_q2u65")
+item_type = 2
+metadata/_custom_type_script = "uid://d0fc2fb7vpwyv"
