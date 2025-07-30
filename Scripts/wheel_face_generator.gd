@@ -1,4 +1,4 @@
-@tool
+#@tool
 extends Control
 
 @export var background_color: Color
@@ -11,24 +11,25 @@ extends Control
 
 var prize_item_label_scene = preload("res://Scenes/prize_item_rich_text_label.tscn")
 @export var text_font: Font
-@export var text_width: float = 36
+@export var text_width: float = -1
 @export var text_size: float = 16
 @export var text_color: Color = Color.BLACK
 @export var text_radius: float = 8
 
 var prize_list: Array[PrizeItems]
-@export var current_source: PrizeItems.Source:
-	set(value):
-		current_source = value
-		load_prize_list(value)
-var current_total_weight: float = 0.0
+@export var current_source: PrizeItems.Source
+	#set(value):
+		#current_source = value
+		#load_prize_list(value)
+var _current_total_weight: float = 0.0
+var _target_prize: PrizeItems
+var _tween: Tween
+var _is_spinning: bool = false
+signal on_end_spin(prize_item: PrizeItems)
 
-
-func _ready() -> void:
-	load_prize_list(current_source) #for test
-	pass
 
 func _draw() -> void:
+	draw_set_transform(pivot_offset, 0.0)
 	#draw background
 	draw_circle(Vector2.ZERO, outer_radius, background_color)
 	
@@ -36,9 +37,9 @@ func _draw() -> void:
 	var cumulative_weight := 0.0
 	for i in len(prize_list):
 		var prize_item = prize_list[i]
-		var start_rads = TAU * cumulative_weight / current_total_weight
+		var start_rads = TAU * cumulative_weight / _current_total_weight
 		cumulative_weight += prize_item.weight_in_pool
-		var end_rads = TAU * cumulative_weight / current_total_weight
+		var end_rads = TAU * cumulative_weight / _current_total_weight
 		var mid_rads = (start_rads + end_rads) / 2.0
 		var radius_mid = (inner_radius + outer_radius) / 2
 		
@@ -78,7 +79,7 @@ func _draw() -> void:
 		var draw_offset = Vector2(-text_size_vec.x / 2.0, ascent / 2.0)
 
 		# 设置局部变换（先平移再旋转）
-		draw_set_transform(Vector2.from_angle(mid_rads) * radius_mid, mid_rads)
+		draw_set_transform(Vector2.from_angle(mid_rads) * radius_mid+pivot_offset, mid_rads)
 
 		# 使用左对齐 + 居中位置偏移绘制
 		draw_string(
@@ -91,13 +92,13 @@ func _draw() -> void:
 			text_color
 		)
 
-		draw_set_transform(Vector2.ZERO, 0.0)
+		draw_set_transform(pivot_offset, 0.0)
 		
 	#draw separator lines
 	for i in len(prize_list):
 		var prize_item = prize_list[i]
 		cumulative_weight += prize_item.weight_in_pool
-		var end_rads = TAU * cumulative_weight / current_total_weight
+		var end_rads = TAU * cumulative_weight / _current_total_weight
 		var radius_mid = (inner_radius + outer_radius) / 2
 		var line_point = Vector2.from_angle(end_rads)
 		
@@ -113,10 +114,13 @@ func _draw() -> void:
 	draw_arc(Vector2.ZERO, inner_radius, 0, TAU, 128, line_color, line_width, true)
 	draw_arc(Vector2.ZERO, outer_radius, 0, TAU, 128, line_color, line_width, true)
 
+
 func _process(delta: float) -> void:
-	queue_redraw()	
-	pass
-	
+	if Engine.is_editor_hint():
+		queue_redraw()
+		pass
+
+
 func load_prize_list(source: PrizeItems.Source):
 	#clear list
 	prize_list.clear()
@@ -136,10 +140,77 @@ func load_prize_list(source: PrizeItems.Source):
 			file_name = dir.get_next()
 		dir.list_dir_end()
 		
+		current_source = source
 		update_current_total_weight()
+
 
 func update_current_total_weight():
 	if len(prize_list) > 0:
-		current_total_weight = 0.0
+		_current_total_weight = 0.0
 		for prize_item in prize_list:
-			current_total_weight += prize_item.weight_in_pool
+			_current_total_weight += prize_item.weight_in_pool
+
+
+func setup_wheel(prize_source: PrizeItems.Source):
+	if _is_spinning: return
+	rotation = 0.0
+	load_prize_list(prize_source)
+	queue_redraw()
+
+
+func pick_random_prize() -> PrizeItems:
+	var rand = randf() * _current_total_weight
+	var cumulative := 0.0
+	for prize_item in prize_list:
+		cumulative += prize_item.weight_in_pool
+		if rand <= cumulative:
+			return prize_item
+	return prize_list.back()
+
+
+func get_random_angle_in_sector(target: PrizeItems) -> float:
+	var cumulative := 0.0
+	for prize_item in prize_list:
+		var start = cumulative
+		cumulative += prize_item.weight_in_pool
+		if prize_item == target:
+			var start_rads = TAU * start / _current_total_weight
+			var end_rads = TAU * cumulative / _current_total_weight
+			# 随机一个区间内的角度
+			return randf_range(start_rads, end_rads)
+	return 0.0
+
+
+func spin_wheel() -> void:
+	if not is_inside_tree() or _is_spinning: return
+	
+	_is_spinning = true
+	
+	if _tween:
+		_tween.kill()
+
+	# 抽奖
+	_target_prize = pick_random_prize()
+	var target_angle = get_random_angle_in_sector(_target_prize)
+
+	# 当前角度
+	var current_rot = rotation
+	# 多加几圈的随机旋转（完整圈数）
+	var extra_rotations = randi_range(3, 10)
+	var pointer_angle_offset = -TAU / 4  # 指针在12点方向
+	var target_rot = current_rot - fposmod(current_rot, TAU) + extra_rotations * TAU - target_angle + pointer_angle_offset
+
+	# 创建 Tween
+	_tween = create_tween()
+	_tween.tween_interval(0.25)
+	_tween.tween_property(self, "rotation", target_rot,  2.0)\
+		.set_trans(Tween.TRANS_QUAD)\
+		.set_ease(Tween.EASE_OUT)
+	_tween.tween_interval(0.25)
+	_tween.tween_callback(_on_spin_finished.bind(_target_prize))
+
+
+func _on_spin_finished(prize_item: PrizeItems):
+	_is_spinning = false
+	print("Spin Wheel Result: " + prize_item.prize_name_text)
+	on_end_spin.emit(prize_item)

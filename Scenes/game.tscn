@@ -1,8 +1,23 @@
-[gd_scene load_steps=4 format=3 uid="uid://dp3mcejhnb8el"]
+[gd_scene load_steps=9 format=3 uid="uid://dp3mcejhnb8el"]
 
 [ext_resource type="Script" uid="uid://1la68wpoh45t" path="res://Scripts/shop.gd" id="2_qxrlw"]
 [ext_resource type="PackedScene" uid="uid://b8imxf8a6f2lg" path="res://Scenes/spin_wheel.tscn" id="2_wrm1d"]
-[ext_resource type="FontFile" uid="uid://ddjdlqyab7oe0" path="res://Assets/Fonts/Kenney Bold.ttf" id="3_wrm1d"]
+[ext_resource type="Texture2D" uid="uid://ddvm3b6nxxten" path="res://icon.svg" id="4_3dryh"]
+[ext_resource type="Script" uid="uid://uj72boqqj2dy" path="res://Scripts/gui_3d.gd" id="5_wowpa"]
+
+[sub_resource type="QuadMesh" id="QuadMesh_3dryh"]
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_wowpa"]
+viewport_path = NodePath("Node3D/SubViewport")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_wowpa"]
+resource_local_to_scene = true
+transparency = 1
+shading_mode = 0
+albedo_texture = SubResource("ViewportTexture_wowpa")
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_3dryh"]
+size = Vector3(1, 1, 0.1)
 
 [node name="Game" type="Node"]
 
@@ -10,12 +25,48 @@
 script = ExtResource("2_qxrlw")
 
 [node name="Spin Wheel" parent="." instance=ExtResource("2_wrm1d")]
-sector_color_palette = Array[Color]([Color(0.883856, 0.768843, 0.98255, 1), Color(1.40542e-05, 0.93315, 0.975076, 1), Color(0.984642, 0.781774, 0.539511, 1), Color(0.564352, 0.927558, 0.505862, 1)])
-inner_radius = 32
-line_width = 1
-text_font = ExtResource("3_wrm1d")
-text_width = -1.0
-text_size = 16.0
-text_color = Color(0, 0, 0, 1)
-text_radius = 128.0
-current_source = 0
+pivot_offset = Vector2(960, 0)
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(0.707417, 0.499121, 0.500439, -0.706796, 0.500439, 0.5, -0.000879139, -0.707417, 0.706796, 4.61117, 3.57696, 6.58113)
+projection = 1
+size = 18.503
+
+[node name="Sprite3D2" type="Sprite3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.807, 0, 0)
+texture = ExtResource("4_3dryh")
+
+[node name="Sprite3D3" type="Sprite3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.034, 0)
+texture = ExtResource("4_3dryh")
+
+[node name="Sprite3D4" type="Sprite3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.769, 0, 0)
+texture = ExtResource("4_3dryh")
+
+[node name="Node3D" type="Node3D" parent="."]
+script = ExtResource("5_wowpa")
+
+[node name="SubViewport" type="SubViewport" parent="Node3D"]
+transparent_bg = true
+gui_embed_subwindows = true
+size = Vector2i(1920, 1080)
+render_target_update_mode = 4
+
+[node name="CheckButton" type="CheckButton" parent="Node3D/SubViewport"]
+offset_right = 44.0
+offset_bottom = 24.0
+text = "123123123"
+icon = ExtResource("4_3dryh")
+
+[node name="Quad" type="MeshInstance3D" parent="Node3D"]
+transform = Transform3D(18.9233, 0, 0, 0, 10.5635, 0, 0, 0, 1, 0, 0, 0)
+mesh = SubResource("QuadMesh_3dryh")
+skeleton = NodePath("")
+surface_material_override/0 = SubResource("StandardMaterial3D_wowpa")
+
+[node name="Area3D" type="Area3D" parent="Node3D/Quad"]
+input_capture_on_drag = true
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Node3D/Quad/Area3D"]
+shape = SubResource("BoxShape3D_3dryh")

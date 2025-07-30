@@ -1,9 +1,24 @@
-[gd_scene load_steps=2 format=3 uid="uid://b8imxf8a6f2lg"]
+[gd_scene load_steps=4 format=3 uid="uid://b8imxf8a6f2lg"]
 
-[ext_resource type="Script" uid="uid://daxofde26of36" path="res://Scripts/spin_wheel.gd" id="1_158hs"]
+[ext_resource type="Script" uid="uid://daxofde26of36" path="res://Scripts/wheel_face_generator.gd" id="1_158hs"]
+[ext_resource type="Script" uid="uid://0a3it4ajh10" path="res://Scripts/spin_wheel_manager.gd" id="1_f1ojv"]
+[ext_resource type="Texture2D" uid="uid://ddvm3b6nxxten" path="res://icon.svg" id="2_8vgfc"]
 
 [node name="Spin Wheel" type="Control"]
 layout_mode = 3
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 0
+size_flags_horizontal = 4
+script = ExtResource("1_f1ojv")
+
+[node name="Wheel Face" type="Control" parent="."]
+custom_minimum_size = Vector2(600, 600)
+layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
@@ -11,11 +26,113 @@ anchor_right = 0.5
 anchor_bottom = 0.5
 grow_horizontal = 2
 grow_vertical = 2
+pivot_offset = Vector2(300, 300)
 script = ExtResource("1_158hs")
-background_color = Color(0.973964, 0.817318, 0, 1)
-sector_color_palette = null
-text_width = null
-text_size = null
-text_color = null
-text_radius = null
-current_source = null
+background_color = Color(0.972549, 0.815686, 0, 1)
+sector_color_palette = Array[Color]([Color(0.869136, 0.626798, 1, 1), Color(1, 0.637097, 0.485474, 1), Color(0, 0.889416, 0.338947, 1), Color(1.09738e-05, 0.826173, 0.965853, 1)])
+inner_radius = 96
+line_width = 1
+text_size = 12.0
+current_source = 4
+
+[node name="Pointer" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -2.5
+offset_top = -256.0
+offset_right = 2.5
+offset_bottom = -128.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+texture = ExtResource("2_8vgfc")
+expand_mode = 1
+
+[node name="Spin Button" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -96.0
+offset_top = -95.0
+offset_right = 96.0
+offset_bottom = 41.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "GO"
+flat = true
+
+[node name="Confirm Window" type="Panel" parent="."]
+visible = false
+layout_mode = 2
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -200.0
+offset_top = -100.0
+offset_right = 200.0
+offset_bottom = 100.0
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset = Vector2(200, 100)
+
+[node name="Spin Again Text" type="RichTextLabel" parent="Confirm Window"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -77.5
+offset_top = 75.0
+offset_right = 77.5
+offset_bottom = 129.0
+grow_horizontal = 2
+text = "Spin Again?"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Result Text" type="RichTextLabel" parent="Confirm Window"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -200.0
+offset_right = 200.0
+offset_bottom = 54.0
+grow_horizontal = 2
+text = "You won xxx xxxx xxxx x1!"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Continue Button" type="Button" parent="Confirm Window"]
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_top = -54.0
+offset_right = 155.0
+grow_vertical = 0
+text = "YES
+(xxx remains)"
+
+[node name="Cancel Button" type="Button" parent="Confirm Window"]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -155.0
+offset_top = -54.0
+grow_horizontal = 0
+grow_vertical = 0
+text = "NO"
+
+[connection signal="on_end_spin" from="Wheel Face" to="." method="_on_wheel_face_on_end_spin"]
+[connection signal="pressed" from="Spin Button" to="." method="_on_spin_button_pressed"]

@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="Item" load_steps=3 format=3 uid="uid://cmme6qk75pxmu"]
+
+[ext_resource type="Texture2D" uid="uid://ddvm3b6nxxten" path="res://icon.svg" id="1_sfr4u"]
+[ext_resource type="Script" uid="uid://d0fc2fb7vpwyv" path="res://Scripts/item.gd" id="2_omau7"]
+
+[resource]
+script = ExtResource("2_omau7")
+item_name = "exchange coupon"
+icon = ExtResource("1_sfr4u")
+item_type = 1
+metadata/_custom_type_script = "uid://d0fc2fb7vpwyv"

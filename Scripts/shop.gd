@@ -1,6 +1,9 @@
 extends Node
 
 @export var shop_type: ItemsForSale.ShopType
+var prize_source_type: PrizeItems.Source:
+	get:
+		return shop_type as PrizeItems.Source
 var sale_pools: Dictionary[int, Array]
 var items_in_slots: Array[ItemsForSale]
 
