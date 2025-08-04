@@ -1,0 +1,45 @@
+[gd_scene load_steps=3 format=3 uid="uid://c6e414gy1cwn5"]
+
+[ext_resource type="PackedScene" uid="uid://b8imxf8a6f2lg" path="res://Scenes/spin_wheel.tscn" id="1_ru8g0"]
+[ext_resource type="Texture2D" uid="uid://ddvm3b6nxxten" path="res://icon.svg" id="2_nk8tj"]
+
+[node name="Game2d" type="Node2D"]
+
+[node name="UI" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 1920.0
+offset_bottom = 1080.0
+pivot_offset = Vector2(960, 540)
+
+[node name="Spin Wheel" parent="UI" instance=ExtResource("1_ru8g0")]
+layout_mode = 1
+hide_y_offset = 1920.0
+show_y_offset = 1080.0
+
+[node name="Node2D" type="Node2D" parent="."]
+position = Vector2(960, 540)
+rotation = -0.523599
+skew = -0.523599
+
+[node name="Sprite2D" type="Sprite2D" parent="Node2D"]
+position = Vector2(140, 36)
+texture = ExtResource("2_nk8tj")
+
+[node name="Sprite2D2" type="Sprite2D" parent="Node2D/Sprite2D"]
+modulate = Color(0, 0, 0, 0.278431)
+show_behind_parent = true
+texture = ExtResource("2_nk8tj")
+offset = Vector2(0, 5)
+flip_h = true
+
+[node name="Sprite2D2" type="Sprite2D" parent="Node2D"]
+position = Vector2(273, 35)
+texture = ExtResource("2_nk8tj")
+
+[node name="Sprite2D2" type="Sprite2D" parent="Node2D/Sprite2D2"]
+modulate = Color(0, 0, 0, 0.278431)
+show_behind_parent = true
+texture = ExtResource("2_nk8tj")
+offset = Vector2(0, 5)
+flip_h = true

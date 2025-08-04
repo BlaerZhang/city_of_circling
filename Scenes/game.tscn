@@ -1,8 +1,9 @@
-[gd_scene load_steps=9 format=3 uid="uid://dp3mcejhnb8el"]
+[gd_scene load_steps=10 format=3 uid="uid://dp3mcejhnb8el"]
 
 [ext_resource type="Script" uid="uid://1la68wpoh45t" path="res://Scripts/shop.gd" id="2_qxrlw"]
 [ext_resource type="PackedScene" uid="uid://b8imxf8a6f2lg" path="res://Scenes/spin_wheel.tscn" id="2_wrm1d"]
 [ext_resource type="Texture2D" uid="uid://ddvm3b6nxxten" path="res://icon.svg" id="4_3dryh"]
+[ext_resource type="Script" uid="uid://dad7k0wysynkr" path="res://Scripts/npc.gd" id="5_i6g32"]
 [ext_resource type="Script" uid="uid://uj72boqqj2dy" path="res://Scripts/gui_3d.gd" id="5_wowpa"]
 
 [sub_resource type="QuadMesh" id="QuadMesh_3dryh"]
@@ -25,6 +26,8 @@ size = Vector3(1, 1, 0.1)
 script = ExtResource("2_qxrlw")
 
 [node name="Spin Wheel" parent="." instance=ExtResource("2_wrm1d")]
+offset_top = 352.0
+offset_bottom = 352.0
 pivot_offset = Vector2(960, 0)
 
 [node name="Camera3D" type="Camera3D" parent="."]
@@ -56,8 +59,36 @@ render_target_update_mode = 4
 [node name="CheckButton" type="CheckButton" parent="Node3D/SubViewport"]
 offset_right = 44.0
 offset_bottom = 24.0
+tooltip_text = "MOVING BACKWARD
+
+Ability xxxxx
+xxxxxxxxx"
 text = "123123123"
 icon = ExtResource("4_3dryh")
+
+[node name="TextureButton" type="TextureButton" parent="Node3D/SubViewport"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -64.0
+offset_top = -64.0
+offset_right = 64.0
+offset_bottom = 64.0
+grow_horizontal = 2
+grow_vertical = 2
+tooltip_text = "MOVING BACKWARD
+
+Ability xxxxx
+xxxxxxxxx"
+texture_normal = ExtResource("4_3dryh")
+
+[node name="Sprite2D" type="Sprite2D" parent="Node3D/SubViewport"]
+position = Vector2(300, 500)
+rotation = -0.523599
+skew = -0.174533
+texture = ExtResource("4_3dryh")
 
 [node name="Quad" type="MeshInstance3D" parent="Node3D"]
 transform = Transform3D(18.9233, 0, 0, 0, 10.5635, 0, 0, 0, 1, 0, 0, 0)
@@ -70,3 +101,8 @@ input_capture_on_drag = true
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Node3D/Quad/Area3D"]
 shape = SubResource("BoxShape3D_3dryh")
+
+[node name="Node" type="Node" parent="."]
+script = ExtResource("5_i6g32")
+required_fruit_type_1 = "apple"
+required_fruit_type_2 = "banana"

@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="Upgrade" load_steps=2 format=3 uid="uid://bb6tss7ri1u2g"]
+
+[ext_resource type="Script" uid="uid://deas45k8roqd" path="res://Scripts/upgrade.gd" id="1_rmyq2"]
+
+[resource]
+script = ExtResource("1_rmyq2")
+upgrade_name = "moving backward"
+description = "Unlock the ability to change moving direction"
+upgrade_type = 1
+upgrade_cost_per_level = Array[int]([1])
+metadata/_custom_type_script = "uid://deas45k8roqd"

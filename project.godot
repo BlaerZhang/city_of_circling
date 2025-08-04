@@ -24,13 +24,20 @@ resources_spreadsheet_view/freeze_first_column=true
 [application]
 
 config/name="City of Circling"
-run/main_scene="uid://dp3mcejhnb8el"
+run/main_scene="uid://c6e414gy1cwn5"
 config/features=PackedStringArray("4.4", "GL Compatibility")
 config/icon="res://icon.svg"
 
 [autoload]
 
 ResourceManager="*res://Scripts/resource_manager.gd"
+UpgradeManager="*res://Scripts/upgrade_manager.gd"
+TimeManager="*res://Scripts/time_manager.gd"
+
+[display]
+
+window/size/viewport_width=1920
+window/size/viewport_height=1080
 
 [dotnet]
 

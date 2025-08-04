@@ -29,12 +29,12 @@ func _process(delta: float) -> void:
 
 func hide_ui(object):
 	var hide_tween:= create_tween()
-	hide_tween.tween_property(object, "position:y", hide_y_offset, 0.5).set_trans(Tween.TRANS_ELASTIC)
+	hide_tween.tween_property(object, "position:y", hide_y_offset, 0.5).set_trans(Tween.TRANS_EXPO)
 	
 
 func show_ui(object):
 	var hide_tween:= create_tween()  
-	hide_tween.tween_property(object, "position:y", show_y_offset, 0.5).set_trans(Tween.TRANS_ELASTIC)
+	hide_tween.tween_property(object, "position:y", show_y_offset, 0.5).set_trans(Tween.TRANS_EXPO)
 	_button_state = button_state.free
 	spin_button.text = "GO"
 

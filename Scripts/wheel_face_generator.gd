@@ -202,11 +202,14 @@ func spin_wheel() -> void:
 
 	# 创建 Tween
 	_tween = create_tween()
-	_tween.tween_interval(0.25)
-	_tween.tween_property(self, "rotation", target_rot,  2.0)\
+	_tween.tween_property(self, "rotation", rotation - TAU / 12, 0.5)\
 		.set_trans(Tween.TRANS_QUAD)\
 		.set_ease(Tween.EASE_OUT)
-	_tween.tween_interval(0.25)
+	#_tween.tween_interval(0.1)
+	_tween.tween_property(self, "rotation", target_rot,  2.0)\
+		.set_trans(Tween.TRANS_EXPO)\
+		.set_ease(Tween.EASE_OUT)
+	_tween.tween_interval(0.5)
 	_tween.tween_callback(_on_spin_finished.bind(_target_prize))
 
 
