@@ -32,6 +32,7 @@ var current_delivery_quest_target: npc_name
 var current_delivery_sender_list: Array[npc_name]
 signal delivery_quest_generated(from: npc_name, to: npc_name)
 
+
 func generate_random_quest():
 	if is_in_quest: return
 	if (randf() < fruit_quest_probability):
@@ -65,6 +66,7 @@ func is_fruit_quest_submittable() -> bool:
 			return false
 	return true
 
+
 func try_complete_fruit_quest() -> bool:
 	if not is_in_fruit_quest: return false
 	if not is_fruit_quest_submittable(): return false
@@ -85,6 +87,7 @@ func complete_quest(reward_coupon_count:= 1):
 	is_in_delivery_quest = false
 	
 	ResourceManager.change_item_count('exchange coupon', reward_coupon_count)
+
 
 #func _process(delta: float) -> void:
 	#if (Input.is_action_just_pressed("test")):

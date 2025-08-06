@@ -7,9 +7,11 @@ var prize_source_type: PrizeItems.Source:
 var sale_pools: Dictionary[int, Array]
 var items_in_slots: Array[ItemsForSale]
 
+
 func _ready() -> void:
 	load_items_for_sale_to_pools()
 	restock_shop()
+
 
 func load_items_for_sale_to_pools():
 	var dir = DirAccess.open("res://Resources/ItemsForSale/")
@@ -27,6 +29,7 @@ func load_items_for_sale_to_pools():
 			file_name = dir.get_next()
 		dir.list_dir_end()
 
+
 func draw_items_from_pool(pool: Array) -> ItemsForSale:
 	var total_weight := 0.0
 	for items_for_sale in pool:
@@ -40,6 +43,7 @@ func draw_items_from_pool(pool: Array) -> ItemsForSale:
 			return items_for_sale
 			
 	return null
+
 
 func restock_shop():
 	items_in_slots.clear()
