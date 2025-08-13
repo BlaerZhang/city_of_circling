@@ -13,6 +13,8 @@ enum GridType{
 @export var grid_position: Vector2i
 var neighbour_grids: Array[Vector2i]
 
+@onready var functional_grid_component:= $"Functional Component"
+
 @onready var grid_outline: Sprite2D = $"Grid Outline"
 var outline_tween: Tween
 
@@ -28,6 +30,33 @@ func _ready() -> void:
 
 func _process(delta: float) -> void:
 	pass
+
+
+func bypass():
+	if functional_grid_component is FunctionalGridComponent:
+		await functional_grid_component.bypass()
+		GameManager.switch_game_state(GameManager.GameState.Move)
+
+
+func arrive():
+	if functional_grid_component is FunctionalGridComponent:
+		await functional_grid_component.arrive()
+		GameManager.switch_game_state(GameManager.GameState.Idle)
+
+
+func depart():
+	if functional_grid_component is FunctionalGridComponent:
+		await functional_grid_component.depart()
+
+
+func interact():
+	if functional_grid_component is FunctionalGridComponent:
+		await functional_grid_component.interact(grid_position)
+
+
+func try_bypass(forward: bool):
+	if functional_grid_component is FunctionalGridComponent:
+		functional_grid_component.try_bypass(forward)
 
 
 func _on_area_2d_input_event(viewport: Node, event: InputEvent, shape_idx: int) -> void:

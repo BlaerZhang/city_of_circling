@@ -65,14 +65,21 @@ func recursive_search_grid(grids_in_range: Array[BaseGrid], origin: Vector2i, ra
 
 func on_moused_entered_grid(grid_pos: Vector2i):
 	#print("Manager received signals from:" + str(grid_pos) + " Entered")
-	moused_entered_grid.emit(grid_pos)
+	if !GameManager.input_lock && !GameManager.grid_input_lock:
+		moused_entered_grid.emit(grid_pos)
+		grid_database[grid_pos].self_modulate = Color.hex(0xf0f0f0ff)
 
 
 func on_moused_exited_grid(grid_pos: Vector2i):
 	#print("Manager received signals from:" + str(grid_pos) + " Exited")
-	moused_exited_grid.emit(grid_pos)
+	if !GameManager.input_lock && !GameManager.grid_input_lock:
+		moused_exited_grid.emit(grid_pos)
+		grid_database[grid_pos].self_modulate = Color.WHITE
 
 
 func on_moused_clicked_down_grid(grid_pos: Vector2i):
 	#print("Manager received signals from:" + str(grid_pos) + " Clicked Down")
-	moused_clicked_down_grid.emit(grid_pos)
+	if !GameManager.input_lock && !GameManager.grid_input_lock:
+		moused_clicked_down_grid.emit(grid_pos)
+		grid_database[grid_pos].self_modulate = Color.WHITE
+		grid_database[grid_pos].interact()

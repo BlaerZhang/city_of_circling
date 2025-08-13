@@ -1,0 +1,55 @@
+[gd_scene load_steps=9 format=3 uid="uid://bhviilfrl5qds"]
+
+[ext_resource type="Script" uid="uid://dad7k0wysynkr" path="res://Scripts/Grids/npc.gd" id="1_jqbj8"]
+[ext_resource type="Texture2D" uid="uid://dxltm2r3nvlnh" path="res://Assets/Sprites/Icon/1x/Quest_New.png" id="2_gr4yh"]
+[ext_resource type="Texture2D" uid="uid://bktfmcvdn8ubg" path="res://Assets/Sprites/Icon/1x/Quest_Complete.png" id="3_467il"]
+[ext_resource type="Texture2D" uid="uid://2r3uikrytvjm" path="res://Assets/Sprites/Icon/1x/quest_delivery.png" id="4_ras7k"]
+[ext_resource type="Texture2D" uid="uid://cddy03b17j7ce" path="res://Assets/Sprites/Icon/1x/quest_fruit.png" id="5_7r2sm"]
+[ext_resource type="Texture2D" uid="uid://kayoirvwf8bf" path="res://Assets/Sprites/Grid/1x/NPC (4).png" id="6_nt3rg"]
+[ext_resource type="Texture2D" uid="uid://boa3m7xsr0prg" path="res://Assets/Sprites/Grid/1x/grid_outline_heavy.png" id="7_6cb4k"]
+[ext_resource type="Texture2D" uid="uid://cy13yxt0cx1my" path="res://Assets/Sprites/Icon/1x/arrow.png" id="8_hrs5r"]
+
+[node name="Functional Component" type="Node2D"]
+script = ExtResource("1_jqbj8")
+npc = 1
+required_fruit_type_1 = "banana"
+required_fruit_type_2 = "strawberry"
+quest_status_sprite_new_quest = ExtResource("2_gr4yh")
+quest_status_sprite_complete = ExtResource("3_467il")
+quest_status_sprite_delivery = ExtResource("4_ras7k")
+quest_status_sprite_fruit = ExtResource("5_7r2sm")
+
+[node name="Preview Icon" type="Sprite2D" parent="."]
+z_index = 4
+rotation = 0.785398
+scale = Vector2(1e-05, 1e-05)
+texture = ExtResource("3_467il")
+offset = Vector2(-1.875, -40.371)
+
+[node name="Quest Icon" type="Sprite2D" parent="."]
+z_index = 4
+position = Vector2(-54.1701, -35.1724)
+rotation = 0.785398
+scale = Vector2(1, 1.4)
+texture = ExtResource("2_gr4yh")
+offset = Vector2(-1.875, -40.371)
+
+[node name="Delivery Sender" type="Sprite2D" parent="."]
+visible = false
+z_index = 4
+position = Vector2(72.4031, 27.4744)
+rotation = 0.785398
+scale = Vector2(0.4, 0.56)
+texture = ExtResource("6_nt3rg")
+offset = Vector2(-1.875, -40.371)
+
+[node name="Outline" type="Sprite2D" parent="Delivery Sender"]
+modulate = Color(0, 0, 0, 1)
+position = Vector2(-2.025, -40.36)
+scale = Vector2(1.05, 1.05)
+texture = ExtResource("7_6cb4k")
+
+[node name="Arrow" type="Sprite2D" parent="Delivery Sender"]
+position = Vector2(-3.566e-07, 41.4706)
+scale = Vector2(2, 2)
+texture = ExtResource("8_hrs5r")

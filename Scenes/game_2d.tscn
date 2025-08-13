@@ -1,119 +1,22 @@
-[gd_scene load_steps=49 format=3 uid="uid://c6e414gy1cwn5"]
+[gd_scene load_steps=56 format=3 uid="uid://c6e414gy1cwn5"]
 
 [ext_resource type="PackedScene" uid="uid://b8imxf8a6f2lg" path="res://Scenes/spin_wheel.tscn" id="1_ru8g0"]
 [ext_resource type="Script" uid="uid://bljhqnbfuvtu0" path="res://Scripts/player_move_manager.gd" id="1_xt382"]
-[ext_resource type="Texture2D" uid="uid://ddvm3b6nxxten" path="res://icon.svg" id="2_nk8tj"]
-[ext_resource type="Texture2D" uid="uid://7ce3dssicv0e" path="res://Assets/Sprites/isometric_character_idle.png" id="2_xt382"]
+[ext_resource type="Texture2D" uid="uid://7ce3dssicv0e" path="res://Assets/Sprites/Character/isometric_character_idle.png" id="2_xt382"]
 [ext_resource type="Script" uid="uid://clqc6neay12up" path="res://Scripts/line_drawer.gd" id="3_8hnth"]
-[ext_resource type="Texture2D" uid="uid://dr23hnyyxd0py" path="res://Assets/Sprites/isometric_character_walk.png" id="3_gi8jr"]
-[ext_resource type="Script" uid="uid://bly058dyq3hkw" path="res://Scripts/base_grid.gd" id="4_lpiiu"]
-
-[sub_resource type="Animation" id="Animation_xt382"]
-resource_name = "idle_s"
-length = 1.00001
-loop_mode = 1
-step = 0.125
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:frame")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.125, 0.25, 0.375, 0.5, 0.625, 0.75, 0.875),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1),
-"update": 1,
-"values": [0, 1, 2, 3, 4, 5, 6, 7]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath(".:texture")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [ExtResource("2_xt382")]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath(".:hframes")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [8]
-}
-tracks/3/type = "value"
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/path = NodePath(".:vframes")
-tracks/3/interp = 1
-tracks/3/loop_wrap = true
-tracks/3/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [8]
-}
-
-[sub_resource type="Animation" id="Animation_gi8jr"]
-resource_name = "idle_se"
-loop_mode = 1
-step = 0.125
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:frame")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.125, 0.25, 0.375, 0.5, 0.625, 0.75, 0.875),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1),
-"update": 1,
-"values": [8, 9, 10, 11, 12, 13, 14, 15]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath(".:texture")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [ExtResource("2_xt382")]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath(".:hframes")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [8]
-}
-tracks/3/type = "value"
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/path = NodePath(".:vframes")
-tracks/3/interp = 1
-tracks/3/loop_wrap = true
-tracks/3/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [8]
-}
+[ext_resource type="Texture2D" uid="uid://dr23hnyyxd0py" path="res://Assets/Sprites/Character/isometric_character_walk.png" id="3_gi8jr"]
+[ext_resource type="PackedScene" uid="uid://cvj1o3m2uylun" path="res://Scenes/grid.tscn" id="6_xt382"]
+[ext_resource type="Texture2D" uid="uid://1j5enkihlr82" path="res://Assets/Sprites/Grid/1x/NPC (2).png" id="7_7fl2r"]
+[ext_resource type="PackedScene" uid="uid://bhviilfrl5qds" path="res://Scenes/functional_component_npc.tscn" id="8_mdahh"]
+[ext_resource type="Texture2D" uid="uid://cscxmn1wc1wxs" path="res://Assets/Sprites/Grid/1x/Lottery.png" id="9_d4vnq"]
+[ext_resource type="PackedScene" uid="uid://b48kaaap15g6f" path="res://Scenes/functional_component_lottery.tscn" id="9_pgjt0"]
+[ext_resource type="Texture2D" uid="uid://bmvmdgneomc8w" path="res://Assets/Sprites/Grid/1x/Shop.png" id="9_x1nq2"]
+[ext_resource type="Texture2D" uid="uid://c0m8oaryk3yn7" path="res://Assets/Sprites/Icon/1x/watermelon.png" id="10_pgjt0"]
+[ext_resource type="Texture2D" uid="uid://ctovf254tkufb" path="res://Assets/Sprites/Icon/1x/strawberry.png" id="13_g1qwh"]
+[ext_resource type="Texture2D" uid="uid://cwrst66x6eyxa" path="res://Assets/Sprites/Icon/1x/banana.png" id="13_mdahh"]
+[ext_resource type="PackedScene" uid="uid://dcpcolpctf6n0" path="res://Scenes/resource_ui_grid.tscn" id="15_j40bd"]
+[ext_resource type="Texture2D" uid="uid://cm5vubrw6llx7" path="res://Assets/Sprites/Grid/1x/ui_grid_large.png" id="16_wox2a"]
+[ext_resource type="Texture2D" uid="uid://baknh18j5v6ui" path="res://Assets/Sprites/Icon/1x/exchange coupon.png" id="17_g1qwh"]
 
 [sub_resource type="Animation" id="Animation_7fl2r"]
 length = 0.001
@@ -166,8 +69,8 @@ tracks/3/keys = {
 "values": [ExtResource("2_xt382")]
 }
 
-[sub_resource type="Animation" id="Animation_60due"]
-resource_name = "idle_sw"
+[sub_resource type="Animation" id="Animation_mdahh"]
+resource_name = "idle_e"
 loop_mode = 1
 step = 0.125
 tracks/0/type = "value"
@@ -180,113 +83,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0, 0.125, 0.25, 0.375, 0.5, 0.625, 0.75, 0.875),
 "transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1),
 "update": 1,
-"values": [16, 17, 18, 19, 20, 21, 22, 23]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath(".:texture")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [ExtResource("2_xt382")]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath(".:hframes")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [8]
-}
-tracks/3/type = "value"
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/path = NodePath(".:vframes")
-tracks/3/interp = 1
-tracks/3/loop_wrap = true
-tracks/3/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [8]
-}
-
-[sub_resource type="Animation" id="Animation_x1nq2"]
-resource_name = "idle_w"
-loop_mode = 1
-step = 0.125
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:frame")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.125, 0.25, 0.375, 0.5, 0.625, 0.75, 0.875),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1),
-"update": 1,
-"values": [24, 25, 26, 27, 28, 29, 30, 31]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath(".:texture")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [ExtResource("2_xt382")]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath(".:hframes")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [8]
-}
-tracks/3/type = "value"
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/path = NodePath(".:vframes")
-tracks/3/interp = 1
-tracks/3/loop_wrap = true
-tracks/3/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [8]
-}
-
-[sub_resource type="Animation" id="Animation_d4vnq"]
-resource_name = "idle_nw"
-loop_mode = 1
-step = 0.125
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:frame")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.125, 0.25, 0.375, 0.5, 0.625, 0.75, 0.875),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1),
-"update": 1,
-"values": [32, 33, 34, 35, 36, 37, 38, 39]
+"values": [56, 57, 58, 59, 60, 61, 62, 63]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
@@ -431,8 +228,8 @@ tracks/3/keys = {
 "values": [8]
 }
 
-[sub_resource type="Animation" id="Animation_mdahh"]
-resource_name = "idle_e"
+[sub_resource type="Animation" id="Animation_d4vnq"]
+resource_name = "idle_nw"
 loop_mode = 1
 step = 0.125
 tracks/0/type = "value"
@@ -445,7 +242,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0, 0.125, 0.25, 0.375, 0.5, 0.625, 0.75, 0.875),
 "transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1),
 "update": 1,
-"values": [56, 57, 58, 59, 60, 61, 62, 63]
+"values": [32, 33, 34, 35, 36, 37, 38, 39]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
@@ -482,6 +279,435 @@ tracks/3/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 1,
 "values": [8]
+}
+
+[sub_resource type="Animation" id="Animation_xt382"]
+resource_name = "idle_s"
+length = 1.00001
+loop_mode = 1
+step = 0.125
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.125, 0.25, 0.375, 0.5, 0.625, 0.75, 0.875),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3, 4, 5, 6, 7]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:texture")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("2_xt382")]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath(".:hframes")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [8]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath(".:vframes")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [8]
+}
+
+[sub_resource type="Animation" id="Animation_gi8jr"]
+resource_name = "idle_se"
+loop_mode = 1
+step = 0.125
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.125, 0.25, 0.375, 0.5, 0.625, 0.75, 0.875),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [8, 9, 10, 11, 12, 13, 14, 15]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:texture")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("2_xt382")]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath(".:hframes")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [8]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath(".:vframes")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [8]
+}
+
+[sub_resource type="Animation" id="Animation_60due"]
+resource_name = "idle_sw"
+loop_mode = 1
+step = 0.125
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.125, 0.25, 0.375, 0.5, 0.625, 0.75, 0.875),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [16, 17, 18, 19, 20, 21, 22, 23]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:texture")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("2_xt382")]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath(".:hframes")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [8]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath(".:vframes")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [8]
+}
+
+[sub_resource type="Animation" id="Animation_x1nq2"]
+resource_name = "idle_w"
+loop_mode = 1
+step = 0.125
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.125, 0.25, 0.375, 0.5, 0.625, 0.75, 0.875),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [24, 25, 26, 27, 28, 29, 30, 31]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:texture")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("2_xt382")]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath(".:hframes")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [8]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath(".:vframes")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [8]
+}
+
+[sub_resource type="Animation" id="Animation_07cyw"]
+resource_name = "walk_e"
+length = 1.00001
+loop_mode = 1
+step = 0.0833333
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("3_gi8jr")]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:hframes")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [12]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath(".:vframes")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [8]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath(".:frame")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.0833333, 0.166667, 0.25, 0.333333, 0.416667, 0.5, 0.583333, 0.666667, 0.75, 0.833333, 0.916667),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [84, 85, 86, 87, 88, 89, 90, 91, 92, 93, 94, 95]
+}
+
+[sub_resource type="Animation" id="Animation_ef4aw"]
+resource_name = "walk_n"
+length = 1.00001
+loop_mode = 1
+step = 0.0833333
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("3_gi8jr")]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:hframes")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [12]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath(".:vframes")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [8]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath(".:frame")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.0833333, 0.166667, 0.25, 0.333333, 0.416667, 0.5, 0.583333, 0.666667, 0.75, 0.833333, 0.916667),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [60, 61, 62, 63, 64, 65, 66, 67, 68, 69, 70, 71]
+}
+
+[sub_resource type="Animation" id="Animation_owh20"]
+resource_name = "walk_ne"
+length = 1.00001
+loop_mode = 1
+step = 0.0833333
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("3_gi8jr")]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:hframes")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [12]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath(".:vframes")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [8]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath(".:frame")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.0833333, 0.166667, 0.25, 0.333333, 0.416667, 0.5, 0.583333, 0.666667, 0.75, 0.833333, 0.916667),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [72, 73, 74, 75, 76, 77, 78, 79, 80, 81, 82, 83]
+}
+
+[sub_resource type="Animation" id="Animation_fae2n"]
+resource_name = "walk_nw"
+length = 1.00001
+loop_mode = 1
+step = 0.0833333
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("3_gi8jr")]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:hframes")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [12]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath(".:vframes")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [8]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath(".:frame")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.0833333, 0.166667, 0.25, 0.333333, 0.416667, 0.5, 0.583333, 0.666667, 0.75, 0.833333, 0.916667),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [48, 49, 50, 51, 52, 53, 54, 55, 56, 57, 58, 59]
 }
 
 [sub_resource type="Animation" id="Animation_j40bd"]
@@ -700,222 +926,6 @@ tracks/3/keys = {
 "values": [36, 37, 38, 39, 40, 41, 42, 43, 44, 45, 46, 47]
 }
 
-[sub_resource type="Animation" id="Animation_fae2n"]
-resource_name = "walk_nw"
-length = 1.00001
-loop_mode = 1
-step = 0.0833333
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:texture")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [ExtResource("3_gi8jr")]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath(".:hframes")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [12]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath(".:vframes")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [8]
-}
-tracks/3/type = "value"
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/path = NodePath(".:frame")
-tracks/3/interp = 1
-tracks/3/loop_wrap = true
-tracks/3/keys = {
-"times": PackedFloat32Array(0, 0.0833333, 0.166667, 0.25, 0.333333, 0.416667, 0.5, 0.583333, 0.666667, 0.75, 0.833333, 0.916667),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
-"update": 1,
-"values": [48, 49, 50, 51, 52, 53, 54, 55, 56, 57, 58, 59]
-}
-
-[sub_resource type="Animation" id="Animation_ef4aw"]
-resource_name = "walk_n"
-length = 1.00001
-loop_mode = 1
-step = 0.0833333
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:texture")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [ExtResource("3_gi8jr")]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath(".:hframes")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [12]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath(".:vframes")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [8]
-}
-tracks/3/type = "value"
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/path = NodePath(".:frame")
-tracks/3/interp = 1
-tracks/3/loop_wrap = true
-tracks/3/keys = {
-"times": PackedFloat32Array(0, 0.0833333, 0.166667, 0.25, 0.333333, 0.416667, 0.5, 0.583333, 0.666667, 0.75, 0.833333, 0.916667),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
-"update": 1,
-"values": [60, 61, 62, 63, 64, 65, 66, 67, 68, 69, 70, 71]
-}
-
-[sub_resource type="Animation" id="Animation_owh20"]
-resource_name = "walk_ne"
-length = 1.00001
-loop_mode = 1
-step = 0.0833333
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:texture")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [ExtResource("3_gi8jr")]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath(".:hframes")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [12]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath(".:vframes")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [8]
-}
-tracks/3/type = "value"
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/path = NodePath(".:frame")
-tracks/3/interp = 1
-tracks/3/loop_wrap = true
-tracks/3/keys = {
-"times": PackedFloat32Array(0, 0.0833333, 0.166667, 0.25, 0.333333, 0.416667, 0.5, 0.583333, 0.666667, 0.75, 0.833333, 0.916667),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
-"update": 1,
-"values": [72, 73, 74, 75, 76, 77, 78, 79, 80, 81, 82, 83]
-}
-
-[sub_resource type="Animation" id="Animation_07cyw"]
-resource_name = "walk_e"
-length = 1.00001
-loop_mode = 1
-step = 0.0833333
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:texture")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [ExtResource("3_gi8jr")]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath(".:hframes")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [12]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath(".:vframes")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [8]
-}
-tracks/3/type = "value"
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/path = NodePath(".:frame")
-tracks/3/interp = 1
-tracks/3/loop_wrap = true
-tracks/3/keys = {
-"times": PackedFloat32Array(0, 0.0833333, 0.166667, 0.25, 0.333333, 0.416667, 0.5, 0.583333, 0.666667, 0.75, 0.833333, 0.916667),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
-"update": 1,
-"values": [84, 85, 86, 87, 88, 89, 90, 91, 92, 93, 94, 95]
-}
-
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_gi8jr"]
 _data = {
 &"RESET": SubResource("Animation_7fl2r"),
@@ -963,21 +973,21 @@ animation = &"idle_sw"
 
 [sub_resource type="AnimationNodeBlendSpace2D" id="AnimationNodeBlendSpace2D_xt382"]
 blend_point_0/node = SubResource("AnimationNodeAnimation_xt382")
-blend_point_0/pos = Vector2(0, 1)
+blend_point_0/pos = Vector2(-0.5, 0.5)
 blend_point_1/node = SubResource("AnimationNodeAnimation_gi8jr")
-blend_point_1/pos = Vector2(0.5, 0.5)
+blend_point_1/pos = Vector2(0, 1)
 blend_point_2/node = SubResource("AnimationNodeAnimation_7fl2r")
-blend_point_2/pos = Vector2(1, 0)
+blend_point_2/pos = Vector2(0.5, 0.5)
 blend_point_3/node = SubResource("AnimationNodeAnimation_60due")
-blend_point_3/pos = Vector2(0.5, -0.5)
+blend_point_3/pos = Vector2(1, 0)
 blend_point_4/node = SubResource("AnimationNodeAnimation_x1nq2")
-blend_point_4/pos = Vector2(0, -1)
+blend_point_4/pos = Vector2(0.5, -0.5)
 blend_point_5/node = SubResource("AnimationNodeAnimation_d4vnq")
-blend_point_5/pos = Vector2(-0.5, -0.5)
+blend_point_5/pos = Vector2(0, -1)
 blend_point_6/node = SubResource("AnimationNodeAnimation_pgjt0")
-blend_point_6/pos = Vector2(-1, 0)
+blend_point_6/pos = Vector2(-0.5, -0.5)
 blend_point_7/node = SubResource("AnimationNodeAnimation_pmt01")
-blend_point_7/pos = Vector2(-0.5, 0.5)
+blend_point_7/pos = Vector2(-1, 0)
 blend_mode = 2
 
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_mdahh"]
@@ -1006,93 +1016,89 @@ animation = &"walk_sw"
 
 [sub_resource type="AnimationNodeBlendSpace2D" id="AnimationNodeBlendSpace2D_gi8jr"]
 blend_point_0/node = SubResource("AnimationNodeAnimation_mdahh")
-blend_point_0/pos = Vector2(0, 1)
+blend_point_0/pos = Vector2(-0.5, 0.5)
 blend_point_1/node = SubResource("AnimationNodeAnimation_j40bd")
-blend_point_1/pos = Vector2(0.5, 0.5)
+blend_point_1/pos = Vector2(0, 1)
 blend_point_2/node = SubResource("AnimationNodeAnimation_wox2a")
-blend_point_2/pos = Vector2(1, 0)
+blend_point_2/pos = Vector2(0.5, 0.5)
 blend_point_3/node = SubResource("AnimationNodeAnimation_g1qwh")
-blend_point_3/pos = Vector2(0.5, -0.5)
+blend_point_3/pos = Vector2(1, 0)
 blend_point_4/node = SubResource("AnimationNodeAnimation_d0cs8")
-blend_point_4/pos = Vector2(0, -1)
+blend_point_4/pos = Vector2(0.5, -0.5)
 blend_point_5/node = SubResource("AnimationNodeAnimation_fae2n")
-blend_point_5/pos = Vector2(-0.5, -0.5)
+blend_point_5/pos = Vector2(0, -1)
 blend_point_6/node = SubResource("AnimationNodeAnimation_ef4aw")
-blend_point_6/pos = Vector2(-1, 0)
+blend_point_6/pos = Vector2(-0.5, -0.5)
 blend_point_7/node = SubResource("AnimationNodeAnimation_owh20")
-blend_point_7/pos = Vector2(-0.5, 0.5)
+blend_point_7/pos = Vector2(-1, 0)
 blend_mode = 2
 
 [sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_mdahh"]
 advance_mode = 2
-
-[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_gi8jr"]
-advance_mode = 2
-advance_condition = &"is_moving"
-advance_expression = "is_moving == true"
-
-[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_7fl2r"]
-advance_mode = 2
-advance_expression = "is_moving == false"
 
 [sub_resource type="AnimationNodeStateMachine" id="AnimationNodeStateMachine_gi8jr"]
 states/Idle/node = SubResource("AnimationNodeBlendSpace2D_xt382")
 states/Idle/position = Vector2(526, 127)
 states/Walk/node = SubResource("AnimationNodeBlendSpace2D_gi8jr")
 states/Walk/position = Vector2(744, 127)
-transitions = ["Start", "Idle", SubResource("AnimationNodeStateMachineTransition_mdahh"), "Idle", "Walk", SubResource("AnimationNodeStateMachineTransition_gi8jr"), "Walk", "Idle", SubResource("AnimationNodeStateMachineTransition_7fl2r")]
+transitions = ["Start", "Idle", SubResource("AnimationNodeStateMachineTransition_mdahh")]
 graph_offset = Vector2(-197, -14)
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_l6fcq"]
-size = Vector2(128, 128)
-
 [node name="Game2d" type="Node2D"]
-
-[node name="Player" type="Node2D" parent="."]
-position = Vector2(212.72, 640)
-
-[node name="Player Movement Manager" type="Node2D" parent="Player"]
-unique_name_in_owner = true
-script = ExtResource("1_xt382")
-
-[node name="Sprite2D" type="Sprite2D" parent="Player"]
-z_index = 5
-texture_filter = 1
-texture = ExtResource("2_xt382")
-hframes = 8
-vframes = 8
-
-[node name="AnimationPlayer" type="AnimationPlayer" parent="Player/Sprite2D"]
-libraries = {
-&"": SubResource("AnimationLibrary_gi8jr")
-}
-
-[node name="Player AnimationTree" type="AnimationTree" parent="Player/Sprite2D"]
-unique_name_in_owner = true
-root_node = NodePath("%Player AnimationTree/..")
-tree_root = SubResource("AnimationNodeStateMachine_gi8jr")
-anim_player = NodePath("../AnimationPlayer")
-parameters/conditions/is_moving = false
-parameters/Idle/blend_position = Vector2(0.414005, 0.330275)
-parameters/Walk/blend_position = Vector2(-0.522113, -0.604061)
 
 [node name="UI" type="Control" parent="."]
 layout_mode = 3
 anchors_preset = 0
-offset_right = 1920.0
+offset_left = 1.0
+offset_right = 1921.0
 offset_bottom = 1080.0
 pivot_offset = Vector2(960, 540)
 mouse_filter = 1
 
 [node name="Spin Wheel" parent="UI" instance=ExtResource("1_ru8g0")]
+unique_name_in_owner = true
+z_index = 99
 layout_mode = 1
 hide_y_offset = 1920.0
 show_y_offset = 1080.0
 
+[node name="Player" type="Node2D" parent="."]
+position = Vector2(334, 732)
+
+[node name="Player Movement Manager" type="Node2D" parent="Player"]
+unique_name_in_owner = true
+script = ExtResource("1_xt382")
+outline_selected_color = Color(0.976471, 0.423529, 0.156863, 1)
+outline_available_color = Color(0.529412, 0.721569, 0.309804, 1)
+step_time = 0.25
+
+[node name="Player Sprite" type="Sprite2D" parent="Player"]
+z_index = 5
+texture_filter = 1
+texture = ExtResource("2_xt382")
+offset = Vector2(0, -24.475)
+hframes = 8
+vframes = 8
+frame = 8
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Player/Player Sprite"]
+libraries = {
+&"": SubResource("AnimationLibrary_gi8jr")
+}
+
+[node name="Player AnimationTree" type="AnimationTree" parent="Player/Player Sprite"]
+unique_name_in_owner = true
+root_node = NodePath("%Player AnimationTree/..")
+tree_root = SubResource("AnimationNodeStateMachine_gi8jr")
+anim_player = NodePath("../AnimationPlayer")
+parameters/Idle/blend_position = Vector2(-0.746929, 0.206349)
+parameters/Walk/blend_position = Vector2(-0.716216, 0.5)
+
 [node name="Board" type="Node2D" parent="."]
 position = Vector2(960, 540)
-rotation = -0.523599
-skew = -0.523599
+rotation = -0.610865
+scale = Vector2(0.6, 0.6)
+skew = -0.349066
 
 [node name="LineDrawer" type="Node2D" parent="Board"]
 unique_name_in_owner = true
@@ -1114,277 +1120,108 @@ antialiased = true
 
 [node name="Grids" type="Node2D" parent="Board"]
 
-[node name="Grid_0_0" type="Sprite2D" parent="Board/Grids"]
-position = Vector2(-576, -284)
-texture = ExtResource("2_nk8tj")
-script = ExtResource("4_lpiiu")
-grid_type = 1
+[node name="Grid_0_0" parent="Board/Grids" instance=ExtResource("6_xt382")]
+position = Vector2(-909.722, -362.099)
+texture = ExtResource("7_7fl2r")
 
-[node name="Grid Shadow" type="Sprite2D" parent="Board/Grids/Grid_0_0"]
-modulate = Color(0, 0, 0, 0.278431)
-show_behind_parent = true
-texture = ExtResource("2_nk8tj")
-offset = Vector2(0, 5)
-flip_h = true
+[node name="Functional Component" parent="Board/Grids/Grid_0_0" instance=ExtResource("8_mdahh")]
+fruit_quest_probability = 1.0
 
-[node name="Grid Outline" type="Sprite2D" parent="Board/Grids/Grid_0_0"]
-modulate = Color(1, 1, 1, 0)
-texture = ExtResource("2_nk8tj")
+[node name="Fruit Icon 1" type="Sprite2D" parent="Board/Grids/Grid_0_0"]
+position = Vector2(-75.811, 33.2648)
+scale = Vector2(0.667, 0.667)
+texture = ExtResource("13_mdahh")
 
-[node name="Area2D" type="Area2D" parent="Board/Grids/Grid_0_0"]
+[node name="Fruit Icon 2" type="Sprite2D" parent="Board/Grids/Grid_0_0"]
+position = Vector2(-30.0379, 38.3574)
+scale = Vector2(0.667, 0.667)
+texture = ExtResource("13_g1qwh")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Board/Grids/Grid_0_0/Area2D"]
-shape = SubResource("RectangleShape2D_l6fcq")
-
-[node name="Grid_1_0" type="Sprite2D" parent="Board/Grids"]
-position = Vector2(-448, -284)
-texture = ExtResource("2_nk8tj")
-script = ExtResource("4_lpiiu")
+[node name="Grid_1_0" parent="Board/Grids" instance=ExtResource("6_xt382")]
+position = Vector2(-773.722, -362.099)
+grid_type = 0
 grid_position = Vector2i(1, 0)
 
-[node name="Grid Shadow" type="Sprite2D" parent="Board/Grids/Grid_1_0"]
-modulate = Color(0, 0, 0, 0.278431)
-show_behind_parent = true
-texture = ExtResource("2_nk8tj")
-offset = Vector2(0, 5)
-flip_h = true
+[node name="Grid_2_0" parent="Board/Grids" instance=ExtResource("6_xt382")]
+position = Vector2(-637.722, -362.099)
+grid_type = 0
+grid_position = Vector2i(2, 0)
 
-[node name="Grid Outline" type="Sprite2D" parent="Board/Grids/Grid_1_0"]
-modulate = Color(1, 1, 1, 0)
-texture = ExtResource("2_nk8tj")
-
-[node name="Area2D" type="Area2D" parent="Board/Grids/Grid_1_0"]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Board/Grids/Grid_1_0/Area2D"]
-shape = SubResource("RectangleShape2D_l6fcq")
-
-[node name="Grid_0_1" type="Sprite2D" parent="Board/Grids"]
-position = Vector2(-576, -156)
-texture = ExtResource("2_nk8tj")
-script = ExtResource("4_lpiiu")
-grid_position = Vector2i(0, 1)
-
-[node name="Grid Shadow" type="Sprite2D" parent="Board/Grids/Grid_0_1"]
-modulate = Color(0, 0, 0, 0.278431)
-show_behind_parent = true
-texture = ExtResource("2_nk8tj")
-offset = Vector2(0, 5)
-flip_h = true
-
-[node name="Grid Outline" type="Sprite2D" parent="Board/Grids/Grid_0_1"]
-modulate = Color(1, 1, 1, 0)
-texture = ExtResource("2_nk8tj")
-
-[node name="Area2D" type="Area2D" parent="Board/Grids/Grid_0_1"]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Board/Grids/Grid_0_1/Area2D"]
-shape = SubResource("RectangleShape2D_l6fcq")
-
-[node name="Grid_0_2" type="Sprite2D" parent="Board/Grids"]
-position = Vector2(-576, -28)
-texture = ExtResource("2_nk8tj")
-script = ExtResource("4_lpiiu")
-grid_type = 3
-grid_position = Vector2i(0, 2)
-
-[node name="Grid Shadow" type="Sprite2D" parent="Board/Grids/Grid_0_2"]
-modulate = Color(0, 0, 0, 0.278431)
-show_behind_parent = true
-texture = ExtResource("2_nk8tj")
-offset = Vector2(0, 5)
-flip_h = true
-
-[node name="Grid Outline" type="Sprite2D" parent="Board/Grids/Grid_0_2"]
-modulate = Color(1, 1, 1, 0)
-texture = ExtResource("2_nk8tj")
-
-[node name="Area2D" type="Area2D" parent="Board/Grids/Grid_0_2"]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Board/Grids/Grid_0_2/Area2D"]
-shape = SubResource("RectangleShape2D_l6fcq")
-
-[node name="Grid_0_3" type="Sprite2D" parent="Board/Grids"]
-position = Vector2(-576, 100)
-texture = ExtResource("2_nk8tj")
-script = ExtResource("4_lpiiu")
-grid_position = Vector2i(0, 3)
-
-[node name="Grid Shadow" type="Sprite2D" parent="Board/Grids/Grid_0_3"]
-modulate = Color(0, 0, 0, 0.278431)
-show_behind_parent = true
-texture = ExtResource("2_nk8tj")
-offset = Vector2(0, 5)
-flip_h = true
-
-[node name="Grid Outline" type="Sprite2D" parent="Board/Grids/Grid_0_3"]
-modulate = Color(1, 1, 1, 0)
-texture = ExtResource("2_nk8tj")
-
-[node name="Area2D" type="Area2D" parent="Board/Grids/Grid_0_3"]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Board/Grids/Grid_0_3/Area2D"]
-shape = SubResource("RectangleShape2D_l6fcq")
-
-[node name="Grid_1_3" type="Sprite2D" parent="Board/Grids"]
-position = Vector2(-448, 100)
-texture = ExtResource("2_nk8tj")
-script = ExtResource("4_lpiiu")
-grid_type = 4
-grid_position = Vector2i(1, 3)
-
-[node name="Grid Shadow" type="Sprite2D" parent="Board/Grids/Grid_1_3"]
-modulate = Color(0, 0, 0, 0.278431)
-show_behind_parent = true
-texture = ExtResource("2_nk8tj")
-offset = Vector2(0, 5)
-flip_h = true
-
-[node name="Grid Outline" type="Sprite2D" parent="Board/Grids/Grid_1_3"]
-modulate = Color(1, 1, 1, 0)
-texture = ExtResource("2_nk8tj")
-
-[node name="Area2D" type="Area2D" parent="Board/Grids/Grid_1_3"]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Board/Grids/Grid_1_3/Area2D"]
-shape = SubResource("RectangleShape2D_l6fcq")
-
-[node name="Grid_2_3" type="Sprite2D" parent="Board/Grids"]
-position = Vector2(-320, 100)
-texture = ExtResource("2_nk8tj")
-script = ExtResource("4_lpiiu")
-grid_position = Vector2i(2, 3)
-
-[node name="Grid Shadow" type="Sprite2D" parent="Board/Grids/Grid_2_3"]
-modulate = Color(0, 0, 0, 0.278431)
-show_behind_parent = true
-texture = ExtResource("2_nk8tj")
-offset = Vector2(0, 5)
-flip_h = true
-
-[node name="Grid Outline" type="Sprite2D" parent="Board/Grids/Grid_2_3"]
-modulate = Color(1, 1, 1, 0)
-texture = ExtResource("2_nk8tj")
-
-[node name="Area2D" type="Area2D" parent="Board/Grids/Grid_2_3"]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Board/Grids/Grid_2_3/Area2D"]
-shape = SubResource("RectangleShape2D_l6fcq")
-
-[node name="Grid_3_3" type="Sprite2D" parent="Board/Grids"]
-position = Vector2(-192, 100)
-texture = ExtResource("2_nk8tj")
-script = ExtResource("4_lpiiu")
-grid_position = Vector2i(3, 3)
-
-[node name="Grid Shadow" type="Sprite2D" parent="Board/Grids/Grid_3_3"]
-modulate = Color(0, 0, 0, 0.278431)
-show_behind_parent = true
-texture = ExtResource("2_nk8tj")
-offset = Vector2(0, 5)
-flip_h = true
-
-[node name="Grid Outline" type="Sprite2D" parent="Board/Grids/Grid_3_3"]
-modulate = Color(1, 1, 1, 0)
-texture = ExtResource("2_nk8tj")
-
-[node name="Area2D" type="Area2D" parent="Board/Grids/Grid_3_3"]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Board/Grids/Grid_3_3/Area2D"]
-shape = SubResource("RectangleShape2D_l6fcq")
-
-[node name="Grid_3_2" type="Sprite2D" parent="Board/Grids"]
-position = Vector2(-192, -28)
-texture = ExtResource("2_nk8tj")
-script = ExtResource("4_lpiiu")
-grid_type = 1
-grid_position = Vector2i(3, 2)
-
-[node name="Grid Shadow" type="Sprite2D" parent="Board/Grids/Grid_3_2"]
-modulate = Color(0, 0, 0, 0.278431)
-show_behind_parent = true
-texture = ExtResource("2_nk8tj")
-offset = Vector2(0, 5)
-flip_h = true
-
-[node name="Grid Outline" type="Sprite2D" parent="Board/Grids/Grid_3_2"]
-modulate = Color(1, 1, 1, 0)
-texture = ExtResource("2_nk8tj")
-
-[node name="Area2D" type="Area2D" parent="Board/Grids/Grid_3_2"]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Board/Grids/Grid_3_2/Area2D"]
-shape = SubResource("RectangleShape2D_l6fcq")
-
-[node name="Grid_3_1" type="Sprite2D" parent="Board/Grids"]
-position = Vector2(-192, -156)
-texture = ExtResource("2_nk8tj")
-script = ExtResource("4_lpiiu")
-grid_position = Vector2i(3, 1)
-
-[node name="Grid Shadow" type="Sprite2D" parent="Board/Grids/Grid_3_1"]
-modulate = Color(0, 0, 0, 0.278431)
-show_behind_parent = true
-texture = ExtResource("2_nk8tj")
-offset = Vector2(0, 5)
-flip_h = true
-
-[node name="Grid Outline" type="Sprite2D" parent="Board/Grids/Grid_3_1"]
-modulate = Color(1, 1, 1, 0)
-texture = ExtResource("2_nk8tj")
-
-[node name="Area2D" type="Area2D" parent="Board/Grids/Grid_3_1"]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Board/Grids/Grid_3_1/Area2D"]
-shape = SubResource("RectangleShape2D_l6fcq")
-
-[node name="Grid_3_0" type="Sprite2D" parent="Board/Grids"]
-position = Vector2(-192, -284)
-texture = ExtResource("2_nk8tj")
-script = ExtResource("4_lpiiu")
+[node name="Grid_3_0" parent="Board/Grids" instance=ExtResource("6_xt382")]
+position = Vector2(-501.722, -362.099)
 grid_type = 2
 grid_position = Vector2i(3, 0)
 
-[node name="Grid Shadow" type="Sprite2D" parent="Board/Grids/Grid_3_0"]
-modulate = Color(0, 0, 0, 0.278431)
-show_behind_parent = true
-texture = ExtResource("2_nk8tj")
-offset = Vector2(0, 5)
-flip_h = true
+[node name="Grid_3_1" parent="Board/Grids" instance=ExtResource("6_xt382")]
+position = Vector2(-501.722, -226.099)
+grid_type = 0
+grid_position = Vector2i(3, 1)
 
-[node name="Grid Outline" type="Sprite2D" parent="Board/Grids/Grid_3_0"]
-modulate = Color(1, 1, 1, 0)
-texture = ExtResource("2_nk8tj")
+[node name="Grid_3_2" parent="Board/Grids" instance=ExtResource("6_xt382")]
+position = Vector2(-501.722, -90.0992)
+grid_position = Vector2i(3, 2)
 
-[node name="Area2D" type="Area2D" parent="Board/Grids/Grid_3_0"]
+[node name="Grid_0_1" parent="Board/Grids" instance=ExtResource("6_xt382")]
+position = Vector2(-909.722, -226.099)
+grid_type = 0
+grid_position = Vector2i(0, 1)
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Board/Grids/Grid_3_0/Area2D"]
-shape = SubResource("RectangleShape2D_l6fcq")
+[node name="Grid_0_2" parent="Board/Grids" instance=ExtResource("6_xt382")]
+position = Vector2(-909.722, -90.0992)
+texture = ExtResource("9_d4vnq")
+grid_type = 3
+grid_position = Vector2i(0, 2)
 
-[node name="Grid_2_0" type="Sprite2D" parent="Board/Grids"]
-position = Vector2(-320, -284)
-texture = ExtResource("2_nk8tj")
-script = ExtResource("4_lpiiu")
-grid_position = Vector2i(2, 0)
+[node name="Functional Component" parent="Board/Grids/Grid_0_2" instance=ExtResource("9_pgjt0")]
+prize_source = 7
 
-[node name="Grid Shadow" type="Sprite2D" parent="Board/Grids/Grid_2_0"]
-modulate = Color(0, 0, 0, 0.278431)
-show_behind_parent = true
-texture = ExtResource("2_nk8tj")
-offset = Vector2(0, 5)
-flip_h = true
+[node name="Major Fruit Icon" type="Sprite2D" parent="Board/Grids/Grid_0_2"]
+position = Vector2(-15.4699, 16.2907)
+texture = ExtResource("10_pgjt0")
 
-[node name="Grid Outline" type="Sprite2D" parent="Board/Grids/Grid_2_0"]
-modulate = Color(1, 1, 1, 0)
-texture = ExtResource("2_nk8tj")
+[node name="Minor Fruit Icon" type="Sprite2D" parent="Board/Grids/Grid_0_2"]
+position = Vector2(40.6224, 37.5141)
+scale = Vector2(0.59, 0.59)
+texture = ExtResource("13_mdahh")
 
-[node name="Area2D" type="Area2D" parent="Board/Grids/Grid_2_0"]
+[node name="Grid_0_3" parent="Board/Grids" instance=ExtResource("6_xt382")]
+position = Vector2(-909.722, 45.9008)
+grid_type = 0
+grid_position = Vector2i(0, 3)
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Board/Grids/Grid_2_0/Area2D"]
-shape = SubResource("RectangleShape2D_l6fcq")
+[node name="Grid_1_3" parent="Board/Grids" instance=ExtResource("6_xt382")]
+position = Vector2(-773.722, 45.9008)
+texture = ExtResource("9_x1nq2")
+grid_type = 4
+grid_position = Vector2i(1, 3)
 
-[node name="Button" type="Button" parent="Board"]
-offset_right = 8.0
-offset_bottom = 8.0
+[node name="Grid_2_3" parent="Board/Grids" instance=ExtResource("6_xt382")]
+position = Vector2(-637.722, 45.9008)
+grid_type = 0
+grid_position = Vector2i(2, 3)
+
+[node name="Grid_3_3" parent="Board/Grids" instance=ExtResource("6_xt382")]
+position = Vector2(-501.722, 45.9008)
+grid_type = 0
+grid_position = Vector2i(3, 3)
+
+[node name="In-world UI" type="Control" parent="Board"]
+layout_mode = 3
+anchors_preset = 0
+
+[node name="Button" type="Button" parent="Board/In-world UI"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -31.5
+offset_top = -38.5
+offset_right = 31.5
+offset_bottom = 38.5
+grow_horizontal = 2
+grow_vertical = 2
 tooltip_text = "123123123123
 123123
 123123"
@@ -1392,39 +1229,99 @@ text = "123123
 123123
 123123"
 
-[connection signal="input_event" from="Board/Grids/Grid_0_0/Area2D" to="Board/Grids/Grid_0_0" method="_on_area_2d_input_event"]
-[connection signal="mouse_entered" from="Board/Grids/Grid_0_0/Area2D" to="Board/Grids/Grid_0_0" method="_on_area_2d_mouse_entered"]
-[connection signal="mouse_exited" from="Board/Grids/Grid_0_0/Area2D" to="Board/Grids/Grid_0_0" method="_on_area_2d_mouse_exited"]
-[connection signal="input_event" from="Board/Grids/Grid_1_0/Area2D" to="Board/Grids/Grid_1_0" method="_on_area_2d_input_event"]
-[connection signal="mouse_entered" from="Board/Grids/Grid_1_0/Area2D" to="Board/Grids/Grid_1_0" method="_on_area_2d_mouse_entered"]
-[connection signal="mouse_exited" from="Board/Grids/Grid_1_0/Area2D" to="Board/Grids/Grid_1_0" method="_on_area_2d_mouse_exited"]
-[connection signal="input_event" from="Board/Grids/Grid_0_1/Area2D" to="Board/Grids/Grid_0_1" method="_on_area_2d_input_event"]
-[connection signal="mouse_entered" from="Board/Grids/Grid_0_1/Area2D" to="Board/Grids/Grid_0_1" method="_on_area_2d_mouse_entered"]
-[connection signal="mouse_exited" from="Board/Grids/Grid_0_1/Area2D" to="Board/Grids/Grid_0_1" method="_on_area_2d_mouse_exited"]
-[connection signal="input_event" from="Board/Grids/Grid_0_2/Area2D" to="Board/Grids/Grid_0_2" method="_on_area_2d_input_event"]
-[connection signal="mouse_entered" from="Board/Grids/Grid_0_2/Area2D" to="Board/Grids/Grid_0_2" method="_on_area_2d_mouse_entered"]
-[connection signal="mouse_exited" from="Board/Grids/Grid_0_2/Area2D" to="Board/Grids/Grid_0_2" method="_on_area_2d_mouse_exited"]
-[connection signal="input_event" from="Board/Grids/Grid_0_3/Area2D" to="Board/Grids/Grid_0_3" method="_on_area_2d_input_event"]
-[connection signal="mouse_entered" from="Board/Grids/Grid_0_3/Area2D" to="Board/Grids/Grid_0_3" method="_on_area_2d_mouse_entered"]
-[connection signal="mouse_exited" from="Board/Grids/Grid_0_3/Area2D" to="Board/Grids/Grid_0_3" method="_on_area_2d_mouse_exited"]
-[connection signal="input_event" from="Board/Grids/Grid_1_3/Area2D" to="Board/Grids/Grid_1_3" method="_on_area_2d_input_event"]
-[connection signal="mouse_entered" from="Board/Grids/Grid_1_3/Area2D" to="Board/Grids/Grid_1_3" method="_on_area_2d_mouse_entered"]
-[connection signal="mouse_exited" from="Board/Grids/Grid_1_3/Area2D" to="Board/Grids/Grid_1_3" method="_on_area_2d_mouse_exited"]
-[connection signal="input_event" from="Board/Grids/Grid_2_3/Area2D" to="Board/Grids/Grid_2_3" method="_on_area_2d_input_event"]
-[connection signal="mouse_entered" from="Board/Grids/Grid_2_3/Area2D" to="Board/Grids/Grid_2_3" method="_on_area_2d_mouse_entered"]
-[connection signal="mouse_exited" from="Board/Grids/Grid_2_3/Area2D" to="Board/Grids/Grid_2_3" method="_on_area_2d_mouse_exited"]
-[connection signal="input_event" from="Board/Grids/Grid_3_3/Area2D" to="Board/Grids/Grid_3_3" method="_on_area_2d_input_event"]
-[connection signal="mouse_entered" from="Board/Grids/Grid_3_3/Area2D" to="Board/Grids/Grid_3_3" method="_on_area_2d_mouse_entered"]
-[connection signal="mouse_exited" from="Board/Grids/Grid_3_3/Area2D" to="Board/Grids/Grid_3_3" method="_on_area_2d_mouse_exited"]
-[connection signal="input_event" from="Board/Grids/Grid_3_2/Area2D" to="Board/Grids/Grid_3_2" method="_on_area_2d_input_event"]
-[connection signal="mouse_entered" from="Board/Grids/Grid_3_2/Area2D" to="Board/Grids/Grid_3_2" method="_on_area_2d_mouse_entered"]
-[connection signal="mouse_exited" from="Board/Grids/Grid_3_2/Area2D" to="Board/Grids/Grid_3_2" method="_on_area_2d_mouse_exited"]
-[connection signal="input_event" from="Board/Grids/Grid_3_1/Area2D" to="Board/Grids/Grid_3_1" method="_on_area_2d_input_event"]
-[connection signal="mouse_entered" from="Board/Grids/Grid_3_1/Area2D" to="Board/Grids/Grid_3_1" method="_on_area_2d_mouse_entered"]
-[connection signal="mouse_exited" from="Board/Grids/Grid_3_1/Area2D" to="Board/Grids/Grid_3_1" method="_on_area_2d_mouse_exited"]
-[connection signal="input_event" from="Board/Grids/Grid_3_0/Area2D" to="Board/Grids/Grid_3_0" method="_on_area_2d_input_event"]
-[connection signal="mouse_entered" from="Board/Grids/Grid_3_0/Area2D" to="Board/Grids/Grid_3_0" method="_on_area_2d_mouse_entered"]
-[connection signal="mouse_exited" from="Board/Grids/Grid_3_0/Area2D" to="Board/Grids/Grid_3_0" method="_on_area_2d_mouse_exited"]
-[connection signal="input_event" from="Board/Grids/Grid_2_0/Area2D" to="Board/Grids/Grid_2_0" method="_on_area_2d_input_event"]
-[connection signal="mouse_entered" from="Board/Grids/Grid_2_0/Area2D" to="Board/Grids/Grid_2_0" method="_on_area_2d_mouse_entered"]
-[connection signal="mouse_exited" from="Board/Grids/Grid_2_0/Area2D" to="Board/Grids/Grid_2_0" method="_on_area_2d_mouse_exited"]
+[node name="UpgradeCouponGridContainer" type="GridContainer" parent="Board/In-world UI"]
+layout_mode = 0
+offset_left = -645.493
+offset_top = -1191.77
+offset_right = -385.493
+offset_bottom = -931.773
+columns = 2
+
+[node name="Resource UI Grid" parent="Board/In-world UI/UpgradeCouponGridContainer" instance=ExtResource("15_j40bd")]
+self_modulate = Color(0.156863, 0.298039, 0.764706, 1)
+layout_mode = 2
+item_name = "traffic upgrade coupon"
+
+[node name="Resource UI Grid2" parent="Board/In-world UI/UpgradeCouponGridContainer" instance=ExtResource("15_j40bd")]
+self_modulate = Color(0.156863, 0.298039, 0.764706, 1)
+layout_mode = 2
+item_name = "trade upgrade coupon"
+
+[node name="Resource UI Grid3" parent="Board/In-world UI/UpgradeCouponGridContainer" instance=ExtResource("15_j40bd")]
+self_modulate = Color(0.156863, 0.298039, 0.764706, 1)
+layout_mode = 2
+item_name = "affairs upgrade coupon"
+
+[node name="Resource UI Grid4" parent="Board/In-world UI/UpgradeCouponGridContainer" instance=ExtResource("15_j40bd")]
+self_modulate = Color(0.156863, 0.298039, 0.764706, 1)
+layout_mode = 2
+item_name = "lottery upgrade coupon"
+
+[node name="FruitGridContainer" type="GridContainer" parent="Board/In-world UI"]
+layout_mode = 0
+offset_left = -381.216
+offset_top = -1462.15
+offset_right = 10.7835
+offset_bottom = -1202.15
+columns = 3
+
+[node name="Resource UI Grid" parent="Board/In-world UI/FruitGridContainer" instance=ExtResource("15_j40bd")]
+layout_mode = 2
+
+[node name="Resource UI Grid2" parent="Board/In-world UI/FruitGridContainer" instance=ExtResource("15_j40bd")]
+layout_mode = 2
+item_name = "watermelon"
+
+[node name="Resource UI Grid3" parent="Board/In-world UI/FruitGridContainer" instance=ExtResource("15_j40bd")]
+layout_mode = 2
+item_name = "grape"
+
+[node name="Resource UI Grid4" parent="Board/In-world UI/FruitGridContainer" instance=ExtResource("15_j40bd")]
+layout_mode = 2
+item_name = "strawberry"
+
+[node name="Resource UI Grid5" parent="Board/In-world UI/FruitGridContainer" instance=ExtResource("15_j40bd")]
+layout_mode = 2
+item_name = "banana"
+
+[node name="Resource UI Grid6" parent="Board/In-world UI/FruitGridContainer" instance=ExtResource("15_j40bd")]
+layout_mode = 2
+item_name = "mango"
+
+[node name="Resource UI Grid" parent="Board/In-world UI" instance=ExtResource("15_j40bd")]
+self_modulate = Color(0.792157, 0.407843, 0.12549, 1)
+layout_mode = 0
+offset_left = -377.544
+offset_top = -1191.15
+offset_right = -182.544
+offset_bottom = -996.152
+texture = ExtResource("16_wox2a")
+item_name = "exchange coupon"
+
+[node name="UI Grid Shadow" parent="Board/In-world UI/Resource UI Grid" index="0"]
+texture = ExtResource("16_wox2a")
+
+[node name="Icon" parent="Board/In-world UI/Resource UI Grid" index="1"]
+texture = ExtResource("17_g1qwh")
+
+[node name="Icon Shadow" parent="Board/In-world UI/Resource UI Grid/Icon" index="0"]
+texture = ExtResource("17_g1qwh")
+
+[node name="ResourceTextLabel" parent="Board/In-world UI/Resource UI Grid" index="2"]
+offset_left = -75.0
+offset_top = -75.0
+
+[node name="Text BG" parent="Board/In-world UI/Resource UI Grid/ResourceTextLabel" index="1"]
+offset_right = 75.0
+offset_bottom = 75.0
+
+[node name="Resource UI Grid2" parent="Board/In-world UI" instance=ExtResource("15_j40bd")]
+self_modulate = Color(0.886275, 0.701961, 0.207843, 1)
+layout_mode = 0
+offset_left = -171.486
+offset_top = -1124.57
+offset_right = -43.4859
+offset_bottom = -996.57
+item_name = "draw coupon"
+
+[editable path="Board/In-world UI/Resource UI Grid"]

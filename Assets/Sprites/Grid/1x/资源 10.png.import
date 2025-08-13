@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dr23hnyyxd0py"
-path="res://.godot/imported/isometric_character_walk.png-25454fee25957016ce02d53f19d78aa1.ctex"
+uid="uid://bfs24rfekgsm4"
+path="res://.godot/imported/资源 10.png-4f2206f9a0d84be9780fbe52db23668c.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Sprites/isometric_character_walk.png"
-dest_files=["res://.godot/imported/isometric_character_walk.png-25454fee25957016ce02d53f19d78aa1.ctex"]
+source_file="res://Assets/Sprites/Grid/1x/资源 10.png"
+dest_files=["res://.godot/imported/资源 10.png-4f2206f9a0d84be9780fbe52db23668c.ctex"]
 
 [params]
 

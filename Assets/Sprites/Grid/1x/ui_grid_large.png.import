@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://ba6nccesl3q8k"
-path="res://.godot/imported/isometric_character_run.png-d9eff52e9ba4cbb774642ea6919b6e0c.ctex"
+uid="uid://cm5vubrw6llx7"
+path="res://.godot/imported/ui_grid_large.png-e8d87065565b3806fc4a26c0c9a4c95f.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Sprites/isometric_character_run.png"
-dest_files=["res://.godot/imported/isometric_character_run.png-d9eff52e9ba4cbb774642ea6919b6e0c.ctex"]
+source_file="res://Assets/Sprites/Grid/1x/ui_grid_large.png"
+dest_files=["res://.godot/imported/ui_grid_large.png-e8d87065565b3806fc4a26c0c9a4c95f.ctex"]
 
 [params]
 

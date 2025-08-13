@@ -1,4 +1,4 @@
-extends Node
+extends FunctionalGridComponent
 
 @export var shop_type: ItemsForSale.ShopType
 var prize_source_type: PrizeItems.Source:
@@ -6,6 +6,8 @@ var prize_source_type: PrizeItems.Source:
 		return shop_type as PrizeItems.Source
 var sale_pools: Dictionary[int, Array]
 var items_in_slots: Array[ItemsForSale]
+
+var is_remote_view_unlocked:= false
 
 
 func _ready() -> void:
@@ -53,3 +55,12 @@ func restock_shop():
 			items_in_slots.append(items_for_sale)
 	
 	#TODO: 接UI
+
+
+func arrive() -> void:
+	print("Show Shop UI:" + str(shop_type))
+
+
+func depart() -> void:
+	if !is_remote_view_unlocked:
+		print("Hide Shop UI:" + str(shop_type))

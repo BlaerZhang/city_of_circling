@@ -5,6 +5,7 @@ var current_day: int
 
 signal day_changed
 
+
 func _ready() -> void:
 	current_hour = 0
 	current_day = 1

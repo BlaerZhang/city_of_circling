@@ -1,9 +1,9 @@
 [gd_scene load_steps=10 format=3 uid="uid://dp3mcejhnb8el"]
 
-[ext_resource type="Script" uid="uid://1la68wpoh45t" path="res://Scripts/shop.gd" id="2_qxrlw"]
+[ext_resource type="Script" uid="uid://1la68wpoh45t" path="res://Scripts/Grids/shop.gd" id="2_qxrlw"]
 [ext_resource type="PackedScene" uid="uid://b8imxf8a6f2lg" path="res://Scenes/spin_wheel.tscn" id="2_wrm1d"]
 [ext_resource type="Texture2D" uid="uid://ddvm3b6nxxten" path="res://icon.svg" id="4_3dryh"]
-[ext_resource type="Script" uid="uid://dad7k0wysynkr" path="res://Scripts/npc.gd" id="5_i6g32"]
+[ext_resource type="Script" uid="uid://dad7k0wysynkr" path="res://Scripts/Grids/npc.gd" id="5_i6g32"]
 [ext_resource type="Script" uid="uid://uj72boqqj2dy" path="res://Scripts/gui_3d.gd" id="5_wowpa"]
 
 [sub_resource type="QuadMesh" id="QuadMesh_3dryh"]

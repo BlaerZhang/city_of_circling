@@ -1,0 +1,83 @@
+[gd_scene load_steps=6 format=3 uid="uid://dcpcolpctf6n0"]
+
+[ext_resource type="Texture2D" uid="uid://cy5q8fhujpt5h" path="res://Assets/Sprites/Grid/1x/ui_grid.png" id="1_or0pg"]
+[ext_resource type="Script" uid="uid://hua6uqj21ju" path="res://Scripts/UI/resources_ui.gd" id="2_fivkg"]
+[ext_resource type="PackedScene" uid="uid://cvy6pgutedfcu" path="res://Scenes/item_count_change_particle.tscn" id="3_nwgae"]
+[ext_resource type="Texture2D" uid="uid://dinty7jilgb14" path="res://Assets/Sprites/Icon/1x/apple.png" id="4_6fxlj"]
+[ext_resource type="Texture2D" uid="uid://b1e8m00201okm" path="res://Assets/Sprites/Grid/1x/ui_text_bg.png" id="5_syoqe"]
+
+[node name="Resource UI Grid" type="TextureRect"]
+self_modulate = Color(0.988235, 0.415686, 0.411765, 1)
+texture = ExtResource("1_or0pg")
+script = ExtResource("2_fivkg")
+item_name = "apple"
+item_count_change_particle_prefab = ExtResource("3_nwgae")
+
+[node name="UI Grid Shadow" type="TextureRect" parent="."]
+modulate = Color(0, 0, 0, 0.278431)
+show_behind_parent = true
+layout_mode = 2
+offset_left = -1.0
+offset_top = 4.0
+offset_right = 127.0
+offset_bottom = 132.0
+texture = ExtResource("1_or0pg")
+
+[node name="Icon" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -53.0
+offset_top = -53.0
+offset_right = 53.0
+offset_bottom = 53.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("4_6fxlj")
+
+[node name="Icon Shadow" type="TextureRect" parent="Icon"]
+self_modulate = Color(0, 0, 0, 0.501961)
+show_behind_parent = true
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -54.0
+offset_top = -49.0
+offset_right = 52.0
+offset_bottom = 57.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("4_6fxlj")
+
+[node name="ResourceTextLabel" type="RichTextLabel" parent="."]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -50.0
+offset_top = -50.0
+grow_horizontal = 0
+grow_vertical = 0
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/normal_font_size = 28
+bbcode_enabled = true
+text = "999"
+scroll_active = false
+shortcut_keys_enabled = false
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Text BG" type="TextureRect" parent="ResourceTextLabel"]
+show_behind_parent = true
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+texture = ExtResource("5_syoqe")

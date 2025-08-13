@@ -1,6 +1,6 @@
 [gd_resource type="Resource" script_class="Item" load_steps=3 format=3 uid="uid://c0l3msiiwkv0w"]
 
-[ext_resource type="Texture2D" uid="uid://ddvm3b6nxxten" path="res://icon.svg" id="1_c7i8h"]
+[ext_resource type="Texture2D" uid="uid://5ht047khbbax" path="res://Assets/Sprites/Icon/1x/grape.png" id="1_c7i8h"]
 [ext_resource type="Script" uid="uid://d0fc2fb7vpwyv" path="res://Scripts/item.gd" id="2_jl3ff"]
 
 [resource]

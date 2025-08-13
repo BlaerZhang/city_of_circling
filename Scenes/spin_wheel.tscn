@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://daxofde26of36" path="res://Scripts/wheel_face_generator.gd" id="1_158hs"]
 [ext_resource type="Script" uid="uid://0a3it4ajh10" path="res://Scripts/spin_wheel_manager.gd" id="1_f1ojv"]
-[ext_resource type="Texture2D" uid="uid://ddvm3b6nxxten" path="res://icon.svg" id="2_8vgfc"]
+[ext_resource type="Texture2D" uid="uid://cy13yxt0cx1my" path="res://Assets/Sprites/Icon/1x/arrow.png" id="3_f1ojv"]
 
 [node name="Spin Wheel" type="Control"]
 layout_mode = 3
@@ -16,8 +16,24 @@ grow_vertical = 0
 size_flags_horizontal = 4
 script = ExtResource("1_f1ojv")
 
+[node name="Close Button" type="Button" parent="."]
+visible = false
+modulate = Color(1, 1, 1, 0)
+custom_minimum_size = Vector2(1920, 1080)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -960.0
+offset_top = -1080.0
+offset_right = 960.0
+grow_horizontal = 2
+grow_vertical = 2
+
 [node name="Wheel Face" type="Control" parent="."]
-custom_minimum_size = Vector2(600, 600)
+custom_minimum_size = Vector2(1000, 1000)
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -26,13 +42,14 @@ anchor_right = 0.5
 anchor_bottom = 0.5
 grow_horizontal = 2
 grow_vertical = 2
-pivot_offset = Vector2(300, 300)
+pivot_offset = Vector2(500, 500)
 script = ExtResource("1_158hs")
 background_color = Color(0.972549, 0.815686, 0, 1)
 sector_color_palette = Array[Color]([Color(0.869136, 0.626798, 1, 1), Color(1, 0.637097, 0.485474, 1), Color(0, 0.889416, 0.338947, 1), Color(1.09738e-05, 0.826173, 0.965853, 1)])
-outer_radius = 328
-inner_radius = 128
+outer_radius = 500
+inner_radius = 200
 line_width = 1
+text_size = 24.0
 current_source = 4
 
 [node name="Pointer" type="TextureRect" parent="."]
@@ -42,15 +59,15 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -2.5
-offset_top = -323.0
-offset_right = 2.5
-offset_bottom = -195.0
+offset_left = -26.0
+offset_top = -497.0
+offset_right = 23.315
+offset_bottom = -420.03
 grow_horizontal = 2
 grow_vertical = 2
 size_flags_horizontal = 4
-texture = ExtResource("2_8vgfc")
-expand_mode = 1
+texture = ExtResource("3_f1ojv")
+stretch_mode = 4
 
 [node name="Spin Button" type="Button" parent="."]
 layout_mode = 1
@@ -66,6 +83,7 @@ offset_bottom = 32.0
 grow_horizontal = 2
 grow_vertical = 2
 focus_mode = 0
+theme_override_font_sizes/font_size = 120
 text = "GO"
 flat = true
 icon_alignment = 2
@@ -137,5 +155,6 @@ grow_horizontal = 0
 grow_vertical = 0
 text = "NO"
 
+[connection signal="pressed" from="Close Button" to="." method="_on_close_button_pressed"]
 [connection signal="on_end_spin" from="Wheel Face" to="." method="_on_wheel_face_on_end_spin"]
 [connection signal="pressed" from="Spin Button" to="." method="_on_spin_button_pressed"]
