@@ -9,6 +9,7 @@ enum button_state{
 
 @onready var wheel_face := $"Wheel Face"
 @onready var spin_button := $"Spin Button"
+@onready var pointer := $Pointer
 @onready var confirm_window := $"Confirm Window"
 @onready var confirm_window_result_text := $"Confirm Window/Result Text"
 @export var hide_y_offset := 1000.0
@@ -57,7 +58,7 @@ func show_ui(object):
 func resolve_result(prize_item: PrizeItems):
 	for item in prize_item.item_list.keys():
 		var item_count = prize_item.item_list[item]
-		ResourceManager.change_item_count(item, item_count, spin_button.global_position)
+		ResourceManager.change_item_count(item, item_count, pointer.global_position)
 		
 	if prize_item.item_list.has("draw coupon"):
 		await get_tree().create_timer(1.5).timeout
@@ -69,6 +70,7 @@ func _on_wheel_face_on_end_spin(prize_item: PrizeItems) -> void:
 	#TODO: Resolve prize & particle animation
 	await resolve_result(prize_item)
 	
+	spin_button.disabled = false
 	#stay and update button text if (origin == shop && exchange_coupon.count >= 3) or (origin == fruit && draw_coupon.count > 0) 
 	match wheel_face.current_source:
 		PrizeItems.Source.Banana, PrizeItems.Source.Grape, PrizeItems.Source.Apple, PrizeItems.Source.Mango, PrizeItems.Source.Watermelon, PrizeItems.Source.Strawberry:
@@ -91,13 +93,16 @@ func _on_spin_button_pressed() -> void:
 	if (wheel_face._is_spinning): return
 	match _button_state:
 		button_state.free:
+			spin_button.disabled = true
 			wheel_face.spin_wheel()
 		button_state.draw_coupon:
 			if (ResourceManager.try_pay_item('draw coupon', 1, spin_button.global_position)):
+				spin_button.disabled = true
 				await get_tree().create_timer(1.5).timeout
 				wheel_face.spin_wheel()
 		button_state.shop:
 			if (ResourceManager.try_pay_item('exchange coupon', 3, spin_button.global_position)):
+				spin_button.disabled = true
 				await get_tree().create_timer(1.5).timeout
 				wheel_face.spin_wheel()
 

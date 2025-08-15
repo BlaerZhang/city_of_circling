@@ -4,11 +4,10 @@
 
 [resource]
 script = ExtResource("1_kb2ap")
-item_list = Dictionary[String, int]({
-"orange": 1
-})
+item_name = "orange"
+item_count = 1
 price = 4
-belonging_shop = 0
+belonging_shops = Array[int]([0])
 pool_index = 1
 weight_in_pool = 1.0
 metadata/_custom_type_script = "uid://b6hw5ca1j2m70"

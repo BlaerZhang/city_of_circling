@@ -4,9 +4,10 @@
 
 [resource]
 script = ExtResource("1_2rtgt")
-item_list = Dictionary[String, int]({})
+item_name = "mystery box"
+item_count = 1
 price = 3
-belonging_shop = 0
+belonging_shops = Array[int]([0, 1, 2, 3])
 pool_index = 2
 weight_in_pool = 1.0
 metadata/_custom_type_script = "uid://b6hw5ca1j2m70"

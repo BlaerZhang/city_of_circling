@@ -1,0 +1,9 @@
+[gd_resource type="Resource" script_class="Item" load_steps=2 format=3 uid="uid://bdg2pwbdjc1tt"]
+
+[ext_resource type="Script" uid="uid://d0fc2fb7vpwyv" path="res://Scripts/item.gd" id="2_p6c4u"]
+
+[resource]
+script = ExtResource("2_p6c4u")
+item_name = "shop refresh"
+item_type = 1
+metadata/_custom_type_script = "uid://d0fc2fb7vpwyv"

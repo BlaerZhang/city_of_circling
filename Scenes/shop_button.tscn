@@ -1,0 +1,35 @@
+[gd_scene load_steps=2 format=3 uid="uid://l713x8bwjq1c"]
+
+[ext_resource type="Texture2D" uid="uid://5m7dg6hcwrif" path="res://Assets/Sprites/Icon/1x/trade upgrade coupon.png" id="1_mte63"]
+
+[node name="Shop Button1" type="Button"]
+custom_minimum_size = Vector2(100, 100)
+offset_right = 100.0
+offset_bottom = 108.0
+pivot_offset = Vector2(50, 54)
+focus_mode = 0
+theme_override_constants/outline_size = 15
+theme_override_font_sizes/font_size = 36
+text = "
+x1"
+icon = ExtResource("1_mte63")
+alignment = 2
+icon_alignment = 1
+expand_icon = true
+
+[node name="Price Label" type="RichTextLabel" parent="."]
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_bottom = 30.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_constants/outline_size = 10
+theme_override_font_sizes/normal_font_size = 30
+bbcode_enabled = true
+text = "3 [img=30x30]res://Assets/Sprites/Icon/1x/exchange coupon.png[/img]"
+scroll_active = false
+shortcut_keys_enabled = false
+horizontal_alignment = 1

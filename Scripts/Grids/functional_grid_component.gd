@@ -1,6 +1,14 @@
 class_name FunctionalGridComponent
 extends Node2D
 
+var grid_pos: Vector2i:
+	get:
+		return get_parent().grid_position
+
+var is_player_at_this_grid: bool:
+	get:
+		return %"Player Movement Manager".is_player_at_grid(grid_pos)
+
 
 func bypass() -> void:
 	pass

@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="Item" load_steps=3 format=3 uid="uid://bmedh5srfn4kb"]
+
+[ext_resource type="Texture2D" uid="uid://cpwbam4wawrjj" path="res://Assets/Sprites/Icon/1x/mango.png" id="1_616v6"]
+[ext_resource type="Script" uid="uid://d0fc2fb7vpwyv" path="res://Scripts/item.gd" id="2_e5hts"]
+
+[resource]
+script = ExtResource("2_e5hts")
+item_name = "orange"
+icon = ExtResource("1_616v6")
+item_type = 2
+metadata/_custom_type_script = "uid://d0fc2fb7vpwyv"

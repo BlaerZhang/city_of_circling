@@ -12,6 +12,7 @@ func _ready() -> void:
 	ui_icon.texture = ResourceManager.get_item_icon(item_name)
 	ui_icon_shadow.texture = ui_icon.texture
 	ui_label.text = '0'
+	ui_icon.tooltip_text = item_name.capitalize()
 	
 	ResourceManager.item_count_changed.connect(on_item_count_changed)
 

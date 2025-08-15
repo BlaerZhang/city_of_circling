@@ -1,0 +1,48 @@
+[gd_scene load_steps=4 format=3 uid="uid://dudejnhqfh51r"]
+
+[ext_resource type="Script" uid="uid://1la68wpoh45t" path="res://Scripts/Grids/shop.gd" id="1_3aqkk"]
+[ext_resource type="PackedScene" uid="uid://l713x8bwjq1c" path="res://Scenes/shop_button.tscn" id="2_145or"]
+[ext_resource type="Texture2D" uid="uid://hjum1wfegdqk" path="res://Assets/Sprites/Grid/1x/ui_shop_panel.png" id="3_nn26x"]
+
+[node name="Functional Component" type="Node2D"]
+script = ExtResource("1_3aqkk")
+shop_slot_button_scene = ExtResource("2_145or")
+shop_ui_panel_offset = Vector2(-590.748, -187.052)
+
+[node name="Shop UI Panel" type="TextureRect" parent="."]
+self_modulate = Color(0.792157, 0.407843, 0.12549, 1)
+offset_right = 380.0
+offset_bottom = 254.0
+pivot_offset = Vector2(190, 127)
+texture = ExtResource("3_nn26x")
+
+[node name="Panel Shadow" type="TextureRect" parent="Shop UI Panel"]
+self_modulate = Color(0, 0, 0, 0.278431)
+show_behind_parent = true
+layout_mode = 0
+offset_left = -2.0
+offset_top = 3.0
+offset_right = 378.0
+offset_bottom = 257.0
+texture = ExtResource("3_nn26x")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Shop UI Panel"]
+layout_mode = 1
+anchors_preset = 14
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_top = -55.5
+offset_bottom = 55.5
+grow_horizontal = 2
+grow_vertical = 2
+alignment = 1
+
+[node name="Shop Button1" parent="Shop UI Panel/HBoxContainer" instance=ExtResource("2_145or")]
+layout_mode = 2
+
+[node name="Shop Button2" parent="Shop UI Panel/HBoxContainer" instance=ExtResource("2_145or")]
+layout_mode = 2
+
+[node name="Shop Button3" parent="Shop UI Panel/HBoxContainer" instance=ExtResource("2_145or")]
+layout_mode = 2

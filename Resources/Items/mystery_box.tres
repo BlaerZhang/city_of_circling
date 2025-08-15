@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="Item" load_steps=3 format=3 uid="uid://di6xnqlgr6fhi"]
+
+[ext_resource type="Texture2D" uid="uid://1vho1awbxia2" path="res://Assets/Sprites/Icon/1x/mystery_box.png" id="1_ybvrt"]
+[ext_resource type="Script" uid="uid://d0fc2fb7vpwyv" path="res://Scripts/item.gd" id="2_q5qnm"]
+
+[resource]
+script = ExtResource("2_q5qnm")
+item_name = "mystery box"
+icon = ExtResource("1_ybvrt")
+item_type = 1
+metadata/_custom_type_script = "uid://d0fc2fb7vpwyv"

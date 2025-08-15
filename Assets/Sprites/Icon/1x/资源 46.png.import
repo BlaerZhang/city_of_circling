@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dpcjs4ygfbea7"
-path="res://.godot/imported/Lottery_Preview.png-8dc6629116b24ccafd734e192a9b84af.ctex"
+uid="uid://conx150i7sp7j"
+path="res://.godot/imported/资源 46.png-1c20ed4283c57e762481680241ac4078.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Sprites/Grid/1x/Lottery_Preview.png"
-dest_files=["res://.godot/imported/Lottery_Preview.png-8dc6629116b24ccafd734e192a9b84af.ctex"]
+source_file="res://Assets/Sprites/Icon/1x/资源 46.png"
+dest_files=["res://.godot/imported/资源 46.png-1c20ed4283c57e762481680241ac4078.ctex"]
 
 [params]
 

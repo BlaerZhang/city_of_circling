@@ -13,7 +13,7 @@ enum GridType{
 @export var grid_position: Vector2i
 var neighbour_grids: Array[Vector2i]
 
-@onready var functional_grid_component:= $"Functional Component"
+@onready var functional_grid_component:= get_node_or_null("Functional Component")
 
 @onready var grid_outline: Sprite2D = $"Grid Outline"
 var outline_tween: Tween
@@ -25,7 +25,6 @@ signal mouse_clicked_down(grid_position: Vector2i)
 
 func _ready() -> void:
 	add_to_group("Grids")
-	outline_tween = create_tween()
 
 
 func _process(delta: float) -> void:

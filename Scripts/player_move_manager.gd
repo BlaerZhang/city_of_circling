@@ -153,7 +153,8 @@ func cancel_plan_move():
 
 func update_grid_outline():
 	for grid: BaseGrid in GridManager.grid_database.values():
-		grid.outline_tween.kill()
+		if grid.outline_tween:
+			grid.outline_tween.kill()
 		grid.outline_tween = create_tween()
 		if planned_move_grid_positions.has(grid.grid_position):
 			if grid.grid_position == planning_grid_pos:

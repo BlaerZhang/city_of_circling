@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://b48kaaap15g6f"]
 
 [ext_resource type="Script" uid="uid://dyybep5ptwxmm" path="res://Scripts/Grids/lottery_station.gd" id="1_htlac"]
-[ext_resource type="Texture2D" uid="uid://dpcjs4ygfbea7" path="res://Assets/Sprites/Grid/1x/Lottery_Preview.png" id="3_5u7e6"]
+[ext_resource type="Texture2D" uid="uid://dpcjs4ygfbea7" path="res://Assets/Sprites/Icon/1x/Lottery_Preview.png" id="3_5u7e6"]
 
 [node name="Functional Component" type="Node2D"]
 script = ExtResource("1_htlac")

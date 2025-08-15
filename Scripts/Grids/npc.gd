@@ -93,7 +93,7 @@ func generate_delivery_quest():
 
 func set_as_delivery_target(from: npc_name, to: npc_name):
 	if to == npc:
-		current_delivery_sender_list.append(to)
+		current_delivery_sender_list.append(from)
 		
 		#update icon
 		delivery_sender_icon.visible = true
@@ -131,17 +131,18 @@ func complete_quest(reward_coupon_count:= 1):
 	#update icon
 	quest_status_icon.texture = quest_status_sprite_new_quest
 
+
 func bypass() -> void:
-	if is_in_quest:
-		if is_in_fruit_quest:
-			try_complete_fruit_quest()
-		elif is_in_delivery_quest:
-			#complete all delivery quests that set this npc as target
-			for sender: npc_name in current_delivery_sender_list:
-				delivery_quest_completed.emit(sender, npc)
-			current_delivery_sender_list.clear()
-			#update icon
-			delivery_sender_icon.visible = false
+	if is_in_fruit_quest:
+		try_complete_fruit_quest()
+
+	#complete all delivery quests that set this npc as target
+	for sender: npc_name in current_delivery_sender_list:
+		delivery_quest_completed.emit(sender, npc)
+		print("Delivery signal sent - from:%d to:%d" % [sender as npc_name, npc as npc_name]) 
+	current_delivery_sender_list.clear()
+	#update icon
+	delivery_sender_icon.visible = false
 
 
 func arrive() -> void:
@@ -149,7 +150,7 @@ func arrive() -> void:
 
 
 func interact(base_grid_pos: Vector2) -> void:
-	if %"Player Movement Manager".is_player_at_grid(base_grid_pos):
+	if is_player_at_this_grid:
 		if is_in_quest: bypass()
 		else: generate_random_quest()
 	else:
