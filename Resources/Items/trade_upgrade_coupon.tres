@@ -7,5 +7,5 @@
 script = ExtResource("2_b1mo3")
 item_name = "trade upgrade coupon"
 icon = ExtResource("1_i21of")
-item_type = 1
+item_type = 3
 metadata/_custom_type_script = "uid://d0fc2fb7vpwyv"

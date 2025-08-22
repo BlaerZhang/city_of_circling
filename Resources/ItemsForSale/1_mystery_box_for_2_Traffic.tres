@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="ItemsForSale" load_steps=2 format=3 uid="uid://bjlgv1cenypjq"]
+
+[ext_resource type="Script" uid="uid://b6hw5ca1j2m70" path="res://Scripts/items_for_sale.gd" id="1_mhm53"]
+
+[resource]
+script = ExtResource("1_mhm53")
+item_name = "mystery box"
+item_count = 1
+price = 2
+belonging_shops = Array[int]([1])
+pool_index = 1
+weight_in_pool = 0.1
+metadata/_custom_type_script = "uid://b6hw5ca1j2m70"

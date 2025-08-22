@@ -33,8 +33,8 @@ var fruit_quest_required_items: Dictionary[String, int]
 @export_group("Delivery Quest")
 @export var delivery_quest_reward_coupon_count: int = 1
 var current_delivery_quest_target: npc_name
-var current_delivery_sender_list: Array[npc_name]
-signal delivery_quest_generated(from: npc_name, to: npc_name)
+var current_delivery_sender_list: Dictionary[npc_name, Texture2D]
+signal delivery_quest_generated(from: npc_name, to: npc_name, sender_icon: Texture2D)
 signal delivery_quest_completed(from: npc_name, to: npc_name)
 
 @export_group("UI Related")
@@ -45,6 +45,8 @@ signal delivery_quest_completed(from: npc_name, to: npc_name)
 @export var quest_status_sprite_complete: Texture2D
 @export var quest_status_sprite_delivery: Texture2D
 @export var quest_status_sprite_fruit: Texture2D
+var bypass_tween: Tween
+var preview_target_scale: Vector2 = Vector2.ZERO
 
 
 func _ready() -> void:
@@ -52,16 +54,24 @@ func _ready() -> void:
 	for npc: NPC in get_tree().get_nodes_in_group("NPCs"):
 		npc.delivery_quest_generated.connect(set_as_delivery_target)
 		npc.delivery_quest_completed.connect(complete_delivery_quest)
+	UpgradeManager.upgrade_added.connect(on_upgrade_added)
+	ResourceManager.item_count_changed.connect(on_item_count_changed)
 	
 	quest_status_icon.texture = quest_status_sprite_new_quest
 	
+	#start quest_icon_tween
 	var quest_icon_tween = create_tween().set_loops(-1)
 	quest_icon_tween.tween_property(quest_status_icon, "position", Vector2(20,-20), 1).as_relative().set_trans(Tween.TRANS_QUAD)
 	quest_icon_tween.tween_property(quest_status_icon, "position", Vector2(-20,20), 1).as_relative().set_trans(Tween.TRANS_QUAD)
+	
+	#start sender_icon_tween
+	var sender_icon_tween = create_tween().set_loops(-1)
+	sender_icon_tween.tween_callback(next_texture).set_delay(0.5)
 
 
 func generate_random_quest():
 	if is_in_quest: return
+	AudioManager.create_audio(SoundEffect.SOUND_EFFECT_TYPE.ACCEPT_QUEST)
 	if (randf() < fruit_quest_probability):
 		generate_fruit_quest()
 	else:
@@ -85,18 +95,32 @@ func generate_delivery_quest():
 		_target = randi() % npc_name.size() as npc_name
 	
 	current_delivery_quest_target = _target
-	delivery_quest_generated.emit(npc, _target)
+	delivery_quest_generated.emit(npc, _target, get_parent().texture)
 	
 	#update icon
 	quest_status_icon.texture = quest_status_sprite_delivery
 
 
-func set_as_delivery_target(from: npc_name, to: npc_name):
+func set_as_delivery_target(from: npc_name, to: npc_name, sender_icon: Texture2D):
 	if to == npc:
-		current_delivery_sender_list.append(from)
+		current_delivery_sender_list.get_or_add(from, sender_icon)
+		refresh_textures()
 		
 		#update icon
 		delivery_sender_icon.visible = true
+		delivery_sender_icon.texture = sender_icon
+
+
+var current_icon_textures: Array[Texture2D]
+var current_sender_icon_index: int = 0
+func next_texture() -> void:
+	if current_icon_textures.is_empty():
+		return
+	delivery_sender_icon.texture = current_icon_textures[current_sender_icon_index]
+	current_sender_icon_index = (current_sender_icon_index + 1) % current_icon_textures.size()
+func refresh_textures() -> void:
+	current_icon_textures = current_delivery_sender_list.values()
+	current_sender_icon_index = 0
 
 
 func is_fruit_quest_submittable() -> bool:
@@ -127,9 +151,11 @@ func complete_quest(reward_coupon_count:= 1):
 	is_in_fruit_quest = false
 	is_in_delivery_quest = false
 	
-	ResourceManager.change_item_count('exchange coupon', reward_coupon_count, global_position)
+	var final_reward_count:= reward_coupon_count + UpgradeManager.get_upgrade_level("quest reward +") * UpgradeManager.upgrade_database["quest reward +"].effect_delta_per_level
+	ResourceManager.change_item_count('exchange coupon', final_reward_count, global_position)
 	#update icon
 	quest_status_icon.texture = quest_status_sprite_new_quest
+	AudioManager.create_audio(SoundEffect.SOUND_EFFECT_TYPE.COMPLETE_QUEST)
 
 
 func bypass() -> void:
@@ -141,41 +167,84 @@ func bypass() -> void:
 		delivery_quest_completed.emit(sender, npc)
 		print("Delivery signal sent - from:%d to:%d" % [sender as npc_name, npc as npc_name]) 
 	current_delivery_sender_list.clear()
+	refresh_textures()
 	#update icon
 	delivery_sender_icon.visible = false
 
 
 func arrive() -> void:
+	bypass()
 	generate_random_quest()
 
 
 func interact(base_grid_pos: Vector2) -> void:
-	if is_player_at_this_grid:
-		if is_in_quest: bypass()
-		else: generate_random_quest()
-	else:
-		if not is_in_quest and is_remote_quest_acceptance_unlocked:
+	#print("Player arrived: %s" % is_player_arrived) 
+	#print("is_remote_quest_acceptance_unlocked: %s" % is_remote_quest_acceptance_unlocked) 
+	#print("is_remote_quest_submission_unlocked: %s" % is_remote_quest_submission_unlocked) 
+	if not is_in_quest:
+		if is_player_arrived or is_remote_quest_acceptance_unlocked:
 			generate_random_quest()
-		elif is_in_quest and is_remote_quest_submission_unlocked:
-			bypass()
+	elif is_in_fruit_quest:
+		if is_player_arrived or is_remote_quest_submission_unlocked:
+			try_complete_fruit_quest()
 
 
 func try_bypass(forward: bool) -> void:
 	if is_fruit_quest_submittable() or !current_delivery_sender_list.is_empty():
-		var tween = create_tween()
-		if forward:
-			tween.tween_property(bypass_submit_preview, "scale", Vector2(1.0, 1.4), 0.2).set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_EXPO)
+		var new_target = Vector2(1.0, 1.4) if forward else Vector2.ZERO
+		var ease = Tween.EASE_OUT if forward else Tween.EASE_IN
+		bypass_submit_preview.texture = quest_status_sprite_complete
+		
+		if preview_target_scale == new_target:
+			return
+		preview_target_scale = new_target
+		
+		if bypass_tween and bypass_tween.is_valid():
+			bypass_tween.kill()
+		
+		bypass_tween = create_tween()
+		bypass_tween.tween_property(
+			bypass_submit_preview,
+			"scale",
+			new_target,
+			0.2
+		).set_ease(ease).set_trans(Tween.TRANS_EXPO)
+
+
+func try_arrive(arrive: bool):
+	if is_fruit_quest_submittable() or !current_delivery_sender_list.is_empty() or !is_in_quest:
+		var new_target = Vector2(1.0, 1.4) if arrive else Vector2.ZERO
+		var ease = Tween.EASE_OUT if arrive else Tween.EASE_IN
+		if not is_in_quest:
+			bypass_submit_preview.texture = quest_status_sprite_new_quest
 		else:
-			tween.tween_property(bypass_submit_preview, "scale", Vector2.ZERO, 0.2).set_ease(Tween.EASE_IN).set_trans(Tween.TRANS_EXPO)
+			bypass_submit_preview.texture = quest_status_sprite_complete
+		
+		if preview_target_scale == new_target:
+			return
+		preview_target_scale = new_target
+		
+		if bypass_tween and bypass_tween.is_valid():
+			bypass_tween.kill()
+		
+		bypass_tween = create_tween()
+		bypass_tween.tween_property(
+			bypass_submit_preview,
+			"scale",
+			new_target,
+			0.2
+		).set_ease(ease).set_trans(Tween.TRANS_EXPO)
 
 
-func on_item_count_changed(item_name: String, count: int, change_amount: int):
+func on_item_count_changed(item_name: String, count: int, change_amount: int, source: Vector2):
 	if is_in_fruit_quest:
 		#update icon
 		quest_status_icon.texture = quest_status_sprite_complete if is_fruit_quest_submittable() else quest_status_sprite_fruit
 
 
-#func _process(delta: float) -> void:
-	#if (Input.is_action_just_pressed("test")):
-		#generate_fruit_quest()
-		#print(is_fruit_quest_submittable())
+func on_upgrade_added(upgrade: Upgrade):
+	match upgrade.upgrade_name:
+		"remote quest acceptance":
+			is_remote_quest_acceptance_unlocked = true
+		"remote quest completion":
+			is_remote_quest_submission_unlocked = true

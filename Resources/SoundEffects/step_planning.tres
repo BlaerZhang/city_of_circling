@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="SoundEffect" load_steps=3 format=3 uid="uid://beb88alkxqey0"]
+
+[ext_resource type="Script" uid="uid://hqd0d2kdbu0l" path="res://Scripts/SoundEffectSetting.gd" id="1_4ycg5"]
+[ext_resource type="AudioStream" uid="uid://dhghv1kjr50cn" path="res://Assets/Audio/Interface Sound/bong_001.ogg" id="2_4ycg5"]
+
+[resource]
+script = ExtResource("1_4ycg5")
+limit = 2
+type = 1
+sound_effect = ExtResource("2_4ycg5")
+volume = -5.0
+pitch_scale = 1.0
+pitch_randomness = 0.0

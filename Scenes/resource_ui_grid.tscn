@@ -1,10 +1,11 @@
-[gd_scene load_steps=6 format=3 uid="uid://dcpcolpctf6n0"]
+[gd_scene load_steps=7 format=3 uid="uid://dcpcolpctf6n0"]
 
 [ext_resource type="Texture2D" uid="uid://cy5q8fhujpt5h" path="res://Assets/Sprites/Grid/1x/ui_grid.png" id="1_or0pg"]
 [ext_resource type="Script" uid="uid://hua6uqj21ju" path="res://Scripts/UI/resources_ui.gd" id="2_fivkg"]
 [ext_resource type="PackedScene" uid="uid://cvy6pgutedfcu" path="res://Scenes/item_count_change_particle.tscn" id="3_nwgae"]
 [ext_resource type="Texture2D" uid="uid://dinty7jilgb14" path="res://Assets/Sprites/Icon/1x/apple.png" id="4_6fxlj"]
 [ext_resource type="Texture2D" uid="uid://b1e8m00201okm" path="res://Assets/Sprites/Grid/1x/ui_text_bg.png" id="5_syoqe"]
+[ext_resource type="Texture2D" uid="uid://boa3m7xsr0prg" path="res://Assets/Sprites/Grid/1x/grid_outline_heavy.png" id="6_fivkg"]
 
 [node name="Resource UI Grid" type="TextureRect"]
 self_modulate = Color(0.988235, 0.415686, 0.411765, 1)
@@ -37,6 +38,7 @@ offset_bottom = 53.0
 grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("4_6fxlj")
+stretch_mode = 5
 
 [node name="Icon Shadow" type="TextureRect" parent="Icon"]
 self_modulate = Color(0, 0, 0, 0.501961)
@@ -54,6 +56,7 @@ offset_bottom = 57.0
 grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("4_6fxlj")
+stretch_mode = 5
 
 [node name="ResourceTextLabel" type="RichTextLabel" parent="."]
 layout_mode = 1
@@ -67,9 +70,9 @@ offset_top = -50.0
 grow_horizontal = 0
 grow_vertical = 0
 theme_override_colors/default_color = Color(0, 0, 0, 1)
-theme_override_font_sizes/normal_font_size = 28
+theme_override_font_sizes/normal_font_size = 20
 bbcode_enabled = true
-text = "999"
+text = "9999"
 scroll_active = false
 shortcut_keys_enabled = false
 horizontal_alignment = 1
@@ -81,3 +84,11 @@ layout_mode = 0
 offset_right = 40.0
 offset_bottom = 40.0
 texture = ExtResource("5_syoqe")
+
+[node name="UI Grid Outline" type="Sprite2D" parent="."]
+modulate = Color(1, 1, 1, 0)
+position = Vector2(64, 64)
+scale = Vector2(1.1, 1.1)
+texture = ExtResource("6_fivkg")
+
+[connection signal="gui_input" from="." to="." method="_on_gui_input"]

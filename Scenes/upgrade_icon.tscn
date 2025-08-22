@@ -1,0 +1,29 @@
+[gd_scene load_steps=6 format=3 uid="uid://b2tjb0otnomop"]
+
+[ext_resource type="Texture2D" uid="uid://cy0eft454bao2" path="res://Assets/Sprites/Grid/1x/upgrade_icon_grid.png" id="1_dhj4i"]
+[ext_resource type="Script" uid="uid://leu6btqp1lsv" path="res://Scripts/UI/upgrade_ui.gd" id="2_2n46o"]
+[ext_resource type="Texture2D" uid="uid://ceaj8fds0vokw" path="res://Assets/Sprites/Icon/1x/lock_icon.png" id="3_2n46o"]
+[ext_resource type="Texture2D" uid="uid://b6p41gunfemrg" path="res://Assets/Sprites/Icon/1x/lottery_bypass.png" id="3_o57w2"]
+[ext_resource type="Texture2D" uid="uid://bswix5iqdn5ax" path="res://Assets/Sprites/Icon/1x/unlock_icon.png" id="4_7dskg"]
+
+[node name="Level-up Upgrade Icon" type="TextureRect"]
+texture = ExtResource("1_dhj4i")
+stretch_mode = 3
+script = ExtResource("2_2n46o")
+lock_sprite = ExtResource("3_2n46o")
+unlock_sprite = ExtResource("4_7dskg")
+
+[node name="Upgrade Icon" type="TextureRect" parent="."]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+texture = ExtResource("3_o57w2")
+stretch_mode = 3
+
+[node name="Lock Icon" type="TextureRect" parent="."]
+layout_mode = 0
+offset_left = 70.0
+offset_top = -28.0
+offset_right = 114.0
+offset_bottom = 32.0
+texture = ExtResource("4_7dskg")

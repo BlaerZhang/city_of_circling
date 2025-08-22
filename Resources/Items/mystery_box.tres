@@ -7,5 +7,5 @@
 script = ExtResource("2_q5qnm")
 item_name = "mystery box"
 icon = ExtResource("1_ybvrt")
-item_type = 1
+item_type = 4
 metadata/_custom_type_script = "uid://d0fc2fb7vpwyv"

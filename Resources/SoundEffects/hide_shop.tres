@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="SoundEffect" load_steps=3 format=3 uid="uid://c3ynevhww124n"]
+
+[ext_resource type="Script" uid="uid://hqd0d2kdbu0l" path="res://Scripts/SoundEffectSetting.gd" id="1_xqmck"]
+[ext_resource type="AudioStream" uid="uid://cd8u13o6dx5w7" path="res://Assets/Audio/Interface Sound/minimize_008.ogg" id="2_xqmck"]
+
+[resource]
+script = ExtResource("1_xqmck")
+limit = 1
+type = 6
+sound_effect = ExtResource("2_xqmck")
+volume = -5.0
+pitch_scale = 1.0
+pitch_randomness = 0.0

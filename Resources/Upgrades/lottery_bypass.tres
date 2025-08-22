@@ -1,0 +1,16 @@
+[gd_resource type="Resource" script_class="Upgrade" load_steps=3 format=3 uid="uid://ut46sekwlayi"]
+
+[ext_resource type="Script" uid="uid://deas45k8roqd" path="res://Scripts/upgrade.gd" id="1_m11f7"]
+[ext_resource type="Texture2D" uid="uid://b6p41gunfemrg" path="res://Assets/Sprites/Icon/1x/lottery_bypass.png" id="2_k55tq"]
+
+[resource]
+script = ExtResource("1_m11f7")
+upgrade_name = "lottery bypass"
+upgrade_icon = ExtResource("2_k55tq")
+description = "The lottery grid can now be triggered when passing by."
+effect_delta_per_level = 1
+upgrade_type = 2
+shop_slot_index = 1
+slot_order = 1
+upgrade_cost_per_level = Array[int]([3])
+metadata/_custom_type_script = "uid://deas45k8roqd"

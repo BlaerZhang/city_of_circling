@@ -16,6 +16,7 @@ signal game_state_changed(previous_state:GameState ,current_state: GameState)
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	await get_tree().process_frame
 	switch_game_state(GameState.Idle)
 
 

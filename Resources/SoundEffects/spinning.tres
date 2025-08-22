@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="SoundEffect" load_steps=3 format=3 uid="uid://dec2a05pdpgy1"]
+
+[ext_resource type="Script" uid="uid://hqd0d2kdbu0l" path="res://Scripts/SoundEffectSetting.gd" id="1_kk0sj"]
+[ext_resource type="AudioStream" uid="uid://bdip4jhfaspnd" path="res://Assets/Audio/arcade-game-fruit-machine-jackpot-001-short.mp3" id="2_kk0sj"]
+
+[resource]
+script = ExtResource("1_kk0sj")
+limit = 2
+type = 14
+sound_effect = ExtResource("2_kk0sj")
+volume = -5.0
+pitch_scale = 0.8
+pitch_randomness = 0.0

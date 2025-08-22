@@ -1,11 +1,16 @@
-[gd_resource type="Resource" script_class="Upgrade" load_steps=2 format=3 uid="uid://bb6tss7ri1u2g"]
+[gd_resource type="Resource" script_class="Upgrade" load_steps=3 format=3 uid="uid://bb6tss7ri1u2g"]
 
 [ext_resource type="Script" uid="uid://deas45k8roqd" path="res://Scripts/upgrade.gd" id="1_rmyq2"]
+[ext_resource type="Texture2D" uid="uid://kgcoxniubgbm" path="res://Assets/Sprites/Icon/1x/moving_backward.png" id="2_i7w1c"]
 
 [resource]
 script = ExtResource("1_rmyq2")
 upgrade_name = "moving backward"
-description = "Unlock the ability to change moving direction"
+upgrade_icon = ExtResource("2_i7w1c")
+description = "Unlock the ability to change moving direction when planning."
+effect_delta_per_level = 1
 upgrade_type = 1
+shop_slot_index = 1
+slot_order = 0
 upgrade_cost_per_level = Array[int]([1])
 metadata/_custom_type_script = "uid://deas45k8roqd"

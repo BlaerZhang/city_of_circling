@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="SoundEffect" load_steps=3 format=3 uid="uid://bft134xqsle8m"]
+
+[ext_resource type="Script" uid="uid://hqd0d2kdbu0l" path="res://Scripts/SoundEffectSetting.gd" id="1_wyhq2"]
+[ext_resource type="AudioStream" uid="uid://cs7cq7w27pqs6" path="res://Assets/Audio/Interface Sound/error_001.ogg" id="2_wyhq2"]
+
+[resource]
+script = ExtResource("1_wyhq2")
+limit = 2
+type = 8
+sound_effect = ExtResource("2_wyhq2")
+volume = -5.0
+pitch_scale = 1.0
+pitch_randomness = 0.0

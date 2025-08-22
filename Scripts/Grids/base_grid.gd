@@ -34,17 +34,17 @@ func _process(delta: float) -> void:
 func bypass():
 	if functional_grid_component is FunctionalGridComponent:
 		await functional_grid_component.bypass()
-		GameManager.switch_game_state(GameManager.GameState.Move)
 
 
 func arrive():
 	if functional_grid_component is FunctionalGridComponent:
+		functional_grid_component.is_player_arrived = true
 		await functional_grid_component.arrive()
-		GameManager.switch_game_state(GameManager.GameState.Idle)
 
 
 func depart():
 	if functional_grid_component is FunctionalGridComponent:
+		functional_grid_component.is_player_arrived = false
 		await functional_grid_component.depart()
 
 
@@ -56,6 +56,11 @@ func interact():
 func try_bypass(forward: bool):
 	if functional_grid_component is FunctionalGridComponent:
 		functional_grid_component.try_bypass(forward)
+
+
+func try_arrive(arrive: bool):
+	if functional_grid_component is FunctionalGridComponent:
+		functional_grid_component.try_arrive(arrive)
 
 
 func _on_area_2d_input_event(viewport: Node, event: InputEvent, shape_idx: int) -> void:

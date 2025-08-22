@@ -1,11 +1,11 @@
 [gd_resource type="Resource" script_class="Item" load_steps=3 format=3 uid="uid://ccubma0umx7dw"]
 
-[ext_resource type="Texture2D" uid="uid://btycyx6vngvkl" path="res://Assets/Sprites/Icon/1x/affairs upgrad coupon.png" id="1_p3iif"]
+[ext_resource type="Texture2D" uid="uid://btycyx6vngvkl" path="res://Assets/Sprites/Icon/1x/affairs upgrade coupon.png" id="1_p3iif"]
 [ext_resource type="Script" uid="uid://d0fc2fb7vpwyv" path="res://Scripts/item.gd" id="2_5hy5v"]
 
 [resource]
 script = ExtResource("2_5hy5v")
 item_name = "affairs upgrade coupon"
 icon = ExtResource("1_p3iif")
-item_type = 1
+item_type = 3
 metadata/_custom_type_script = "uid://d0fc2fb7vpwyv"

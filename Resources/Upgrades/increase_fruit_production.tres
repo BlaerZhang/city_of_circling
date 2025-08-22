@@ -1,0 +1,18 @@
+[gd_resource type="Resource" script_class="Upgrade" load_steps=3 format=3 uid="uid://c4kr046pl7mbv"]
+
+[ext_resource type="Script" uid="uid://deas45k8roqd" path="res://Scripts/upgrade.gd" id="1_1wx8y"]
+[ext_resource type="Texture2D" uid="uid://bi00kbupamsps" path="res://Assets/Sprites/Icon/1x/increase_fruit_production.png" id="2_g5hjm"]
+
+[resource]
+script = ExtResource("1_1wx8y")
+upgrade_name = "fruit production +"
+upgrade_icon = ExtResource("2_g5hjm")
+description = "+ %s → + %s
+fruit income from lottery
+Lv. %ds → %s / %s"
+effect_delta_per_level = 1
+upgrade_type = 2
+shop_slot_index = 0
+slot_order = 0
+upgrade_cost_per_level = Array[int]([1, 2, 2, 3, 3])
+metadata/_custom_type_script = "uid://deas45k8roqd"

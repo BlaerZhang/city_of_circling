@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="Item" load_steps=3 format=3 uid="uid://cq7vrditq0m1e"]
+
+[ext_resource type="Texture2D" uid="uid://b28o0fpr5uhhj" path="res://Assets/Sprites/Icon/1x/white.png" id="1_2i46h"]
+[ext_resource type="Script" uid="uid://d0fc2fb7vpwyv" path="res://Scripts/item.gd" id="2_xmpvt"]
+
+[resource]
+script = ExtResource("2_xmpvt")
+item_name = "white"
+icon = ExtResource("1_2i46h")
+item_type = 2
+metadata/_custom_type_script = "uid://d0fc2fb7vpwyv"

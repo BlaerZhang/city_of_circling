@@ -1,0 +1,16 @@
+[gd_resource type="Resource" script_class="Upgrade" load_steps=3 format=3 uid="uid://clcnor83odgg6"]
+
+[ext_resource type="Script" uid="uid://deas45k8roqd" path="res://Scripts/upgrade.gd" id="1_eibno"]
+[ext_resource type="Texture2D" uid="uid://cwkjf0ku8pr03" path="res://Assets/Sprites/Icon/1x/remote_quest_acceptance.png" id="2_y5nlp"]
+
+[resource]
+script = ExtResource("1_eibno")
+upgrade_name = "remote quest acceptance"
+upgrade_icon = ExtResource("2_y5nlp")
+description = "Unlock the ability to accept quests from NPCs remotely."
+effect_delta_per_level = 1
+upgrade_type = 0
+shop_slot_index = 1
+slot_order = 0
+upgrade_cost_per_level = Array[int]([2])
+metadata/_custom_type_script = "uid://deas45k8roqd"

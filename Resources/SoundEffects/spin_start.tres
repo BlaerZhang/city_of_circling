@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="SoundEffect" load_steps=3 format=3 uid="uid://bis54bqc437g0"]
+
+[ext_resource type="Script" uid="uid://hqd0d2kdbu0l" path="res://Scripts/SoundEffectSetting.gd" id="1_v445h"]
+[ext_resource type="AudioStream" uid="uid://dutao8yadetbi" path="res://Assets/Audio/zapsplat_multimedia_alert_ui_marimba_warm_short_musical_tone_notify_prompt_reminder_114191.mp3" id="2_v445h"]
+
+[resource]
+script = ExtResource("1_v445h")
+limit = 2
+type = 13
+sound_effect = ExtResource("2_v445h")
+volume = 0.0
+pitch_scale = 1.0
+pitch_randomness = 0.0

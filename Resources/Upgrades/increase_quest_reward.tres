@@ -1,11 +1,18 @@
-[gd_resource type="Resource" script_class="Upgrade" load_steps=2 format=3 uid="uid://cwilfmqpws3mf"]
+[gd_resource type="Resource" script_class="Upgrade" load_steps=3 format=3 uid="uid://cwilfmqpws3mf"]
 
 [ext_resource type="Script" uid="uid://deas45k8roqd" path="res://Scripts/upgrade.gd" id="1_7q7xq"]
+[ext_resource type="Texture2D" uid="uid://dxun8cc18bpq0" path="res://Assets/Sprites/Icon/1x/increase_quest_reward.png" id="2_f8smf"]
 
 [resource]
 script = ExtResource("1_7q7xq")
-upgrade_name = "increase quest reward"
-description = "Increase the number of exchange coupons rewarded by NPCs when completing quests by +1 each time"
+upgrade_name = "quest reward +"
+upgrade_icon = ExtResource("2_f8smf")
+description = "+ %s → + %s
+exchange coupon from quest reward
+Lv. %s → %s / %s"
+effect_delta_per_level = 1
 upgrade_type = 0
+shop_slot_index = 0
+slot_order = 0
 upgrade_cost_per_level = Array[int]([1, 2, 2, 3, 3])
 metadata/_custom_type_script = "uid://deas45k8roqd"

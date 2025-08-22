@@ -6,6 +6,8 @@ enum ItemType
 	Fruit,
 	Coupon,
 	Supply,
+	Upgrade_Coupon,
+	Other,
 }
 
 @export var item_name: String

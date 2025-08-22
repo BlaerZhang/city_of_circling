@@ -1,0 +1,16 @@
+[gd_resource type="Resource" script_class="Upgrade" load_steps=3 format=3 uid="uid://pmdxmdu6cbde"]
+
+[ext_resource type="Script" uid="uid://deas45k8roqd" path="res://Scripts/upgrade.gd" id="1_fy6qy"]
+[ext_resource type="Texture2D" uid="uid://5ulx1mm7v4fg" path="res://Assets/Sprites/Icon/1x/unlock_rainbow_white_ball.png" id="2_epqn6"]
+
+[resource]
+script = ExtResource("1_fy6qy")
+upgrade_name = "unlock rainbow white ball"
+upgrade_icon = ExtResource("2_epqn6")
+description = "White and Rainbow balls can be purchased from Traffic Shop now."
+effect_delta_per_level = 1
+upgrade_type = 2
+shop_slot_index = 1
+slot_order = 0
+upgrade_cost_per_level = Array[int]([1])
+metadata/_custom_type_script = "uid://deas45k8roqd"

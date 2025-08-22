@@ -1,17 +1,14 @@
 class_name Upgrade
 extends Resource
 
-enum UpgradeType
-{
-	Affairs,
-	Traffic,
-	Lottery,
-	Trade,
-}
 
 @export var upgrade_name: String
+@export var upgrade_icon: Texture2D
 @export_multiline var description: String
-@export var upgrade_type: UpgradeType
+@export var effect_delta_per_level: int = 1
+@export var upgrade_type: ItemsForSale.ShopType
+@export var shop_slot_index: int
+@export var slot_order: int
 @export var upgrade_cost_per_level: Array[int]
 var upgrade_max_level: int:
 	get:

@@ -1,8 +1,27 @@
-[gd_scene load_steps=4 format=3 uid="uid://dudejnhqfh51r"]
+[gd_scene load_steps=11 format=3 uid="uid://dudejnhqfh51r"]
 
 [ext_resource type="Script" uid="uid://1la68wpoh45t" path="res://Scripts/Grids/shop.gd" id="1_3aqkk"]
 [ext_resource type="PackedScene" uid="uid://l713x8bwjq1c" path="res://Scenes/shop_button.tscn" id="2_145or"]
 [ext_resource type="Texture2D" uid="uid://hjum1wfegdqk" path="res://Assets/Sprites/Grid/1x/ui_shop_panel.png" id="3_nn26x"]
+[ext_resource type="Texture2D" uid="uid://dlgj764ebslt2" path="res://Assets/Sprites/Icon/1x/refresh.png" id="4_145or"]
+[ext_resource type="Texture2D" uid="uid://cy5q8fhujpt5h" path="res://Assets/Sprites/Grid/1x/ui_grid.png" id="4_nn26x"]
+[ext_resource type="Texture2D" uid="uid://dk0cim0hjv4h6" path="res://Assets/Sprites/Icon/1x/Shop_Preview.png" id="6_8bgsp"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_4u1nn"]
+texture = ExtResource("4_nn26x")
+modulate_color = Color(0.498039, 0.498039, 0.498039, 0.498039)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_h4mr7"]
+texture = ExtResource("4_nn26x")
+modulate_color = Color(0.932039, 0.517893, 0.239722, 1)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_km8mm"]
+texture = ExtResource("4_nn26x")
+modulate_color = Color(0.695129, 0.350719, 0.0920385, 1)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_gas0f"]
+texture = ExtResource("4_nn26x")
+modulate_color = Color(0.792157, 0.407843, 0.12549, 1)
 
 [node name="Functional Component" type="Node2D"]
 script = ExtResource("1_3aqkk")
@@ -46,3 +65,45 @@ layout_mode = 2
 
 [node name="Shop Button3" parent="Shop UI Panel/HBoxContainer" instance=ExtResource("2_145or")]
 layout_mode = 2
+
+[node name="Refresh Button" type="Button" parent="Shop UI Panel"]
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 0
+offset_left = 13.0
+offset_top = 9.0
+offset_right = 63.0
+offset_bottom = 59.0
+pivot_offset = Vector2(50, 54)
+focus_mode = 0
+theme_override_constants/outline_size = 8
+theme_override_font_sizes/font_size = 17
+theme_override_styles/disabled = SubResource("StyleBoxTexture_4u1nn")
+theme_override_styles/hover = SubResource("StyleBoxTexture_h4mr7")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_km8mm")
+theme_override_styles/normal = SubResource("StyleBoxTexture_gas0f")
+text = "
+x1 "
+icon = ExtResource("4_145or")
+alignment = 2
+icon_alignment = 1
+expand_icon = true
+
+[node name="Button Shadow" type="TextureRect" parent="Shop UI Panel/Refresh Button"]
+self_modulate = Color(0, 0, 0, 0.278431)
+show_behind_parent = true
+layout_mode = 0
+offset_left = -1.0
+offset_top = 4.0
+offset_right = 49.0
+offset_bottom = 54.0
+texture = ExtResource("4_nn26x")
+expand_mode = 1
+
+[node name="Preview Icon" type="Sprite2D" parent="."]
+z_index = 4
+rotation = 0.785398
+scale = Vector2(1e-05, 1e-05)
+texture = ExtResource("6_8bgsp")
+offset = Vector2(-1.875, -40.371)
+
+[connection signal="pressed" from="Shop UI Panel/Refresh Button" to="." method="_on_refresh_button_pressed"]

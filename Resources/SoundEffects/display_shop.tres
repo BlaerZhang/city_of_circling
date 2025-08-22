@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="SoundEffect" load_steps=3 format=3 uid="uid://wyn3axbbl7a"]
+
+[ext_resource type="Script" uid="uid://hqd0d2kdbu0l" path="res://Scripts/SoundEffectSetting.gd" id="1_pbddi"]
+[ext_resource type="AudioStream" uid="uid://d06w82ma1t1qs" path="res://Assets/Audio/zapsplat_bells_small_bell_shop_door_ring_001_61990.mp3" id="2_pbddi"]
+
+[resource]
+script = ExtResource("1_pbddi")
+limit = 1
+type = 5
+sound_effect = ExtResource("2_pbddi")
+volume = null
+pitch_scale = null
+pitch_randomness = null

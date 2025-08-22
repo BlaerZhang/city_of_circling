@@ -3,13 +3,17 @@ extends Node
 var current_hour: int
 var current_day: int
 
-signal day_changed
+signal time_changed(day: int, hour: int)
+signal day_changed(day: int)
+signal day_3
+signal shop_refresh_time
 
 
 func _ready() -> void:
 	current_hour = 0
 	current_day = 1
 	day_changed.emit()
+	time_changed.emit()
 
 
 func add_one_hour():
@@ -18,3 +22,9 @@ func add_one_hour():
 		current_day += 1
 		current_hour = 0
 		day_changed.emit()
+		if current_day == 3 :
+			day_3.emit()
+	time_changed.emit()
+	
+	if current_hour % 8 == 0:
+		shop_refresh_time.emit()

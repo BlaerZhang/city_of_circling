@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="SoundEffect" load_steps=3 format=3 uid="uid://drxhmtu4siigj"]
+
+[ext_resource type="Script" uid="uid://hqd0d2kdbu0l" path="res://Scripts/SoundEffectSetting.gd" id="1_ow320"]
+[ext_resource type="AudioStream" uid="uid://cnnqkscktmcn6" path="res://Assets/Audio/cashier-quotka-chingquot-sound-effect-129698.mp3" id="2_ow320"]
+
+[resource]
+script = ExtResource("1_ow320")
+limit = 2
+type = 7
+sound_effect = ExtResource("2_ow320")
+volume = -10.0
+pitch_scale = 1.0
+pitch_randomness = 0.0

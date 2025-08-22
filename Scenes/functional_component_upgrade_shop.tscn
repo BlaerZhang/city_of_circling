@@ -1,0 +1,25 @@
+[gd_scene load_steps=4 format=3 uid="uid://d1ohfr5qwq4oq"]
+
+[ext_resource type="Script" uid="uid://diatlt76ge1ds" path="res://Scripts/Grids/upgrade_shop.gd" id="1_6hqnq"]
+[ext_resource type="Texture2D" uid="uid://falk3xqwudge" path="res://Assets/Sprites/Icon/1x/upgrade_available_icon.png" id="2_l72kj"]
+[ext_resource type="Texture2D" uid="uid://dfvyb62dnp75" path="res://Assets/Sprites/Icon/1x/Upgrade_shop_Preview.png" id="3_t63mo"]
+
+[node name="Functional Component" type="Node2D" node_paths=PackedStringArray("upgrade_button_list")]
+script = ExtResource("1_6hqnq")
+upgrade_shop_type = 1
+upgrade_button_list = [null, null]
+
+[node name="Upgrade Available Icon" type="Sprite2D" parent="."]
+z_index = 4
+position = Vector2(-78, -11)
+rotation = 0.785398
+scale = Vector2(1, 1.4)
+texture = ExtResource("2_l72kj")
+offset = Vector2(-1.875, -40.371)
+
+[node name="Preview Icon" type="Sprite2D" parent="."]
+z_index = 4
+rotation = 0.785398
+scale = Vector2(1e-05, 1e-05)
+texture = ExtResource("3_t63mo")
+offset = Vector2(-1.875, -40.371)

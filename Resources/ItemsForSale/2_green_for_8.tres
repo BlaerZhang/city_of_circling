@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="ItemsForSale" load_steps=2 format=3 uid="uid://d3jmcfj0scvkg"]
+
+[ext_resource type="Script" uid="uid://b6hw5ca1j2m70" path="res://Scripts/items_for_sale.gd" id="1_vsxee"]
+
+[resource]
+script = ExtResource("1_vsxee")
+item_name = "green"
+item_count = 2
+price = 8
+belonging_shops = Array[int]([3, 2])
+pool_index = 1
+weight_in_pool = 1.0
+metadata/_custom_type_script = "uid://b6hw5ca1j2m70"

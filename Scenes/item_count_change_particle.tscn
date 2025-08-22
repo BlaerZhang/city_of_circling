@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://cvy6pgutedfcu"]
+[gd_scene load_steps=10 format=3 uid="uid://cvy6pgutedfcu"]
 
 [ext_resource type="Texture2D" uid="uid://dinty7jilgb14" path="res://Assets/Sprites/Icon/1x/apple.png" id="1_tler7"]
 
@@ -8,6 +8,13 @@ point_count = 3
 
 [sub_resource type="CurveTexture" id="CurveTexture_54cj5"]
 curve = SubResource("Curve_tler7")
+
+[sub_resource type="Curve" id="Curve_m1riy"]
+_data = [Vector2(0, 0), 0.0, 30.4536, 0, 0, Vector2(0.0846154, 1), 0.0, 0.0, 0, 0, Vector2(0.951282, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 4
+
+[sub_resource type="CurveTexture" id="CurveTexture_mjxon"]
+curve = SubResource("Curve_m1riy")
 
 [sub_resource type="Curve" id="Curve_54cj5"]
 _limits = [0.0, 0.5, 0.0, 1.0]
@@ -29,6 +36,7 @@ radial_velocity_curve = SubResource("CurveTexture_54cj5")
 gravity = Vector3(0, 0, 0)
 damping_min = 1000.0
 damping_max = 1000.0
+scale_curve = SubResource("CurveTexture_mjxon")
 scale_over_velocity_min = 0.5
 scale_over_velocity_max = 0.5
 scale_over_velocity_curve = SubResource("CurveTexture_m1riy")

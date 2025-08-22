@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="Item" load_steps=3 format=3 uid="uid://b5ooosg0dwt56"]
+
+[ext_resource type="Texture2D" uid="uid://cyfjduf4h1veg" path="res://Assets/Sprites/Icon/1x/upgrade_coupon_of_your_choice.png" id="1_bxj38"]
+[ext_resource type="Script" uid="uid://d0fc2fb7vpwyv" path="res://Scripts/item.gd" id="2_8fdnc"]
+
+[resource]
+script = ExtResource("2_8fdnc")
+item_name = "upgrade coupon of your choice"
+icon = ExtResource("1_bxj38")
+item_type = 4
+metadata/_custom_type_script = "uid://d0fc2fb7vpwyv"

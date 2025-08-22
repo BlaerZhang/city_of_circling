@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://kunmurg1ojej"
+path="res://.godot/imported/error_002.ogg-cd637bd8646cf48405878f455035359b.oggvorbisstr"
+
+[deps]
+
+source_file="res://Assets/Audio/Interface Sound/error_002.ogg"
+dest_files=["res://.godot/imported/error_002.ogg-cd637bd8646cf48405878f455035359b.oggvorbisstr"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

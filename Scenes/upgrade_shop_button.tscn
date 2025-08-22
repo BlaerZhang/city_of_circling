@@ -1,0 +1,59 @@
+[gd_scene load_steps=9 format=3 uid="uid://lkroracoggir"]
+
+[ext_resource type="Texture2D" uid="uid://cy5q8fhujpt5h" path="res://Assets/Sprites/Grid/1x/ui_grid.png" id="1_68vqk"]
+[ext_resource type="Texture2D" uid="uid://cwkjf0ku8pr03" path="res://Assets/Sprites/Icon/1x/remote_quest_acceptance.png" id="2_45h38"]
+[ext_resource type="Script" uid="uid://jt3qro1q1rsg" path="res://Scripts/custom_tooltip.gd" id="3_822lf"]
+
+[sub_resource type="FontVariation" id="FontVariation_1owpj"]
+baseline_offset = -2.0
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_q187p"]
+texture = ExtResource("1_68vqk")
+modulate_color = Color(0.156863, 0.298039, 0.764706, 0.545098)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_q2r72"]
+texture = ExtResource("1_68vqk")
+modulate_color = Color(0.196561, 0.351431, 0.835863, 1)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_1owpj"]
+texture = ExtResource("1_68vqk")
+modulate_color = Color(0.132149, 0.260196, 0.692991, 1)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_aqqmg"]
+texture = ExtResource("1_68vqk")
+modulate_color = Color(0.156863, 0.298039, 0.764706, 1)
+
+[node name="Upgrade shop button" type="Button"]
+show_behind_parent = true
+custom_minimum_size = Vector2(128, 128)
+offset_left = -63.9044
+offset_top = -200.38
+offset_right = 64.0956
+offset_bottom = -72.3804
+pivot_offset = Vector2(64, 201)
+focus_mode = 0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = SubResource("FontVariation_1owpj")
+theme_override_font_sizes/font_size = 19
+theme_override_styles/disabled = SubResource("StyleBoxTexture_q187p")
+theme_override_styles/hover = SubResource("StyleBoxTexture_q2r72")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_1owpj")
+theme_override_styles/normal = SubResource("StyleBoxTexture_aqqmg")
+text = " LV9
+
+"
+icon = ExtResource("2_45h38")
+alignment = 0
+icon_alignment = 1
+expand_icon = true
+script = ExtResource("3_822lf")
+
+[node name="Button shadow" type="TextureRect" parent="."]
+self_modulate = Color(0, 0, 0, 0.501961)
+show_behind_parent = true
+layout_mode = 0
+offset_left = -1.0
+offset_top = 4.0
+offset_right = 127.0
+offset_bottom = 132.0
+texture = ExtResource("1_68vqk")

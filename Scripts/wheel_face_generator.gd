@@ -27,6 +27,7 @@ var _tween: Tween
 var _is_spinning: bool = false
 signal on_end_spin(prize_item: PrizeItems)
 
+var _current_spinning_audio: AudioStreamPlayer
 
 func _draw() -> void:
 	draw_set_transform(pivot_offset, 0.0)
@@ -181,7 +182,7 @@ func get_random_angle_in_sector(target: PrizeItems) -> float:
 	return 0.0
 
 
-func spin_wheel() -> void:
+func spin_wheel(animation_duration: float = 3) -> void:
 	if not is_inside_tree() or _is_spinning: return
 	
 	_is_spinning = true
@@ -202,14 +203,19 @@ func spin_wheel() -> void:
 
 	# 创建 Tween
 	_tween = create_tween()
-	_tween.tween_property(self, "rotation", rotation - TAU / 12, 0.5)\
-		.set_trans(Tween.TRANS_QUAD)\
+	# 第一段动画
+	_tween.tween_property(self, "rotation", rotation - TAU / 12, animation_duration / 6) \
+		.set_trans(Tween.TRANS_QUAD) \
 		.set_ease(Tween.EASE_OUT)
-	#_tween.tween_interval(0.1)
-	_tween.tween_property(self, "rotation", target_rot,  2.0)\
-		.set_trans(Tween.TRANS_EXPO)\
+	# 中途音效（会在第一段结束后执行）
+	_tween.tween_callback(func(): _current_spinning_audio = AudioManager.create_audio(SoundEffect.SOUND_EFFECT_TYPE.SPINNING))
+	# 第二段动画
+	_tween.tween_property(self, "rotation", target_rot, animation_duration * 2/3) \
+		.set_trans(Tween.TRANS_EXPO) \
 		.set_ease(Tween.EASE_OUT)
-	_tween.tween_interval(0.5)
+	# 最后一段停顿
+	_tween.tween_interval(animation_duration / 6)
+	# 结束回调
 	_tween.tween_callback(_on_spin_finished.bind(_target_prize))
 
 
@@ -217,3 +223,5 @@ func _on_spin_finished(prize_item: PrizeItems):
 	_is_spinning = false
 	print("Spin Wheel Result: " + prize_item.prize_name_text)
 	on_end_spin.emit(prize_item)
+	if _current_spinning_audio: _current_spinning_audio.volume_db = -9999999
+	AudioManager.create_audio(SoundEffect.SOUND_EFFECT_TYPE.SPIN_END)

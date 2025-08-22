@@ -6,6 +6,10 @@ extends FunctionalGridComponent
 var wheel_manager: WheelManager
 @onready var shop_ui_panel:= $"Shop UI Panel"
 @onready var item_slots_parent:= $"Shop UI Panel/HBoxContainer"
+@onready var refresh_button:= $"Shop UI Panel/Refresh Button"
+@onready var arrive_preview:= $"Preview Icon"
+var bypass_tween: Tween
+var preview_target_scale: Vector2 = Vector2.ZERO
 var prize_source_type: PrizeItems.Source:
 	get:
 		return shop_type as PrizeItems.Source
@@ -22,9 +26,14 @@ func _ready() -> void:
 	load_items_for_sale_to_pools()
 	restock_shop()
 	update_slots_state()
+	update_refresh_button()
 	shop_ui_panel.position = shop_ui_panel_offset
 	shop_ui_panel.scale = Vector2.ZERO
 	GameManager.game_state_changed.connect(update_slots_state)
+	GameManager.game_state_changed.connect(update_refresh_button)
+	UpgradeManager.upgrade_added.connect(on_upgrade_added)
+	TimeManager.shop_refresh_time.connect(restock_shop)
+	ResourceManager.item_count_changed.connect(func(item_name: String, count: int, change_amount: int, source_pos: Vector2): update_refresh_button())
 
 
 func load_items_for_sale_to_pools():
@@ -80,8 +89,8 @@ func generate_item_slots(items_in_slots_list: Array[ItemsForSale]):
 		item_slots_parent.add_child(item_slot)
 		
 		var price_label: RichTextLabel = item_slot.get_node("Price Label")
-		price_label.text = "%d [img=30x30]res://Assets/Sprites/Icon/1x/exchange coupon.png[/img]" % item_for_sale.price
-		item_slot.text = "\nx%d" % item_for_sale.item_count
+		price_label.text = "%d [img=15x30]res://Assets/Sprites/Icon/1x/exchange coupon.png[/img]" % item_for_sale.price
+		item_slot.text = "\nx%d " % item_for_sale.item_count
 		item_slot.icon = ResourceManager.get_item_sprite(item_for_sale.item_name)
 		item_slot.pressed.connect(on_item_slot_pressed.bind(item_slot, item_for_sale))
 		item_slot.tooltip_text = "%s x%d\nPrice: %d" % [item_for_sale.item_name.capitalize(), item_for_sale.item_count, item_for_sale.price]
@@ -95,7 +104,7 @@ func update_slots_state():
 	#Idle State && Player at shop
 	for item_slot: Button in current_items_for_sale_and_slots.keys():
 		var price_label: RichTextLabel = item_slot.get_node("Price Label")
-		if is_player_at_this_grid && GameManager.current_game_state == GameManager.GameState.Idle:
+		if is_player_arrived && GameManager.current_game_state == GameManager.GameState.Idle:
 			item_slot.disabled = false
 		else:
 			item_slot.disabled = true
@@ -107,7 +116,24 @@ func update_slots_state():
 		elif current_items_for_sale_and_slots[item_slot].item_name.to_lower() in ["rainbow", "white"]:
 			if !is_rainbow_white_ball_unlocked:
 				item_slot.disabled = true
-				price_label.text = "LOCKED"
+				price_label.text = "[img=25x25]res://Assets/Sprites/Icon/1x/lock_icon.png[/img]"
+			else:
+				price_label.text = "%d [img=15x30]res://Assets/Sprites/Icon/1x/exchange coupon.png[/img]" % current_items_for_sale_and_slots[item_slot].price
+
+
+func update_refresh_button():
+	#update ui
+	if UpgradeManager.get_upgrade_level("shop refresh +") > 0:
+		refresh_button.visible = true
+		refresh_button.text = "\nx%s " % ResourceManager.get_item_count("shop refresh")
+	else:
+		refresh_button.visible = false
+	
+	#update state
+	if is_player_arrived && GameManager.current_game_state == GameManager.GameState.Idle:
+		refresh_button.disabled = false
+	else:
+		refresh_button.disabled = true
 
 
 func on_item_slot_pressed(item_slot: Button, item_for_sale: ItemsForSale):
@@ -122,7 +148,7 @@ func on_item_slot_pressed(item_slot: Button, item_for_sale: ItemsForSale):
 		else:
 			current_items_for_sale_and_slots[item_slot] = null
 		update_slots_state()
-	else:
+	else: #Insufficient Money feedback
 		#TODO:play sound
 		var slot_tween = create_tween().set_loops(2)
 		slot_tween.tween_property(item_slot, "modulate", Color.RED, 0.1).set_trans(Tween.TRANS_EXPO)
@@ -133,7 +159,9 @@ func arrive() -> void:
 	#print("Show Shop UI:" + str(shop_type))
 	var show_shop_tween = create_tween()
 	show_shop_tween.tween_property(shop_ui_panel, "scale", Vector2.ONE, 0.5).set_trans(Tween.TRANS_EXPO)
+	AudioManager.create_audio(SoundEffect.SOUND_EFFECT_TYPE.DISPLAY_SHOP)
 	update_slots_state()
+	update_refresh_button()
 
 
 func depart() -> void:
@@ -141,4 +169,46 @@ func depart() -> void:
 		#print("Hide Shop UI:" + str(shop_type))
 		var hide_shop_tween = create_tween()
 		hide_shop_tween.tween_property(shop_ui_panel, "scale", Vector2.ZERO, 0.5).set_trans(Tween.TRANS_EXPO)
+		AudioManager.create_audio(SoundEffect.SOUND_EFFECT_TYPE.HIDE_SHOP)
 	update_slots_state()
+	update_refresh_button()
+
+
+func try_arrive(arrive: bool):
+	var new_target = Vector2(1.0, 1.4) if arrive else Vector2.ZERO
+	var ease = Tween.EASE_OUT if arrive else Tween.EASE_IN
+	
+	if preview_target_scale == new_target:
+		return
+	preview_target_scale = new_target
+	
+	if bypass_tween and bypass_tween.is_valid():
+		bypass_tween.kill()
+		
+	bypass_tween = create_tween()
+	bypass_tween.tween_property(
+		arrive_preview,
+		"scale",
+		new_target,
+		0.2
+	).set_ease(ease).set_trans(Tween.TRANS_EXPO)
+
+
+func on_upgrade_added(upgrade: Upgrade):
+	match upgrade.upgrade_name:
+		"remote view store":
+			is_remote_view_unlocked = true
+			var show_shop_tween = create_tween()
+			show_shop_tween.tween_property(shop_ui_panel, "scale", Vector2.ONE, 0.5).set_trans(Tween.TRANS_EXPO)
+			update_slots_state()
+			AudioManager.create_audio(SoundEffect.SOUND_EFFECT_TYPE.DISPLAY_SHOP)
+		"unlock rainbow white ball":
+			is_rainbow_white_ball_unlocked = true
+			update_slots_state()
+		"shop refresh +":
+			await get_tree().create_timer(0.1).timeout
+
+
+func _on_refresh_button_pressed() -> void:
+	if ResourceManager.try_pay_item("shop refresh", 1, Vector2.ZERO):
+		restock_shop()

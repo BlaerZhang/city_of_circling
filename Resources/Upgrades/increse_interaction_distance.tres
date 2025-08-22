@@ -1,0 +1,16 @@
+[gd_resource type="Resource" script_class="Upgrade" load_steps=3 format=3 uid="uid://b2bmpsmtupqe7"]
+
+[ext_resource type="Script" uid="uid://deas45k8roqd" path="res://Scripts/upgrade.gd" id="1_8y2b3"]
+[ext_resource type="Texture2D" uid="uid://c1lqqcsy2ltre" path="res://Assets/Sprites/Icon/1x/increse_interaction_distance.png" id="2_wdtf4"]
+
+[resource]
+script = ExtResource("1_8y2b3")
+upgrade_name = "increase interaction distance"
+upgrade_icon = ExtResource("2_wdtf4")
+description = "Increase the interaction radius to interact with adjacent grids.  (Time only increases when you move)"
+effect_delta_per_level = 1
+upgrade_type = 1
+shop_slot_index = 1
+slot_order = 1
+upgrade_cost_per_level = Array[int]([3])
+metadata/_custom_type_script = "uid://deas45k8roqd"

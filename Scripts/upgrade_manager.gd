@@ -26,18 +26,23 @@ func load_all_upgrades():
 		dir.list_dir_end()
 
 
-func add_upgrade(upgrade: Upgrade):
+func add_upgrade(upgrade):
+	var upgrade_name: String
+	if upgrade is Upgrade:
+		upgrade_name = upgrade_database.find_key(upgrade)
+	elif upgrade is String:
+		upgrade_name = upgrade.to_lower()
 	
-	if (upgrades_owned.has(upgrade.upgrade_name)):
-		upgrades_owned[upgrade.upgrade_name] += 1
+	if upgrades_owned.has(upgrade_name):
+		upgrades_owned[upgrade_name] += 1
 	else:
-		upgrades_owned[upgrade.upgrade_name] = 1
+		upgrades_owned.get_or_add(upgrade_name, 1)
 	
 	upgrade_added.emit(upgrade)
 
 
 func get_upgrade_level(upgrade) -> int:
-	if (upgrade is not String) or (!upgrade is not Upgrade): return -1
+	if (upgrade is not String) and (upgrade is not Upgrade): return -1
 	
 	var _current_level: int = 0
 	
@@ -45,9 +50,14 @@ func get_upgrade_level(upgrade) -> int:
 	if upgrade is Upgrade:
 		_upgrade_name = upgrade_database.find_key(upgrade)
 	elif upgrade is String:
-		_upgrade_name = upgrade
+		_upgrade_name = upgrade.to_lower()
 		
 	if upgrades_owned.has(_upgrade_name):
 		_current_level = upgrades_owned[_upgrade_name]
 		
 	return _current_level
+
+
+func get_upgrade_level_by_slot_index_and_order(upgrade_type: ItemsForSale.ShopType, slot_index: int, order: int) -> int:
+	
+	return 0

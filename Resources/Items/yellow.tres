@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="Item" load_steps=3 format=3 uid="uid://b8f1nggs2j8yr"]
+
+[ext_resource type="Texture2D" uid="uid://0sqey8fb61ce" path="res://Assets/Sprites/Icon/1x/yellow.png" id="1_u5fer"]
+[ext_resource type="Script" uid="uid://d0fc2fb7vpwyv" path="res://Scripts/item.gd" id="2_ktv36"]
+
+[resource]
+script = ExtResource("2_ktv36")
+item_name = "yellow"
+icon = ExtResource("1_u5fer")
+item_type = 2
+metadata/_custom_type_script = "uid://d0fc2fb7vpwyv"

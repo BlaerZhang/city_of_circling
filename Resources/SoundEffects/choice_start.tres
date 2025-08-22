@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="SoundEffect" load_steps=3 format=3 uid="uid://pmi8rjhburdl"]
+
+[ext_resource type="Script" uid="uid://hqd0d2kdbu0l" path="res://Scripts/SoundEffectSetting.gd" id="1_17eut"]
+[ext_resource type="AudioStream" uid="uid://bgqlkrrfawaxd" path="res://Assets/Audio/zapsplat_multimedia_button_click_fast_wooden_organic_004_78838.mp3" id="2_17eut"]
+
+[resource]
+script = ExtResource("1_17eut")
+limit = 1
+type = 18
+sound_effect = ExtResource("2_17eut")
+volume = 0.0
+pitch_scale = 1.0
+pitch_randomness = 0.0

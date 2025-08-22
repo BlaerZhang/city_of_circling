@@ -1,6 +1,23 @@
-[gd_scene load_steps=2 format=3 uid="uid://l713x8bwjq1c"]
+[gd_scene load_steps=7 format=3 uid="uid://l713x8bwjq1c"]
 
-[ext_resource type="Texture2D" uid="uid://5m7dg6hcwrif" path="res://Assets/Sprites/Icon/1x/trade upgrade coupon.png" id="1_mte63"]
+[ext_resource type="Texture2D" uid="uid://cy5q8fhujpt5h" path="res://Assets/Sprites/Grid/1x/ui_grid.png" id="1_wdufh"]
+[ext_resource type="Texture2D" uid="uid://0sqey8fb61ce" path="res://Assets/Sprites/Icon/1x/yellow.png" id="2_wdufh"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_4u1nn"]
+texture = ExtResource("1_wdufh")
+modulate_color = Color(0.498039, 0.498039, 0.498039, 0.498039)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_h4mr7"]
+texture = ExtResource("1_wdufh")
+modulate_color = Color(0.932039, 0.517893, 0.239722, 1)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_km8mm"]
+texture = ExtResource("1_wdufh")
+modulate_color = Color(0.695129, 0.350719, 0.0920385, 1)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_gas0f"]
+texture = ExtResource("1_wdufh")
+modulate_color = Color(0.792157, 0.407843, 0.12549, 1)
 
 [node name="Shop Button1" type="Button"]
 custom_minimum_size = Vector2(100, 100)
@@ -10,9 +27,13 @@ pivot_offset = Vector2(50, 54)
 focus_mode = 0
 theme_override_constants/outline_size = 15
 theme_override_font_sizes/font_size = 36
+theme_override_styles/disabled = SubResource("StyleBoxTexture_4u1nn")
+theme_override_styles/hover = SubResource("StyleBoxTexture_h4mr7")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_km8mm")
+theme_override_styles/normal = SubResource("StyleBoxTexture_gas0f")
 text = "
-x1"
-icon = ExtResource("1_mte63")
+x1 "
+icon = ExtResource("2_wdufh")
 alignment = 2
 icon_alignment = 1
 expand_icon = true
@@ -29,7 +50,18 @@ grow_vertical = 0
 theme_override_constants/outline_size = 10
 theme_override_font_sizes/normal_font_size = 30
 bbcode_enabled = true
-text = "3 [img=30x30]res://Assets/Sprites/Icon/1x/exchange coupon.png[/img]"
+text = "3 [img=15x30]res://Assets/Sprites/Icon/1x/exchange coupon.png[/img]"
 scroll_active = false
 shortcut_keys_enabled = false
 horizontal_alignment = 1
+
+[node name="Button Shadow" type="TextureRect" parent="."]
+self_modulate = Color(0, 0, 0, 0.278431)
+show_behind_parent = true
+layout_mode = 0
+offset_left = -3.0
+offset_top = 8.0
+offset_right = 97.0
+offset_bottom = 116.0
+texture = ExtResource("1_wdufh")
+expand_mode = 1

@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://xepejo07uoy7"
+path="res://.godot/imported/maximize_004.ogg-0b49995912ca487bab19f6665d7e6203.oggvorbisstr"
+
+[deps]
+
+source_file="res://Assets/Audio/Interface Sound/maximize_004.ogg"
+dest_files=["res://.godot/imported/maximize_004.ogg-0b49995912ca487bab19f6665d7e6203.oggvorbisstr"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

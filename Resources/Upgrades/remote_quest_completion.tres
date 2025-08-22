@@ -1,0 +1,16 @@
+[gd_resource type="Resource" script_class="Upgrade" load_steps=3 format=3 uid="uid://rb4y6ov5syh2"]
+
+[ext_resource type="Script" uid="uid://deas45k8roqd" path="res://Scripts/upgrade.gd" id="1_265sb"]
+[ext_resource type="Texture2D" uid="uid://b6ffgf2oem8ns" path="res://Assets/Sprites/Icon/1x/remote_quest_completion.png" id="2_v0qfq"]
+
+[resource]
+script = ExtResource("1_265sb")
+upgrade_name = "remote quest completion"
+upgrade_icon = ExtResource("2_v0qfq")
+description = "NPCs' Fruit Quests can be submitted remotely."
+effect_delta_per_level = 1
+upgrade_type = 0
+shop_slot_index = 1
+slot_order = 1
+upgrade_cost_per_level = Array[int]([3])
+metadata/_custom_type_script = "uid://deas45k8roqd"

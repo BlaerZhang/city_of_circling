@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="SoundEffect" load_steps=3 format=3 uid="uid://cup7xv7kgetqj"]
+
+[ext_resource type="Script" uid="uid://hqd0d2kdbu0l" path="res://Scripts/SoundEffectSetting.gd" id="1_uea13"]
+[ext_resource type="AudioStream" uid="uid://dna24pfk4v7qc" path="res://Assets/Audio/zapsplat_multimedia_pop_up_tone_short_011_78863.mp3" id="2_uea13"]
+
+[resource]
+script = ExtResource("1_uea13")
+limit = 1
+type = 11
+sound_effect = ExtResource("2_uea13")
+volume = 0.0
+pitch_scale = 1.0
+pitch_randomness = 0.2

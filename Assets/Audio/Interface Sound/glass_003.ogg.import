@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://burofhedgs88h"
+path="res://.godot/imported/glass_003.ogg-a531ee75e9630fb3c211113439c98947.oggvorbisstr"
+
+[deps]
+
+source_file="res://Assets/Audio/Interface Sound/glass_003.ogg"
+dest_files=["res://.godot/imported/glass_003.ogg-a531ee75e9630fb3c211113439c98947.oggvorbisstr"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

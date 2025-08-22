@@ -1,0 +1,16 @@
+[gd_resource type="Resource" script_class="Upgrade" load_steps=3 format=3 uid="uid://ruu8cw78y2on"]
+
+[ext_resource type="Script" uid="uid://deas45k8roqd" path="res://Scripts/upgrade.gd" id="1_e4vnm"]
+[ext_resource type="Texture2D" uid="uid://lmckrsxj08xl" path="res://Assets/Sprites/Icon/1x/remote_view_store.png" id="2_2w6u2"]
+
+[resource]
+script = ExtResource("1_e4vnm")
+upgrade_name = "remote view store"
+upgrade_icon = ExtResource("2_2w6u2")
+description = "Shop can now be viewed remotely."
+effect_delta_per_level = 1
+upgrade_type = 3
+shop_slot_index = 1
+slot_order = 0
+upgrade_cost_per_level = Array[int]([2])
+metadata/_custom_type_script = "uid://deas45k8roqd"
