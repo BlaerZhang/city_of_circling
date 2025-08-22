@@ -1832,6 +1832,7 @@ layout_mode = 2
 item_name = "lottery upgrade coupon"
 
 [node name="Title" type="RichTextLabel" parent="Board/In-world UI/Upgrade Coupon UI Panel"]
+layout_mode = 0
 offset_right = 194.0
 offset_bottom = 83.0
 theme_override_colors/default_color = Color(0, 0, 0, 1)

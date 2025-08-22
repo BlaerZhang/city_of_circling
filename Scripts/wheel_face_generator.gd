@@ -9,12 +9,14 @@ extends Control
 @export var inner_radius: int = 64
 @export var line_width: int = 4
 
-var prize_item_label_scene = preload("res://Scenes/prize_item_rich_text_label.tscn")
+var prize_items_label_scene = preload("res://Scenes/prize_item_rich_text_label.tscn")
 @export var text_font: Font
 @export var text_width: float = -1
 @export var text_size: float = 16
 @export var text_color: Color = Color.BLACK
 @export var text_radius: float = 8
+@export var icon_height: float = 24.0   # 控制图标高度
+@export var icon_spacing: float = 4.0   # 图标间距
 
 var prize_list: Array[PrizeItems]
 @export var current_source: PrizeItems.Source
@@ -25,7 +27,7 @@ var _current_total_weight: float = 0.0
 var _target_prize: PrizeItems
 var _tween: Tween
 var _is_spinning: bool = false
-signal on_end_spin(prize_item: PrizeItems)
+signal on_end_spin(prize_items: PrizeItems)
 
 var _current_spinning_audio: AudioStreamPlayer
 
@@ -37,9 +39,9 @@ func _draw() -> void:
 	#draw sectors and content
 	var cumulative_weight := 0.0
 	for i in len(prize_list):
-		var prize_item = prize_list[i]
+		var prize_items: PrizeItems = prize_list[i]
 		var start_rads = TAU * cumulative_weight / _current_total_weight
-		cumulative_weight += prize_item.weight_in_pool
+		cumulative_weight += prize_items.weight_in_pool
 		var end_rads = TAU * cumulative_weight / _current_total_weight
 		var mid_rads = (start_rads + end_rads) / 2.0
 		var radius_mid = (inner_radius + outer_radius) / 2
@@ -60,45 +62,90 @@ func _draw() -> void:
 			PackedColorArray([sector_color_palette[i%len(sector_color_palette)]])
 		)
 		
-		#var label_instance: RichTextLabel = prize_item_label_scene.instantiate()
+		#var label_instance: RichTextLabel = prize_items_label_scene.instantiate()
 		#label_instance.position = Vector2.from_angle(mid_rads) * radius_mid
 		#label_instance.rotation = mid_rads
-		#label_instance.text = prize_item.prize_name_text
+		#label_instance.text = prize_items.prize_name_text
 		#add_child(label_instance)
 		
 	
+		# --- 绘制文字 ---
 		var text_size_factor = clampf(sqrt((end_rads - start_rads) * 4 / TAU), 0.5, 1)
-		
 		var font = ThemeDB.fallback_font
 		var font_size = text_size * text_size_factor
 
 		# 获取文本尺寸
-		var text_size_vec = font.get_string_size(prize_item.prize_name_text, HORIZONTAL_ALIGNMENT_LEFT, -1, font_size)
+		var text_size_vec = font.get_string_size(prize_items.prize_name_text, HORIZONTAL_ALIGNMENT_LEFT, -1, font_size)
 		var ascent = font.get_ascent(font_size)
 
-		# 水平居中 + 垂直居中修正
-		var draw_offset = Vector2(-text_size_vec.x / 2.0, ascent / 2.0)
+		# 文本居中偏移
+		var text_offset = Vector2(-text_size_vec.x / 2.0, ascent / 2.0)
 
-		# 设置局部变换（先平移再旋转）
-		draw_set_transform(Vector2.from_angle(mid_rads) * radius_mid+pivot_offset, mid_rads)
+		# 设置局部变换（文字 & 图标共用这个旋转）
+		draw_set_transform(Vector2.from_angle(mid_rads) * radius_mid + pivot_offset, mid_rads)
 
-		# 使用左对齐 + 居中位置偏移绘制
+		# 绘制文字
 		draw_string(
 			font,
-			draw_offset,
-			prize_item.prize_name_text,
+			text_offset,
+			prize_items.prize_name_text,
 			HORIZONTAL_ALIGNMENT_LEFT,
 			-1,
 			font_size,
 			text_color
 		)
 
+
+		# --- 绘制图标 ---
+		var icon_count = 0
+		var scaled_widths: Array[float] = []
+
+		# 先统计所有图标（含重复数量）
+		for item: String in prize_items.item_list.keys():
+			var count: int = prize_items.item_list[item]
+			var icon_tex: Texture2D = ResourceManager.get_item_icon(item.to_lower())
+			if icon_tex:
+				var tex_size = icon_tex.get_size()
+				var scale = icon_height / tex_size.y
+				var new_width = tex_size.x * scale
+				for k in count:
+					scaled_widths.append(new_width)
+					icon_count += 1
+
+		# 计算总宽度
+		var total_icon_width = 0.0
+		for w in scaled_widths:
+			total_icon_width += w
+		if icon_count > 0:
+			total_icon_width += (icon_count - 1) * icon_spacing
+
+		# 起始 X（让整排图标居中）
+		var start_x = -total_icon_width / 2.0
+		var icon_y = text_offset.y + font_size + icon_spacing
+
+		# 逐个绘制
+		var current_x = start_x
+		for item: String in prize_items.item_list.keys():
+			var count: int = prize_items.item_list[item]
+			var icon_tex: Texture2D = ResourceManager.get_item_icon(item.to_lower())
+			if icon_tex:
+				var tex_size = icon_tex.get_size()
+				var scale = icon_height / tex_size.y
+				var draw_size = Vector2(tex_size.x * scale, icon_height)
+				for k in count:
+					var pos = Vector2(current_x, icon_y)
+					draw_texture_rect(icon_tex, Rect2(pos, draw_size), false)
+					current_x += draw_size.x + icon_spacing
+
+
+		# 恢复默认变换
 		draw_set_transform(pivot_offset, 0.0)
+
 		
 	#draw separator lines
 	for i in len(prize_list):
-		var prize_item = prize_list[i]
-		cumulative_weight += prize_item.weight_in_pool
+		var prize_items = prize_list[i]
+		cumulative_weight += prize_items.weight_in_pool
 		var end_rads = TAU * cumulative_weight / _current_total_weight
 		var radius_mid = (inner_radius + outer_radius) / 2
 		var line_point = Vector2.from_angle(end_rads)
@@ -148,8 +195,8 @@ func load_prize_list(source: PrizeItems.Source):
 func update_current_total_weight():
 	if len(prize_list) > 0:
 		_current_total_weight = 0.0
-		for prize_item in prize_list:
-			_current_total_weight += prize_item.weight_in_pool
+		for prize_items in prize_list:
+			_current_total_weight += prize_items.weight_in_pool
 
 
 func setup_wheel(prize_source: PrizeItems.Source):
@@ -162,19 +209,19 @@ func setup_wheel(prize_source: PrizeItems.Source):
 func pick_random_prize() -> PrizeItems:
 	var rand = randf() * _current_total_weight
 	var cumulative := 0.0
-	for prize_item in prize_list:
-		cumulative += prize_item.weight_in_pool
+	for prize_items in prize_list:
+		cumulative += prize_items.weight_in_pool
 		if rand <= cumulative:
-			return prize_item
+			return prize_items
 	return prize_list.back()
 
 
 func get_random_angle_in_sector(target: PrizeItems) -> float:
 	var cumulative := 0.0
-	for prize_item in prize_list:
+	for prize_items in prize_list:
 		var start = cumulative
-		cumulative += prize_item.weight_in_pool
-		if prize_item == target:
+		cumulative += prize_items.weight_in_pool
+		if prize_items == target:
 			var start_rads = TAU * start / _current_total_weight
 			var end_rads = TAU * cumulative / _current_total_weight
 			# 随机一个区间内的角度
@@ -219,9 +266,9 @@ func spin_wheel(animation_duration: float = 3) -> void:
 	_tween.tween_callback(_on_spin_finished.bind(_target_prize))
 
 
-func _on_spin_finished(prize_item: PrizeItems):
+func _on_spin_finished(prize_items: PrizeItems):
 	_is_spinning = false
-	print("Spin Wheel Result: " + prize_item.prize_name_text)
-	on_end_spin.emit(prize_item)
+	print("Spin Wheel Result: " + prize_items.prize_name_text)
+	on_end_spin.emit(prize_items)
 	if _current_spinning_audio: _current_spinning_audio.volume_db = -9999999
 	AudioManager.create_audio(SoundEffect.SOUND_EFFECT_TYPE.SPIN_END)

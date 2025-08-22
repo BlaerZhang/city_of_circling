@@ -87,7 +87,7 @@ func toggle_outline(switch: bool):
 	match switch:
 		true:
 			var show_outline_tween = create_tween()
-			show_outline_tween.tween_property(ui_outline, "self_modulate", Color.WHITE, 0.1)
+			show_outline_tween.tween_property(ui_outline, "self_modulate", Color.YELLOW, 0.1)
 		false:
 			var hide_outline_tween = create_tween()
 			hide_outline_tween.tween_property(ui_outline, "self_modulate", Color.TRANSPARENT, 0.2)

@@ -22,6 +22,7 @@ var is_in_draw = false:
 		spin_button.disabled = value
 		is_in_draw = value
 var spin_speed_up:= false
+var is_mouse_over:= false
 signal draw_finished
 signal choice_made
 signal choice_finished
@@ -38,7 +39,7 @@ func _process(delta: float) -> void:
 	#if (Input.is_action_just_pressed("test")):
 		#wheel_face.setup_wheel(PrizeItems.Source.Affairs) #for test
 		#show_ui(self)
-	if Input.is_action_just_pressed("right_click"):
+	if Input.is_action_just_pressed("left_click") && !is_mouse_over:
 		if not wheel_face._is_spinning && not is_in_draw:
 			spin_button.disabled = true
 			hide_ui(self)
@@ -151,3 +152,13 @@ func _on_spin_button_pressed() -> void:
 
 func _on_close_button_pressed() -> void:
 	hide_ui(self)
+
+
+func _on_mouse_entered() -> void:
+	is_mouse_over = true
+	#print("Mouse Enter Face")
+
+
+func _on_mouse_exited() -> void:
+	is_mouse_over = false
+	#print("Mouse Exit Face")
