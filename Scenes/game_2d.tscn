@@ -1,4 +1,4 @@
-[gd_scene load_steps=108 format=3 uid="uid://c6e414gy1cwn5"]
+[gd_scene load_steps=104 format=3 uid="uid://c6e414gy1cwn5"]
 
 [ext_resource type="Script" uid="uid://tdlox2h37vxw" path="res://Scripts/test_input.gd" id="1_pqs0o"]
 [ext_resource type="PackedScene" uid="uid://b8imxf8a6f2lg" path="res://Scenes/spin_wheel.tscn" id="1_ru8g0"]
@@ -24,24 +24,20 @@
 [ext_resource type="Texture2D" uid="uid://cwrst66x6eyxa" path="res://Assets/Sprites/Icon/1x/banana.png" id="13_mdahh"]
 [ext_resource type="PackedScene" uid="uid://dudejnhqfh51r" path="res://Scenes/functional_component_shop.tscn" id="15_d0cs8"]
 [ext_resource type="PackedScene" uid="uid://dcpcolpctf6n0" path="res://Scenes/resource_ui_grid.tscn" id="15_j40bd"]
-[ext_resource type="Texture2D" uid="uid://dthxjcsgear7b" path="res://Assets/Sprites/Icon/1x/资源 43.png" id="16_ef4aw"]
 [ext_resource type="Texture2D" uid="uid://cm5vubrw6llx7" path="res://Assets/Sprites/Grid/1x/ui_grid_large.png" id="16_wox2a"]
-[ext_resource type="Texture2D" uid="uid://clonj33faxgfy" path="res://Assets/Sprites/Icon/1x/资源 45.png" id="17_ax4ai"]
-[ext_resource type="Texture2D" uid="uid://k4pq5hcev8qd" path="res://Assets/Sprites/Icon/1x/资源 49.png" id="17_ef4aw"]
 [ext_resource type="Texture2D" uid="uid://baknh18j5v6ui" path="res://Assets/Sprites/Icon/1x/exchange coupon.png" id="17_g1qwh"]
-[ext_resource type="Texture2D" uid="uid://bthnlsfg0y168" path="res://Assets/Sprites/Icon/1x/资源 47.png" id="17_owh20"]
-[ext_resource type="Texture2D" uid="uid://conx150i7sp7j" path="res://Assets/Sprites/Icon/1x/资源 46.png" id="18_weo3y"]
 [ext_resource type="Texture2D" uid="uid://cgbh0yfyl4rr8" path="res://Assets/Sprites/Grid/1x/Lottery_tile.png" id="20_874u5"]
 [ext_resource type="Texture2D" uid="uid://cpwbam4wawrjj" path="res://Assets/Sprites/Icon/1x/mango.png" id="20_dvnqc"]
-[ext_resource type="Texture2D" uid="uid://di63a8i525av8" path="res://Assets/Sprites/Icon/1x/资源 44.png" id="21_deb36"]
-[ext_resource type="Texture2D" uid="uid://n17hueokle7o" path="res://Assets/Sprites/Icon/1x/资源 39.png" id="22_qj3gt"]
-[ext_resource type="Texture2D" uid="uid://ce6v23fsb0a2k" path="res://Assets/Sprites/Icon/1x/资源 48.png" id="23_24vta"]
 [ext_resource type="Texture2D" uid="uid://dinty7jilgb14" path="res://Assets/Sprites/Icon/1x/apple.png" id="24_vg072"]
 [ext_resource type="Texture2D" uid="uid://fihoyd0f662r" path="res://Assets/Sprites/Grid/1x/NPC (5).png" id="25_80uim"]
+[ext_resource type="Texture2D" uid="uid://cd0s37mfeoe8" path="res://Assets/Sprites/Icon/1x/blue.png" id="25_yiyb4"]
 [ext_resource type="Texture2D" uid="uid://kayoirvwf8bf" path="res://Assets/Sprites/Grid/1x/NPC (4).png" id="26_lu7og"]
+[ext_resource type="Texture2D" uid="uid://cvy0itypb0q1e" path="res://Assets/Sprites/Icon/1x/red.png" id="28_pqs0o"]
 [ext_resource type="Texture2D" uid="uid://qyq5cy7ts0j1" path="res://Assets/Sprites/Grid/1x/Trade_tile.png" id="28_q2r72"]
 [ext_resource type="Texture2D" uid="uid://dk1nvku7uudyi" path="res://Assets/Sprites/Grid/1x/NPC (6).png" id="29_nxrph"]
 [ext_resource type="Texture2D" uid="uid://7hw3qvy8qkap" path="res://Assets/Sprites/Grid/1x/Affair_tile.png" id="31_q187p"]
+[ext_resource type="Texture2D" uid="uid://0sqey8fb61ce" path="res://Assets/Sprites/Icon/1x/yellow.png" id="32_34x56"]
+[ext_resource type="Texture2D" uid="uid://b28o0fpr5uhhj" path="res://Assets/Sprites/Icon/1x/white.png" id="35_apgn6"]
 [ext_resource type="Script" uid="uid://l0kyl2xsshwi" path="res://Scripts/time_ui.gd" id="38_4d1v3"]
 [ext_resource type="Texture2D" uid="uid://1f1pkyq3oliq" path="res://Assets/Sprites/Grid/1x/upgrades_ui_button.png" id="41_acjk4"]
 [ext_resource type="Texture2D" uid="uid://c7qbvwcthokxi" path="res://Assets/Sprites/Grid/1x/upgrade_display_bar.png" id="42_3lc3d"]
@@ -1107,36 +1103,6 @@ texture = ExtResource("41_acjk4")
 [node name="Game2d" type="Node2D"]
 script = ExtResource("1_pqs0o")
 
-[node name="UI" type="Control" parent="."]
-layout_mode = 3
-anchors_preset = 0
-offset_right = 1920.0
-offset_bottom = 1080.0
-pivot_offset = Vector2(960, 540)
-mouse_filter = 2
-
-[node name="Spin Wheel" parent="UI" instance=ExtResource("1_ru8g0")]
-unique_name_in_owner = true
-z_index = 99
-layout_mode = 1
-hide_y_offset = 1920.0
-show_y_offset = 1080.0
-
-[node name="RichTextLabel" type="RichTextLabel" parent="UI"]
-visible = false
-z_index = 1000
-custom_minimum_size = Vector2(300, 150)
-layout_mode = 0
-offset_right = 300.0
-offset_bottom = 345.0
-bbcode_enabled = true
-text = "[center][b][font_size=24]QUEST REWARD +[/font_size][/b]
-
-+ 3 → + 4
-exchange coupon from quest reward
-Lv. 3 → 4 / 5[/center][right][img=20]res://Assets/Sprites/Icon/1x/traffic upgrade coupon.png[/img] [font_size=30]3[/font_size][/right]"
-scroll_active = false
-
 [node name="Player" type="Node2D" parent="."]
 position = Vector2(1021, 514)
 
@@ -1147,6 +1113,7 @@ player_initial_grid_pos = Vector2i(6, 3)
 player_initial_facing = Vector2i(1, 0)
 outline_selected_color = Color(0.976471, 0.423529, 0.156863, 1)
 outline_available_color = Color(0.529412, 0.721569, 0.309804, 1)
+step_time = 0.35
 
 [node name="Player Sprite" type="Sprite2D" parent="Player"]
 z_index = 5
@@ -1366,12 +1333,12 @@ shop_ui_panel_offset = Vector2(343.666, -190)
 [node name="Basic Ball Icon" type="Sprite2D" parent="Board/Grids/Grid_9_4"]
 position = Vector2(-37.8264, -38.0289)
 scale = Vector2(0.5, 0.5)
-texture = ExtResource("22_qj3gt")
+texture = ExtResource("25_yiyb4")
 
 [node name="Shop Type Icon" type="Sprite2D" parent="Board/Grids/Grid_9_4"]
 position = Vector2(0, 11.527)
-scale = Vector2(0.35, 0.35)
-texture = ExtResource("23_24vta")
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("57_kh3n4")
 
 [node name="Grid_10_4" parent="Board/Grids" instance=ExtResource("6_xt382")]
 position = Vector2(450, 182)
@@ -1410,12 +1377,12 @@ shop_ui_panel_offset = Vector2(-308.7, -333)
 [node name="Basic Ball Icon" type="Sprite2D" parent="Board/Grids/Grid_9_0"]
 position = Vector2(-37.8264, -38.0289)
 scale = Vector2(0.5, 0.5)
-texture = ExtResource("17_ax4ai")
+texture = ExtResource("28_pqs0o")
 
 [node name="Shop Type Icon" type="Sprite2D" parent="Board/Grids/Grid_9_0"]
 position = Vector2(0, 11.527)
-scale = Vector2(0.35, 0.35)
-texture = ExtResource("18_weo3y")
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("49_f178w")
 
 [node name="Grid_10_0" parent="Board/Grids" instance=ExtResource("6_xt382")]
 position = Vector2(450, -362)
@@ -1521,12 +1488,12 @@ shop_type = 2
 [node name="Basic Ball Icon" type="Sprite2D" parent="Board/Grids/Grid_1_3"]
 position = Vector2(-37.8264, -38.0289)
 scale = Vector2(0.5, 0.5)
-texture = ExtResource("16_ef4aw")
+texture = ExtResource("32_34x56")
 
 [node name="Shop Type Icon" type="Sprite2D" parent="Board/Grids/Grid_1_3"]
 position = Vector2(0, 11.527)
-scale = Vector2(0.35, 0.35)
-texture = ExtResource("17_ef4aw")
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("53_h3g56")
 
 [node name="Grid_2_3" parent="Board/Grids" instance=ExtResource("6_xt382")]
 position = Vector2(-637.722, 45.9008)
@@ -1613,12 +1580,12 @@ shop_ui_panel_offset = Vector2(70.5, 77.5)
 [node name="Basic Ball Icon" type="Sprite2D" parent="Board/Grids/Grid_1_6"]
 position = Vector2(-37.8264, -38.0289)
 scale = Vector2(0.5, 0.5)
-texture = ExtResource("21_deb36")
+texture = ExtResource("35_apgn6")
 
 [node name="Shop Type Icon" type="Sprite2D" parent="Board/Grids/Grid_1_6"]
 position = Vector2(0, 11.527)
-scale = Vector2(0.35, 0.35)
-texture = ExtResource("17_owh20")
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("43_0xfc0")
 
 [node name="Grid_5_6" parent="Board/Grids" instance=ExtResource("6_xt382")]
 position = Vector2(-229, 452)
@@ -1768,8 +1735,8 @@ theme_override_colors/default_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/normal_font_size = 80
 theme_override_font_sizes/bold_font_size = 90
 bbcode_enabled = true
-text = "[b]DAY 1
-16:00[/b]"
+text = "DAY 1
+16:00"
 fit_content = true
 scroll_active = false
 shortcut_keys_enabled = false
@@ -2002,19 +1969,41 @@ offset_left = -276.076
 offset_top = 625.114
 offset_right = -148.076
 offset_bottom = 753.114
+focus_mode = 0
 theme_override_styles/hover = SubResource("StyleBoxTexture_0xfc0")
 theme_override_styles/pressed = SubResource("StyleBoxTexture_acjk4")
 theme_override_styles/normal = SubResource("StyleBoxTexture_3lc3d")
 script = ExtResource("42_usuyn")
+
+[node name="Upgrade UI Shadow" type="TextureRect" parent="Board/In-world UI/Upgrades UI"]
+self_modulate = Color(0, 0, 0, 0.27451)
+show_behind_parent = true
+layout_mode = 0
+offset_left = -1.0
+offset_top = 4.0
+offset_right = 127.0
+offset_bottom = 133.0
+texture = ExtResource("41_acjk4")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="Board/In-world UI/Upgrades UI"]
 layout_mode = 0
 offset_left = 136.0
 offset_right = 648.0
 offset_bottom = 120.0
+theme_override_constants/separation = 10
 
 [node name="Upgrades Display Bar" type="TextureRect" parent="Board/In-world UI/Upgrades UI/VBoxContainer"]
 layout_mode = 2
+texture = ExtResource("42_3lc3d")
+
+[node name="Upgrades Display Bar Shadow" type="TextureRect" parent="Board/In-world UI/Upgrades UI/VBoxContainer/Upgrades Display Bar"]
+self_modulate = Color(0, 0, 0, 0.27451)
+show_behind_parent = true
+layout_mode = 0
+offset_left = -1.0
+offset_top = 4.0
+offset_right = 511.0
+offset_bottom = 124.0
 texture = ExtResource("42_3lc3d")
 
 [node name="HBoxContainer" type="HBoxContainer" parent="Board/In-world UI/Upgrades UI/VBoxContainer/Upgrades Display Bar"]
@@ -2056,6 +2045,16 @@ upgrade_type = 1
 layout_mode = 2
 texture = ExtResource("42_3lc3d")
 
+[node name="Upgrades Display Bar Shadow" type="TextureRect" parent="Board/In-world UI/Upgrades UI/VBoxContainer/Upgrades Display Bar2"]
+self_modulate = Color(0, 0, 0, 0.27451)
+show_behind_parent = true
+layout_mode = 0
+offset_left = -1.0
+offset_top = 4.0
+offset_right = 511.0
+offset_bottom = 124.0
+texture = ExtResource("42_3lc3d")
+
 [node name="HBoxContainer" type="HBoxContainer" parent="Board/In-world UI/Upgrades UI/VBoxContainer/Upgrades Display Bar2"]
 layout_mode = 1
 anchors_preset = 4
@@ -2093,6 +2092,16 @@ upgrade_type = 1
 
 [node name="Upgrades Display Bar3" type="TextureRect" parent="Board/In-world UI/Upgrades UI/VBoxContainer"]
 layout_mode = 2
+texture = ExtResource("42_3lc3d")
+
+[node name="Upgrades Display Bar Shadow" type="TextureRect" parent="Board/In-world UI/Upgrades UI/VBoxContainer/Upgrades Display Bar3"]
+self_modulate = Color(0, 0, 0, 0.27451)
+show_behind_parent = true
+layout_mode = 0
+offset_left = -1.0
+offset_top = 4.0
+offset_right = 511.0
+offset_bottom = 124.0
 texture = ExtResource("42_3lc3d")
 
 [node name="HBoxContainer" type="HBoxContainer" parent="Board/In-world UI/Upgrades UI/VBoxContainer/Upgrades Display Bar3"]
@@ -2134,6 +2143,16 @@ upgrade_type = 1
 layout_mode = 2
 texture = ExtResource("42_3lc3d")
 
+[node name="Upgrades Display Bar Shadow" type="TextureRect" parent="Board/In-world UI/Upgrades UI/VBoxContainer/Upgrades Display Bar4"]
+self_modulate = Color(0, 0, 0, 0.27451)
+show_behind_parent = true
+layout_mode = 0
+offset_left = -0.999878
+offset_top = 4.0
+offset_right = 511.0
+offset_bottom = 124.0
+texture = ExtResource("42_3lc3d")
+
 [node name="HBoxContainer" type="HBoxContainer" parent="Board/In-world UI/Upgrades UI/VBoxContainer/Upgrades Display Bar4"]
 layout_mode = 1
 anchors_preset = 4
@@ -2164,6 +2183,36 @@ visible = false
 layout_mode = 2
 texture = ExtResource("46_eu0xb")
 stretch_mode = 5
+
+[node name="UI" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 1920.0
+offset_bottom = 1080.0
+pivot_offset = Vector2(960, 540)
+mouse_filter = 2
+
+[node name="Spin Wheel" parent="UI" instance=ExtResource("1_ru8g0")]
+unique_name_in_owner = true
+z_index = 99
+layout_mode = 1
+hide_y_offset = 1920.0
+show_y_offset = 1080.0
+
+[node name="RichTextLabel" type="RichTextLabel" parent="UI"]
+visible = false
+z_index = 1000
+custom_minimum_size = Vector2(300, 150)
+layout_mode = 0
+offset_right = 300.0
+offset_bottom = 345.0
+bbcode_enabled = true
+text = "[center][b][font_size=24]QUEST REWARD +[/font_size][/b]
+
++ 3 → + 4
+exchange coupon from quest reward
+Lv. 3 → 4 / 5[/center][right][img=20]res://Assets/Sprites/Icon/1x/traffic upgrade coupon.png[/img] [font_size=30]3[/font_size][/right]"
+scroll_active = false
 
 [node name="JollyEssentialsBgMdemoV1120BpmFullmix" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("62_yiyb4")

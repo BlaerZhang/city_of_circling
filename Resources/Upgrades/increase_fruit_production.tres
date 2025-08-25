@@ -7,9 +7,9 @@
 script = ExtResource("1_1wx8y")
 upgrade_name = "fruit production +"
 upgrade_icon = ExtResource("2_g5hjm")
-description = "+ %s → + %s
+description = "+ %s -> + %s
 fruit income from lottery
-Lv. %ds → %s / %s"
+Lv. %s -> %s / %s"
 effect_delta_per_level = 1
 upgrade_type = 2
 shop_slot_index = 0

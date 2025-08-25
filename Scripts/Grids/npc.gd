@@ -21,7 +21,7 @@ var is_remote_quest_acceptance_unlocked:= false
 var is_remote_quest_submission_unlocked:= false
 		
 @export_group("Fruit Quest")
-@export_range(0.0, 1.0, 0.001) var fruit_quest_probability := 0.5
+@export_range(0.0, 1.0, 0.001) var fruit_quest_probability := 0.65
 var delivery_quest_probability: float:
 		get:
 			return 1 - fruit_quest_probability
@@ -165,7 +165,7 @@ func bypass() -> void:
 	#complete all delivery quests that set this npc as target
 	for sender: npc_name in current_delivery_sender_list:
 		delivery_quest_completed.emit(sender, npc)
-		print("Delivery signal sent - from:%d to:%d" % [sender as npc_name, npc as npc_name]) 
+		print("Delivery signal sent - from:%s to:%s" % [sender as npc_name, npc as npc_name]) 
 	current_delivery_sender_list.clear()
 	refresh_textures()
 	#update icon
@@ -187,6 +187,16 @@ func interact(base_grid_pos: Vector2) -> void:
 	elif is_in_fruit_quest:
 		if is_player_arrived or is_remote_quest_submission_unlocked:
 			try_complete_fruit_quest()
+	
+	if is_player_arrived:
+		#complete all delivery quests that set this npc as target
+		for sender: npc_name in current_delivery_sender_list:
+			delivery_quest_completed.emit(sender, npc)
+			print("Delivery signal sent - from:%s to:%s" % [sender as npc_name, npc as npc_name]) 
+		current_delivery_sender_list.clear()
+		refresh_textures()
+		#update icon
+		delivery_sender_icon.visible = false
 
 
 func try_bypass(forward: bool) -> void:

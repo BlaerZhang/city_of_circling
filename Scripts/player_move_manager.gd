@@ -150,7 +150,7 @@ func _move_player_step_by_step(path: Array[Vector2i]) -> void:
 		is_player_moving = true
 		var target_pos = GridManager.grid_database[grid_position].global_position
 		var tween = create_tween()
-		tween.tween_property(get_parent(), "position", target_pos, step_time).set_ease(Tween.EASE_IN_OUT).set_trans(Tween.TRANS_SINE)
+		tween.tween_property(get_parent(), "position", target_pos, step_time).set_ease(Tween.EASE_IN_OUT).set_trans(Tween.TRANS_LINEAR)
 		player_facing = grid_position - player_grid_pos
 		await tween.finished
 		AudioManager.create_audio(SoundEffect.SOUND_EFFECT_TYPE.MOVING)

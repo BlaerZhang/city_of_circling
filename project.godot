@@ -41,6 +41,7 @@ AudioManager="*res://Scripts/AudioManager.gd"
 
 window/size/viewport_width=1920
 window/size/viewport_height=1080
+window/stretch/mode="canvas_items"
 
 [dotnet]
 
@@ -48,7 +49,7 @@ project/assembly_name="City of Circling"
 
 [editor_plugins]
 
-enabled=PackedStringArray("res://addons/DualEditor/plugin.cfg", "res://addons/resources_spreadsheet_view/plugin.cfg")
+enabled=PackedStringArray("res://addons/resources_spreadsheet_view/plugin.cfg")
 
 [global_group]
 
@@ -59,6 +60,7 @@ NPCs="All NPC Grids"
 
 timers/tooltip_delay_sec=0.0
 theme/custom="uid://daanx74mrb0d6"
+theme/custom_font="uid://dtna0lusoarcq"
 
 [input]
 

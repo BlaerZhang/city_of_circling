@@ -14,21 +14,18 @@ func _ready() -> void:
 
 # Load all resources in the folder to dict
 func load_all_items():
-	var dir = DirAccess.open("res://Resources/Items/")
-	if dir:
-		dir.list_dir_begin()
-		var file_name = dir.get_next()
-		while file_name != "":
-			if file_name.ends_with(".tres"):
-				var path = "res://Resources/Items/" + file_name
-				var res:Item = load(path)
-				if res:
-					var key = res.item_name.to_lower()
-					item_database.get_or_add(key, res)
-					items_owned.get_or_add(key, 0)
-					item_count_changed.emit(key, 0, 0)
-			file_name = dir.get_next()
-		dir.list_dir_end()
+	var folder := "res://Resources/Items/"
+	var files := ResourceLoader.list_directory(folder)
+	for file_name in files:
+		if file_name.ends_with(".tres"):
+			var path = folder + file_name
+			var res: Item = ResourceLoader.load(path)
+			if res:
+				var key = res.item_name.to_lower()
+				item_database.get_or_add(key, res)
+				items_owned.get_or_add(key, 0)
+				item_count_changed.emit(key, 0, 0)
+				#print(res.item_name + " resource loaded")
 
 
 func get_item_sprite(item_name: String) -> Texture2D:
@@ -98,11 +95,9 @@ func try_buy_item(item_to_buy_name: String, buy_count: int, item_to_pay_name: St
 #test func editor only
 func get_all_resources(count: int):
 	print("hack pressed")
-	if OS.has_feature("editor"):
-		print("hack runs in editor")
-		for item in items_owned.keys():
-			if item != "fruit of your choice" and item != "upgrade coupon of your choice":
-				change_item_count(item, count, Vector2.ZERO)
+	for item in items_owned.keys():
+		if item != "fruit of your choice" and item != "upgrade coupon of your choice":
+			change_item_count(item, count, Vector2.ZERO)
 
 
 #Temp: shop refresh related

@@ -37,21 +37,16 @@ func _ready() -> void:
 
 
 func load_items_for_sale_to_pools():
-	var dir = DirAccess.open("res://Resources/ItemsForSale/")
-	if dir:
-		dir.list_dir_begin()
-		var file_name = dir.get_next()
-		while file_name != "":
-			if file_name.ends_with(".tres"):
-				var path = "res://Resources/ItemsForSale/" + file_name
-				var res:ItemsForSale = load(path)
-				if res:
-					if res.belonging_shops.has(self.shop_type):
-						sale_pools.get_or_add(res.pool_index, Array())
-						sale_pools[res.pool_index].append(res)
-			file_name = dir.get_next()
-		dir.list_dir_end()
-
+	var folder := "res://Resources/ItemsForSale/"
+	var files := ResourceLoader.list_directory(folder)
+	for file_name in files:
+		if file_name.ends_with(".tres"):
+			var path = folder + file_name
+			var res: ItemsForSale = ResourceLoader.load(path)
+			if res:
+				if res.belonging_shops.has(self.shop_type):
+					sale_pools.get_or_add(res.pool_index, Array())
+					sale_pools[res.pool_index].append(res)
 
 func draw_items_from_pool(pool: Array) -> ItemsForSale:
 	var total_weight := 0.0
@@ -89,9 +84,11 @@ func generate_item_slots(items_in_slots_list: Array[ItemsForSale]):
 		item_slots_parent.add_child(item_slot)
 		
 		var price_label: RichTextLabel = item_slot.get_node("Price Label")
-		price_label.text = "%d [img=15x30]res://Assets/Sprites/Icon/1x/exchange coupon.png[/img]" % item_for_sale.price
-		item_slot.text = "\nx%d " % item_for_sale.item_count
-		item_slot.icon = ResourceManager.get_item_sprite(item_for_sale.item_name)
+		var item_icon: TextureRect = item_slot.get_node("Shop Button Icon")
+		var quantity_label: RichTextLabel = item_icon.get_node("Quantity Label")
+		price_label.text = "%s [img=15x30]res://Assets/Sprites/Icon/1x/exchange coupon.png[/img]" % item_for_sale.price
+		quantity_label.text = "x%s" % item_for_sale.item_count
+		item_icon.texture = ResourceManager.get_item_sprite(item_for_sale.item_name)
 		item_slot.pressed.connect(on_item_slot_pressed.bind(item_slot, item_for_sale))
 		item_slot.tooltip_text = "%s x%d\nPrice: %d" % [item_for_sale.item_name.capitalize(), item_for_sale.item_count, item_for_sale.price]
 		
@@ -130,7 +127,7 @@ func update_refresh_button():
 		refresh_button.visible = false
 	
 	#update state
-	if is_player_arrived && GameManager.current_game_state == GameManager.GameState.Idle:
+	if is_player_arrived && GameManager.current_game_state == GameManager.GameState.Idle && ResourceManager.get_item_count("shop refresh") > 0:
 		refresh_button.disabled = false
 	else:
 		refresh_button.disabled = true

@@ -11,19 +11,15 @@ func _ready() -> void:
 
 # Load all resources in the folder to dict
 func load_all_upgrades():
-	var dir = DirAccess.open("res://Resources/Upgrades/")
-	if dir:
-		dir.list_dir_begin()
-		var file_name = dir.get_next()
-		while file_name != "":
-			if file_name.ends_with(".tres"):
-				var path = "res://Resources/Upgrades/" + file_name
-				var res:Upgrade = load(path)
-				if res:
-					var key = res.upgrade_name.to_lower()
-					upgrade_database.get_or_add(key, res)
-			file_name = dir.get_next()
-		dir.list_dir_end()
+	var folder := "res://Resources/Upgrades/"
+	var files := ResourceLoader.list_directory(folder)
+	for file_name in files:
+		if file_name.ends_with(".tres"):
+			var path = folder + file_name
+			var res: Upgrade = ResourceLoader.load(path)
+			if res:
+				var key = res.upgrade_name.to_lower()
+				upgrade_database.get_or_add(key, res)
 
 
 func add_upgrade(upgrade):

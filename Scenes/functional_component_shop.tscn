@@ -9,7 +9,7 @@
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_4u1nn"]
 texture = ExtResource("4_nn26x")
-modulate_color = Color(0.498039, 0.498039, 0.498039, 0.498039)
+modulate_color = Color(0.498039, 0.498039, 0.498039, 1)
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_h4mr7"]
 texture = ExtResource("4_nn26x")

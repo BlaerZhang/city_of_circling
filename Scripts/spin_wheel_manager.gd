@@ -34,13 +34,10 @@ func _ready() -> void:
 	#confirm_window.scale = Vector2.ZERO
 
 
-func _process(delta: float) -> void:
+func _input(event: InputEvent) -> void:
 	if GameManager.current_game_state != GameManager.GameState.Draw: return
-	#if (Input.is_action_just_pressed("test")):
-		#wheel_face.setup_wheel(PrizeItems.Source.Affairs) #for test
-		#show_ui(self)
-	if Input.is_action_just_pressed("left_click") && !is_mouse_over:
-		if not wheel_face._is_spinning && not is_in_draw:
+	if event.is_action_pressed("left_click") && !is_mouse_over:
+		if not wheel_face._is_spinning && not is_in_draw && not _button_state == button_state.free:
 			spin_button.disabled = true
 			hide_ui(self)
 

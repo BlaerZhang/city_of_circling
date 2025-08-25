@@ -174,20 +174,16 @@ func load_prize_list(source: PrizeItems.Source):
 	prize_list.clear()
 	
 	#load from folder
-	var dir = DirAccess.open("res://Resources/PrizeItems/")
-	if dir:
-		dir.list_dir_begin()
-		var file_name = dir.get_next()
-		while file_name != "":
-			if file_name.ends_with(".tres"):
-				var path = "res://Resources/PrizeItems/" + file_name
-				var res:PrizeItems = load(path)
-				if res:
-					if res.sources_of_prize.has(source):
-						prize_list.append(res)
-			file_name = dir.get_next()
-		dir.list_dir_end()
-		
+	var folder := "res://Resources/PrizeItems/"
+	var files := ResourceLoader.list_directory(folder)
+	for file_name in files:
+		if file_name.ends_with(".tres"):
+			var path = folder + file_name
+			var res: PrizeItems = ResourceLoader.load(path)
+			if res:
+				if res.sources_of_prize.has(source):
+					prize_list.append(res)
+
 		current_source = source
 		update_current_total_weight()
 

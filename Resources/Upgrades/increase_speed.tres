@@ -7,9 +7,9 @@
 script = ExtResource("1_p7cq3")
 upgrade_name = "move speed +"
 upgrade_icon = ExtResource("2_kmyne")
-description = "+ %s → + %s
+description = "+ %s -> + %s
 grids range when planning move
-Lv. %s → %s / %s"
+Lv. %s -> %s / %s"
 effect_delta_per_level = 2
 upgrade_type = 1
 shop_slot_index = 0

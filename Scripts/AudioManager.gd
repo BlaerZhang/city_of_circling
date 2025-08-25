@@ -17,19 +17,16 @@ func _ready() -> void:
 	for sound_effect: SoundEffect in sound_effects:
 		sound_effect_dict[sound_effect.type] = sound_effect
 
+
 func load_all_sound_effects():
-	var dir = DirAccess.open("res://Resources/SoundEffects/")
-	if dir:
-		dir.list_dir_begin()
-		var file_name = dir.get_next()
-		while file_name != "":
-			if file_name.ends_with(".tres"):
-				var path = "res://Resources/SoundEffects/" + file_name
-				var res: SoundEffect = load(path)
-				if res:
-					sound_effects.append(res)
-			file_name = dir.get_next()
-		dir.list_dir_end()
+	var folder := "res://Resources/SoundEffects/"
+	var files := ResourceLoader.list_directory(folder)
+	for file_name in files:
+		if file_name.ends_with(".tres"):
+			var path = folder + file_name
+			var res: SoundEffect = ResourceLoader.load(path)
+			if res:
+				sound_effects.append(res)
 
 
 ## Creates a sound effect at a specific location if the limit has not been reached. Pass [param location] for the global position of the audio effect, and [param type] for the SoundEffect to be queued.

@@ -60,7 +60,7 @@ func update_icon_and_tooltip(added_upgrade: Upgrade):
 				if UpgradeManager.get_upgrade_level(upgrade) == 0:
 					lock_icon.texture = unlock_sprite
 					self.modulate = Color.WHITE
-					tooltip_text = "[b][u]%s[/u]\n\n%s\n[right][img=20]res://Assets/Sprites/Icon/1x/%s.png[/img] [font_size=30]%d[/font_size][/right][/b]" % [
+					tooltip_text = "[b][u]%s[/u][/b]\n\n%s\n[right][img=20]res://Assets/Sprites/Icon/1x/%s.png[/img] [font_size=30][b]%d[/b][/font_size][/right]" % [
 					upgrade.upgrade_name.to_upper(), 
 					upgrade.description, 
 					coupon_map[upgrade.upgrade_type], 
@@ -68,7 +68,7 @@ func update_icon_and_tooltip(added_upgrade: Upgrade):
 				elif UpgradeManager.get_upgrade_level(upgrade) == 1:
 					lock_icon.texture = null
 					self.modulate = Color.WHITE
-					tooltip_text = "[b][u]%s[/u]\n\n%s\n" % [
+					tooltip_text = "[b][u]%s[/u][/b]\n\n%s\n" % [
 					upgrade.upgrade_name.to_upper(), 
 					upgrade.description]
 			else:

@@ -31,21 +31,17 @@ func _ready() -> void:
 
 
 func load_upgrades_to_slots():
-	var dir = DirAccess.open("res://Resources/Upgrades/")
-	if dir:
-		dir.list_dir_begin()
-		var file_name = dir.get_next()
-		while file_name != "":
-			if file_name.ends_with(".tres"):
-				var path = "res://Resources/Upgrades/" + file_name
-				var res:Upgrade = load(path)
-				if res:
-					if res.upgrade_type == self.upgrade_shop_type:
-						while slots_upgrade_list.size() <= res.shop_slot_index:
-							slots_upgrade_list.append([])
-						slots_upgrade_list[res.shop_slot_index].append(res)
-			file_name = dir.get_next()
-		dir.list_dir_end()
+	var folder := "res://Resources/Upgrades/"
+	var files := ResourceLoader.list_directory(folder)
+	for file_name in files:
+		if file_name.ends_with(".tres"):
+			var path = folder + file_name
+			var res: Upgrade = ResourceLoader.load(path)
+			if res:
+				if res.upgrade_type == self.upgrade_shop_type:
+					while slots_upgrade_list.size() <= res.shop_slot_index:
+						slots_upgrade_list.append([])
+					slots_upgrade_list[res.shop_slot_index].append(res)
 	#sort all upgrade lists
 	for slot_list in slots_upgrade_list:
 		slot_list.sort_custom(func(a: Upgrade,b: Upgrade): return a.slot_order < b.slot_order)
