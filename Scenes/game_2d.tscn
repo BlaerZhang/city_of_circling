@@ -472,7 +472,7 @@ advance_mode = 2
 states/Idle/node = SubResource("AnimationNodeBlendSpace2D_xt382")
 states/Idle/position = Vector2(526, 127)
 states/Walk/node = SubResource("AnimationNodeBlendSpace2D_gi8jr")
-states/Walk/position = Vector2(744, 127)
+states/Walk/position = Vector2(752, 116)
 transitions = ["Start", "Idle", SubResource("AnimationNodeStateMachineTransition_mdahh")]
 graph_offset = Vector2(-197, -14)
 
@@ -523,7 +523,7 @@ unique_name_in_owner = true
 root_node = NodePath("%Player AnimationTree/..")
 tree_root = SubResource("AnimationNodeStateMachine_gi8jr")
 anim_player = NodePath("../AnimationPlayer")
-parameters/Idle/blend_position = Vector2(-0.746929, 0.206349)
+parameters/Idle/blend_position = Vector2(-0.125166, -0.494506)
 parameters/Walk/blend_position = Vector2(-0.716216, 0.5)
 
 [node name="Player Idle Outline" type="Sprite2D" parent="Player"]

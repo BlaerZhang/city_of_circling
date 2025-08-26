@@ -29,8 +29,6 @@ radial_velocity_curve = SubResource("CurveTexture_54cj5")
 gravity = Vector3(0, 0, 0)
 damping_min = 1000.0
 damping_max = 1000.0
-scale_min = 0.5
-scale_max = 0.5
 scale_curve = SubResource("CurveTexture_mjxon")
 turbulence_influence_min = 0.0
 turbulence_influence_max = 0.0
@@ -42,7 +40,7 @@ sub_emitter_amount_at_collision = 10
 polygon = PackedVector2Array(-0.5, -0.5, 0.5, -0.5, 0.5, 0.5, -0.5, 0.5)
 
 [sub_resource type="Curve" id="Curve_mjxon"]
-_data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(0.130769, 1), 0.0, 0.0, 0, 0, Vector2(0.894872, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+_data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(0.2, 1), 0.0, 0.0, 0, 0, Vector2(0.4, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
 point_count = 4
 
 [sub_resource type="CurveTexture" id="CurveTexture_bx568"]
@@ -50,10 +48,12 @@ curve = SubResource("Curve_mjxon")
 
 [sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_m1riy"]
 particle_flag_disable_z = true
+angle_min = 1.07288e-05
+angle_max = 360.0
 spread = 180.0
-initial_velocity_min = 50.0
+initial_velocity_min = 25.0
 initial_velocity_max = 200.0
-gravity = Vector3(0, 500, 0)
+gravity = Vector3(0, 0, 0)
 scale_min = 0.5
 scale_max = 0.5
 scale_curve = SubResource("CurveTexture_bx568")
@@ -77,8 +77,9 @@ occluder = SubResource("OccluderPolygon2D_g1qwh")
 
 [node name="StarParticle" type="GPUParticles2D" parent="."]
 emitting = false
-amount = 10
+amount = 25
 texture = ExtResource("2_54cj5")
+lifetime = 0.5
 one_shot = true
 explosiveness = 1.0
 fixed_fps = 120
