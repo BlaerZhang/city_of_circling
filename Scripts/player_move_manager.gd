@@ -3,7 +3,11 @@ extends Node2D
 @onready var line_drawer:= %LineDrawer
 
 var player_grid_pos: Vector2i
-var player_facing: Vector2i
+var player_facing: Vector2i:
+	set(value):
+		player_facing = value
+		player_animation_tree.set("parameters/Idle/blend_position", value)
+		player_animation_tree.set("parameters/Walk/blend_position", value)
 @export var player_initial_move_range: int = 4
 @export var player_initial_grid_pos: Vector2i
 @export var player_initial_facing: Vector2i
@@ -27,13 +31,28 @@ var previewed_grids: Array[Vector2i]
 @export var step_time:= 0.5
 var planned_move_grid_positions: Array[Vector2i]
 @onready var player_animation_tree:= %"Player AnimationTree"
-var is_player_moving:= false
+@onready var player_sprite:= %"Player Sprite"
+var is_player_moving:= false:
+	set(value):
+		is_player_moving = value
+		match value:
+			true:
+				player_animation_tree["parameters/playback"].travel("Walk")
+				player_sprite.texture = ResourceLoader.load("res://Assets/Sprites/Character/isometric_character_walk.png")
+				player_sprite.hframes = 12
+				player_sprite.vframes = 8
+			false:
+				player_animation_tree["parameters/playback"].travel("Idle")
+				player_sprite.texture = ResourceLoader.load("res://Assets/Sprites/Character/isometric_character_idle.png")
+				player_sprite.hframes = 8
+				player_sprite.vframes = 8
 
 
 func _ready() -> void:
 	player_move_range = player_initial_move_range
 	player_grid_pos = player_initial_grid_pos
 	player_facing = player_initial_facing
+	is_player_moving = false
 	GridManager.moused_clicked_down_grid.connect(start_plan_move)
 	GridManager.moused_entered_grid.connect(step_plan_move)
 	GridManager.moused_clicked_down_grid.connect(complete_plan_move)
@@ -41,10 +60,8 @@ func _ready() -> void:
 	GameManager.game_state_changed.connect(idle_set_player_grid_outline)
 
 
-func _process(delta: float) -> void:
-	update_player_animation()
-	
-	if is_planning_move && Input.is_action_just_pressed("right_click"):
+func _input(event: InputEvent) -> void:
+	if is_planning_move && event.is_action_pressed("right_click"):
 		GameManager.resume_last_game_state()
 		cancel_plan_move()
 
@@ -245,14 +262,14 @@ func is_player_at_grid(grid_pos: Vector2i) -> bool:
 	return grid_pos == player_grid_pos
 
 
-func update_player_animation():
-	match is_player_moving:
-		true:
-			player_animation_tree["parameters/playback"].travel("Walk")
-		false:
-			player_animation_tree["parameters/playback"].travel("Idle")
-	player_animation_tree.set("parameters/Idle/blend_position", player_facing)
-	player_animation_tree.set("parameters/Walk/blend_position", player_facing)
+#func update_player_animation():
+	#match is_player_moving:
+		#true:
+			#player_animation_tree["parameters/playback"].travel("Walk")
+		#false:
+			#player_animation_tree["parameters/playback"].travel("Idle")
+	#player_animation_tree.set("parameters/Idle/blend_position", player_facing)
+	#player_animation_tree.set("parameters/Walk/blend_position", player_facing)
 
 
 func on_upgrade_added(upgrade: Upgrade):
