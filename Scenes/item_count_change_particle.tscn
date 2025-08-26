@@ -1,6 +1,7 @@
-[gd_scene load_steps=10 format=3 uid="uid://cvy6pgutedfcu"]
+[gd_scene load_steps=14 format=3 uid="uid://cvy6pgutedfcu"]
 
 [ext_resource type="Texture2D" uid="uid://dinty7jilgb14" path="res://Assets/Sprites/Icon/1x/apple.png" id="1_tler7"]
+[ext_resource type="Texture2D" uid="uid://dceewtm2aw88v" path="res://Assets/Sprites/Icon/1x/star.png" id="2_54cj5"]
 
 [sub_resource type="Curve" id="Curve_tler7"]
 _data = [Vector2(0, 0), 0.0, -0.00738269, 0, 0, Vector2(0.49734, 1), 0.0, 0.0, 0, 0, Vector2(1, 1), 0.0, 0.0, 0, 0]
@@ -42,23 +43,49 @@ scale_over_velocity_max = 0.5
 scale_over_velocity_curve = SubResource("CurveTexture_m1riy")
 turbulence_influence_min = 0.0
 turbulence_influence_max = 0.0
+collision_mode = 2
+sub_emitter_mode = 3
+sub_emitter_amount_at_collision = 10
 
 [sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_g1qwh"]
 polygon = PackedVector2Array(0, 0, 1, 0, 1, 1, 0, 1)
+
+[sub_resource type="Curve" id="Curve_mjxon"]
+_data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(0.130769, 1), 0.0, 0.0, 0, 0, Vector2(0.894872, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 4
+
+[sub_resource type="CurveTexture" id="CurveTexture_bx568"]
+curve = SubResource("Curve_mjxon")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_m1riy"]
+particle_flag_disable_z = true
+spread = 180.0
+initial_velocity_min = 250.0
+initial_velocity_max = 250.0
+gravity = Vector3(0, 980, 0)
+scale_curve = SubResource("CurveTexture_bx568")
 
 [node name="ItemCountChangeParticle" type="GPUParticles2D"]
 z_index = 100
 emitting = false
 amount = 25
+sub_emitter = NodePath("StarParticle")
 texture = ExtResource("1_tler7")
 lifetime = 3.0
 one_shot = true
 explosiveness = 1.0
 fixed_fps = 120
-collision_base_size = 0.0
+collision_base_size = 0.1
 draw_order = 0
 process_material = SubResource("ParticleProcessMaterial_tler7")
 
 [node name="LightOccluder2D" type="LightOccluder2D" parent="."]
-visible = false
 occluder = SubResource("OccluderPolygon2D_g1qwh")
+
+[node name="StarParticle" type="GPUParticles2D" parent="."]
+emitting = false
+amount = 10
+texture = ExtResource("2_54cj5")
+one_shot = true
+explosiveness = 1.0
+process_material = SubResource("ParticleProcessMaterial_m1riy")

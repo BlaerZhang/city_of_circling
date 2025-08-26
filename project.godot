@@ -36,6 +36,7 @@ TimeManager="*res://Scripts/time_manager.gd"
 GridManager="*res://Scripts/Grids/grid_manager.gd"
 GameManager="*res://Scripts/game_manager.gd"
 AudioManager="*res://Scripts/AudioManager.gd"
+CursorManager="*res://Scripts/cursor_manager.gd"
 
 [display]
 
@@ -92,8 +93,6 @@ test_add_hour={
 
 [rendering]
 
-renderer/rendering_method="gl_compatibility"
-renderer/rendering_method.mobile="gl_compatibility"
-anti_aliasing/quality/msaa_2d=1
+anti_aliasing/quality/msaa_2d=3
 environment/defaults/default_clear_color=Color(0.701961, 0.701961, 0.701961, 1)
 anti_aliasing/quality/screen_space_aa=1
