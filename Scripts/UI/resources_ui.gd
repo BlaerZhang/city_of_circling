@@ -2,7 +2,7 @@ extends CustomTooltip
 
 @export var item_name: String
 var item_type: Item.ItemType
-@onready var ui_icon:= $Icon
+@onready var ui_icon: TextureRect = $Icon
 @onready var ui_icon_shadow:= $"Icon/Icon Shadow"
 @onready var ui_label:= $ResourceTextLabel
 @onready var ui_outline:= $"UI Grid Outline"
@@ -35,14 +35,18 @@ func on_item_count_changed(changed_item_name: String, count: int, change_amount:
 			spawn_particle(changed_item_name, change_amount, source_pos, ui_label.global_position)
 			AudioManager.create_audio(SoundEffect.SOUND_EFFECT_TYPE.RESOURCE_GAIN)
 			await get_tree().create_timer(1.5).timeout
+			var scale_tween = create_tween()
+			scale_tween.tween_property(self, "scale", Vector2.ONE * 1.25, 0.2).set_ease(Tween.EASE_IN_OUT).set_trans(Tween.TRANS_EXPO)
+			scale_tween.tween_interval(0.25)
+			scale_tween.tween_property(self, "scale", Vector2.ONE * 1, 0.2).set_ease(Tween.EASE_IN_OUT).set_trans(Tween.TRANS_EXPO)
 			ui_label.text = str(count)
 			AudioManager.create_audio(SoundEffect.SOUND_EFFECT_TYPE.RESOURCE_GAIN)
 		elif change_amount < 0:
 			ui_label.text = str(count)
-			spawn_particle(changed_item_name, -change_amount, ui_label.global_position, source_pos)
-			AudioManager.create_audio(SoundEffect.SOUND_EFFECT_TYPE.RESOURCE_GAIN)
-			await get_tree().create_timer(1.5).timeout
-			AudioManager.create_audio(SoundEffect.SOUND_EFFECT_TYPE.RESOURCE_GAIN)
+			#spawn_particle(changed_item_name, -change_amount, ui_label.global_position, source_pos)
+			#AudioManager.create_audio(SoundEffect.SOUND_EFFECT_TYPE.RESOURCE_GAIN)
+			#await get_tree().create_timer(1.5).timeout
+			#AudioManager.create_audio(SoundEffect.SOUND_EFFECT_TYPE.RESOURCE_GAIN)
 	elif changed_item_name == "fruit of your choice" && item_type == Item.ItemType.Fruit:
 		if change_amount > 0:
 			await get_tree().create_timer(1.5).timeout

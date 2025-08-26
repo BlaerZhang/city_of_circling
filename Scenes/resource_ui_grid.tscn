@@ -9,6 +9,7 @@
 
 [node name="Resource UI Grid" type="TextureRect"]
 self_modulate = Color(0.988235, 0.415686, 0.411765, 1)
+pivot_offset = Vector2(64, 64)
 texture = ExtResource("1_or0pg")
 script = ExtResource("2_fivkg")
 item_name = "apple"
@@ -37,6 +38,7 @@ offset_right = 53.0
 offset_bottom = 53.0
 grow_horizontal = 2
 grow_vertical = 2
+pivot_offset = Vector2(53, 53)
 texture = ExtResource("4_6fxlj")
 stretch_mode = 5
 
