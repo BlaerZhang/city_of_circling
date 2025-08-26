@@ -6,6 +6,7 @@
 [resource]
 script = ExtResource("1_14vcy")
 item_name = "watermelon"
+item_name_display = "WATERMELON"
 icon = ExtResource("1_n6o7i")
 item_type = 0
 metadata/_custom_type_script = "uid://d0fc2fb7vpwyv"

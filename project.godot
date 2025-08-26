@@ -91,6 +91,10 @@ test_add_hour={
 ]
 }
 
+[internationalization]
+
+locale/translations=PackedStringArray("res://Assets/Internationalization/String_Data.en.translation", "res://Assets/Internationalization/String_Data.zh.translation")
+
 [rendering]
 
 anti_aliasing/quality/msaa_2d=3

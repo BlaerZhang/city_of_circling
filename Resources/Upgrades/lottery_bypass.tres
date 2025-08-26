@@ -6,8 +6,9 @@
 [resource]
 script = ExtResource("1_m11f7")
 upgrade_name = "lottery bypass"
+upgrade_name_display = "LOTTERY_BYPASS"
 upgrade_icon = ExtResource("2_k55tq")
-description = "The lottery grid can now be triggered when passing by."
+description = "LOTTERY_BYPASS_DESCRIPTION"
 effect_delta_per_level = 1
 upgrade_type = 2
 shop_slot_index = 1

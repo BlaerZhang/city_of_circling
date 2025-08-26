@@ -1,0 +1,1645 @@
+[gd_scene load_steps=104 format=3 uid="uid://c6e414gy1cwn5"]
+
+[ext_resource type="Script" uid="uid://tdlox2h37vxw" path="res://Scripts/test_input.gd" id="1_pqs0o"]
+[ext_resource type="PackedScene" uid="uid://b8imxf8a6f2lg" path="res://Scenes/spin_wheel.tscn" id="1_ru8g0"]
+[ext_resource type="Script" uid="uid://bljhqnbfuvtu0" path="res://Scripts/player_move_manager.gd" id="1_xt382"]
+[ext_resource type="Script" uid="uid://clqc6neay12up" path="res://Scripts/line_drawer.gd" id="3_8hnth"]
+[ext_resource type="Texture2D" uid="uid://dr23hnyyxd0py" path="res://Assets/Sprites/Character/isometric_character_walk.png" id="3_gi8jr"]
+[ext_resource type="Texture2D" uid="uid://cekckf0prcvy6" path="res://Assets/Sprites/Grid/1x/grid_outline.png" id="6_34x56"]
+[ext_resource type="PackedScene" uid="uid://cvj1o3m2uylun" path="res://Scenes/grid.tscn" id="6_xt382"]
+[ext_resource type="Texture2D" uid="uid://1j5enkihlr82" path="res://Assets/Sprites/Grid/1x/NPC (2).png" id="7_7fl2r"]
+[ext_resource type="Texture2D" uid="uid://bo624aiw5xt6" path="res://Assets/Sprites/Grid/1x/NPC (1).png" id="7_owh20"]
+[ext_resource type="PackedScene" uid="uid://bhviilfrl5qds" path="res://Scenes/functional_component_npc.tscn" id="8_mdahh"]
+[ext_resource type="Texture2D" uid="uid://cscxmn1wc1wxs" path="res://Assets/Sprites/Grid/1x/Lottery.png" id="9_d4vnq"]
+[ext_resource type="PackedScene" uid="uid://b48kaaap15g6f" path="res://Scenes/functional_component_lottery.tscn" id="9_pgjt0"]
+[ext_resource type="Texture2D" uid="uid://bmvmdgneomc8w" path="res://Assets/Sprites/Grid/1x/Shop.png" id="9_x1nq2"]
+[ext_resource type="Texture2D" uid="uid://c0m8oaryk3yn7" path="res://Assets/Sprites/Icon/1x/watermelon.png" id="10_pgjt0"]
+[ext_resource type="Texture2D" uid="uid://cujel534pj41t" path="res://Assets/Sprites/Grid/1x/Traffic_tile.png" id="11_0cfqf"]
+[ext_resource type="Texture2D" uid="uid://c7fmwutlde8qt" path="res://Assets/Sprites/Grid/1x/NPC (3).png" id="11_07cyw"]
+[ext_resource type="Texture2D" uid="uid://5ht047khbbax" path="res://Assets/Sprites/Icon/1x/grape.png" id="12_07cyw"]
+[ext_resource type="PackedScene" uid="uid://d1ohfr5qwq4oq" path="res://Scenes/functional_component_upgrade_shop.tscn" id="12_874u5"]
+[ext_resource type="PackedScene" uid="uid://lkroracoggir" path="res://Scenes/upgrade_shop_button.tscn" id="13_acjk4"]
+[ext_resource type="Texture2D" uid="uid://ctovf254tkufb" path="res://Assets/Sprites/Icon/1x/strawberry.png" id="13_g1qwh"]
+[ext_resource type="Texture2D" uid="uid://cwrst66x6eyxa" path="res://Assets/Sprites/Icon/1x/banana.png" id="13_mdahh"]
+[ext_resource type="PackedScene" uid="uid://dudejnhqfh51r" path="res://Scenes/functional_component_shop.tscn" id="15_d0cs8"]
+[ext_resource type="PackedScene" uid="uid://dcpcolpctf6n0" path="res://Scenes/resource_ui_grid.tscn" id="15_j40bd"]
+[ext_resource type="Texture2D" uid="uid://cm5vubrw6llx7" path="res://Assets/Sprites/Grid/1x/ui_grid_large.png" id="16_wox2a"]
+[ext_resource type="Texture2D" uid="uid://baknh18j5v6ui" path="res://Assets/Sprites/Icon/1x/exchange coupon.png" id="17_g1qwh"]
+[ext_resource type="Texture2D" uid="uid://cgbh0yfyl4rr8" path="res://Assets/Sprites/Grid/1x/Lottery_tile.png" id="20_874u5"]
+[ext_resource type="Texture2D" uid="uid://cpwbam4wawrjj" path="res://Assets/Sprites/Icon/1x/mango.png" id="20_dvnqc"]
+[ext_resource type="Texture2D" uid="uid://dinty7jilgb14" path="res://Assets/Sprites/Icon/1x/apple.png" id="24_vg072"]
+[ext_resource type="Texture2D" uid="uid://fihoyd0f662r" path="res://Assets/Sprites/Grid/1x/NPC (5).png" id="25_80uim"]
+[ext_resource type="Texture2D" uid="uid://cd0s37mfeoe8" path="res://Assets/Sprites/Icon/1x/blue.png" id="25_yiyb4"]
+[ext_resource type="Texture2D" uid="uid://kayoirvwf8bf" path="res://Assets/Sprites/Grid/1x/NPC (4).png" id="26_lu7og"]
+[ext_resource type="Texture2D" uid="uid://cvy0itypb0q1e" path="res://Assets/Sprites/Icon/1x/red.png" id="28_pqs0o"]
+[ext_resource type="Texture2D" uid="uid://qyq5cy7ts0j1" path="res://Assets/Sprites/Grid/1x/Trade_tile.png" id="28_q2r72"]
+[ext_resource type="Texture2D" uid="uid://dk1nvku7uudyi" path="res://Assets/Sprites/Grid/1x/NPC (6).png" id="29_nxrph"]
+[ext_resource type="Texture2D" uid="uid://7hw3qvy8qkap" path="res://Assets/Sprites/Grid/1x/Affair_tile.png" id="31_q187p"]
+[ext_resource type="Texture2D" uid="uid://0sqey8fb61ce" path="res://Assets/Sprites/Icon/1x/yellow.png" id="32_34x56"]
+[ext_resource type="Texture2D" uid="uid://b28o0fpr5uhhj" path="res://Assets/Sprites/Icon/1x/white.png" id="35_apgn6"]
+[ext_resource type="Script" uid="uid://l0kyl2xsshwi" path="res://Scripts/time_ui.gd" id="38_4d1v3"]
+[ext_resource type="Texture2D" uid="uid://1f1pkyq3oliq" path="res://Assets/Sprites/Grid/1x/upgrades_ui_button.png" id="41_acjk4"]
+[ext_resource type="Texture2D" uid="uid://c7qbvwcthokxi" path="res://Assets/Sprites/Grid/1x/upgrade_display_bar.png" id="42_3lc3d"]
+[ext_resource type="Texture2D" uid="uid://l10osv2s0rc8" path="res://Assets/Sprites/Grid/1x/fruit_ui_panel.png" id="42_apgn6"]
+[ext_resource type="Texture2D" uid="uid://7xkg8ryjugf3" path="res://Assets/Sprites/Grid/1x/upgrade_coupon_ui_panel.png" id="42_p4hnd"]
+[ext_resource type="Script" uid="uid://dxk5mav38pxn7" path="res://Scripts/UI/upgrades_ui_button.gd" id="42_usuyn"]
+[ext_resource type="Texture2D" uid="uid://cqpddw7ntt3er" path="res://Assets/Sprites/Icon/1x/Traffic_outline.png" id="43_0xfc0"]
+[ext_resource type="PackedScene" uid="uid://b2tjb0otnomop" path="res://Scenes/upgrade_icon.tscn" id="44_ltboj"]
+[ext_resource type="Resource" uid="uid://c6mwtem3bc5hx" path="res://Resources/Upgrades/increase_speed.tres" id="45_nxhfr"]
+[ext_resource type="Texture2D" uid="uid://b1kthpayikucv" path="res://Assets/Sprites/Icon/1x/upgrade_tree_arrow.png" id="46_eu0xb"]
+[ext_resource type="Resource" uid="uid://bb6tss7ri1u2g" path="res://Resources/Upgrades/moving_backward.tres" id="46_f178w"]
+[ext_resource type="Resource" uid="uid://b2bmpsmtupqe7" path="res://Resources/Upgrades/increse_interaction_distance.tres" id="48_fyj2b"]
+[ext_resource type="Texture2D" uid="uid://dvroiqn2jn4j2" path="res://Assets/Sprites/Icon/1x/Affairs_outline.png" id="49_f178w"]
+[ext_resource type="Resource" uid="uid://cwilfmqpws3mf" path="res://Resources/Upgrades/increase_quest_reward.tres" id="50_fyj2b"]
+[ext_resource type="Resource" uid="uid://clcnor83odgg6" path="res://Resources/Upgrades/remote_quest_acceptance.tres" id="51_ba7xp"]
+[ext_resource type="Resource" uid="uid://rb4y6ov5syh2" path="res://Resources/Upgrades/remote_quest_completion.tres" id="52_h3g56"]
+[ext_resource type="Texture2D" uid="uid://q1gvqpwytbhl" path="res://Assets/Sprites/Icon/1x/Lottery_outline.png" id="53_h3g56"]
+[ext_resource type="Resource" uid="uid://c4kr046pl7mbv" path="res://Resources/Upgrades/increase_fruit_production.tres" id="54_04kbk"]
+[ext_resource type="Resource" uid="uid://pmdxmdu6cbde" path="res://Resources/Upgrades/unlock_rainbow_white_ball.tres" id="55_2dtki"]
+[ext_resource type="Resource" uid="uid://ut46sekwlayi" path="res://Resources/Upgrades/lottery_bypass.tres" id="56_kh3n4"]
+[ext_resource type="Texture2D" uid="uid://denxgkoyad2jc" path="res://Assets/Sprites/Icon/1x/Trade_outline.png" id="57_kh3n4"]
+[ext_resource type="Resource" uid="uid://cftcygsaxiixx" path="res://Resources/Upgrades/shop_manual_refresh.tres" id="58_3657g"]
+[ext_resource type="Resource" uid="uid://ruu8cw78y2on" path="res://Resources/Upgrades/remote_view_store.tres" id="59_hognw"]
+[ext_resource type="Script" uid="uid://dk1rm1ctnggd1" path="res://Scripts/translation_manager.gd" id="61_yiyb4"]
+[ext_resource type="AudioStream" uid="uid://dxa84rdtwplt3" path="res://Assets/Audio/JollyEssentials_BGMdemo_v1_120bpm_Fullmix.wav" id="62_yiyb4"]
+
+[sub_resource type="Animation" id="Animation_7fl2r"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [8]
+}
+
+[sub_resource type="Animation" id="Animation_mdahh"]
+resource_name = "idle_e"
+loop_mode = 1
+step = 0.125
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.125, 0.25, 0.375, 0.5, 0.625, 0.75, 0.875),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [56, 57, 58, 59, 60, 61, 62, 63]
+}
+
+[sub_resource type="Animation" id="Animation_pgjt0"]
+resource_name = "idle_n"
+loop_mode = 1
+step = 0.125
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.125, 0.25, 0.375, 0.5, 0.625, 0.75, 0.875),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [40, 41, 42, 43, 44, 45, 46, 47]
+}
+
+[sub_resource type="Animation" id="Animation_pmt01"]
+resource_name = "idle_ne"
+loop_mode = 1
+step = 0.125
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.125, 0.25, 0.375, 0.5, 0.625, 0.75, 0.875),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [48, 49, 50, 51, 52, 53, 54, 55]
+}
+
+[sub_resource type="Animation" id="Animation_d4vnq"]
+resource_name = "idle_nw"
+loop_mode = 1
+step = 0.125
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.125, 0.25, 0.375, 0.5, 0.625, 0.75, 0.875),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [32, 33, 34, 35, 36, 37, 38, 39]
+}
+
+[sub_resource type="Animation" id="Animation_xt382"]
+resource_name = "idle_s"
+length = 1.00001
+loop_mode = 1
+step = 0.125
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.125, 0.25, 0.375, 0.5, 0.625, 0.75, 0.875),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3, 4, 5, 6, 7]
+}
+
+[sub_resource type="Animation" id="Animation_gi8jr"]
+resource_name = "idle_se"
+loop_mode = 1
+step = 0.125
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.125, 0.25, 0.375, 0.5, 0.625, 0.75, 0.875),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [8, 9, 10, 11, 12, 13, 14, 15]
+}
+
+[sub_resource type="Animation" id="Animation_60due"]
+resource_name = "idle_sw"
+loop_mode = 1
+step = 0.125
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.125, 0.25, 0.375, 0.5, 0.625, 0.75, 0.875),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [16, 17, 18, 19, 20, 21, 22, 23]
+}
+
+[sub_resource type="Animation" id="Animation_x1nq2"]
+resource_name = "idle_w"
+loop_mode = 1
+step = 0.125
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.125, 0.25, 0.375, 0.5, 0.625, 0.75, 0.875),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [24, 25, 26, 27, 28, 29, 30, 31]
+}
+
+[sub_resource type="Animation" id="Animation_07cyw"]
+resource_name = "walk_e"
+length = 1.00001
+loop_mode = 1
+step = 0.0833333
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.0833333, 0.166667, 0.25, 0.333333, 0.416667, 0.5, 0.583333, 0.666667, 0.75, 0.833333, 0.916667),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [84, 85, 86, 87, 88, 89, 90, 91, 92, 93, 94, 95]
+}
+
+[sub_resource type="Animation" id="Animation_ef4aw"]
+resource_name = "walk_n"
+length = 1.00001
+loop_mode = 1
+step = 0.0833333
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.0833333, 0.166667, 0.25, 0.333333, 0.416667, 0.5, 0.583333, 0.666667, 0.75, 0.833333, 0.916667),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [60, 61, 62, 63, 64, 65, 66, 67, 68, 69, 70, 71]
+}
+
+[sub_resource type="Animation" id="Animation_owh20"]
+resource_name = "walk_ne"
+length = 1.00001
+loop_mode = 1
+step = 0.0833333
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.0833333, 0.166667, 0.25, 0.333333, 0.416667, 0.5, 0.583333, 0.666667, 0.75, 0.833333, 0.916667),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [72, 73, 74, 75, 76, 77, 78, 79, 80, 81, 82, 83]
+}
+
+[sub_resource type="Animation" id="Animation_fae2n"]
+resource_name = "walk_nw"
+length = 1.00001
+loop_mode = 1
+step = 0.0833333
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.0833333, 0.166667, 0.25, 0.333333, 0.416667, 0.5, 0.583333, 0.666667, 0.75, 0.833333, 0.916667),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [48, 49, 50, 51, 52, 53, 54, 55, 56, 57, 58, 59]
+}
+
+[sub_resource type="Animation" id="Animation_j40bd"]
+resource_name = "walk_s"
+length = 1.00001
+loop_mode = 1
+step = 0.0833333
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.0833333, 0.166667, 0.25, 0.333333, 0.416667, 0.5, 0.583333, 0.666667, 0.75, 0.833333, 0.916667),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11]
+}
+
+[sub_resource type="Animation" id="Animation_wox2a"]
+resource_name = "walk_se"
+length = 1.00001
+loop_mode = 1
+step = 0.0833333
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.0833333, 0.166667, 0.25, 0.333333, 0.416667, 0.5, 0.583333, 0.666667, 0.75, 0.833333, 0.916667),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23]
+}
+
+[sub_resource type="Animation" id="Animation_g1qwh"]
+resource_name = "walk_sw"
+length = 1.00001
+loop_mode = 1
+step = 0.0833333
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.0833333, 0.166667, 0.25, 0.333333, 0.416667, 0.5, 0.583333, 0.666667, 0.75, 0.833333, 0.916667),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35]
+}
+
+[sub_resource type="Animation" id="Animation_d0cs8"]
+resource_name = "walk_w"
+length = 1.00001
+loop_mode = 1
+step = 0.0833333
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.0833333, 0.166667, 0.25, 0.333333, 0.416667, 0.5, 0.583333, 0.666667, 0.75, 0.833333, 0.916667),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [36, 37, 38, 39, 40, 41, 42, 43, 44, 45, 46, 47]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_gi8jr"]
+_data = {
+&"RESET": SubResource("Animation_7fl2r"),
+&"idle_e": SubResource("Animation_mdahh"),
+&"idle_n": SubResource("Animation_pgjt0"),
+&"idle_ne": SubResource("Animation_pmt01"),
+&"idle_nw": SubResource("Animation_d4vnq"),
+&"idle_s": SubResource("Animation_xt382"),
+&"idle_se": SubResource("Animation_gi8jr"),
+&"idle_sw": SubResource("Animation_60due"),
+&"idle_w": SubResource("Animation_x1nq2"),
+&"walk_e": SubResource("Animation_07cyw"),
+&"walk_n": SubResource("Animation_ef4aw"),
+&"walk_ne": SubResource("Animation_owh20"),
+&"walk_nw": SubResource("Animation_fae2n"),
+&"walk_s": SubResource("Animation_j40bd"),
+&"walk_se": SubResource("Animation_wox2a"),
+&"walk_sw": SubResource("Animation_g1qwh"),
+&"walk_w": SubResource("Animation_d0cs8")
+}
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_xt382"]
+animation = &"idle_s"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_gi8jr"]
+animation = &"idle_se"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_7fl2r"]
+animation = &"idle_e"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_60due"]
+animation = &"idle_ne"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_x1nq2"]
+animation = &"idle_n"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_d4vnq"]
+animation = &"idle_nw"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_pgjt0"]
+animation = &"idle_w"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_pmt01"]
+animation = &"idle_sw"
+
+[sub_resource type="AnimationNodeBlendSpace2D" id="AnimationNodeBlendSpace2D_xt382"]
+blend_point_0/node = SubResource("AnimationNodeAnimation_xt382")
+blend_point_0/pos = Vector2(-0.5, 0.5)
+blend_point_1/node = SubResource("AnimationNodeAnimation_gi8jr")
+blend_point_1/pos = Vector2(0, 1)
+blend_point_2/node = SubResource("AnimationNodeAnimation_7fl2r")
+blend_point_2/pos = Vector2(0.5, 0.5)
+blend_point_3/node = SubResource("AnimationNodeAnimation_60due")
+blend_point_3/pos = Vector2(1, 0)
+blend_point_4/node = SubResource("AnimationNodeAnimation_x1nq2")
+blend_point_4/pos = Vector2(0.5, -0.5)
+blend_point_5/node = SubResource("AnimationNodeAnimation_d4vnq")
+blend_point_5/pos = Vector2(0, -1)
+blend_point_6/node = SubResource("AnimationNodeAnimation_pgjt0")
+blend_point_6/pos = Vector2(-0.5, -0.5)
+blend_point_7/node = SubResource("AnimationNodeAnimation_pmt01")
+blend_point_7/pos = Vector2(-1, 0)
+blend_mode = 2
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_mdahh"]
+animation = &"walk_s"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_j40bd"]
+animation = &"walk_se"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_wox2a"]
+animation = &"walk_e"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_g1qwh"]
+animation = &"walk_ne"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_d0cs8"]
+animation = &"walk_n"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_fae2n"]
+animation = &"walk_nw"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_ef4aw"]
+animation = &"walk_w"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_owh20"]
+animation = &"walk_sw"
+
+[sub_resource type="AnimationNodeBlendSpace2D" id="AnimationNodeBlendSpace2D_gi8jr"]
+blend_point_0/node = SubResource("AnimationNodeAnimation_mdahh")
+blend_point_0/pos = Vector2(-0.5, 0.5)
+blend_point_1/node = SubResource("AnimationNodeAnimation_j40bd")
+blend_point_1/pos = Vector2(0, 1)
+blend_point_2/node = SubResource("AnimationNodeAnimation_wox2a")
+blend_point_2/pos = Vector2(0.5, 0.5)
+blend_point_3/node = SubResource("AnimationNodeAnimation_g1qwh")
+blend_point_3/pos = Vector2(1, 0)
+blend_point_4/node = SubResource("AnimationNodeAnimation_d0cs8")
+blend_point_4/pos = Vector2(0.5, -0.5)
+blend_point_5/node = SubResource("AnimationNodeAnimation_fae2n")
+blend_point_5/pos = Vector2(0, -1)
+blend_point_6/node = SubResource("AnimationNodeAnimation_ef4aw")
+blend_point_6/pos = Vector2(-0.5, -0.5)
+blend_point_7/node = SubResource("AnimationNodeAnimation_owh20")
+blend_point_7/pos = Vector2(-1, 0)
+blend_mode = 2
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_mdahh"]
+advance_mode = 2
+
+[sub_resource type="AnimationNodeStateMachine" id="AnimationNodeStateMachine_gi8jr"]
+states/Idle/node = SubResource("AnimationNodeBlendSpace2D_xt382")
+states/Idle/position = Vector2(526, 127)
+states/Walk/node = SubResource("AnimationNodeBlendSpace2D_gi8jr")
+states/Walk/position = Vector2(752, 116)
+transitions = ["Start", "Idle", SubResource("AnimationNodeStateMachineTransition_mdahh")]
+graph_offset = Vector2(-197, -14)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_0xfc0"]
+texture = ExtResource("41_acjk4")
+modulate_color = Color(0.752941, 0.752941, 0.752941, 1)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_acjk4"]
+texture = ExtResource("41_acjk4")
+modulate_color = Color(0.646029, 0.646029, 0.646029, 1)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_3lc3d"]
+texture = ExtResource("41_acjk4")
+
+[node name="Game2d" type="Node2D"]
+script = ExtResource("1_pqs0o")
+
+[node name="Player" type="Node2D" parent="."]
+position = Vector2(1021, 514)
+
+[node name="Player Movement Manager" type="Node2D" parent="Player"]
+unique_name_in_owner = true
+script = ExtResource("1_xt382")
+player_initial_grid_pos = Vector2i(6, 3)
+player_initial_facing = Vector2i(1, 0)
+outline_selected_color = Color(0.976471, 0.423529, 0.156863, 1)
+outline_available_color = Color(0.529412, 0.721569, 0.309804, 1)
+step_time = 0.35
+
+[node name="Player Sprite" type="Sprite2D" parent="Player"]
+unique_name_in_owner = true
+z_index = 5
+texture_filter = 1
+scale = Vector2(1.23, 1.23)
+texture = ExtResource("3_gi8jr")
+offset = Vector2(0, -24.475)
+hframes = 12
+vframes = 8
+frame = 8
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Player/Player Sprite"]
+libraries = {
+&"": SubResource("AnimationLibrary_gi8jr")
+}
+
+[node name="Player AnimationTree" type="AnimationTree" parent="Player/Player Sprite"]
+unique_name_in_owner = true
+root_node = NodePath("%Player AnimationTree/..")
+tree_root = SubResource("AnimationNodeStateMachine_gi8jr")
+anim_player = NodePath("../AnimationPlayer")
+parameters/Idle/blend_position = Vector2(-0.125166, -0.494506)
+parameters/Walk/blend_position = Vector2(-0.716216, 0.5)
+
+[node name="Player Idle Outline" type="Sprite2D" parent="Player"]
+unique_name_in_owner = true
+modulate = Color(0, 0, 0, 1)
+z_index = 4
+rotation = -0.610865
+scale = Vector2(0.7, 0.7)
+skew = -0.349066
+texture = ExtResource("6_34x56")
+
+[node name="Board" type="Node2D" parent="."]
+position = Vector2(1049, 457)
+rotation = -0.610865
+scale = Vector2(0.7, 0.7)
+skew = -0.349066
+
+[node name="LineDrawer" type="Node2D" parent="Board"]
+unique_name_in_owner = true
+z_index = 2
+script = ExtResource("3_8hnth")
+inline_width = 20.0
+point_radius = 20.0
+animation_duration = 0.1
+
+[node name="Line2D_Outer" type="Line2D" parent="Board/LineDrawer"]
+z_index = -1
+width = 20.0
+default_color = Color(0, 0, 0, 1)
+antialiased = true
+
+[node name="Line2D_Inner" type="Line2D" parent="Board/LineDrawer"]
+z_index = 1
+antialiased = true
+
+[node name="Grids" type="Node2D" parent="Board"]
+
+[node name="Grid_0_0" parent="Board/Grids" instance=ExtResource("6_xt382")]
+position = Vector2(-909.722, -362.099)
+texture = ExtResource("7_7fl2r")
+
+[node name="Functional Component" parent="Board/Grids/Grid_0_0" groups=["NPCs"] instance=ExtResource("8_mdahh")]
+
+[node name="Fruit Icon 1" type="Sprite2D" parent="Board/Grids/Grid_0_0"]
+position = Vector2(-75.811, 33.2648)
+scale = Vector2(0.667, 0.667)
+texture = ExtResource("13_mdahh")
+
+[node name="Fruit Icon 2" type="Sprite2D" parent="Board/Grids/Grid_0_0"]
+position = Vector2(-30.0379, 38.3574)
+scale = Vector2(0.667, 0.667)
+texture = ExtResource("13_g1qwh")
+
+[node name="Grid_1_0" parent="Board/Grids" instance=ExtResource("6_xt382")]
+position = Vector2(-773.722, -362.099)
+grid_type = 0
+grid_position = Vector2i(1, 0)
+
+[node name="Grid_2_0" parent="Board/Grids" instance=ExtResource("6_xt382")]
+position = Vector2(-637.722, -362.099)
+grid_type = 0
+grid_position = Vector2i(2, 0)
+
+[node name="Grid_3_0" parent="Board/Grids" instance=ExtResource("6_xt382")]
+position = Vector2(-502.096, -362.62)
+texture = ExtResource("11_0cfqf")
+grid_type = 2
+grid_position = Vector2i(3, 0)
+
+[node name="Functional Component" parent="Board/Grids/Grid_3_0" node_paths=PackedStringArray("upgrade_button_list") instance=ExtResource("12_874u5")]
+upgrade_button_list = [NodePath("../Upgrade shop button2"), NodePath("../Upgrade shop button")]
+
+[node name="Upgrade shop button" parent="Board/Grids/Grid_3_0" instance=ExtResource("13_acjk4")]
+
+[node name="Upgrade shop button2" parent="Board/Grids/Grid_3_0" instance=ExtResource("13_acjk4")]
+offset_left = -200.0
+offset_right = -72.0
+pivot_offset = Vector2(200, 200)
+
+[node name="Grid_4_0" parent="Board/Grids" instance=ExtResource("6_xt382")]
+position = Vector2(-366, -362)
+grid_type = 0
+grid_position = Vector2i(4, 0)
+
+[node name="Grid_5_0" parent="Board/Grids" instance=ExtResource("6_xt382")]
+position = Vector2(-230, -362)
+texture = ExtResource("9_d4vnq")
+grid_type = 0
+grid_position = Vector2i(5, 0)
+
+[node name="Functional Component" parent="Board/Grids/Grid_5_0" instance=ExtResource("9_pgjt0")]
+prize_source = 5
+
+[node name="Major Fruit Icon" type="Sprite2D" parent="Board/Grids/Grid_5_0"]
+position = Vector2(-23.4699, 24.2907)
+texture = ExtResource("24_vg072")
+
+[node name="Minor Fruit Icon" type="Sprite2D" parent="Board/Grids/Grid_5_0"]
+position = Vector2(40.6224, 37.5141)
+scale = Vector2(0.59, 0.59)
+texture = ExtResource("10_pgjt0")
+
+[node name="Grid_6_0" parent="Board/Grids" instance=ExtResource("6_xt382")]
+position = Vector2(-94, -362)
+grid_type = 0
+grid_position = Vector2i(6, 0)
+
+[node name="Grid_7_0" parent="Board/Grids" instance=ExtResource("6_xt382")]
+position = Vector2(42, -362)
+grid_type = 0
+grid_position = Vector2i(7, 0)
+
+[node name="Grid_8_0" parent="Board/Grids" instance=ExtResource("6_xt382")]
+position = Vector2(178, -362)
+grid_type = 0
+grid_position = Vector2i(8, 0)
+
+[node name="Grid_8_1" parent="Board/Grids" instance=ExtResource("6_xt382")]
+position = Vector2(178, -226)
+grid_type = 0
+grid_position = Vector2i(8, 1)
+
+[node name="Grid_7_2" parent="Board/Grids" instance=ExtResource("6_xt382")]
+position = Vector2(42, -90)
+grid_type = 0
+grid_position = Vector2i(7, 2)
+
+[node name="Grid_6_2" parent="Board/Grids" instance=ExtResource("6_xt382")]
+position = Vector2(-94, -90)
+texture = ExtResource("9_d4vnq")
+grid_type = 3
+grid_position = Vector2i(6, 2)
+
+[node name="Functional Component" parent="Board/Grids/Grid_6_2" instance=ExtResource("9_pgjt0")]
+prize_source = 8
+
+[node name="Major Fruit Icon" type="Sprite2D" parent="Board/Grids/Grid_6_2"]
+position = Vector2(-23.4699, 24.2907)
+texture = ExtResource("20_dvnqc")
+
+[node name="Minor Fruit Icon" type="Sprite2D" parent="Board/Grids/Grid_6_2"]
+position = Vector2(40.6224, 37.5141)
+scale = Vector2(0.59, 0.59)
+texture = ExtResource("12_07cyw")
+
+[node name="Grid_6_3" parent="Board/Grids" instance=ExtResource("6_xt382")]
+position = Vector2(-94, 46)
+grid_type = 0
+grid_position = Vector2i(6, 3)
+
+[node name="Grid_6_4" parent="Board/Grids" instance=ExtResource("6_xt382")]
+position = Vector2(-94, 182)
+texture = ExtResource("20_874u5")
+grid_type = 2
+grid_position = Vector2i(6, 4)
+
+[node name="Functional Component" parent="Board/Grids/Grid_6_4" node_paths=PackedStringArray("upgrade_button_list") instance=ExtResource("12_874u5")]
+upgrade_shop_type = 2
+upgrade_button_list = [NodePath("../Upgrade shop button"), NodePath("../Upgrade shop button2")]
+
+[node name="Upgrade shop button" parent="Board/Grids/Grid_6_4" instance=ExtResource("13_acjk4")]
+offset_left = -64.0
+offset_top = 72.0
+offset_right = 64.0
+offset_bottom = 200.0
+pivot_offset = Vector2(64, -73)
+
+[node name="Upgrade shop button2" parent="Board/Grids/Grid_6_4" instance=ExtResource("13_acjk4")]
+offset_left = 72.0
+offset_top = 72.0
+offset_right = 200.0
+offset_bottom = 200.0
+pivot_offset = Vector2(-73, -71)
+
+[node name="Grid_7_4" parent="Board/Grids" instance=ExtResource("6_xt382")]
+position = Vector2(42, 182)
+grid_type = 0
+grid_position = Vector2i(7, 4)
+
+[node name="Grid_8_4" parent="Board/Grids" instance=ExtResource("6_xt382")]
+position = Vector2(178, 182)
+grid_type = 0
+grid_position = Vector2i(8, 4)
+
+[node name="Grid_9_4" parent="Board/Grids" instance=ExtResource("6_xt382")]
+position = Vector2(314, 182)
+texture = ExtResource("9_x1nq2")
+grid_type = 4
+grid_position = Vector2i(9, 4)
+
+[node name="Functional Component" parent="Board/Grids/Grid_9_4" instance=ExtResource("15_d0cs8")]
+shop_type = 3
+shop_ui_panel_offset = Vector2(343.666, -190)
+
+[node name="Basic Ball Icon" type="Sprite2D" parent="Board/Grids/Grid_9_4"]
+position = Vector2(-37.8264, -38.0289)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("25_yiyb4")
+
+[node name="Shop Type Icon" type="Sprite2D" parent="Board/Grids/Grid_9_4"]
+position = Vector2(0, 11.527)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("57_kh3n4")
+
+[node name="Grid_10_4" parent="Board/Grids" instance=ExtResource("6_xt382")]
+position = Vector2(450, 182)
+grid_type = 0
+grid_position = Vector2i(10, 4)
+
+[node name="Grid_8_2" parent="Board/Grids" instance=ExtResource("6_xt382")]
+position = Vector2(178, -90)
+texture = ExtResource("26_lu7og")
+grid_position = Vector2i(8, 2)
+
+[node name="Functional Component" parent="Board/Grids/Grid_8_2" groups=["NPCs"] instance=ExtResource("8_mdahh")]
+npc = 3
+required_fruit_type_1 = "watermelon"
+required_fruit_type_2 = "apple"
+
+[node name="Fruit Icon 1" type="Sprite2D" parent="Board/Grids/Grid_8_2"]
+position = Vector2(-75.811, 33.2648)
+scale = Vector2(0.667, 0.667)
+texture = ExtResource("10_pgjt0")
+
+[node name="Fruit Icon 2" type="Sprite2D" parent="Board/Grids/Grid_8_2"]
+position = Vector2(-30.0379, 38.3574)
+scale = Vector2(0.667, 0.667)
+texture = ExtResource("24_vg072")
+
+[node name="Grid_9_0" parent="Board/Grids" instance=ExtResource("6_xt382")]
+position = Vector2(314, -362)
+texture = ExtResource("9_x1nq2")
+grid_type = 4
+grid_position = Vector2i(9, 0)
+
+[node name="Functional Component" parent="Board/Grids/Grid_9_0" instance=ExtResource("15_d0cs8")]
+shop_ui_panel_offset = Vector2(-308.7, -333)
+
+[node name="Basic Ball Icon" type="Sprite2D" parent="Board/Grids/Grid_9_0"]
+position = Vector2(-37.8264, -38.0289)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("28_pqs0o")
+
+[node name="Shop Type Icon" type="Sprite2D" parent="Board/Grids/Grid_9_0"]
+position = Vector2(0, 11.527)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("49_f178w")
+
+[node name="Grid_10_0" parent="Board/Grids" instance=ExtResource("6_xt382")]
+position = Vector2(450, -362)
+grid_type = 0
+grid_position = Vector2i(10, 0)
+
+[node name="Grid_3_1" parent="Board/Grids" instance=ExtResource("6_xt382")]
+position = Vector2(-501.722, -226.099)
+grid_type = 0
+grid_position = Vector2i(3, 1)
+
+[node name="Grid_3_2" parent="Board/Grids" instance=ExtResource("6_xt382")]
+position = Vector2(-501.722, -90.0992)
+texture = ExtResource("11_07cyw")
+grid_position = Vector2i(3, 2)
+
+[node name="Functional Component" parent="Board/Grids/Grid_3_2" groups=["NPCs"] instance=ExtResource("8_mdahh")]
+npc = 0
+required_fruit_type_1 = "grape"
+required_fruit_type_2 = "banana"
+
+[node name="Fruit Icon 1" type="Sprite2D" parent="Board/Grids/Grid_3_2"]
+position = Vector2(-75.811, 33.2648)
+scale = Vector2(0.667, 0.667)
+texture = ExtResource("12_07cyw")
+
+[node name="Fruit Icon 2" type="Sprite2D" parent="Board/Grids/Grid_3_2"]
+position = Vector2(-30.0379, 38.3574)
+scale = Vector2(0.667, 0.667)
+texture = ExtResource("13_mdahh")
+
+[node name="Grid_0_1" parent="Board/Grids" instance=ExtResource("6_xt382")]
+position = Vector2(-909.722, -226.099)
+grid_type = 0
+grid_position = Vector2i(0, 1)
+
+[node name="Grid_0_2" parent="Board/Grids" instance=ExtResource("6_xt382")]
+position = Vector2(-909.722, -90.0992)
+texture = ExtResource("9_d4vnq")
+grid_type = 3
+grid_position = Vector2i(0, 2)
+
+[node name="Functional Component" parent="Board/Grids/Grid_0_2" instance=ExtResource("9_pgjt0")]
+prize_source = 7
+
+[node name="Major Fruit Icon" type="Sprite2D" parent="Board/Grids/Grid_0_2"]
+position = Vector2(-15.4699, 16.2907)
+texture = ExtResource("10_pgjt0")
+
+[node name="Minor Fruit Icon" type="Sprite2D" parent="Board/Grids/Grid_0_2"]
+position = Vector2(40.6224, 37.5141)
+scale = Vector2(0.59, 0.59)
+texture = ExtResource("13_mdahh")
+
+[node name="Grid_0_3" parent="Board/Grids" instance=ExtResource("6_xt382")]
+position = Vector2(-909.722, 45.9008)
+grid_type = 0
+grid_position = Vector2i(0, 3)
+
+[node name="Grid_0_4" parent="Board/Grids" instance=ExtResource("6_xt382")]
+position = Vector2(-910, 182)
+grid_type = 0
+grid_position = Vector2i(0, 4)
+
+[node name="Grid_0_5" parent="Board/Grids" instance=ExtResource("6_xt382")]
+position = Vector2(-910, 318)
+texture = ExtResource("28_q2r72")
+grid_type = 2
+grid_position = Vector2i(0, 5)
+
+[node name="Functional Component" parent="Board/Grids/Grid_0_5" node_paths=PackedStringArray("upgrade_button_list") instance=ExtResource("12_874u5")]
+upgrade_shop_type = 3
+upgrade_button_list = [NodePath("../Upgrade shop button"), NodePath("../Upgrade shop button2")]
+
+[node name="Upgrade shop button" parent="Board/Grids/Grid_0_5" instance=ExtResource("13_acjk4")]
+offset_left = 72.0
+offset_top = -64.0
+offset_right = 200.0
+offset_bottom = 64.0
+pivot_offset = Vector2(-72, 65)
+
+[node name="Upgrade shop button2" parent="Board/Grids/Grid_0_5" instance=ExtResource("13_acjk4")]
+offset_left = 208.0
+offset_top = -64.0
+offset_right = 336.0
+offset_bottom = 64.0
+pivot_offset = Vector2(-208, 65)
+
+[node name="Grid_0_6" parent="Board/Grids" instance=ExtResource("6_xt382")]
+position = Vector2(-910, 454)
+grid_type = 0
+grid_position = Vector2i(0, 6)
+
+[node name="Grid_1_3" parent="Board/Grids" instance=ExtResource("6_xt382")]
+position = Vector2(-773.722, 45.9008)
+texture = ExtResource("9_x1nq2")
+grid_type = 4
+grid_position = Vector2i(1, 3)
+
+[node name="Functional Component" parent="Board/Grids/Grid_1_3" instance=ExtResource("15_d0cs8")]
+shop_type = 2
+
+[node name="Basic Ball Icon" type="Sprite2D" parent="Board/Grids/Grid_1_3"]
+position = Vector2(-37.8264, -38.0289)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("32_34x56")
+
+[node name="Shop Type Icon" type="Sprite2D" parent="Board/Grids/Grid_1_3"]
+position = Vector2(0, 11.527)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("53_h3g56")
+
+[node name="Grid_2_3" parent="Board/Grids" instance=ExtResource("6_xt382")]
+position = Vector2(-637.722, 45.9008)
+grid_type = 0
+grid_position = Vector2i(2, 3)
+
+[node name="Grid_3_3" parent="Board/Grids" instance=ExtResource("6_xt382")]
+position = Vector2(-501.722, 45.9008)
+grid_type = 0
+grid_position = Vector2i(3, 3)
+
+[node name="Grid_4_3" parent="Board/Grids" instance=ExtResource("6_xt382")]
+position = Vector2(-365, 45)
+grid_type = 0
+grid_position = Vector2i(4, 3)
+
+[node name="Grid_4_4" parent="Board/Grids" instance=ExtResource("6_xt382")]
+position = Vector2(-365, 181)
+grid_type = 0
+grid_position = Vector2i(4, 4)
+
+[node name="Grid_4_5" parent="Board/Grids" instance=ExtResource("6_xt382")]
+position = Vector2(-365, 317)
+texture = ExtResource("31_q187p")
+grid_type = 2
+grid_position = Vector2i(4, 5)
+
+[node name="Functional Component" parent="Board/Grids/Grid_4_5" node_paths=PackedStringArray("upgrade_button_list") instance=ExtResource("12_874u5")]
+upgrade_shop_type = 0
+upgrade_button_list = [NodePath("../Upgrade shop button"), NodePath("../Upgrade shop button2")]
+
+[node name="Upgrade shop button" parent="Board/Grids/Grid_4_5" instance=ExtResource("13_acjk4")]
+offset_left = 72.0
+offset_top = -64.0
+offset_right = 200.0
+offset_bottom = 64.0
+pivot_offset = Vector2(-72, 65)
+
+[node name="Upgrade shop button2" parent="Board/Grids/Grid_4_5" instance=ExtResource("13_acjk4")]
+offset_left = 72.0
+offset_top = -200.0
+offset_right = 200.0
+offset_bottom = -72.0
+pivot_offset = Vector2(-73, 201)
+
+[node name="Grid_4_6" parent="Board/Grids" instance=ExtResource("6_xt382")]
+position = Vector2(-365, 452)
+grid_type = 0
+grid_position = Vector2i(4, 6)
+
+[node name="Grid_3_6" parent="Board/Grids" instance=ExtResource("6_xt382")]
+position = Vector2(-501, 452)
+texture = ExtResource("9_d4vnq")
+grid_type = 3
+grid_position = Vector2i(3, 6)
+
+[node name="Functional Component" parent="Board/Grids/Grid_3_6" instance=ExtResource("9_pgjt0")]
+prize_source = 6
+
+[node name="Major Fruit Icon" type="Sprite2D" parent="Board/Grids/Grid_3_6"]
+position = Vector2(-28, 16)
+texture = ExtResource("13_g1qwh")
+
+[node name="Minor Fruit Icon" type="Sprite2D" parent="Board/Grids/Grid_3_6"]
+position = Vector2(40.6224, 37.5141)
+scale = Vector2(0.59, 0.59)
+texture = ExtResource("20_dvnqc")
+
+[node name="Grid_2_6" parent="Board/Grids" instance=ExtResource("6_xt382")]
+position = Vector2(-637, 452)
+grid_type = 0
+grid_position = Vector2i(2, 6)
+
+[node name="Grid_1_6" parent="Board/Grids" instance=ExtResource("6_xt382")]
+position = Vector2(-773, 452)
+texture = ExtResource("9_x1nq2")
+grid_type = 2
+grid_position = Vector2i(1, 6)
+
+[node name="Functional Component" parent="Board/Grids/Grid_1_6" instance=ExtResource("15_d0cs8")]
+shop_type = 1
+shop_ui_panel_offset = Vector2(70.5, 77.5)
+
+[node name="Basic Ball Icon" type="Sprite2D" parent="Board/Grids/Grid_1_6"]
+position = Vector2(-37.8264, -38.0289)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("35_apgn6")
+
+[node name="Shop Type Icon" type="Sprite2D" parent="Board/Grids/Grid_1_6"]
+position = Vector2(0, 11.527)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("43_0xfc0")
+
+[node name="Grid_5_6" parent="Board/Grids" instance=ExtResource("6_xt382")]
+position = Vector2(-229, 452)
+grid_type = 0
+grid_position = Vector2i(5, 6)
+
+[node name="Grid_6_6" parent="Board/Grids" instance=ExtResource("6_xt382")]
+position = Vector2(-93, 452)
+texture = ExtResource("7_owh20")
+grid_position = Vector2i(6, 6)
+
+[node name="Functional Component" parent="Board/Grids/Grid_6_6" groups=["NPCs"] instance=ExtResource("8_mdahh")]
+npc = 5
+required_fruit_type_1 = "mango"
+required_fruit_type_2 = "grape"
+
+[node name="Fruit Icon 1" type="Sprite2D" parent="Board/Grids/Grid_6_6"]
+position = Vector2(-75.811, 33.2648)
+scale = Vector2(0.667, 0.667)
+texture = ExtResource("20_dvnqc")
+
+[node name="Fruit Icon 2" type="Sprite2D" parent="Board/Grids/Grid_6_6"]
+position = Vector2(-30.0379, 38.3574)
+scale = Vector2(0.667, 0.667)
+texture = ExtResource("12_07cyw")
+
+[node name="Grid_7_6" parent="Board/Grids" instance=ExtResource("6_xt382")]
+position = Vector2(43, 452)
+grid_type = 0
+grid_position = Vector2i(7, 6)
+
+[node name="Grid_8_6" parent="Board/Grids" instance=ExtResource("6_xt382")]
+position = Vector2(179, 452)
+grid_type = 0
+grid_position = Vector2i(8, 6)
+
+[node name="Grid_9_6" parent="Board/Grids" instance=ExtResource("6_xt382")]
+position = Vector2(315, 452)
+texture = ExtResource("9_d4vnq")
+grid_type = 3
+grid_position = Vector2i(9, 6)
+
+[node name="Functional Component" parent="Board/Grids/Grid_9_6" instance=ExtResource("9_pgjt0")]
+prize_source = 9
+
+[node name="Major Fruit Icon" type="Sprite2D" parent="Board/Grids/Grid_9_6"]
+position = Vector2(-15.0001, 25)
+texture = ExtResource("13_mdahh")
+
+[node name="Minor Fruit Icon" type="Sprite2D" parent="Board/Grids/Grid_9_6"]
+position = Vector2(40.6224, 37.5141)
+scale = Vector2(0.59, 0.59)
+texture = ExtResource("24_vg072")
+
+[node name="Grid_10_6" parent="Board/Grids" instance=ExtResource("6_xt382")]
+position = Vector2(451, 452)
+grid_type = 0
+grid_position = Vector2i(10, 6)
+
+[node name="Grid_11_6" parent="Board/Grids" instance=ExtResource("6_xt382")]
+position = Vector2(587, 452)
+grid_type = 0
+grid_position = Vector2i(11, 6)
+
+[node name="Grid_11_0" parent="Board/Grids" instance=ExtResource("6_xt382")]
+position = Vector2(587, -364)
+texture = ExtResource("25_80uim")
+grid_position = Vector2i(11, 0)
+
+[node name="Functional Component" parent="Board/Grids/Grid_11_0" groups=["NPCs"] instance=ExtResource("8_mdahh")]
+npc = 2
+required_fruit_type_1 = "watermelon"
+
+[node name="Fruit Icon 1" type="Sprite2D" parent="Board/Grids/Grid_11_0"]
+position = Vector2(-75.811, 33.2648)
+scale = Vector2(0.667, 0.667)
+texture = ExtResource("10_pgjt0")
+
+[node name="Fruit Icon 2" type="Sprite2D" parent="Board/Grids/Grid_11_0"]
+position = Vector2(-30.0379, 38.3574)
+scale = Vector2(0.667, 0.667)
+texture = ExtResource("13_g1qwh")
+
+[node name="Grid_11_1" parent="Board/Grids" instance=ExtResource("6_xt382")]
+position = Vector2(587, -228)
+grid_type = 0
+grid_position = Vector2i(11, 1)
+
+[node name="Grid_11_2" parent="Board/Grids" instance=ExtResource("6_xt382")]
+position = Vector2(587, -92)
+texture = ExtResource("9_d4vnq")
+grid_type = 3
+grid_position = Vector2i(11, 2)
+
+[node name="Functional Component" parent="Board/Grids/Grid_11_2" instance=ExtResource("9_pgjt0")]
+
+[node name="Major Fruit Icon" type="Sprite2D" parent="Board/Grids/Grid_11_2"]
+position = Vector2(-40.0001, 22)
+texture = ExtResource("12_07cyw")
+
+[node name="Minor Fruit Icon" type="Sprite2D" parent="Board/Grids/Grid_11_2"]
+position = Vector2(40.6224, 37.5141)
+scale = Vector2(0.59, 0.59)
+texture = ExtResource("13_g1qwh")
+
+[node name="Grid_11_3" parent="Board/Grids" instance=ExtResource("6_xt382")]
+position = Vector2(587, 44)
+grid_type = 0
+grid_position = Vector2i(11, 3)
+
+[node name="Grid_11_4" parent="Board/Grids" instance=ExtResource("6_xt382")]
+position = Vector2(587, 180)
+grid_type = 0
+grid_position = Vector2i(11, 4)
+
+[node name="Grid_11_5" parent="Board/Grids" instance=ExtResource("6_xt382")]
+position = Vector2(587, 316)
+texture = ExtResource("29_nxrph")
+grid_position = Vector2i(11, 5)
+
+[node name="Functional Component" parent="Board/Grids/Grid_11_5" groups=["NPCs"] instance=ExtResource("8_mdahh")]
+npc = 4
+required_fruit_type_1 = "mango"
+required_fruit_type_2 = "apple"
+
+[node name="Fruit Icon 1" type="Sprite2D" parent="Board/Grids/Grid_11_5"]
+position = Vector2(-75.811, 33.2648)
+scale = Vector2(0.667, 0.667)
+texture = ExtResource("20_dvnqc")
+
+[node name="Fruit Icon 2" type="Sprite2D" parent="Board/Grids/Grid_11_5"]
+position = Vector2(-30.0379, 38.3574)
+scale = Vector2(0.667, 0.667)
+texture = ExtResource("24_vg072")
+
+[node name="In-world UI" type="Control" parent="Board"]
+layout_mode = 3
+anchors_preset = 0
+
+[node name="Time UI" type="RichTextLabel" parent="Board/In-world UI"]
+layout_mode = 0
+offset_left = -313.094
+offset_top = -667.595
+offset_right = -48.0941
+offset_bottom = -419.595
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/normal_font_size = 80
+theme_override_font_sizes/bold_font_size = 90
+bbcode_enabled = true
+text = "DAY 1
+16:00
+[font_size=26]Shop refresh in 9h[/font_size]"
+fit_content = true
+scroll_active = false
+shortcut_keys_enabled = false
+horizontal_alignment = 1
+vertical_alignment = 1
+script = ExtResource("38_4d1v3")
+
+[node name="Resource UI fruit choice" parent="Board/In-world UI" instance=ExtResource("15_j40bd")]
+visible = false
+layout_mode = 0
+offset_left = -389.008
+offset_top = -1086.39
+offset_right = -261.008
+offset_bottom = -958.386
+item_name = "fruit of your choice"
+
+[node name="Resource UI coupon choice" parent="Board/In-world UI" instance=ExtResource("15_j40bd")]
+visible = false
+layout_mode = 0
+offset_left = -744.31
+offset_top = -816.538
+offset_right = -616.31
+offset_bottom = -688.536
+item_name = "upgrade coupon of your choice"
+
+[node name="Upgrade Coupon UI Panel" type="TextureRect" parent="Board/In-world UI"]
+layout_mode = 0
+offset_left = -824.49
+offset_top = -975.28
+offset_right = -542.49
+offset_bottom = -623.28
+texture = ExtResource("42_p4hnd")
+
+[node name="UpgradeCouponGridContainer" type="GridContainer" parent="Board/In-world UI/Upgrade Coupon UI Panel"]
+layout_mode = 0
+offset_left = 10.91
+offset_top = 80.6479
+offset_right = 270.91
+offset_bottom = 340.648
+columns = 2
+
+[node name="Resource UI Grid" parent="Board/In-world UI/Upgrade Coupon UI Panel/UpgradeCouponGridContainer" instance=ExtResource("15_j40bd")]
+self_modulate = Color(0.156863, 0.298039, 0.764706, 1)
+layout_mode = 2
+item_name = "traffic upgrade coupon"
+
+[node name="Resource UI Grid2" parent="Board/In-world UI/Upgrade Coupon UI Panel/UpgradeCouponGridContainer" instance=ExtResource("15_j40bd")]
+self_modulate = Color(0.156863, 0.298039, 0.764706, 1)
+layout_mode = 2
+item_name = "trade upgrade coupon"
+
+[node name="Resource UI Grid3" parent="Board/In-world UI/Upgrade Coupon UI Panel/UpgradeCouponGridContainer" instance=ExtResource("15_j40bd")]
+self_modulate = Color(0.156863, 0.298039, 0.764706, 1)
+layout_mode = 2
+item_name = "affairs upgrade coupon"
+
+[node name="Resource UI Grid4" parent="Board/In-world UI/Upgrade Coupon UI Panel/UpgradeCouponGridContainer" instance=ExtResource("15_j40bd")]
+self_modulate = Color(0.156863, 0.298039, 0.764706, 1)
+layout_mode = 2
+item_name = "lottery upgrade coupon"
+
+[node name="Title" type="RichTextLabel" parent="Board/In-world UI/Upgrade Coupon UI Panel"]
+layout_mode = 0
+offset_right = 194.0
+offset_bottom = 83.0
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/normal_font_size = 28
+bbcode_enabled = true
+text = "UPGRADE_COUPON_TAG"
+fit_content = true
+scroll_active = false
+vertical_alignment = 1
+
+[node name="Fruit UI Panel" type="TextureRect" parent="Board/In-world UI"]
+layout_mode = 0
+offset_left = -536.24
+offset_top = -1259.46
+offset_right = -121.24
+offset_bottom = -904.461
+texture = ExtResource("42_apgn6")
+
+[node name="FruitGridContainer" type="GridContainer" parent="Board/In-world UI/Fruit UI Panel"]
+layout_mode = 0
+offset_left = 11.4922
+offset_top = 84.1386
+offset_right = 403.492
+offset_bottom = 344.139
+columns = 3
+
+[node name="Resource UI Grid" parent="Board/In-world UI/Fruit UI Panel/FruitGridContainer" instance=ExtResource("15_j40bd")]
+layout_mode = 2
+
+[node name="Resource UI Grid2" parent="Board/In-world UI/Fruit UI Panel/FruitGridContainer" instance=ExtResource("15_j40bd")]
+layout_mode = 2
+item_name = "watermelon"
+
+[node name="Resource UI Grid3" parent="Board/In-world UI/Fruit UI Panel/FruitGridContainer" instance=ExtResource("15_j40bd")]
+layout_mode = 2
+item_name = "grape"
+
+[node name="Resource UI Grid4" parent="Board/In-world UI/Fruit UI Panel/FruitGridContainer" instance=ExtResource("15_j40bd")]
+layout_mode = 2
+item_name = "strawberry"
+
+[node name="Resource UI Grid5" parent="Board/In-world UI/Fruit UI Panel/FruitGridContainer" instance=ExtResource("15_j40bd")]
+layout_mode = 2
+item_name = "banana"
+
+[node name="Resource UI Grid6" parent="Board/In-world UI/Fruit UI Panel/FruitGridContainer" instance=ExtResource("15_j40bd")]
+layout_mode = 2
+item_name = "mango"
+
+[node name="Title" type="RichTextLabel" parent="Board/In-world UI/Fruit UI Panel"]
+layout_mode = 0
+offset_right = 357.0
+offset_bottom = 78.0
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/normal_font_size = 60
+bbcode_enabled = true
+text = "FRUIT_UI_TAG"
+fit_content = true
+scroll_active = false
+
+[node name="Resource UI Grid Exchange coupon" parent="Board/In-world UI" instance=ExtResource("15_j40bd")]
+self_modulate = Color(0.792157, 0.407843, 0.12549, 1)
+layout_mode = 0
+offset_left = -537.203
+offset_top = -894.299
+offset_right = -342.203
+offset_bottom = -699.299
+texture = ExtResource("16_wox2a")
+item_name = "exchange coupon"
+
+[node name="UI Grid Shadow" parent="Board/In-world UI/Resource UI Grid Exchange coupon" index="0"]
+texture = ExtResource("16_wox2a")
+
+[node name="Icon" parent="Board/In-world UI/Resource UI Grid Exchange coupon" index="1"]
+offset_left = -41.5
+offset_top = -81.0
+offset_right = 41.5
+offset_bottom = 81.0
+texture = ExtResource("17_g1qwh")
+
+[node name="Icon Shadow" parent="Board/In-world UI/Resource UI Grid Exchange coupon/Icon" index="0"]
+offset_left = -42.5
+offset_top = -77.0
+offset_right = 40.5
+offset_bottom = 85.0
+texture = ExtResource("17_g1qwh")
+
+[node name="ResourceTextLabel" parent="Board/In-world UI/Resource UI Grid Exchange coupon" index="2"]
+offset_left = -75.0
+offset_top = -75.0
+
+[node name="Text BG" parent="Board/In-world UI/Resource UI Grid Exchange coupon/ResourceTextLabel" index="1"]
+offset_right = 75.0
+offset_bottom = 75.0
+
+[node name="Resource UI Grid Draw coupon" parent="Board/In-world UI" instance=ExtResource("15_j40bd")]
+self_modulate = Color(0.886275, 0.701961, 0.207843, 1)
+layout_mode = 0
+offset_left = -337.103
+offset_top = -827.865
+offset_right = -209.103
+offset_bottom = -699.865
+item_name = "draw coupon"
+
+[node name="SupplyGridContainer" type="GridContainer" parent="Board/In-world UI"]
+layout_mode = 0
+offset_left = -105.799
+offset_top = 885.06
+offset_right = 286.201
+offset_bottom = 1369.06
+theme_override_constants/v_separation = 35
+columns = 3
+
+[node name="Resource UI Grid" parent="Board/In-world UI/SupplyGridContainer" instance=ExtResource("15_j40bd")]
+layout_mode = 2
+item_name = "red"
+
+[node name="Resource UI Grid2" parent="Board/In-world UI/SupplyGridContainer" instance=ExtResource("15_j40bd")]
+self_modulate = Color(1, 1, 0.478431, 1)
+layout_mode = 2
+item_name = "yellow"
+
+[node name="Resource UI Grid3" parent="Board/In-world UI/SupplyGridContainer" instance=ExtResource("15_j40bd")]
+self_modulate = Color(0.223529, 0.596078, 0.976471, 1)
+layout_mode = 2
+item_name = "blue"
+
+[node name="Resource UI Grid4" parent="Board/In-world UI/SupplyGridContainer" instance=ExtResource("15_j40bd")]
+self_modulate = Color(0.435294, 0.996078, 0.470588, 1)
+layout_mode = 2
+item_name = "green"
+
+[node name="Resource UI Grid5" parent="Board/In-world UI/SupplyGridContainer" instance=ExtResource("15_j40bd")]
+self_modulate = Color(0.988235, 0.415686, 0.976471, 1)
+layout_mode = 2
+item_name = "purple"
+
+[node name="Resource UI Grid6" parent="Board/In-world UI/SupplyGridContainer" instance=ExtResource("15_j40bd")]
+self_modulate = Color(0.992157, 0.705882, 0.439216, 1)
+layout_mode = 2
+item_name = "orange"
+
+[node name="Resource UI Grid7" parent="Board/In-world UI/SupplyGridContainer" instance=ExtResource("15_j40bd")]
+self_modulate = Color(1, 1, 1, 1)
+layout_mode = 2
+item_name = "white"
+
+[node name="Resource UI Grid8" parent="Board/In-world UI/SupplyGridContainer" instance=ExtResource("15_j40bd")]
+self_modulate = Color(0.988235, 0.109804, 0.494118, 1)
+layout_mode = 2
+item_name = "rainbow"
+
+[node name="Resource UI Grid_HP_Potion" parent="Board/In-world UI" instance=ExtResource("15_j40bd")]
+self_modulate = Color(0.141176, 0.796078, 0.439216, 1)
+layout_mode = 2
+offset_left = -275.759
+offset_top = 1054.9
+offset_right = -147.759
+offset_bottom = 1182.9
+item_name = "hp potion"
+
+[node name="Upgrades UI" type="Button" parent="Board/In-world UI"]
+custom_minimum_size = Vector2(128, 128)
+layout_mode = 0
+offset_left = -276.076
+offset_top = 625.114
+offset_right = -148.076
+offset_bottom = 753.114
+focus_mode = 0
+theme_override_styles/hover = SubResource("StyleBoxTexture_0xfc0")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_acjk4")
+theme_override_styles/normal = SubResource("StyleBoxTexture_3lc3d")
+script = ExtResource("42_usuyn")
+
+[node name="Upgrade UI Shadow" type="TextureRect" parent="Board/In-world UI/Upgrades UI"]
+self_modulate = Color(0, 0, 0, 0.27451)
+show_behind_parent = true
+layout_mode = 0
+offset_left = -1.0
+offset_top = 4.0
+offset_right = 127.0
+offset_bottom = 133.0
+texture = ExtResource("41_acjk4")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Board/In-world UI/Upgrades UI"]
+layout_mode = 0
+offset_left = 136.0
+offset_right = 648.0
+offset_bottom = 120.0
+theme_override_constants/separation = 10
+
+[node name="Upgrades Display Bar" type="TextureRect" parent="Board/In-world UI/Upgrades UI/VBoxContainer"]
+layout_mode = 2
+texture = ExtResource("42_3lc3d")
+
+[node name="Upgrades Display Bar Shadow" type="TextureRect" parent="Board/In-world UI/Upgrades UI/VBoxContainer/Upgrades Display Bar"]
+self_modulate = Color(0, 0, 0, 0.27451)
+show_behind_parent = true
+layout_mode = 0
+offset_left = -1.0
+offset_top = 4.0
+offset_right = 511.0
+offset_bottom = 124.0
+texture = ExtResource("42_3lc3d")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Board/In-world UI/Upgrades UI/VBoxContainer/Upgrades Display Bar"]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_top = -50.0
+offset_right = 467.0
+offset_bottom = 50.0
+grow_vertical = 2
+
+[node name="Shop Type Icon" type="TextureRect" parent="Board/In-world UI/Upgrades UI/VBoxContainer/Upgrades Display Bar/HBoxContainer"]
+layout_mode = 2
+texture = ExtResource("43_0xfc0")
+expand_mode = 2
+stretch_mode = 3
+
+[node name="Level-up Upgrade Icon" parent="Board/In-world UI/Upgrades UI/VBoxContainer/Upgrades Display Bar/HBoxContainer" instance=ExtResource("44_ltboj")]
+layout_mode = 2
+upgrade = ExtResource("45_nxhfr")
+
+[node name="One-time Upgrade Icon" parent="Board/In-world UI/Upgrades UI/VBoxContainer/Upgrades Display Bar/HBoxContainer" instance=ExtResource("44_ltboj")]
+layout_mode = 2
+upgrade = ExtResource("46_f178w")
+upgrade_type = 1
+
+[node name="Arrow" type="TextureRect" parent="Board/In-world UI/Upgrades UI/VBoxContainer/Upgrades Display Bar/HBoxContainer"]
+layout_mode = 2
+texture = ExtResource("46_eu0xb")
+stretch_mode = 5
+
+[node name="One-time Upgrade Icon2" parent="Board/In-world UI/Upgrades UI/VBoxContainer/Upgrades Display Bar/HBoxContainer" instance=ExtResource("44_ltboj")]
+layout_mode = 2
+upgrade = ExtResource("48_fyj2b")
+upgrade_type = 1
+
+[node name="Upgrades Display Bar2" type="TextureRect" parent="Board/In-world UI/Upgrades UI/VBoxContainer"]
+layout_mode = 2
+texture = ExtResource("42_3lc3d")
+
+[node name="Upgrades Display Bar Shadow" type="TextureRect" parent="Board/In-world UI/Upgrades UI/VBoxContainer/Upgrades Display Bar2"]
+self_modulate = Color(0, 0, 0, 0.27451)
+show_behind_parent = true
+layout_mode = 0
+offset_left = -1.0
+offset_top = 4.0
+offset_right = 511.0
+offset_bottom = 124.0
+texture = ExtResource("42_3lc3d")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Board/In-world UI/Upgrades UI/VBoxContainer/Upgrades Display Bar2"]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_top = -50.0
+offset_right = 467.0
+offset_bottom = 50.0
+grow_vertical = 2
+
+[node name="Shop Type Icon" type="TextureRect" parent="Board/In-world UI/Upgrades UI/VBoxContainer/Upgrades Display Bar2/HBoxContainer"]
+layout_mode = 2
+texture = ExtResource("49_f178w")
+expand_mode = 2
+stretch_mode = 3
+
+[node name="Level-up Upgrade Icon" parent="Board/In-world UI/Upgrades UI/VBoxContainer/Upgrades Display Bar2/HBoxContainer" instance=ExtResource("44_ltboj")]
+layout_mode = 2
+upgrade = ExtResource("50_fyj2b")
+
+[node name="One-time Upgrade Icon" parent="Board/In-world UI/Upgrades UI/VBoxContainer/Upgrades Display Bar2/HBoxContainer" instance=ExtResource("44_ltboj")]
+layout_mode = 2
+upgrade = ExtResource("51_ba7xp")
+upgrade_type = 1
+
+[node name="Arrow" type="TextureRect" parent="Board/In-world UI/Upgrades UI/VBoxContainer/Upgrades Display Bar2/HBoxContainer"]
+layout_mode = 2
+texture = ExtResource("46_eu0xb")
+stretch_mode = 5
+
+[node name="One-time Upgrade Icon2" parent="Board/In-world UI/Upgrades UI/VBoxContainer/Upgrades Display Bar2/HBoxContainer" instance=ExtResource("44_ltboj")]
+layout_mode = 2
+upgrade = ExtResource("52_h3g56")
+upgrade_type = 1
+
+[node name="Upgrades Display Bar3" type="TextureRect" parent="Board/In-world UI/Upgrades UI/VBoxContainer"]
+layout_mode = 2
+texture = ExtResource("42_3lc3d")
+
+[node name="Upgrades Display Bar Shadow" type="TextureRect" parent="Board/In-world UI/Upgrades UI/VBoxContainer/Upgrades Display Bar3"]
+self_modulate = Color(0, 0, 0, 0.27451)
+show_behind_parent = true
+layout_mode = 0
+offset_left = -1.0
+offset_top = 4.0
+offset_right = 511.0
+offset_bottom = 124.0
+texture = ExtResource("42_3lc3d")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Board/In-world UI/Upgrades UI/VBoxContainer/Upgrades Display Bar3"]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_top = -50.0
+offset_right = 467.0
+offset_bottom = 50.0
+grow_vertical = 2
+
+[node name="Shop Type Icon" type="TextureRect" parent="Board/In-world UI/Upgrades UI/VBoxContainer/Upgrades Display Bar3/HBoxContainer"]
+layout_mode = 2
+texture = ExtResource("53_h3g56")
+expand_mode = 2
+stretch_mode = 3
+
+[node name="Level-up Upgrade Icon" parent="Board/In-world UI/Upgrades UI/VBoxContainer/Upgrades Display Bar3/HBoxContainer" instance=ExtResource("44_ltboj")]
+layout_mode = 2
+upgrade = ExtResource("54_04kbk")
+
+[node name="One-time Upgrade Icon" parent="Board/In-world UI/Upgrades UI/VBoxContainer/Upgrades Display Bar3/HBoxContainer" instance=ExtResource("44_ltboj")]
+layout_mode = 2
+upgrade = ExtResource("55_2dtki")
+upgrade_type = 1
+
+[node name="Arrow" type="TextureRect" parent="Board/In-world UI/Upgrades UI/VBoxContainer/Upgrades Display Bar3/HBoxContainer"]
+layout_mode = 2
+texture = ExtResource("46_eu0xb")
+stretch_mode = 5
+
+[node name="One-time Upgrade Icon2" parent="Board/In-world UI/Upgrades UI/VBoxContainer/Upgrades Display Bar3/HBoxContainer" instance=ExtResource("44_ltboj")]
+layout_mode = 2
+upgrade = ExtResource("56_kh3n4")
+upgrade_type = 1
+
+[node name="Upgrades Display Bar4" type="TextureRect" parent="Board/In-world UI/Upgrades UI/VBoxContainer"]
+layout_mode = 2
+texture = ExtResource("42_3lc3d")
+
+[node name="Upgrades Display Bar Shadow" type="TextureRect" parent="Board/In-world UI/Upgrades UI/VBoxContainer/Upgrades Display Bar4"]
+self_modulate = Color(0, 0, 0, 0.27451)
+show_behind_parent = true
+layout_mode = 0
+offset_left = -0.999878
+offset_top = 4.0
+offset_right = 511.0
+offset_bottom = 124.0
+texture = ExtResource("42_3lc3d")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Board/In-world UI/Upgrades UI/VBoxContainer/Upgrades Display Bar4"]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_top = -50.0
+offset_right = 467.0
+offset_bottom = 50.0
+grow_vertical = 2
+
+[node name="Shop Type Icon" type="TextureRect" parent="Board/In-world UI/Upgrades UI/VBoxContainer/Upgrades Display Bar4/HBoxContainer"]
+layout_mode = 2
+texture = ExtResource("57_kh3n4")
+expand_mode = 2
+stretch_mode = 3
+
+[node name="Level-up Upgrade Icon" parent="Board/In-world UI/Upgrades UI/VBoxContainer/Upgrades Display Bar4/HBoxContainer" instance=ExtResource("44_ltboj")]
+layout_mode = 2
+upgrade = ExtResource("58_3657g")
+
+[node name="One-time Upgrade Icon" parent="Board/In-world UI/Upgrades UI/VBoxContainer/Upgrades Display Bar4/HBoxContainer" instance=ExtResource("44_ltboj")]
+layout_mode = 2
+upgrade = ExtResource("59_hognw")
+upgrade_type = 1
+
+[node name="Arrow" type="TextureRect" parent="Board/In-world UI/Upgrades UI/VBoxContainer/Upgrades Display Bar4/HBoxContainer"]
+visible = false
+layout_mode = 2
+texture = ExtResource("46_eu0xb")
+stretch_mode = 5
+
+[node name="UI" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 1920.0
+offset_bottom = 1080.0
+pivot_offset = Vector2(960, 540)
+mouse_filter = 2
+
+[node name="Spin Wheel" parent="UI" instance=ExtResource("1_ru8g0")]
+unique_name_in_owner = true
+z_index = 99
+layout_mode = 1
+hide_y_offset = 1920.0
+show_y_offset = 1080.0
+
+[node name="RichTextLabel" type="RichTextLabel" parent="UI"]
+visible = false
+z_index = 1000
+custom_minimum_size = Vector2(300, 150)
+layout_mode = 0
+offset_right = 300.0
+offset_bottom = 345.0
+bbcode_enabled = true
+text = "[center][b][font_size=24]QUEST REWARD +[/font_size][/b]
+
++ 3 → + 4
+exchange coupon from quest reward
+Lv. 3 → 4 / 5[/center][right][img=20]res://Assets/Sprites/Icon/1x/traffic upgrade coupon.png[/img] [font_size=30]3[/font_size][/right]"
+scroll_active = false
+
+[node name="Translation Manager" type="Control" parent="UI"]
+visible = false
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("61_yiyb4")
+
+[node name="Button_zh" type="Button" parent="UI/Translation Manager"]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = 1852.0
+offset_right = 1880.0
+offset_bottom = 27.0
+grow_horizontal = 0
+text = "ZH"
+
+[node name="Button_en" type="Button" parent="UI/Translation Manager"]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = 1852.0
+offset_top = 27.0
+offset_right = 1880.0
+offset_bottom = 54.0
+grow_horizontal = 0
+text = "EN"
+
+[node name="JollyEssentialsBgMdemoV1120BpmFullmix" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("62_yiyb4")
+volume_db = -10.0
+autoplay = true
+
+[connection signal="pressed" from="Board/In-world UI/Upgrades UI" to="Board/In-world UI/Upgrades UI" method="_on_pressed"]
+[connection signal="pressed" from="UI/Translation Manager/Button_zh" to="UI/Translation Manager" method="_on_button_zh_pressed"]
+[connection signal="pressed" from="UI/Translation Manager/Button_en" to="UI/Translation Manager" method="_on_button_en_pressed"]
+
+[editable path="Board/In-world UI/Resource UI Grid Exchange coupon"]

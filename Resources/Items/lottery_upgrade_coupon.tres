@@ -6,6 +6,7 @@
 [resource]
 script = ExtResource("2_m534t")
 item_name = "lottery upgrade coupon"
+item_name_display = "LOTTERY_COUPON"
 icon = ExtResource("1_gfa8m")
-item_type = 3
+item_type = null
 metadata/_custom_type_script = "uid://d0fc2fb7vpwyv"

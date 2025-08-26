@@ -8,6 +8,6 @@ prize_name_text = "Fruit Of Your Choice x1"
 item_list = Dictionary[String, int]({
 "fruit of your choice": 1
 })
-sources_of_prize = Array[int]([0, 1, 2, 3])
+sources_of_prize = Array[int]([0, 1, 2, 3, 10])
 weight_in_pool = 12.0
 metadata/_custom_type_script = "uid://bvl7w0dl5jg5h"

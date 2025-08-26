@@ -79,20 +79,20 @@ func generate_item_slots(items_in_slots_list: Array[ItemsForSale]):
 		slot.queue_free()
 	current_items_for_sale_and_slots.clear()
 	
-	for item_for_sale in items_in_slots_list:
+	for items_for_sale in items_in_slots_list:
 		var item_slot: Button = shop_slot_button_scene.instantiate()
 		item_slots_parent.add_child(item_slot)
 		
 		var price_label: RichTextLabel = item_slot.get_node("Price Label")
 		var item_icon: TextureRect = item_slot.get_node("Shop Button Icon")
 		var quantity_label: RichTextLabel = item_icon.get_node("Quantity Label")
-		price_label.text = "%s [img=15x30]res://Assets/Sprites/Icon/1x/exchange coupon.png[/img]" % item_for_sale.price
-		quantity_label.text = "x%s" % item_for_sale.item_count
-		item_icon.texture = ResourceManager.get_item_sprite(item_for_sale.item_name)
-		item_slot.pressed.connect(on_item_slot_pressed.bind(item_slot, item_for_sale))
-		item_slot.tooltip_text = "%s x%d\nPrice: %d" % [item_for_sale.item_name.capitalize(), item_for_sale.item_count, item_for_sale.price]
+		price_label.text = "%s [img=15x25]res://Assets/Sprites/Icon/1x/exchange coupon.png[/img]" % items_for_sale.price
+		quantity_label.text = "x%s" % items_for_sale.item_count
+		item_icon.texture = ResourceManager.get_item_sprite(items_for_sale.item_name)
+		item_slot.pressed.connect(on_item_slot_pressed.bind(item_slot, items_for_sale))
+		item_slot.tooltip_text = "%s x%s\n%s: %s" % [ResourceManager.get_item_display_name(items_for_sale.item_name).capitalize(), items_for_sale.item_count, tr("PRICE"), items_for_sale.price]
 		
-		current_items_for_sale_and_slots.get_or_add(item_slot, item_for_sale)
+		current_items_for_sale_and_slots.get_or_add(item_slot, items_for_sale)
 	
 	update_slots_state()
 
@@ -115,7 +115,7 @@ func update_slots_state():
 				item_slot.disabled = true
 				price_label.text = "[img=25x25]res://Assets/Sprites/Icon/1x/lock_icon.png[/img]"
 			else:
-				price_label.text = "%d [img=15x30]res://Assets/Sprites/Icon/1x/exchange coupon.png[/img]" % current_items_for_sale_and_slots[item_slot].price
+				price_label.text = "%d [img=15x25]res://Assets/Sprites/Icon/1x/exchange coupon.png[/img]" % current_items_for_sale_and_slots[item_slot].price
 
 
 func update_refresh_button():
@@ -139,7 +139,13 @@ func on_item_slot_pressed(item_slot: Button, item_for_sale: ItemsForSale):
 		if item_for_sale.item_name.to_lower() == "mystery box":
 			if item_for_sale.price != 3:
 				current_items_for_sale_and_slots[item_slot] = null
-			wheel_manager.initiate_wheel(shop_type as PrizeItems.Source)
+			if shop_type as PrizeItems.Source == PrizeItems.Source.Traffic:
+				if is_rainbow_white_ball_unlocked:
+					wheel_manager.initiate_wheel(shop_type as PrizeItems.Source)
+				else:
+					wheel_manager.initiate_wheel(PrizeItems.Source.Traffic_Locked)
+			else:
+				wheel_manager.initiate_wheel(shop_type as PrizeItems.Source)
 			await wheel_manager.draw_finished
 			GameManager.switch_game_state(GameManager.GameState.Idle)
 		else:

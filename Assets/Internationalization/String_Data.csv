@@ -1,0 +1,55 @@
+﻿key,en,zh
+TIME_DAY_HOUR_REFRESH,DAY %s\n%s:00\n[font_size=26]Shop refresh in %sh[/font_size],第 %s 天\n%s:00\n[font_size=26]商店将在 %s 小时后刷新[/font_size]
+PRICE,Price,价格
+FRUIT_UI_TAG, FRUIT, 水果
+UPGRADE_COUPON_TAG, UPGRADE\nCOUPON, 升级券
+,,
+AFFAIRS_COUPON,affairs upgrade coupon,事务升级券
+APPLE,apple,苹果
+BANANA,banana,香蕉
+BLUE,blue,蓝球
+DRAW_COUPON,draw coupon,抽奖券
+EXCHANGE_COUPON,exchange coupon,交换券
+FRUIT_CHOICE,fruit of your choice,自选水果
+GRAPE,grape,葡萄
+GREEN,green,绿球
+HP_POTION,hp potion,生命药水
+LOTTERY_COUPON,lottery upgrade coupon,抽奖升级券
+MANGO,mango,芒果
+MYSTERY_BOX,mystery box,盲盒
+ORANGE,orange,橙球
+PURPLE,purple,紫球
+RAINBOW,rainbow,彩虹球
+RED,red,红球
+SHOP_REFRESH,shop refresh,商店刷新
+STRAWBERRY,strawberry,草莓
+TRADE__COUPON,trade upgrade coupon,贸易升级券
+TRAFFIC_COUPON,traffic upgrade coupon,交通升级券
+UPGRADE_CHOICE,upgrade coupon of your choice,自选升级券
+WATERMELON,watermelon,西瓜
+WHITE,white,白球
+YELLOW,yellow,黄球
+,,
+FRUIT_PRODUCTION,fruit production +,水果产能+
+QUEST_REWARD,quest reward +,任务奖励+
+MOVE_SPEED,move speed +,移动速度+
+INTERACTION_DISTANCE,increase interaction distance,交互距离+
+LOTTERY_BYPASS,lottery bypass,路过抽奖
+MOVING_BACKWARD,moving backward,反向移动
+REMOTE_ACCEPT,remote quest acceptance,远程接任务
+REMOTE_COMPLETE,remote quest completion,远程交任务
+REMOTE_VIEW,remote view store,远程查看商店
+SHOP_REFRESH_PLUS,shop refresh +,商店刷新+
+UNLOCK_BALL,unlock rainbow white ball,解锁白/彩球
+,,
+FRUIT_PRODUCTION_DESCRIPTION,+ %s -> + %s\nfruit income from lottery\nLv. %s -> %s / %s,+ %s -> + %s\n从抽奖中获取的水果个数\nLv. %s -> %s / %s
+QUEST_REWARD_DESCRIPTION,+ %s -> + %s\nexchange coupon from quest reward\nLv. %s -> %s / %s,+ %s -> + %s\n完成任务获得的交换券张数\nLv. %s -> %s / %s
+MOVE_SPEED_DESCRIPTION,+ %s -> + %s\ngrids range when planning move\nLv. %s -> %s / %s,+ %s -> + %s\n每步最大移动格数\nLv. %s -> %s / %s
+INTERACTION_DISTANCE_DESCRIPTION,Increase the interaction radius to interact with adjacent grids.  (Time only increases when you move),增加交互范围，可以和相邻的格子交互。（时间只在移动时流逝）
+LOTTERY_BYPASS_DESCRIPTION,The lottery grid can now be triggered when passing by.,抽奖格现在路过也会触发。
+MOVING_BACKWARD_DESCRIPTION,Unlock the ability to change moving direction when planning.,规划移动时可以无视朝向，往任意方向移动。
+REMOTE_ACCEPT_DESCRIPTION,Unlock the ability to accept quests from NPCs remotely.,解锁远程向村民接取任务的能力。
+REMOTE_COMPLETE_DESCRIPTION,NPCs' Fruit Quests can be submitted remotely.,可以远程交付村民的水果任务。
+REMOTE_VIEW_DESCRIPTION,Shop can now be viewed remotely.,可以远程查看商店。
+SHOP_REFRESH_PLUS_DESCRIPTION,+ %s -> + %s\ndaily manual shop refresh usage\nLv. %s -> %s / %s,+ %s -> + %s\n每日商店刷新次数\nLv. %s -> %s / %s
+UNLOCK_BALL_DESCRIPTION,White and Rainbow balls is now added to the Traffic Shop and its Mystery Boxes.,白球 和 彩球 现在可以在交通商店及其出售的盲盒中获取。

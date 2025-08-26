@@ -20,11 +20,6 @@ func _ready() -> void:
 	switch_game_state(GameState.Idle)
 
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
-	pass
-
-
 func resume_last_game_state():
 	switch_game_state(last_game_state)
 

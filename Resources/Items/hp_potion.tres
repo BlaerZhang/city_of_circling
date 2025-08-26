@@ -6,6 +6,7 @@
 [resource]
 script = ExtResource("2_8k4kw")
 item_name = "hp potion"
+item_name_display = "HP_POTION"
 icon = ExtResource("1_q2u65")
 item_type = 2
 metadata/_custom_type_script = "uid://d0fc2fb7vpwyv"

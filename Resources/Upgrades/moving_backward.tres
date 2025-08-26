@@ -6,8 +6,9 @@
 [resource]
 script = ExtResource("1_rmyq2")
 upgrade_name = "moving backward"
+upgrade_name_display = "MOVING_BACKWARD"
 upgrade_icon = ExtResource("2_i7w1c")
-description = "Unlock the ability to change moving direction when planning."
+description = "MOVING_BACKWARD_DESCRIPTION"
 effect_delta_per_level = 1
 upgrade_type = 1
 shop_slot_index = 1

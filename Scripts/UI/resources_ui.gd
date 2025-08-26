@@ -17,7 +17,7 @@ func _ready() -> void:
 	ui_icon.texture = ResourceManager.get_item_icon(item_name)
 	ui_icon_shadow.texture = ui_icon.texture
 	ui_label.text = '0'
-	ui_icon.tooltip_text = item_name.capitalize()
+	ui_icon.tooltip_text = ResourceManager.get_item_display_name(item_name).capitalize()
 	
 	#Setup Outline
 	var outline_tween = create_tween().set_loops()

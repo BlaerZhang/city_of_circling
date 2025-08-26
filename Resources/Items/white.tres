@@ -6,6 +6,7 @@
 [resource]
 script = ExtResource("2_xmpvt")
 item_name = "white"
+item_name_display = "WHITE"
 icon = ExtResource("1_2i46h")
 item_type = 2
 metadata/_custom_type_script = "uid://d0fc2fb7vpwyv"

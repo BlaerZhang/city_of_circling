@@ -1,4 +1,4 @@
-[gd_scene load_steps=103 format=3 uid="uid://c6e414gy1cwn5"]
+[gd_scene load_steps=104 format=3 uid="uid://c6e414gy1cwn5"]
 
 [ext_resource type="Script" uid="uid://tdlox2h37vxw" path="res://Scripts/test_input.gd" id="1_pqs0o"]
 [ext_resource type="PackedScene" uid="uid://b8imxf8a6f2lg" path="res://Scenes/spin_wheel.tscn" id="1_ru8g0"]
@@ -60,6 +60,7 @@
 [ext_resource type="Texture2D" uid="uid://denxgkoyad2jc" path="res://Assets/Sprites/Icon/1x/Trade_outline.png" id="57_kh3n4"]
 [ext_resource type="Resource" uid="uid://cftcygsaxiixx" path="res://Resources/Upgrades/shop_manual_refresh.tres" id="58_3657g"]
 [ext_resource type="Resource" uid="uid://ruu8cw78y2on" path="res://Resources/Upgrades/remote_view_store.tres" id="59_hognw"]
+[ext_resource type="Script" uid="uid://dk1rm1ctnggd1" path="res://Scripts/translation_manager.gd" id="61_yiyb4"]
 [ext_resource type="AudioStream" uid="uid://dxa84rdtwplt3" path="res://Assets/Audio/JollyEssentials_BGMdemo_v1_120bpm_Fullmix.wav" id="62_yiyb4"]
 
 [sub_resource type="Animation" id="Animation_7fl2r"]
@@ -1124,7 +1125,8 @@ theme_override_font_sizes/normal_font_size = 80
 theme_override_font_sizes/bold_font_size = 90
 bbcode_enabled = true
 text = "DAY 1
-16:00"
+16:00
+[font_size=26]Shop refresh in 9h[/font_size]"
 fit_content = true
 scroll_active = false
 shortcut_keys_enabled = false
@@ -1193,8 +1195,7 @@ offset_bottom = 83.0
 theme_override_colors/default_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/normal_font_size = 28
 bbcode_enabled = true
-text = " UPGRADE
- COUPON"
+text = "UPGRADE_COUPON_TAG"
 fit_content = true
 scroll_active = false
 vertical_alignment = 1
@@ -1245,7 +1246,7 @@ offset_bottom = 78.0
 theme_override_colors/default_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/normal_font_size = 60
 bbcode_enabled = true
-text = " FRUIT"
+text = "FRUIT_UI_TAG"
 fit_content = true
 scroll_active = false
 
@@ -1602,11 +1603,45 @@ exchange coupon from quest reward
 Lv. 3 → 4 / 5[/center][right][img=20]res://Assets/Sprites/Icon/1x/traffic upgrade coupon.png[/img] [font_size=30]3[/font_size][/right]"
 scroll_active = false
 
+[node name="Translation Manager" type="Control" parent="UI"]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("61_yiyb4")
+language = "en"
+
+[node name="Button_zh" type="Button" parent="UI/Translation Manager"]
+visible = false
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = 1852.0
+offset_right = 1880.0
+offset_bottom = 27.0
+grow_horizontal = 0
+text = "ZH"
+
+[node name="Button_en" type="Button" parent="UI/Translation Manager"]
+visible = false
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = 1852.0
+offset_top = 27.0
+offset_right = 1880.0
+offset_bottom = 54.0
+grow_horizontal = 0
+text = "EN"
+
 [node name="JollyEssentialsBgMdemoV1120BpmFullmix" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("62_yiyb4")
 volume_db = -10.0
 autoplay = true
 
 [connection signal="pressed" from="Board/In-world UI/Upgrades UI" to="Board/In-world UI/Upgrades UI" method="_on_pressed"]
+[connection signal="pressed" from="UI/Translation Manager/Button_zh" to="UI/Translation Manager" method="_on_button_zh_pressed"]
+[connection signal="pressed" from="UI/Translation Manager/Button_en" to="UI/Translation Manager" method="_on_button_en_pressed"]
 
 [editable path="Board/In-world UI/Resource UI Grid Exchange coupon"]

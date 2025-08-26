@@ -83,7 +83,7 @@ grow_vertical = 0
 theme_override_constants/outline_size = 10
 theme_override_font_sizes/normal_font_size = 30
 bbcode_enabled = true
-text = "3 [img=15x30]res://Assets/Sprites/Icon/1x/exchange coupon.png[/img]"
+text = "3 [img=15x25]res://Assets/Sprites/Icon/1x/exchange coupon.png[/img]"
 scroll_active = false
 shortcut_keys_enabled = false
 horizontal_alignment = 1

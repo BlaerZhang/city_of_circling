@@ -97,7 +97,6 @@ func resolve_result(prize_item: PrizeItems):
 
 
 func _on_wheel_face_on_end_spin(prize_item: PrizeItems) -> void:
-	#TODO: Resolve prize & particle animation
 	await resolve_result(prize_item)
 	if prize_item.item_list.has("draw coupon"): return
 	
@@ -111,7 +110,7 @@ func _on_wheel_face_on_end_spin(prize_item: PrizeItems) -> void:
 				spin_button.icon = ResourceManager.get_item_icon("draw coupon")
 			else:
 				hide_ui(self)
-		PrizeItems.Source.Traffic, PrizeItems.Source.Affairs, PrizeItems.Source.Lottery, PrizeItems.Source.Trade:
+		PrizeItems.Source.Traffic, PrizeItems.Source.Affairs, PrizeItems.Source.Lottery, PrizeItems.Source.Trade, PrizeItems.Source.Traffic_Locked:
 			if (ResourceManager.get_item_count("exchange coupon") >= 3):
 				_button_state = button_state.shop
 				spin_button.text = "3"
@@ -131,7 +130,7 @@ func _on_spin_button_pressed() -> void:
 			if (ResourceManager.try_pay_item('draw coupon', 1, spin_button.global_position)):
 				is_in_draw = true
 				AudioManager.create_audio(SoundEffect.SOUND_EFFECT_TYPE.SPIN_START)
-				await get_tree().create_timer(1).timeout
+				#await get_tree().create_timer(1).timeout
 				if spin_speed_up:
 					wheel_face.spin_wheel(spin_animation_duration_after_day3)
 				else:
@@ -140,7 +139,7 @@ func _on_spin_button_pressed() -> void:
 			if (ResourceManager.try_pay_item('exchange coupon', 3, spin_button.global_position)):
 				is_in_draw = true
 				AudioManager.create_audio(SoundEffect.SOUND_EFFECT_TYPE.SPIN_START)
-				await get_tree().create_timer(1).timeout
+				#await get_tree().create_timer(1).timeout
 				if spin_speed_up:
 					wheel_face.spin_wheel(spin_animation_duration_after_day3)
 				else:

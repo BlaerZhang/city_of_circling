@@ -6,10 +6,9 @@
 [resource]
 script = ExtResource("1_0rkfx")
 upgrade_name = "shop refresh +"
+upgrade_name_display = "SHOP_REFRESH_PLUS"
 upgrade_icon = ExtResource("2_6e03d")
-description = "+ %s -> + %s
-daily manual shop refresh usage
-Lv. %s -> %s / %s"
+description = "SHOP_REFRESH_PLUS_DESCRIPTION"
 effect_delta_per_level = 1
 upgrade_type = 3
 shop_slot_index = 0

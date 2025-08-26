@@ -6,8 +6,9 @@
 [resource]
 script = ExtResource("1_265sb")
 upgrade_name = "remote quest completion"
+upgrade_name_display = "REMOTE_COMPLETE"
 upgrade_icon = ExtResource("2_v0qfq")
-description = "NPCs' Fruit Quests can be submitted remotely."
+description = "REMOTE_COMPLETE_DESCRIPTION"
 effect_delta_per_level = 1
 upgrade_type = 0
 shop_slot_index = 1

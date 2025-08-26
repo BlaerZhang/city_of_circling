@@ -6,10 +6,9 @@
 [resource]
 script = ExtResource("1_7q7xq")
 upgrade_name = "quest reward +"
+upgrade_name_display = "QUEST_REWARD"
 upgrade_icon = ExtResource("2_f8smf")
-description = "+ %s -> + %s
-exchange coupon from quest reward
-Lv. %s -> %s / %s"
+description = "QUEST_REWARD_DESCRIPTION"
 effect_delta_per_level = 1
 upgrade_type = 0
 shop_slot_index = 0

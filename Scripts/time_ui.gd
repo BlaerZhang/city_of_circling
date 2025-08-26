@@ -8,5 +8,5 @@ func _ready() -> void:
 
 
 func update_time():
-	self.text = "DAY %s\n%s:00" % [TimeManager.current_day, TimeManager.current_hour]
-	tooltip_text = "%s hours until next shop refresh" % (8 - TimeManager.current_hour % 8)
+	self.text = tr("TIME_DAY_HOUR_REFRESH") % [TimeManager.current_day, TimeManager.current_hour, 8 - TimeManager.current_hour % 8]
+	#tooltip_text = "%s hours until next shop refresh" % (8 - TimeManager.current_hour % 8)

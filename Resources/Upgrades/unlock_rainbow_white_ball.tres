@@ -6,8 +6,9 @@
 [resource]
 script = ExtResource("1_fy6qy")
 upgrade_name = "unlock rainbow white ball"
+upgrade_name_display = "UNLOCK_BALL"
 upgrade_icon = ExtResource("2_epqn6")
-description = "White and Rainbow balls can be purchased from Traffic Shop now."
+description = "UNLOCK_BALL_DESCRIPTION"
 effect_delta_per_level = 1
 upgrade_type = 2
 shop_slot_index = 1

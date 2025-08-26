@@ -9,4 +9,4 @@ item_list = Dictionary[String, int]({
 "trade upgrade coupon": 1
 })
 sources_of_prize = Array[int]([3])
-weight_in_pool = 15.0
+weight_in_pool = 30.0

@@ -6,8 +6,9 @@
 [resource]
 script = ExtResource("1_e4vnm")
 upgrade_name = "remote view store"
+upgrade_name_display = "REMOTE_VIEW"
 upgrade_icon = ExtResource("2_2w6u2")
-description = "Shop can now be viewed remotely."
+description = "REMOTE_VIEW_DESCRIPTION"
 effect_delta_per_level = 1
 upgrade_type = 3
 shop_slot_index = 1

@@ -46,14 +46,15 @@ grow_vertical = 2
 pivot_offset = Vector2(500, 500)
 mouse_filter = 1
 script = ExtResource("1_158hs")
-background_color = Color(0.972549, 0.815686, 0, 1)
-sector_color_palette = Array[Color]([Color(0.869136, 0.626798, 1, 1), Color(1, 0.637097, 0.485474, 1), Color(0, 0.889416, 0.338947, 1), Color(1.09738e-05, 0.826173, 0.965853, 1)])
+weight_based_angle = false
+background_color = Color(0.972549, 1, 1, 1)
+sector_color_palette = Array[Color]([Color(0.869136, 0.626798, 1, 1), Color(1, 0.637097, 0.485474, 1)])
 outer_radius = 500
 inner_radius = 200
-line_width = 1
+line_width = 0
 text_size = 24.0
-icon_height = 36.0
-current_source = 4
+icon_height = 106.0
+icon_radius = 64.0
 
 [node name="Pointer" type="TextureRect" parent="."]
 layout_mode = 1
