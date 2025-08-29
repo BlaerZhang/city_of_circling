@@ -1,9 +1,132 @@
-[gd_scene load_steps=5 format=3 uid="uid://b8imxf8a6f2lg"]
+[gd_scene load_steps=21 format=3 uid="uid://b8imxf8a6f2lg"]
 
 [ext_resource type="Script" uid="uid://daxofde26of36" path="res://Scripts/wheel_face_generator.gd" id="1_158hs"]
 [ext_resource type="Script" uid="uid://0a3it4ajh10" path="res://Scripts/spin_wheel_manager.gd" id="1_f1ojv"]
-[ext_resource type="Texture2D" uid="uid://cy13yxt0cx1my" path="res://Assets/Sprites/Icon/1x/arrow.png" id="3_f1ojv"]
-[ext_resource type="Texture2D" uid="uid://bgvb4ofknfipf" path="res://Assets/Sprites/Icon/1x/draw coupon.png" id="4_eu0fk"]
+[ext_resource type="Texture2D" uid="uid://lgtvfh0cd3jp" path="res://Assets/Sprites/Wheel/1x/Circle.png" id="3_c67fy"]
+[ext_resource type="Texture2D" uid="uid://d2ytr8ershbrn" path="res://Assets/Sprites/Wheel/1x/Pointer.png" id="3_eu0fk"]
+
+[sub_resource type="Animation" id="Animation_c67fy"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-356.94, -333.94)]
+}
+
+[sub_resource type="Animation" id="Animation_eu0fk"]
+resource_name = "spin_button_hover"
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.3, 0.6),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(-356.94, -333.94), Vector2(-356.94, -338.69), Vector2(-356.94, -333.94)]
+}
+
+[sub_resource type="Animation" id="Animation_topkn"]
+resource_name = "spin_button_press"
+length = 0.4
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.4),
+"transitions": PackedFloat32Array(0.450622, 0.164939, 1),
+"update": 0,
+"values": [Vector2(-356.94, -333.94), Vector2(-356.94, -376.345), Vector2(-356.94, -357.15)]
+}
+
+[sub_resource type="Animation" id="Animation_vdg5l"]
+resource_name = "spin_button_release"
+length = 0.4
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.4),
+"transitions": PackedFloat32Array(1, 0.164939, 0.450622),
+"update": 0,
+"values": [Vector2(-356.94, -357.15), Vector2(-356.94, -308.145), Vector2(-356.94, -333.94)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_topkn"]
+_data = {
+&"RESET": SubResource("Animation_c67fy"),
+&"spin_button_hover": SubResource("Animation_eu0fk"),
+&"spin_button_press": SubResource("Animation_topkn"),
+&"spin_button_release": SubResource("Animation_vdg5l")
+}
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_r70mp"]
+animation = &"RESET"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_eu0fk"]
+animation = &"spin_button_hover"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_c67fy"]
+animation = &"spin_button_press"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_topkn"]
+animation = &"spin_button_release"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_r70mp"]
+switch_mode = 2
+advance_mode = 2
+advance_condition = &"is_spin_end"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_3aijs"]
+switch_mode = 2
+advance_mode = 2
+advance_condition = &"is_hovering"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_l3hv3"]
+break_loop_at_end = true
+advance_mode = 2
+advance_condition = &"is_pressed"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_ulikl"]
+advance_mode = 2
+advance_condition = &"is_hovering"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_bibbu"]
+xfade_time = 0.2
+advance_mode = 2
+advance_condition = &"is_not_hovering"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_eu0fk"]
+advance_mode = 2
+
+[sub_resource type="AnimationNodeStateMachine" id="AnimationNodeStateMachine_bibbu"]
+states/RESET/node = SubResource("AnimationNodeAnimation_r70mp")
+states/RESET/position = Vector2(365, 144)
+states/Start/position = Vector2(207, 106)
+states/spin_button_hover/node = SubResource("AnimationNodeAnimation_eu0fk")
+states/spin_button_hover/position = Vector2(594, 100)
+states/spin_button_press/node = SubResource("AnimationNodeAnimation_c67fy")
+states/spin_button_press/position = Vector2(508, -18)
+states/spin_button_release/node = SubResource("AnimationNodeAnimation_topkn")
+states/spin_button_release/position = Vector2(752, 3)
+transitions = ["spin_button_press", "spin_button_release", SubResource("AnimationNodeStateMachineTransition_r70mp"), "spin_button_release", "spin_button_hover", SubResource("AnimationNodeStateMachineTransition_3aijs"), "spin_button_hover", "spin_button_press", SubResource("AnimationNodeStateMachineTransition_l3hv3"), "RESET", "spin_button_hover", SubResource("AnimationNodeStateMachineTransition_ulikl"), "spin_button_hover", "RESET", SubResource("AnimationNodeStateMachineTransition_bibbu"), "Start", "RESET", SubResource("AnimationNodeStateMachineTransition_eu0fk")]
+graph_offset = Vector2(-100, -57)
 
 [node name="Spin Wheel" type="Control"]
 layout_mode = 3
@@ -33,6 +156,27 @@ offset_right = 960.0
 grow_horizontal = 2
 grow_vertical = 2
 
+[node name="Wheel Shadow" type="TextureRect" parent="."]
+self_modulate = Color(0.321569, 0.321569, 0.321569, 1)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -558.5
+offset_top = -578.5
+offset_right = 558.5
+offset_bottom = 538.5
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.89, 0.89)
+pivot_offset = Vector2(558, 558)
+size_flags_horizontal = 4
+mouse_filter = 2
+texture = ExtResource("3_c67fy")
+stretch_mode = 4
+
 [node name="Wheel Face" type="Control" parent="."]
 custom_minimum_size = Vector2(1000, 1000)
 layout_mode = 1
@@ -47,16 +191,17 @@ pivot_offset = Vector2(500, 500)
 mouse_filter = 1
 script = ExtResource("1_158hs")
 weight_based_angle = false
-background_color = Color(0.972549, 1, 1, 1)
-sector_color_palette = Array[Color]([Color(0.869136, 0.626798, 1, 1), Color(1, 0.637097, 0.485474, 1)])
+background_color = Color(0.321569, 0.321569, 0.321569, 1)
+line_color = Color(0.929412, 0.709804, 0.152941, 1)
+sector_color_palette = Array[Color]([Color(0.960784, 0.921569, 0.803922, 1), Color(0.929412, 0.709804, 0.152941, 1)])
 outer_radius = 500
 inner_radius = 200
-line_width = 0
 text_size = 24.0
 icon_height = 106.0
 icon_radius = 64.0
 
 [node name="Pointer" type="TextureRect" parent="."]
+self_modulate = Color(0.737255, 0.239216, 0.215686, 1)
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -71,32 +216,109 @@ grow_horizontal = 2
 grow_vertical = 2
 size_flags_horizontal = 4
 mouse_filter = 2
-texture = ExtResource("3_f1ojv")
+texture = ExtResource("3_eu0fk")
 stretch_mode = 4
 
-[node name="Spin Button" type="Button" parent="."]
+[node name="Pointer Shadow" type="TextureRect" parent="Pointer"]
+self_modulate = Color(0.321569, 0.321569, 0.321569, 1)
+show_behind_parent = true
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -111.0
-offset_top = -164.0
-offset_right = 109.0
-offset_bottom = 9.0
+offset_left = -46.5
+offset_top = -98.0
+offset_right = 46.5
+offset_bottom = 84.0
 grow_horizontal = 2
 grow_vertical = 2
+size_flags_horizontal = 4
+mouse_filter = 2
+texture = ExtResource("3_eu0fk")
+stretch_mode = 4
+
+[node name="Spin Button" type="Button" parent="."]
+self_modulate = Color(0.321569, 0.321569, 0.321569, 1)
+clip_children = 1
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -202.5
+offset_top = -202.5
+offset_right = 202.5
+offset_bottom = 202.5
+grow_horizontal = 2
+grow_vertical = 0
+pivot_offset = Vector2(202.5, 202.5)
 focus_mode = 0
 mouse_filter = 1
 mouse_default_cursor_shape = 2
+theme_override_colors/icon_disabled_color = Color(1, 1, 1, 1)
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_constants/h_separation = 90
 theme_override_font_sizes/font_size = 120
-text = "1"
-icon = ExtResource("4_eu0fk")
+icon = ExtResource("3_c67fy")
 flat = true
 expand_icon = true
+
+[node name="ButtonSprite" type="TextureRect" parent="Spin Button"]
+self_modulate = Color(0.737255, 0.239216, 0.215686, 1)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -559.44
+offset_top = -538.631
+offset_right = 557.56
+offset_bottom = 578.369
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.36, 0.36)
+pivot_offset = Vector2(558, 558)
+mouse_filter = 2
+texture = ExtResource("3_c67fy")
+
+[node name="ButtonLabel" type="RichTextLabel" parent="Spin Button/ButtonSprite"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -407.5
+offset_top = -375.5
+offset_right = 408.5
+offset_bottom = -30.4999
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+theme_override_colors/default_color = Color(1, 0.8, 0.8, 1)
+theme_override_font_sizes/normal_font_size = 185
+bbcode_enabled = true
+text = "[img=90x175]res://Assets/Sprites/Icon/1x/draw coupon.png[/img] [font_size=100]x[/font_size]3"
+scroll_active = false
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Spin Button/ButtonSprite"]
+libraries = {
+&"": SubResource("AnimationLibrary_topkn")
+}
+
+[node name="AnimationTree" type="AnimationTree" parent="Spin Button/ButtonSprite"]
+tree_root = SubResource("AnimationNodeStateMachine_bibbu")
+anim_player = NodePath("../AnimationPlayer")
+parameters/conditions/is_hovering = false
+parameters/conditions/is_not_hovering = false
+parameters/conditions/is_pressed = false
+parameters/conditions/is_spin_end = false
 
 [node name="Confirm Window" type="Panel" parent="."]
 visible = false
@@ -170,4 +392,6 @@ text = "NO"
 [connection signal="mouse_entered" from="Wheel Face" to="." method="_on_wheel_face_mouse_entered"]
 [connection signal="mouse_exited" from="Wheel Face" to="." method="_on_wheel_face_mouse_exited"]
 [connection signal="on_end_spin" from="Wheel Face" to="." method="_on_wheel_face_on_end_spin"]
+[connection signal="mouse_entered" from="Spin Button" to="." method="_on_spin_button_mouse_entered"]
+[connection signal="mouse_exited" from="Spin Button" to="." method="_on_spin_button_mouse_exited"]
 [connection signal="pressed" from="Spin Button" to="." method="_on_spin_button_pressed"]

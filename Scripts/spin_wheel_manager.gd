@@ -9,6 +9,8 @@ enum button_state{
 
 @onready var wheel_face := $"Wheel Face"
 @onready var spin_button := $"Spin Button"
+@onready var spin_button_label := $"Spin Button/ButtonSprite/ButtonLabel"
+@onready var spin_button_animation_tree := $"Spin Button/ButtonSprite/AnimationTree"
 @onready var pointer := $Pointer
 @onready var confirm_window := $"Confirm Window"
 @onready var confirm_window_result_text := $"Confirm Window/Result Text"
@@ -60,8 +62,7 @@ func show_ui(object):
 	var hide_tween:= create_tween()  
 	hide_tween.tween_property(object, "position:y", show_y_offset, 0.5).set_trans(Tween.TRANS_EXPO)
 	_button_state = button_state.free
-	spin_button.text = "GO"
-	spin_button.icon = null
+	spin_button_label.text = "GO"
 
 
 func resolve_result(prize_item: PrizeItems):
@@ -99,22 +100,21 @@ func resolve_result(prize_item: PrizeItems):
 func _on_wheel_face_on_end_spin(prize_item: PrizeItems) -> void:
 	await resolve_result(prize_item)
 	if prize_item.item_list.has("draw coupon"): return
-	
+	spin_button_animation_tree.set("parameters/conditions/is_spin_end", true)
+	spin_button_animation_tree.set("parameters/conditions/is_pressed", false)
 	is_in_draw = false
 	#stay and update button text if (origin == shop && exchange_coupon.count >= 3) or (origin == fruit && draw_coupon.count > 0) 
 	match wheel_face.current_source:
 		PrizeItems.Source.Banana, PrizeItems.Source.Grape, PrizeItems.Source.Apple, PrizeItems.Source.Mango, PrizeItems.Source.Watermelon, PrizeItems.Source.Strawberry:
 			if (ResourceManager.get_item_count("draw coupon") > 0):
 				_button_state = button_state.draw_coupon
-				spin_button.text = "1"
-				spin_button.icon = ResourceManager.get_item_icon("draw coupon")
+				spin_button_label.text = "[img=90x175]res://Assets/Sprites/Icon/1x/draw coupon.png[/img] [font_size=100]x[/font_size]1"
 			else:
 				hide_ui(self)
 		PrizeItems.Source.Traffic, PrizeItems.Source.Affairs, PrizeItems.Source.Lottery, PrizeItems.Source.Trade, PrizeItems.Source.Traffic_Locked:
 			if (ResourceManager.get_item_count("exchange coupon") >= 3):
 				_button_state = button_state.shop
-				spin_button.text = "3"
-				spin_button.icon = ResourceManager.get_item_icon("exchange coupon")
+				spin_button_label.text = "[img=90x150]res://Assets/Sprites/Icon/1x/exchange coupon.png[/img] [font_size=100]x[/font_size]3"
 			else:
 				hide_ui(self)
 
@@ -124,11 +124,15 @@ func _on_spin_button_pressed() -> void:
 	match _button_state:
 		button_state.free:
 			is_in_draw = true
+			spin_button_animation_tree.set("parameters/conditions/is_pressed", true)
+			spin_button_animation_tree.set("parameters/conditions/is_spin_end", false)
 			wheel_face.spin_wheel(spin_animation_duration)
 			AudioManager.create_audio(SoundEffect.SOUND_EFFECT_TYPE.SPIN_START)
 		button_state.draw_coupon:
 			if (ResourceManager.try_pay_item('draw coupon', 1, spin_button.global_position)):
 				is_in_draw = true
+				spin_button_animation_tree.set("parameters/conditions/is_pressed", true)
+				spin_button_animation_tree.set("parameters/conditions/is_spin_end", false)
 				AudioManager.create_audio(SoundEffect.SOUND_EFFECT_TYPE.SPIN_START)
 				#await get_tree().create_timer(1).timeout
 				if spin_speed_up:
@@ -138,6 +142,8 @@ func _on_spin_button_pressed() -> void:
 		button_state.shop:
 			if (ResourceManager.try_pay_item('exchange coupon', 3, spin_button.global_position)):
 				is_in_draw = true
+				spin_button_animation_tree.set("parameters/conditions/is_pressed", true)
+				spin_button_animation_tree.set("parameters/conditions/is_spin_end", false)
 				AudioManager.create_audio(SoundEffect.SOUND_EFFECT_TYPE.SPIN_START)
 				#await get_tree().create_timer(1).timeout
 				if spin_speed_up:
@@ -158,3 +164,13 @@ func _on_mouse_entered() -> void:
 func _on_mouse_exited() -> void:
 	is_mouse_over = false
 	#print("Mouse Exit Face")
+
+
+func _on_spin_button_mouse_entered() -> void:
+	spin_button_animation_tree.set("parameters/conditions/is_hovering", true)
+	spin_button_animation_tree.set("parameters/conditions/is_not_hovering", false)
+
+
+func _on_spin_button_mouse_exited() -> void:
+	spin_button_animation_tree.set("parameters/conditions/is_hovering", false)
+	spin_button_animation_tree.set("parameters/conditions/is_not_hovering", true)

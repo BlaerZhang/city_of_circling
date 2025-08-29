@@ -1121,6 +1121,7 @@ offset_top = -667.595
 offset_right = -48.0941
 offset_bottom = -419.595
 theme_override_colors/default_color = Color(0, 0, 0, 1)
+theme_override_constants/line_separation = -24
 theme_override_font_sizes/normal_font_size = 80
 theme_override_font_sizes/bold_font_size = 90
 bbcode_enabled = true
@@ -1189,9 +1190,11 @@ layout_mode = 2
 item_name = "lottery upgrade coupon"
 
 [node name="Title" type="RichTextLabel" parent="Board/In-world UI/Upgrade Coupon UI Panel"]
-layout_mode = 0
+layout_mode = 1
+offset_left = 12.0
 offset_right = 194.0
-offset_bottom = 83.0
+offset_bottom = 84.0
+mouse_filter = 2
 theme_override_colors/default_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/normal_font_size = 28
 bbcode_enabled = true
@@ -1240,9 +1243,11 @@ layout_mode = 2
 item_name = "mango"
 
 [node name="Title" type="RichTextLabel" parent="Board/In-world UI/Fruit UI Panel"]
-layout_mode = 0
-offset_right = 357.0
-offset_bottom = 78.0
+layout_mode = 1
+offset_left = 12.0
+offset_right = 361.0
+offset_bottom = 176.0
+mouse_filter = 2
 theme_override_colors/default_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/normal_font_size = 60
 bbcode_enabled = true
@@ -1608,7 +1613,7 @@ anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
 script = ExtResource("61_yiyb4")
-language = "en"
+language = "zh"
 
 [node name="Button_zh" type="Button" parent="UI/Translation Manager"]
 visible = false

@@ -8,5 +8,5 @@ script = ExtResource("2_c7vgd")
 item_name = "traffic upgrade coupon"
 item_name_display = "TRAFFIC_COUPON"
 icon = ExtResource("1_p14tr")
-item_type = null
+item_type = 3
 metadata/_custom_type_script = "uid://d0fc2fb7vpwyv"

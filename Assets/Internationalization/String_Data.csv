@@ -1,8 +1,8 @@
 ﻿key,en,zh
 TIME_DAY_HOUR_REFRESH,DAY %s\n%s:00\n[font_size=26]Shop refresh in %sh[/font_size],第 %s 天\n%s:00\n[font_size=26]商店将在 %s 小时后刷新[/font_size]
 PRICE,Price,价格
-FRUIT_UI_TAG, FRUIT, 水果
-UPGRADE_COUPON_TAG, UPGRADE\nCOUPON, 升级券
+FRUIT_UI_TAG,FRUIT,水果
+UPGRADE_COUPON_TAG,UPGRADE\nCOUPON,升级券
 ,,
 AFFAIRS_COUPON,affairs upgrade coupon,事务升级券
 APPLE,apple,苹果
