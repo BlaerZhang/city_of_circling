@@ -8,7 +8,8 @@ var item_type: Item.ItemType
 @onready var ui_outline:= $"UI Grid Outline"
 @export var item_count_change_particle_prefab: PackedScene
 var is_in_choice:= false
-
+var original_color: Color
+var grid_bg_tween: Tween
 
 func _ready() -> void:
 	item_type = ResourceManager.item_database[item_name.to_lower()].item_type
@@ -18,12 +19,14 @@ func _ready() -> void:
 	ui_icon_shadow.texture = ui_icon.texture
 	ui_label.text = '0'
 	ui_icon.tooltip_text = ResourceManager.get_item_display_name(item_name).capitalize()
+	original_color = self_modulate
+	ui_outline.visible = false
 	
 	#Setup Outline
-	var outline_tween = create_tween().set_loops()
-	outline_tween.tween_property(ui_outline, "modulate", Color.WHITE, 0.375).set_ease(Tween.EASE_IN_OUT).set_trans(Tween.TRANS_SINE)
-	outline_tween.tween_interval(0.25)
-	outline_tween.tween_property(ui_outline, "modulate", Color.TRANSPARENT, 0.375).set_ease(Tween.EASE_IN_OUT).set_trans(Tween.TRANS_SINE)
+	#var outline_tween = create_tween().set_loops()
+	#outline_tween.tween_property(ui_outline, "modulate", Color.WHITE, 0.375).set_ease(Tween.EASE_IN_OUT).set_trans(Tween.TRANS_SINE)
+	#outline_tween.tween_interval(0.25)
+	#outline_tween.tween_property(ui_outline, "modulate", Color.TRANSPARENT, 0.375).set_ease(Tween.EASE_IN_OUT).set_trans(Tween.TRANS_SINE)
 	toggle_outline(false)
 	
 	ResourceManager.item_count_changed.connect(on_item_count_changed)
@@ -88,18 +91,35 @@ func spawn_particle(item_name: String, change_amount: int, start_pos: Vector2, e
 
 
 func toggle_outline(switch: bool):
+	#match switch:
+		#true:
+			#var show_outline_tween = create_tween()
+			#show_outline_tween.tween_property(ui_outline, "self_modulate", Color.YELLOW, 0.1)
+		#false:
+			#var hide_outline_tween = create_tween()
+			#hide_outline_tween.tween_property(ui_outline, "self_modulate", Color.TRANSPARENT, 0.2)
 	match switch:
 		true:
-			var show_outline_tween = create_tween()
-			show_outline_tween.tween_property(ui_outline, "self_modulate", Color.YELLOW, 0.1)
+			if grid_bg_tween:
+				grid_bg_tween.kill()
+			grid_bg_tween = create_tween().set_loops()
+			grid_bg_tween.tween_property(self, "self_modulate", Color.WHITE, 0)
+			grid_bg_tween.tween_interval(0.5)
+			grid_bg_tween.tween_property(self, "self_modulate", original_color, 0)
+			grid_bg_tween.tween_interval(0.5)
 		false:
-			var hide_outline_tween = create_tween()
-			hide_outline_tween.tween_property(ui_outline, "self_modulate", Color.TRANSPARENT, 0.2)
+			if grid_bg_tween:
+				grid_bg_tween.kill()
+			self_modulate = original_color
+	pass
 
 
 func _on_gui_input(event: InputEvent) -> void:
+	if event.is_action_released("left_click"):
+		ui_outline.modulate = Color.BLACK
 	if !is_in_choice: return
 	if event.is_action_pressed("left_click"):
+		ui_outline.modulate = Color.GRAY
 		var item_to_pay: String
 		match item_type:
 			Item.ItemType.Fruit:
@@ -109,3 +129,13 @@ func _on_gui_input(event: InputEvent) -> void:
 		ResourceManager.try_buy_item(item_name.to_lower(), 1, item_to_pay.to_lower(), 1, %"Spin Wheel".pointer.global_position)
 		#ResourceManager.change_item_count(item_name.to_lower(), 1, %"Spin Wheel".pointer.global_position)
 		%"Spin Wheel".choice_made.emit()
+
+
+func _on_mouse_entered() -> void:
+	if is_in_choice:
+		ui_outline.modulate = Color.BLACK
+		ui_outline.visible = true
+
+
+func _on_mouse_exited() -> void:
+	ui_outline.visible = false

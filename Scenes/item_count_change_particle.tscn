@@ -69,6 +69,7 @@ explosiveness = 1.0
 fixed_fps = 120
 collision_base_size = 0.05
 draw_order = 0
+trail_lifetime = 0.9
 process_material = SubResource("ParticleProcessMaterial_tler7")
 
 [node name="LightOccluder2D" type="LightOccluder2D" parent="."]
