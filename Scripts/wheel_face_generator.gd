@@ -11,7 +11,12 @@ extends Control
 @export_group("Size")
 @export var outer_radius: int = 256
 @export var inner_radius: int = 64
+
+@export_group("Outline")
 @export var line_width: int = 4
+@export var inner_line:= true
+@export var outer_line:= true
+@export var seperation_line:= true
 
 var prize_items_label_scene = preload("res://Scenes/prize_item_rich_text_label.tscn")
 @export_group("Text")
@@ -125,21 +130,22 @@ func _draw() -> void:
 		draw_set_transform(pivot_offset, 0.0)
 
 	# 绘制分隔线
-	cumulative_weight = 0.0
-	for i in range(prize_list.size()):
-		var prize_items = prize_list[i]
-		var end_rads: float
-		if weight_based_angle:
-			cumulative_weight += prize_items.weight_in_pool
-			end_rads = TAU * cumulative_weight / _current_total_weight
-		else:
-			end_rads = TAU * (i + 1) / prize_list.size()
-		var line_point = Vector2.from_angle(end_rads)
-		draw_line(line_point * inner_radius, line_point * outer_radius, line_color, line_width, true)
+	if seperation_line:
+		cumulative_weight = 0.0
+		for i in range(prize_list.size()):
+			var prize_items = prize_list[i]
+			var end_rads: float
+			if weight_based_angle:
+				cumulative_weight += prize_items.weight_in_pool
+				end_rads = TAU * cumulative_weight / _current_total_weight
+			else:
+				end_rads = TAU * (i + 1) / prize_list.size()
+			var line_point = Vector2.from_angle(end_rads)
+			draw_line(line_point * (inner_radius + 1), line_point * (outer_radius - 1), line_color, line_width, true)
 
 	# 绘制内外圈
-	draw_arc(Vector2.ZERO, inner_radius, 0, TAU, 128, line_color, line_width, true)
-	draw_arc(Vector2.ZERO, outer_radius, 0, TAU, 128, line_color, line_width, true)
+	if inner_line: draw_arc(Vector2.ZERO, inner_radius, 0, TAU, 128, line_color, line_width, true)
+	if outer_line: draw_arc(Vector2.ZERO, outer_radius, 0, TAU, 128, line_color, line_width, true)
 
 
 func _process(delta: float) -> void:

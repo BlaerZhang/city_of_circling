@@ -108,13 +108,13 @@ func _on_wheel_face_on_end_spin(prize_item: PrizeItems) -> void:
 		PrizeItems.Source.Banana, PrizeItems.Source.Grape, PrizeItems.Source.Apple, PrizeItems.Source.Mango, PrizeItems.Source.Watermelon, PrizeItems.Source.Strawberry:
 			if (ResourceManager.get_item_count("draw coupon") > 0):
 				_button_state = button_state.draw_coupon
-				spin_button_label.text = "[img=90x175]res://Assets/Sprites/Icon/1x/draw coupon.png[/img] [font_size=100]x[/font_size]1"
+				spin_button_label.text = "[img=150x150]res://Assets/Sprites/Icon/1x/draw coupon italic.png[/img] [font_size=100]x[/font_size]1"
 			else:
 				hide_ui(self)
 		PrizeItems.Source.Traffic, PrizeItems.Source.Affairs, PrizeItems.Source.Lottery, PrizeItems.Source.Trade, PrizeItems.Source.Traffic_Locked:
 			if (ResourceManager.get_item_count("exchange coupon") >= 3):
 				_button_state = button_state.shop
-				spin_button_label.text = "[img=90x150]res://Assets/Sprites/Icon/1x/exchange coupon.png[/img] [font_size=100]x[/font_size]3"
+				spin_button_label.text = "[img=150x150]res://Assets/Sprites/Icon/1x/exchange coupon italic.png[/img] [font_size=100]x[/font_size]3"
 			else:
 				hide_ui(self)
 

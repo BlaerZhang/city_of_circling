@@ -1598,14 +1598,10 @@ visible = false
 z_index = 1000
 custom_minimum_size = Vector2(300, 150)
 layout_mode = 0
-offset_right = 300.0
+offset_right = 399.0
 offset_bottom = 345.0
 bbcode_enabled = true
-text = "[center][b][font_size=24]QUEST REWARD +[/font_size][/b]
-
-+ 3 → + 4
-exchange coupon from quest reward
-Lv. 3 → 4 / 5[/center][right][img=20]res://Assets/Sprites/Icon/1x/traffic upgrade coupon.png[/img] [font_size=30]3[/font_size][/right]"
+text = "[img=120x120]res://Assets/Sprites/Icon/1x/draw coupon italic.png[/img] [font_size=100]x[/font_size]1"
 scroll_active = false
 
 [node name="Translation Manager" type="Control" parent="UI"]
