@@ -32,6 +32,7 @@ var fruit_quest_required_items: Dictionary[String, int]
 
 @export_group("Delivery Quest")
 @export var delivery_quest_reward_coupon_count: int = 1
+var delivery_quest_available_npc_list: Array[npc_name]
 var current_delivery_quest_target: npc_name
 var current_delivery_sender_list: Dictionary[npc_name, Texture2D]
 signal delivery_quest_generated(from: npc_name, to: npc_name, sender_icon: Texture2D)
@@ -54,6 +55,7 @@ func _ready() -> void:
 	for npc: NPC in get_tree().get_nodes_in_group("NPCs"):
 		npc.delivery_quest_generated.connect(set_as_delivery_target)
 		npc.delivery_quest_completed.connect(complete_delivery_quest)
+		delivery_quest_available_npc_list.append(npc.npc)
 	UpgradeManager.upgrade_added.connect(on_upgrade_added)
 	ResourceManager.item_count_changed.connect(on_item_count_changed)
 	
@@ -90,9 +92,9 @@ func generate_fruit_quest():
 
 func generate_delivery_quest():
 	is_in_delivery_quest = true
-	var _target = randi() % npc_name.size() as npc_name
+	var _target = delivery_quest_available_npc_list[randi() % delivery_quest_available_npc_list.size()]
 	while _target == npc:
-		_target = randi() % npc_name.size() as npc_name
+		_target = delivery_quest_available_npc_list[randi() % delivery_quest_available_npc_list.size()]
 	
 	current_delivery_quest_target = _target
 	delivery_quest_generated.emit(npc, _target, get_parent().texture)

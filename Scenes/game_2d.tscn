@@ -1598,7 +1598,7 @@ mouse_filter = 2
 unique_name_in_owner = true
 z_index = 99
 layout_mode = 1
-hide_y_offset = 1920.0
+hide_y_offset = 1650.0
 show_y_offset = 1080.0
 
 [node name="RichTextLabel" type="RichTextLabel" parent="UI"]
