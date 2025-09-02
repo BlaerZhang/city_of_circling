@@ -24,7 +24,10 @@ enum SOUND_EFFECT_TYPE {
 	DAY_CHANGED,
 	CHOICE_START,
 	CHOICE_MADE,
-	SHOW_PANEL
+	SHOW_PANEL,
+	GATE_DISPLAY,
+	GATE_HIDE,
+	GATE_EXIT,
 }
 
 @export_range(0, 10) var limit: int = 5 ## Maximum number of this SoundEffect to play simultaneously before culled.

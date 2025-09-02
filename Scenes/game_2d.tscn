@@ -1,4 +1,4 @@
-[gd_scene load_steps=104 format=3 uid="uid://c6e414gy1cwn5"]
+[gd_scene load_steps=106 format=3 uid="uid://c6e414gy1cwn5"]
 
 [ext_resource type="Script" uid="uid://tdlox2h37vxw" path="res://Scripts/test_input.gd" id="1_pqs0o"]
 [ext_resource type="PackedScene" uid="uid://b8imxf8a6f2lg" path="res://Scenes/spin_wheel.tscn" id="1_ru8g0"]
@@ -37,6 +37,8 @@
 [ext_resource type="Texture2D" uid="uid://7hw3qvy8qkap" path="res://Assets/Sprites/Grid/1x/Affair_tile.png" id="31_q187p"]
 [ext_resource type="Texture2D" uid="uid://0sqey8fb61ce" path="res://Assets/Sprites/Icon/1x/yellow.png" id="32_34x56"]
 [ext_resource type="Texture2D" uid="uid://b28o0fpr5uhhj" path="res://Assets/Sprites/Icon/1x/white.png" id="35_apgn6"]
+[ext_resource type="Texture2D" uid="uid://dq38vavtoi2l3" path="res://Assets/Sprites/Grid/1x/Gate.png" id="36_pqs0o"]
+[ext_resource type="PackedScene" uid="uid://jdj3olh1jtlv" path="res://Scenes/functional_component_gate.tscn" id="37_34x56"]
 [ext_resource type="Script" uid="uid://l0kyl2xsshwi" path="res://Scripts/time_ui.gd" id="38_4d1v3"]
 [ext_resource type="Texture2D" uid="uid://1f1pkyq3oliq" path="res://Assets/Sprites/Grid/1x/upgrades_ui_button.png" id="41_acjk4"]
 [ext_resource type="Texture2D" uid="uid://c7qbvwcthokxi" path="res://Assets/Sprites/Grid/1x/upgrade_display_bar.png" id="42_3lc3d"]
@@ -1036,8 +1038,11 @@ grid_position = Vector2i(10, 6)
 
 [node name="Grid_11_6" parent="Board/Grids" instance=ExtResource("6_xt382")]
 position = Vector2(587, 452)
+texture = ExtResource("36_pqs0o")
 grid_type = 0
 grid_position = Vector2i(11, 6)
+
+[node name="Functional Component" parent="Board/Grids/Grid_11_6" instance=ExtResource("37_34x56")]
 
 [node name="Grid_11_0" parent="Board/Grids" instance=ExtResource("6_xt382")]
 position = Vector2(587, -364)
@@ -1127,7 +1132,7 @@ theme_override_font_sizes/bold_font_size = 90
 bbcode_enabled = true
 text = "DAY 1
 16:00
-[font_size=26]Shop refresh in 9h[/font_size]"
+[font_size=22]Shop refresh in 9h[/font_size]"
 fit_content = true
 scroll_active = false
 shortcut_keys_enabled = false

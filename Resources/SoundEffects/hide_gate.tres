@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="SoundEffect" load_steps=3 format=3 uid="uid://c7mseuqk6e87o"]
+
+[ext_resource type="Script" uid="uid://hqd0d2kdbu0l" path="res://Scripts/SoundEffectSetting.gd" id="1_cm2b7"]
+[ext_resource type="AudioStream" uid="uid://bhvuemc5xasl5" path="res://Assets/Audio/metal-warehouse-door-opened-with-chains-100823.mp3" id="2_5w51x"]
+
+[resource]
+script = ExtResource("1_cm2b7")
+limit = 1
+type = 22
+sound_effect = ExtResource("2_5w51x")
+volume = -10.0
+pitch_scale = 1.0
+pitch_randomness = 0.0

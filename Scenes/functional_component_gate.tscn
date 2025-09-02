@@ -1,0 +1,88 @@
+[gd_scene load_steps=14 format=3 uid="uid://jdj3olh1jtlv"]
+
+[ext_resource type="Script" uid="uid://dsncmuoo1toxj" path="res://Scripts/Grids/gate.gd" id="1_27jir"]
+[ext_resource type="Texture2D" uid="uid://cmu7eyen056mj" path="res://Assets/Sprites/Icon/1x/exit.png" id="2_brj2a"]
+[ext_resource type="Script" uid="uid://jt3qro1q1rsg" path="res://Scripts/custom_tooltip.gd" id="3_5nshr"]
+[ext_resource type="Texture2D" uid="uid://cy5q8fhujpt5h" path="res://Assets/Sprites/Grid/1x/ui_grid.png" id="4_77djc"]
+
+[sub_resource type="FontVariation" id="FontVariation_p4hnd"]
+spacing_top = 80
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_c8w4m"]
+load_path = "res://.godot/imported/ui_grid.png-fa193a46bf694f4b5d31c612d79fb1c5.ctex"
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_7xuxf"]
+texture = SubResource("CompressedTexture2D_c8w4m")
+texture_margin_left = 2.0
+texture_margin_top = 2.0
+texture_margin_right = 2.0
+texture_margin_bottom = 2.0
+modulate_color = Color(1, 1, 1, 0.545098)
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_2yk12"]
+load_path = "res://.godot/imported/ui_grid.png-fa193a46bf694f4b5d31c612d79fb1c5.ctex"
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_a3ncn"]
+texture = SubResource("CompressedTexture2D_2yk12")
+texture_margin_left = 2.0
+texture_margin_top = 2.0
+texture_margin_right = 2.0
+texture_margin_bottom = 2.0
+modulate_color = Color(0.9, 0.9, 0.9, 1)
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_4es2p"]
+load_path = "res://.godot/imported/ui_grid.png-fa193a46bf694f4b5d31c612d79fb1c5.ctex"
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_2ce8t"]
+texture = SubResource("CompressedTexture2D_4es2p")
+texture_margin_left = 2.0
+texture_margin_top = 2.0
+texture_margin_right = 2.0
+texture_margin_bottom = 2.0
+modulate_color = Color(0.75, 0.75, 0.75, 1)
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_lhq0g"]
+load_path = "res://.godot/imported/ui_grid.png-fa193a46bf694f4b5d31c612d79fb1c5.ctex"
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_v2dka"]
+texture = SubResource("CompressedTexture2D_lhq0g")
+texture_margin_left = 2.0
+texture_margin_top = 2.0
+texture_margin_right = 2.0
+texture_margin_bottom = 2.0
+
+[node name="Functional Component" type="Node2D"]
+script = ExtResource("1_27jir")
+
+[node name="Exit button" type="Button" parent="."]
+show_behind_parent = true
+custom_minimum_size = Vector2(128, 128)
+offset_left = 70.0
+offset_top = -66.0
+offset_right = 549.0
+offset_bottom = 62.0
+pivot_offset = Vector2(-70, 66)
+tooltip_text = "EXIT_BUTTON_TOOLTIP"
+focus_mode = 0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = SubResource("FontVariation_p4hnd")
+theme_override_styles/disabled = SubResource("StyleBoxTexture_7xuxf")
+theme_override_styles/hover = SubResource("StyleBoxTexture_a3ncn")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_2ce8t")
+theme_override_styles/normal = SubResource("StyleBoxTexture_v2dka")
+text = "EXIT_BUTTON"
+icon = ExtResource("2_brj2a")
+icon_alignment = 1
+script = ExtResource("3_5nshr")
+
+[node name="Button shadow" type="TextureRect" parent="Exit button"]
+self_modulate = Color(0, 0, 0, 0.501961)
+show_behind_parent = true
+layout_mode = 0
+offset_left = -1.0
+offset_top = 4.0
+offset_right = 478.0
+offset_bottom = 132.0
+texture = ExtResource("4_77djc")
+
+[connection signal="pressed" from="Exit button" to="." method="_on_exit_button_pressed"]

@@ -41,6 +41,8 @@ REMOTE_COMPLETE,remote quest completion,远程交任务
 REMOTE_VIEW,remote view store,远程查看商店
 SHOP_REFRESH_PLUS,shop refresh +,商店刷新+
 UNLOCK_BALL,unlock rainbow white ball,解锁白/彩球
+EXIT_BUTTON,Leave The City,出城
+EXIT_BUTTON_TOOLTIP,"Once left, you will not be able to return. Your score will be calculated immediately. \nAre you sure you want to leave the city?",一旦出城，将无法返回。你的分数会被立即结算。\n确定要出城吗？
 ,,
 FRUIT_PRODUCTION_DESCRIPTION,+ %s -> + %s\nfruit income from lottery\nLv. %s -> %s / %s,+ %s -> + %s\n从抽奖中获取的水果个数\nLv. %s -> %s / %s
 QUEST_REWARD_DESCRIPTION,+ %s -> + %s\nexchange coupon from quest reward\nLv. %s -> %s / %s,+ %s -> + %s\n完成任务获得的交换券张数\nLv. %s -> %s / %s
