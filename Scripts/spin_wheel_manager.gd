@@ -52,7 +52,7 @@ func initiate_wheel(source: PrizeItems.Source):
 
 func hide_ui(object):
 	var hide_tween:= create_tween()
-	hide_tween.tween_property(object, "position:y", hide_y_offset, 0.5).set_trans(Tween.TRANS_EXPO)
+	hide_tween.tween_property(object, "position:y", hide_y_offset, 0.5).set_trans(Tween.TRANS_BACK)
 	hide_tween.tween_callback(draw_finished.emit)
 
 
@@ -60,7 +60,7 @@ func show_ui(object):
 	GameManager.switch_game_state(GameManager.GameState.Draw)
 	AudioManager.create_audio(SoundEffect.SOUND_EFFECT_TYPE.SHOW_WHEEL)
 	var hide_tween:= create_tween()  
-	hide_tween.tween_property(object, "position:y", show_y_offset, 0.5).set_trans(Tween.TRANS_EXPO)
+	hide_tween.tween_property(object, "position:y", show_y_offset, 0.5).set_trans(Tween.TRANS_BACK)
 	_button_state = button_state.free
 	spin_button_label.text = "GO"
 

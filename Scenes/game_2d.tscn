@@ -1295,6 +1295,9 @@ offset_top = -75.0
 offset_right = 75.0
 offset_bottom = 75.0
 
+[node name="UI Grid Outline" parent="Board/In-world UI/Resource UI Grid Exchange coupon" index="3"]
+visible = false
+
 [node name="Resource UI Grid Draw coupon" parent="Board/In-world UI" instance=ExtResource("15_j40bd")]
 self_modulate = Color(0.886275, 0.701961, 0.207843, 1)
 layout_mode = 0
