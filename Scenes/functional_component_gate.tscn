@@ -52,6 +52,7 @@ texture_margin_right = 2.0
 texture_margin_bottom = 2.0
 
 [node name="Functional Component" type="Node2D"]
+show_behind_parent = true
 script = ExtResource("1_27jir")
 
 [node name="Exit button" type="Button" parent="."]

@@ -73,8 +73,8 @@ func update_slots_state():
 			button_to_update.pressed.connect(on_upgrade_button_pressed.bind(button_to_update, current_available_upgrade))
 			if current_available_upgrade.upgrade_max_level != 1: #for level-up upgrade
 				button_to_update.text = " LV%d\n\n" % (UpgradeManager.get_upgrade_level(current_available_upgrade) + 1)
-				button_to_update.tooltip_text = "[center][b][font_size=24]%s[/font_size][/b]\n\n%s[/center][right][img=20]res://Assets/Sprites/Icon/1x/%s.png[/img] [font_size=30][b]%d[/b][/font_size][/right]" % [
-					current_available_upgrade.upgrade_name.to_upper(), 
+				button_to_update.tooltip_text = "[center][font_size=24]%s[/font_size]\n\n%s[/center][right][img=20]res://Assets/Sprites/Icon/1x/%s.png[/img] [font_size=30][b]%d[/b][/font_size][/right]" % [
+					current_available_upgrade.upgrade_name_display.to_upper(), 
 					current_available_upgrade.description, 
 					coupon_map[upgrade_shop_type], 
 					current_available_upgrade.upgrade_cost_per_level[UpgradeManager.get_upgrade_level(current_available_upgrade)]] % [
@@ -85,8 +85,8 @@ func update_slots_state():
 					current_available_upgrade.upgrade_max_level]
 			else: #for one-time upgrade
 				button_to_update.text = ""
-				button_to_update.tooltip_text = "[b][u]%s[/u]\n\n%s\n[right][img=20]res://Assets/Sprites/Icon/1x/%s.png[/img] [font_size=30]%d[/font_size][/right][/b]" % [
-					current_available_upgrade.upgrade_name.to_upper(), 
+				button_to_update.tooltip_text = "[u]%s[/u]\n\n%s\n[right][img=20]res://Assets/Sprites/Icon/1x/%s.png[/img] [font_size=30][b]%d[/b][/font_size][/right]" % [
+					current_available_upgrade.upgrade_name_display.to_upper(), 
 					current_available_upgrade.description, 
 					coupon_map[upgrade_shop_type], 
 					current_available_upgrade.upgrade_cost_per_level[0]]
