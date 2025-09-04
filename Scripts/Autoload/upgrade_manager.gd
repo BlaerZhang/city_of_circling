@@ -7,6 +7,11 @@ signal upgrade_added(upgrade: Upgrade)
 
 func _ready() -> void:
 	load_all_upgrades()
+	SceneManager.scene_loaded_with_name.connect(on_scene_loaded_with_name)
+
+
+func on_scene_loaded_with_name(scene_name: String):
+	upgrades_owned.clear()
 
 
 # Load all resources in the folder to dict

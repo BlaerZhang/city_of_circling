@@ -20,4 +20,5 @@ func depart() -> void:
 
 func _on_exit_button_pressed() -> void:
 	print("Left the city through gate")
-	# AudioManager.create_audio(SoundEffect.SOUND_EFFECT_TYPE.GATE_EXIT)
+	AudioManager.create_audio(SoundEffect.SOUND_EFFECT_TYPE.GATE_HIDE)
+	SceneManager.change_scene("res://Scenes/ending.tscn", {"pattern": "fade"})

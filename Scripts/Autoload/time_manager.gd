@@ -10,6 +10,16 @@ signal shop_refresh_time
 
 
 func _ready() -> void:
+	reset_data()
+	SceneManager.scene_loaded_with_name.connect(on_scene_loaded_with_name)
+
+
+func on_scene_loaded_with_name(scene_name: String):
+	if scene_name != "Ending":
+		reset_data()
+
+
+func reset_data():
 	current_hour = 0
 	current_day = 1
 	day_changed.emit()

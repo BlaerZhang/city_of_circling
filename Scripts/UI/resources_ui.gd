@@ -17,7 +17,7 @@ func _ready() -> void:
 	#Setup UI
 	ui_icon.texture = ResourceManager.get_item_icon(item_name)
 	ui_icon_shadow.texture = ui_icon.texture
-	ui_label.text = '0'
+	ui_label.text = str(ResourceManager.items_owned[item_name.to_lower()])
 	ui_icon.tooltip_text = ResourceManager.get_item_display_name(item_name).capitalize()
 	original_color = self_modulate
 	ui_outline.visible = false

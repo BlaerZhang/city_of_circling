@@ -8,6 +8,12 @@ signal moused_exited_grid(grid_pos: Vector2i)
 func _ready() -> void:
 	await get_tree().process_frame
 	setup_grid_system()
+	SceneManager.scene_loaded_with_name.connect(on_scene_loaded_with_name)
+
+
+func on_scene_loaded_with_name(scene_name: String):
+	await get_tree().process_frame
+	setup_grid_system()
 
 
 func setup_grid_system():

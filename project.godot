@@ -24,7 +24,7 @@ resources_spreadsheet_view/freeze_first_column=true
 [application]
 
 config/name="City of Circling"
-run/main_scene="uid://c6e414gy1cwn5"
+run/main_scene="uid://cf53254xhpkcd"
 config/features=PackedStringArray("4.4", "GL Compatibility")
 config/icon="res://icon.svg"
 
@@ -37,6 +37,7 @@ GridManager="*res://Scripts/Autoload/grid_manager.gd"
 GameManager="*res://Scripts/Autoload/game_manager.gd"
 AudioManager="*res://Scripts/Autoload/AudioManager.gd"
 CursorManager="*res://Scripts/Autoload/cursor_manager.gd"
+SceneManager="*res://addons/scene_manager/SceneManager.tscn"
 
 [display]
 
@@ -50,7 +51,7 @@ project/assembly_name="City of Circling"
 
 [editor_plugins]
 
-enabled=PackedStringArray("res://addons/resources_spreadsheet_view/plugin.cfg")
+enabled=PackedStringArray("res://addons/resources_spreadsheet_view/plugin.cfg", "res://addons/scene_manager/plugin.cfg")
 
 [global_group]
 

@@ -10,6 +10,12 @@ func _ready() -> void:
 	#Temp: shop refresh related
 	TimeManager.day_changed.connect(refill_shop_refresh)
 	UpgradeManager.upgrade_added.connect(adjust_shop_refresh)
+	SceneManager.scene_loaded_with_name.connect(on_scene_loaded_with_name)
+
+
+func on_scene_loaded_with_name(scene_name: String):
+	if scene_name != "Ending":
+		reset_data()
 
 
 # Load all resources in the folder to dict
@@ -24,8 +30,15 @@ func load_all_items():
 				var key = res.item_name.to_lower()
 				item_database.get_or_add(key, res)
 				items_owned.get_or_add(key, 0)
-				item_count_changed.emit(key, 0, 0)
+				item_count_changed.emit(key, 0, 0, Vector2(0,0))
 				#print(res.item_name + " resource loaded")
+
+
+func reset_data():
+	for item in items_owned.keys():
+		items_owned[item] = 0
+		item_count_changed.emit(item, 0, 0, Vector2(0,0))
+	
 
 
 func get_item_sprite(item_name: String) -> Texture2D:

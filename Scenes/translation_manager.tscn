@@ -1,0 +1,48 @@
+[gd_scene load_steps=2 format=3 uid="uid://cf53254xhpkcd"]
+
+[ext_resource type="Script" uid="uid://dk1rm1ctnggd1" path="res://Scripts/translation_manager.gd" id="1_22ag4"]
+
+[node name="Translation Manager" type="Control"]
+layout_mode = 3
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_22ag4")
+language = "zh"
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -33.0
+offset_top = -20.0
+offset_right = 33.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 50
+alignment = 1
+
+[node name="Button_en" type="Button" parent="HBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 60
+text = " English "
+
+[node name="Button_zh" type="Button" parent="HBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 60
+text = " 简体中文 "
+
+[connection signal="pressed" from="HBoxContainer/Button_en" to="." method="_on_button_en_pressed"]
+[connection signal="pressed" from="HBoxContainer/Button_zh" to="." method="_on_button_zh_pressed"]

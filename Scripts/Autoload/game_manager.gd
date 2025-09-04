@@ -16,6 +16,7 @@ signal game_state_changed(previous_state:GameState ,current_state: GameState)
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	SceneManager.scene_loaded_with_name.connect(on_scene_loaded_with_name)
 	await get_tree().process_frame
 	switch_game_state(GameState.Idle)
 
@@ -38,3 +39,8 @@ func switch_game_state(game_state: GameState):
 		GameState.Move, GameState.Resolve:
 			input_lock = true
 			grid_input_lock = true
+
+
+func on_scene_loaded_with_name(scene_name: String):
+	await get_tree().process_frame
+	switch_game_state(GameState.Idle)
