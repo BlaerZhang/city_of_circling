@@ -89,6 +89,7 @@
   ],
   "table_functions": {
     "filter": [
+      "return true",
       "return true"
     ],
     "process": [

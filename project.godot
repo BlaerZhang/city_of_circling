@@ -30,13 +30,13 @@ config/icon="res://icon.svg"
 
 [autoload]
 
-ResourceManager="*res://Scripts/resource_manager.gd"
-UpgradeManager="*res://Scripts/upgrade_manager.gd"
-TimeManager="*res://Scripts/time_manager.gd"
-GridManager="*res://Scripts/Grids/grid_manager.gd"
-GameManager="*res://Scripts/game_manager.gd"
-AudioManager="*res://Scripts/AudioManager.gd"
-CursorManager="*res://Scripts/cursor_manager.gd"
+ResourceManager="*res://Scripts/Autoload/resource_manager.gd"
+UpgradeManager="*res://Scripts/Autoload/upgrade_manager.gd"
+TimeManager="*res://Scripts/Autoload/time_manager.gd"
+GridManager="*res://Scripts/Autoload/grid_manager.gd"
+GameManager="*res://Scripts/Autoload/game_manager.gd"
+AudioManager="*res://Scripts/Autoload/AudioManager.gd"
+CursorManager="*res://Scripts/Autoload/cursor_manager.gd"
 
 [display]
 
