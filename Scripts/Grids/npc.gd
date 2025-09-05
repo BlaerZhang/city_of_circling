@@ -29,6 +29,8 @@ var delivery_quest_probability: float:
 @export var required_fruit_type_2: String
 var fruit_quest_required_items: Dictionary[String, int]
 @export var fruit_quest_reward_coupon_count: int = 2
+signal fruit_quest_generated
+signal fruit_quest_completed
 
 @export_group("Delivery Quest")
 @export var delivery_quest_reward_coupon_count: int = 1
@@ -85,7 +87,7 @@ func generate_fruit_quest():
 	fruit_quest_required_items.clear()
 	fruit_quest_required_items[required_fruit_type_1] = 1
 	fruit_quest_required_items[required_fruit_type_2] = 1
-	
+	fruit_quest_generated.emit()
 	#update icon
 	quest_status_icon.texture = quest_status_sprite_complete if is_fruit_quest_submittable() else quest_status_sprite_fruit
 
@@ -139,6 +141,7 @@ func try_complete_fruit_quest() -> bool:
 	if not is_fruit_quest_submittable(): return false
 	for i in fruit_quest_required_items:
 		ResourceManager.change_item_count(i, -fruit_quest_required_items[i], global_position)
+	fruit_quest_completed.emit()
 	complete_quest(fruit_quest_reward_coupon_count)
 	return true
 

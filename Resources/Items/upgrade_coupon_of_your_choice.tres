@@ -6,7 +6,7 @@
 [resource]
 script = ExtResource("2_8fdnc")
 item_name = "upgrade coupon of your choice"
-item_name_display = "UPGRADE_CHOICE"
+item_name_display_key = "UPGRADE_CHOICE"
 icon = ExtResource("1_bxj38")
 item_type = 4
 metadata/_custom_type_script = "uid://d0fc2fb7vpwyv"

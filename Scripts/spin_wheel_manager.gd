@@ -105,7 +105,7 @@ func _on_wheel_face_on_end_spin(prize_item: PrizeItems) -> void:
 	is_in_draw = false
 	#stay and update button text if (origin == shop && exchange_coupon.count >= 3) or (origin == fruit && draw_coupon.count > 0) 
 	match wheel_face.current_source:
-		PrizeItems.Source.Banana, PrizeItems.Source.Grape, PrizeItems.Source.Apple, PrizeItems.Source.Mango, PrizeItems.Source.Watermelon, PrizeItems.Source.Strawberry:
+		PrizeItems.Source.Banana, PrizeItems.Source.Grape, PrizeItems.Source.Apple, PrizeItems.Source.Mango, PrizeItems.Source.Watermelon, PrizeItems.Source.Strawberry, PrizeItems.Source.Tutorial_Grape, PrizeItems.Source.Tutorial_Apple:
 			if (ResourceManager.get_item_count("draw coupon") > 0):
 				_button_state = button_state.draw_coupon
 				spin_button_label.text = "[img=150x150]res://Assets/Sprites/Icon/1x/draw coupon italic.png[/img] [font_size=100]x[/font_size]1"

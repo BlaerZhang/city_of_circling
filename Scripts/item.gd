@@ -11,8 +11,6 @@ enum ItemType
 }
 
 @export var item_name: String
-@export var item_name_display: String:
-	get:
-		return tr(item_name_display)
+@export var item_name_display_key: String
 @export var icon: Texture2D
 @export var item_type: ItemType

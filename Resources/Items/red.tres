@@ -6,7 +6,7 @@
 [resource]
 script = ExtResource("2_e5hts")
 item_name = "red"
-item_name_display = "RED"
+item_name_display_key = "RED"
 icon = ExtResource("1_616v6")
 item_type = 2
 metadata/_custom_type_script = "uid://d0fc2fb7vpwyv"

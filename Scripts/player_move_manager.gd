@@ -47,6 +47,8 @@ var is_player_moving:= false:
 				player_sprite.hframes = 8
 				player_sprite.vframes = 8
 
+signal plan_move_started
+signal move_completed
 
 func _ready() -> void:
 	player_move_range = player_initial_move_range
@@ -72,6 +74,7 @@ func start_plan_move(grid_pos: Vector2i):
 	if not is_planning_move:
 		is_planning_move = true
 		GameManager.switch_game_state(GameManager.GameState.Plan)
+		plan_move_started.emit()
 		planning_grid_pos = grid_pos
 		planning_facing = player_facing
 		planning_step = player_move_range
@@ -160,6 +163,7 @@ func complete_plan_move(grid_pos: Vector2i) -> void:
 				await GridManager.grid_database[neighbour_grid_pos].arrive()
 		
 		GameManager.switch_game_state(GameManager.GameState.Idle)
+		move_completed.emit()
 
 
 func _move_player_step_by_step(path: Array[Vector2i]) -> void:

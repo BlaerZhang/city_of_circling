@@ -94,7 +94,7 @@ test_add_hour={
 
 [internationalization]
 
-locale/translations=PackedStringArray("res://Assets/Internationalization/String_Data.en.translation", "res://Assets/Internationalization/String_Data.zh.translation")
+locale/translations=PackedStringArray("res://Assets/Internationalization/String_Data.en.translation", "res://Assets/Internationalization/String_Data.zh.translation", "res://Assets/Internationalization/Tutorial_String_Data.en.translation", "res://Assets/Internationalization/Tutorial_String_Data.zh.translation")
 
 [rendering]
 

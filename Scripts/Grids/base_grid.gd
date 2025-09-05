@@ -18,6 +18,8 @@ var neighbour_grids: Array[Vector2i]
 @onready var grid_outline: Sprite2D = $"Grid Outline"
 var outline_tween: Tween
 
+var display_tween: Tween
+
 signal mouse_entered(grid_position: Vector2i)
 signal mouse_exited(grid_position: Vector2i)
 signal mouse_clicked_down(grid_position: Vector2i)
@@ -25,10 +27,6 @@ signal mouse_clicked_down(grid_position: Vector2i)
 
 func _ready() -> void:
 	add_to_group("Grids")
-
-
-func _process(delta: float) -> void:
-	pass
 
 
 func bypass():
@@ -77,3 +75,15 @@ func _on_area_2d_mouse_entered() -> void:
 func _on_area_2d_mouse_exited() -> void:
 	mouse_exited.emit(grid_position)
 	#print(str(grid_position) + "Exited")
+
+
+func show_grid():
+	if display_tween: display_tween.kill()
+	display_tween = create_tween()
+	display_tween.tween_property(self, "scale", Vector2.ONE, 0.5).set_trans(Tween.TRANS_EXPO)
+
+
+func hide_grid():
+	if display_tween: display_tween.kill()
+	display_tween = create_tween()
+	display_tween.tween_property(self, "scale", Vector2.ZERO, 0.5).set_trans(Tween.TRANS_EXPO)

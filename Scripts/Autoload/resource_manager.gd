@@ -48,11 +48,11 @@ func get_item_sprite(item_name: String) -> Texture2D:
 	return item_sprite
 
 
-func get_item_display_name(item_name: String) -> String:
+func get_item_display_key(item_name: String) -> String:
 	var key = item_name.to_lower()
 	if key not in item_database: return item_name
-	var display_name = item_database[key].item_name_display
-	return display_name
+	var display_key = item_database[key].item_name_display_key
+	return display_key
 
 
 func change_item_count(item_name: String, count: int, sourece_pos: Vector2):

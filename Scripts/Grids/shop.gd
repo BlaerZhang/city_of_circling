@@ -22,7 +22,6 @@ var is_rainbow_white_ball_unlocked:= false
 
 
 func _ready() -> void:
-	wheel_manager = get_tree().root.get_node("Game2d/UI/Spin Wheel")
 	load_items_for_sale_to_pools()
 	restock_shop()
 	update_slots_state()
@@ -34,6 +33,8 @@ func _ready() -> void:
 	UpgradeManager.upgrade_added.connect(on_upgrade_added)
 	TimeManager.shop_refresh_time.connect(restock_shop)
 	ResourceManager.item_count_changed.connect(func(item_name: String, count: int, change_amount: int, source_pos: Vector2): update_refresh_button())
+	await get_tree().process_frame
+	wheel_manager = %"Spin Wheel"
 
 
 func load_items_for_sale_to_pools():
@@ -90,7 +91,7 @@ func generate_item_slots(items_in_slots_list: Array[ItemsForSale]):
 		quantity_label.text = "x%s" % items_for_sale.item_count
 		item_icon.texture = ResourceManager.get_item_sprite(items_for_sale.item_name)
 		item_slot.pressed.connect(on_item_slot_pressed.bind(item_slot, items_for_sale))
-		item_slot.tooltip_text = "%s x%s\n%s: %s" % [ResourceManager.get_item_display_name(items_for_sale.item_name).capitalize(), items_for_sale.item_count, tr("PRICE"), items_for_sale.price]
+		item_slot.tooltip_text = "%s x%s\n%s: %s" % [tr(ResourceManager.get_item_display_key(items_for_sale.item_name)).capitalize(), items_for_sale.item_count, tr("PRICE"), items_for_sale.price]
 		
 		current_items_for_sale_and_slots.get_or_add(item_slot, items_for_sale)
 	

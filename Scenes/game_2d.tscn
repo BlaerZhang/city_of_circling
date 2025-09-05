@@ -38,7 +38,7 @@
 [ext_resource type="Texture2D" uid="uid://0sqey8fb61ce" path="res://Assets/Sprites/Icon/1x/yellow.png" id="32_34x56"]
 [ext_resource type="Texture2D" uid="uid://b28o0fpr5uhhj" path="res://Assets/Sprites/Icon/1x/white.png" id="35_apgn6"]
 [ext_resource type="Texture2D" uid="uid://dq38vavtoi2l3" path="res://Assets/Sprites/Grid/1x/Gate.png" id="36_pqs0o"]
-[ext_resource type="PackedScene" path="res://Scenes/functional_component_gate.tscn" id="37_34x56"]
+[ext_resource type="PackedScene" uid="uid://bydkdm2kx36qd" path="res://Scenes/functional_component_gate.tscn" id="37_34x56"]
 [ext_resource type="Script" uid="uid://l0kyl2xsshwi" path="res://Scripts/time_ui.gd" id="38_4d1v3"]
 [ext_resource type="Texture2D" uid="uid://1f1pkyq3oliq" path="res://Assets/Sprites/Grid/1x/upgrades_ui_button.png" id="41_acjk4"]
 [ext_resource type="Texture2D" uid="uid://c7qbvwcthokxi" path="res://Assets/Sprites/Grid/1x/upgrade_display_bar.png" id="42_3lc3d"]

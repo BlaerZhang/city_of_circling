@@ -13,7 +13,9 @@ enum Source
 	Watermelon,
 	Mango,
 	Banana,
-	Traffic_Locked
+	Traffic_Locked,
+	Tutorial_Grape,
+	Tutorial_Apple,
 }
 
 @export var prize_name_text: String

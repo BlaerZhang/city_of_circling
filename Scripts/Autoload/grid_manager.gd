@@ -4,6 +4,7 @@ var grid_database: Dictionary[Vector2i, BaseGrid]
 signal moused_clicked_down_grid(grid_pos: Vector2i)
 signal moused_entered_grid(grid_pos: Vector2i)
 signal moused_exited_grid(grid_pos: Vector2i)
+signal grid_showed_at_pos(grid_pos: Vector2i)
 
 func _ready() -> void:
 	await get_tree().process_frame
@@ -14,6 +15,16 @@ func _ready() -> void:
 func on_scene_loaded_with_name(scene_name: String):
 	await get_tree().process_frame
 	setup_grid_system()
+	if scene_name == "Tutorial":
+		invisualize_all_grids()
+	elif scene_name == "Game2D" || scene_name == "Ending":
+		invisualize_all_grids()
+		await SceneManager.transition_finished
+		var shuffled_grids = grid_database.values()
+		# shuffled_grids.shuffle()
+		for base_grid: BaseGrid in shuffled_grids:
+			await get_tree().create_timer(0.01).timeout
+			base_grid.show_grid()
 
 
 func setup_grid_system():
@@ -67,6 +78,20 @@ func recursive_search_grid(grids_in_range: Array[BaseGrid], origin: Vector2i, ra
 				if new_facing_dir != -facing_dir:
 					grids_in_range.append(neighbour_grid)
 					recursive_search_grid(grids_in_range, neighbour_grid.grid_position, range -1, new_facing_dir)
+
+
+func invisualize_all_grids():
+	for grid: BaseGrid in grid_database.values():
+		grid.scale = Vector2.ZERO
+
+
+func hide_grid_at_pos(grid_pos: Vector2i):
+	grid_database[grid_pos].hide_grid()
+
+
+func show_grid_at_pos(grid_pos: Vector2i):
+	grid_database[grid_pos].show_grid()
+	grid_showed_at_pos.emit(grid_pos)
 
 
 func on_moused_entered_grid(grid_pos: Vector2i):

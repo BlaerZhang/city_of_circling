@@ -11,7 +11,8 @@ var preview_target_scale: Vector2 = Vector2.ZERO
 
 
 func _ready() -> void:
-	wheel_manager = get_tree().root.get_node("Game2d/UI/Spin Wheel")
+	await get_tree().process_frame
+	wheel_manager = %"Spin Wheel"
 	UpgradeManager.upgrade_added.connect(on_upgrade_added)
 
 
