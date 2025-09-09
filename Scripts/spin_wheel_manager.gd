@@ -111,7 +111,7 @@ func _on_wheel_face_on_end_spin(prize_item: PrizeItems) -> void:
 				spin_button_label.text = "[img=150x150]res://Assets/Sprites/Icon/1x/draw coupon italic.png[/img] [font_size=100]x[/font_size]1"
 			else:
 				hide_ui(self)
-		PrizeItems.Source.Traffic, PrizeItems.Source.Affairs, PrizeItems.Source.Lottery, PrizeItems.Source.Trade, PrizeItems.Source.Traffic_Locked:
+		PrizeItems.Source.Traffic, PrizeItems.Source.Affairs, PrizeItems.Source.Lottery, PrizeItems.Source.Trade, PrizeItems.Source.Traffic_Locked, PrizeItems.Source.Tutorial_Shop:
 			if (ResourceManager.get_item_count("exchange coupon") >= 3):
 				_button_state = button_state.shop
 				spin_button_label.text = "[img=150x150]res://Assets/Sprites/Icon/1x/exchange coupon italic.png[/img] [font_size=100]x[/font_size]3"
@@ -140,7 +140,7 @@ func _on_spin_button_pressed() -> void:
 				else:
 					wheel_face.spin_wheel(spin_animation_duration)
 		button_state.shop:
-			if (ResourceManager.try_pay_item('exchange coupon', 3, spin_button.global_position)):
+			if (ResourceManager.try_buy_item("mystery box", 1, "exchange coupon", 3, spin_button.global_position)):
 				is_in_draw = true
 				spin_button_animation_tree.set("parameters/conditions/is_pressed", true)
 				spin_button_animation_tree.set("parameters/conditions/is_spin_end", false)

@@ -4,31 +4,31 @@ PRICE,Price,价格
 FRUIT_UI_TAG,FRUIT,水果
 UPGRADE_COUPON_TAG,UPGRADE\nCOUPON,升级券
 ,,
-AFFAIRS_COUPON,affairs upgrade coupon,事务升级券
-APPLE,apple,苹果
-BANANA,banana,香蕉
-BLUE,blue,蓝球
-DRAW_COUPON,draw coupon,抽奖券
-EXCHANGE_COUPON,exchange coupon,交换券
-FRUIT_CHOICE,fruit of your choice,自选水果
-GRAPE,grape,葡萄
-GREEN,green,绿球
-HP_POTION,hp potion,生命药水
-LOTTERY_COUPON,lottery upgrade coupon,抽奖升级券
-MANGO,mango,芒果
-MYSTERY_BOX,mystery box,盲盒
-ORANGE,orange,橙球
-PURPLE,purple,紫球
-RAINBOW,rainbow,彩虹球
-RED,red,红球
-SHOP_REFRESH,shop refresh,商店刷新
-STRAWBERRY,strawberry,草莓
-TRADE__COUPON,trade upgrade coupon,贸易升级券
-TRAFFIC_COUPON,traffic upgrade coupon,交通升级券
-UPGRADE_CHOICE,upgrade coupon of your choice,自选升级券
-WATERMELON,watermelon,西瓜
-WHITE,white,白球
-YELLOW,yellow,黄球
+AFFAIRS_COUPON,Affairs Upgrade Coupon,事务升级券
+APPLE,Apple,苹果
+BANANA,Banana,香蕉
+BLUE,Blue,蓝球
+DRAW_COUPON,Draw Coupon,抽奖券
+EXCHANGE_COUPON,Exchange Coupon,交换券
+FRUIT_CHOICE,Fruit Of Your Choice,自选水果
+GRAPE,Grape,葡萄
+GREEN,Green,绿球
+HP_POTION,Hp Potion,生命药水
+LOTTERY_COUPON,Lottery Upgrade Coupon,抽奖升级券
+MANGO,Mango,芒果
+MYSTERY_BOX,Mystery Box,盲盒
+ORANGE,Orange,橙球
+PURPLE,Purple,紫球
+RAINBOW,Rainbow,彩虹球
+RED,Red,红球
+SHOP_REFRESH,Shop Refresh,商店刷新
+STRAWBERRY,Strawberry,草莓
+TRADE__COUPON,Trade Upgrade Coupon,贸易升级券
+TRAFFIC_COUPON,Traffic Upgrade Coupon,交通升级券
+UPGRADE_CHOICE,Upgrade Coupon Of Your Choice,自选升级券
+WATERMELON,Watermelon,西瓜
+WHITE,White,白球
+YELLOW,Yellow,黄球
 ,,
 FRUIT_PRODUCTION,fruit production +,水果产能+
 QUEST_REWARD,quest reward +,任务奖励+

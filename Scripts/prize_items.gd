@@ -16,6 +16,7 @@ enum Source
 	Traffic_Locked,
 	Tutorial_Grape,
 	Tutorial_Apple,
+	Tutorial_Shop,
 }
 
 @export var prize_name_text: String

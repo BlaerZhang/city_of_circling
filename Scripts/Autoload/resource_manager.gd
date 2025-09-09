@@ -16,6 +16,8 @@ func _ready() -> void:
 func on_scene_loaded_with_name(scene_name: String):
 	if scene_name != "Ending":
 		reset_data()
+	# await get_tree().create_timer(0.1).timeout
+	# for item in items_owned.keys(): item_count_changed.emit(item, items_owned[item], 0, Vector2(0,0))
 
 
 # Load all resources in the folder to dict
@@ -38,7 +40,6 @@ func reset_data():
 	for item in items_owned.keys():
 		items_owned[item] = 0
 		item_count_changed.emit(item, 0, 0, Vector2(0,0))
-	
 
 
 func get_item_sprite(item_name: String) -> Texture2D:

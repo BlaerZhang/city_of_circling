@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="ItemsForSale" load_steps=2 format=3 uid="uid://bs4vgdmig52fs"]
+
+[ext_resource type="Script" uid="uid://b6hw5ca1j2m70" path="res://Scripts/items_for_sale.gd" id="1_a6ded"]
+
+[resource]
+script = ExtResource("1_a6ded")
+item_name = "trade upgrade coupon"
+item_count = 1
+price = 8
+belonging_shops = Array[int]([4])
+pool_index = 0
+weight_in_pool = 1.0

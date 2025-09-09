@@ -136,7 +136,6 @@ func update_refresh_button():
 
 func on_item_slot_pressed(item_slot: Button, item_for_sale: ItemsForSale):
 	if ResourceManager.try_buy_item(item_for_sale.item_name, item_for_sale.item_count, "exchange coupon", item_for_sale.price, item_slot.global_position):
-		#TODO:play sound
 		if item_for_sale.item_name.to_lower() == "mystery box":
 			if item_for_sale.price != 3:
 				current_items_for_sale_and_slots[item_slot] = null
@@ -146,14 +145,13 @@ func on_item_slot_pressed(item_slot: Button, item_for_sale: ItemsForSale):
 				else:
 					wheel_manager.initiate_wheel(PrizeItems.Source.Traffic_Locked)
 			else:
-				wheel_manager.initiate_wheel(shop_type as PrizeItems.Source)
+				wheel_manager.initiate_wheel(PrizeItems.Source[ItemsForSale.ShopType.keys()[shop_type]])
 			await wheel_manager.draw_finished
 			GameManager.switch_game_state(GameManager.GameState.Idle)
 		else:
 			current_items_for_sale_and_slots[item_slot] = null
 		update_slots_state()
-	else: #Insufficient Money feedback
-		#TODO:play sound
+	else:
 		var slot_tween = create_tween().set_loops(2)
 		slot_tween.tween_property(item_slot, "modulate", Color.RED, 0.1).set_trans(Tween.TRANS_EXPO)
 		slot_tween.tween_property(item_slot, "modulate", Color.WHITE, 0.1).set_trans(Tween.TRANS_EXPO)

@@ -7,6 +7,7 @@ enum ShopType
 	Traffic,
 	Lottery,
 	Trade,
+	Tutorial_Shop,
 }
 
 @export var item_name: String

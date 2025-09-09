@@ -90,7 +90,7 @@ func hide_grid_at_pos(grid_pos: Vector2i):
 
 
 func show_grid_at_pos(grid_pos: Vector2i):
-	grid_database[grid_pos].show_grid()
+	await grid_database[grid_pos].show_grid()
 	grid_showed_at_pos.emit(grid_pos)
 
 

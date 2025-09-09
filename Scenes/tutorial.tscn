@@ -527,6 +527,10 @@ texture = ExtResource("46_ivg13")
 
 [node name="Tutorial" type="Node2D"]
 script = ExtResource("1_8yxqp")
+text_play_speed = Dictionary[String, float]({
+"en": 50.0,
+"zh": 20.0
+})
 
 [node name="Player" type="Node2D" parent="."]
 position = Vector2(974, 609.398)
@@ -737,14 +741,17 @@ grid_type = 4
 grid_position = Vector2i(5, 1)
 
 [node name="Functional Component" parent="Board/Grids/Grid_5_1" instance=ExtResource("22_bmrfs")]
+shop_type = 4
 shop_ui_panel_offset = Vector2(-308.7, -333)
 
 [node name="Basic Ball Icon" type="Sprite2D" parent="Board/Grids/Grid_5_1"]
+visible = false
 position = Vector2(-37.8264, -38.0289)
 scale = Vector2(0.5, 0.5)
 texture = ExtResource("26_b464c")
 
 [node name="Shop Type Icon" type="Sprite2D" parent="Board/Grids/Grid_5_1"]
+visible = false
 position = Vector2(0, 11.527)
 scale = Vector2(0.5, 0.5)
 texture = ExtResource("27_hpmw0")
@@ -1355,14 +1362,15 @@ anchor_left = 0.5
 anchor_right = 0.5
 offset_left = -960.0
 offset_right = 960.0
-offset_bottom = 200.0
+offset_bottom = 300.0
 grow_horizontal = 2
+mouse_filter = 2
 theme_override_colors/default_color = Color(0, 0, 0, 1)
 theme_override_colors/font_outline_color = Color(1, 1, 1, 1)
 theme_override_constants/outline_size = 12
-theme_override_font_sizes/normal_font_size = 28
+theme_override_font_sizes/normal_font_size = 36
 bbcode_enabled = true
-text = "基础升级可以多次购买，等级和效果随之提升。可以在描述中查看当前等级和效果。"
+text = "除了无限供应的 3[img=40]res://Assets/Sprites/Icon/1x/exchange coupon italic.png[/img] 盲盒，其他商品在购买后会暂时售罄。"
 scroll_active = false
 horizontal_alignment = 1
 vertical_alignment = 1

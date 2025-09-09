@@ -18,7 +18,7 @@ func _ready() -> void:
 	ui_icon.texture = ResourceManager.get_item_icon(item_name)
 	ui_icon_shadow.texture = ui_icon.texture
 	ui_label.text = str(ResourceManager.items_owned[item_name.to_lower()])
-	ui_icon.tooltip_text = ResourceManager.get_item_display_key(item_name).capitalize()
+	ui_icon.tooltip_text = ResourceManager.get_item_display_key(item_name)
 	original_color = self_modulate
 	ui_outline.visible = false
 	
@@ -44,7 +44,7 @@ func on_item_count_changed(changed_item_name: String, count: int, change_amount:
 			scale_tween.tween_property(self, "scale", Vector2.ONE * 1, 0.2).set_ease(Tween.EASE_IN_OUT).set_trans(Tween.TRANS_EXPO)
 			ui_label.text = str(count)
 			AudioManager.create_audio(SoundEffect.SOUND_EFFECT_TYPE.RESOURCE_GAIN)
-		elif change_amount < 0:
+		elif change_amount <= 0:
 			ui_label.text = str(count)
 			#spawn_particle(changed_item_name, -change_amount, ui_label.global_position, source_pos)
 			#AudioManager.create_audio(SoundEffect.SOUND_EFFECT_TYPE.RESOURCE_GAIN)

@@ -23,6 +23,8 @@ var display_tween: Tween
 signal mouse_entered(grid_position: Vector2i)
 signal mouse_exited(grid_position: Vector2i)
 signal mouse_clicked_down(grid_position: Vector2i)
+signal player_arrived(grid_position: Vector2i)
+signal player_departed(grid_position: Vector2i)
 
 
 func _ready() -> void:
@@ -36,12 +38,14 @@ func bypass():
 
 func arrive():
 	if functional_grid_component is FunctionalGridComponent:
+		player_arrived.emit(grid_position)
 		functional_grid_component.is_player_arrived = true
 		await functional_grid_component.arrive()
 
 
 func depart():
 	if functional_grid_component is FunctionalGridComponent:
+		player_departed.emit(grid_position)
 		functional_grid_component.is_player_arrived = false
 		await functional_grid_component.depart()
 
@@ -81,9 +85,11 @@ func show_grid():
 	if display_tween: display_tween.kill()
 	display_tween = create_tween()
 	display_tween.tween_property(self, "scale", Vector2.ONE, 0.5).set_trans(Tween.TRANS_EXPO)
+	await display_tween.finished
 
 
 func hide_grid():
 	if display_tween: display_tween.kill()
 	display_tween = create_tween()
 	display_tween.tween_property(self, "scale", Vector2.ZERO, 0.5).set_trans(Tween.TRANS_EXPO)
+	await display_tween.finished

@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="SoundEffect" load_steps=3 format=3 uid="uid://bm14tit1pg0gl"]
+
+[ext_resource type="Script" uid="uid://hqd0d2kdbu0l" path="res://Scripts/SoundEffectSetting.gd" id="1_i3k5x"]
+[ext_resource type="AudioStream" uid="uid://cykyqunk6ca81" path="res://Assets/Audio/Interface Sound/drop_003.ogg" id="2_i3k5x"]
+
+[resource]
+script = ExtResource("1_i3k5x")
+limit = 10
+type = 24
+sound_effect = ExtResource("2_i3k5x")
+volume = -15.0
+pitch_scale = 1.0
+pitch_randomness = 0.15
