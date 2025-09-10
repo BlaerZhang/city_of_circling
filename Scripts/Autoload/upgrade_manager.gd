@@ -59,6 +59,6 @@ func get_upgrade_level(upgrade) -> int:
 	return _current_level
 
 
-func get_upgrade_level_by_slot_index_and_order(upgrade_type: ItemsForSale.ShopType, slot_index: int, order: int) -> int:
+# func get_upgrade_level_by_slot_index_and_order(upgrade_type: ItemForSale.ShopType, slot_index: int, order: int) -> int:
 	
-	return 0
+# 	return 0

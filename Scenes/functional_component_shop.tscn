@@ -27,6 +27,14 @@ modulate_color = Color(0.792157, 0.407843, 0.12549, 1)
 script = ExtResource("1_3aqkk")
 shop_slot_button_scene = ExtResource("2_145or")
 shop_ui_panel_offset = Vector2(-590.748, -187.052)
+rarity_to_color = Dictionary[int, Color]({
+0: Color(0.792157, 0.407843, 0.12549, 1),
+1: Color(1, 1, 1, 1),
+2: Color(0, 1, 0, 1),
+3: Color(0, 0, 1, 1),
+4: Color(0.627451, 0.12549, 0.941176, 1),
+5: Color(1, 1, 0, 1)
+})
 
 [node name="Shop UI Panel" type="TextureRect" parent="."]
 self_modulate = Color(0.792157, 0.407843, 0.12549, 1)

@@ -9,17 +9,17 @@ modulate_color = Color(0.498039, 0.498039, 0.498039, 1)
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_h4mr7"]
 texture = ExtResource("1_wdufh")
-modulate_color = Color(0.932039, 0.517893, 0.239722, 1)
+modulate_color = Color(0.882353, 0.882353, 0.882353, 1)
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_km8mm"]
 texture = ExtResource("1_wdufh")
-modulate_color = Color(0.695129, 0.350719, 0.0920385, 1)
+modulate_color = Color(0.752941, 0.752941, 0.752941, 1)
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_gas0f"]
 texture = ExtResource("1_wdufh")
-modulate_color = Color(0.792157, 0.407843, 0.12549, 1)
 
 [node name="Shop Button1" type="Button"]
+self_modulate = Color(0.792157, 0.407843, 0.12549, 1)
 custom_minimum_size = Vector2(100, 100)
 offset_right = 100.0
 offset_bottom = 100.0
@@ -53,6 +53,7 @@ expand_mode = 3
 stretch_mode = 5
 
 [node name="Quantity Label" type="RichTextLabel" parent="Shop Button Icon"]
+visible = false
 layout_mode = 1
 anchors_preset = 3
 anchor_left = 1.0

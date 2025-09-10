@@ -32,7 +32,7 @@ signal choice_finished
 
 func _ready() -> void:
 	position.y = hide_y_offset
-	TimeManager.day_3.connect(func(): spin_speed_up = true)
+	TimeManager.day_9.connect(func(): spin_speed_up = true)
 	#confirm_window.scale = Vector2.ZERO
 
 

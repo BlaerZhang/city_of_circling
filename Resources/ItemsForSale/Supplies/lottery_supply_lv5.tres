@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="ItemForSale" load_steps=2 format=3 uid="uid://dlna84p1sjar8"]
+
+[ext_resource type="Script" uid="uid://deq76sa884uga" path="res://Scripts/item_for_sale.gd" id="1_ohbtf"]
+
+[resource]
+script = ExtResource("1_ohbtf")
+abstract_collection = false
+item_name = "lottery_supply_lv5"
+price_range = Vector2i(20, 30)
+belonging_shops = Array[int]([2])
+dynamic_weight = true
+weight_affecting_upgrade_name = "shop rarity +"
+weight_list_per_level = Array[float]([0.0, 0.0, 1.0, 3.0, 12.0, 25.0, 35.0])

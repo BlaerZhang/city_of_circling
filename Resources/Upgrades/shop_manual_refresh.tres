@@ -5,13 +5,13 @@
 
 [resource]
 script = ExtResource("1_0rkfx")
-upgrade_name = "shop refresh +"
-upgrade_name_display = "SHOP_REFRESH_PLUS"
+upgrade_name = "shop manual refresh"
+upgrade_name_display = "SHOP_MANUAL_REFRESH"
 upgrade_icon = ExtResource("2_6e03d")
-description = "SHOP_REFRESH_PLUS_DESCRIPTION"
-effect_delta_per_level = 1
+description = "SHOP_MANUAL_REFRESH_DESCRIPTION"
+effect_delta_per_level = 3
 upgrade_type = 3
-shop_slot_index = 0
+shop_slot_index = 1
 slot_order = 0
-upgrade_cost_per_level = Array[int]([1, 1, 1, 1, 1, 1])
+upgrade_cost_per_level = Array[int]([1])
 metadata/_custom_type_script = "uid://deas45k8roqd"

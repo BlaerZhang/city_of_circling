@@ -12,10 +12,10 @@ enum UpgradeType{
 @onready var upgrade_icon: TextureRect = $"Upgrade Icon"
 @onready var lock_icon: TextureRect = $"Lock Icon"
 var coupon_map = {
-		ItemsForSale.ShopType.Affairs: "affairs upgrade coupon",
-		ItemsForSale.ShopType.Traffic: "traffic upgrade coupon",
-		ItemsForSale.ShopType.Lottery: "lottery upgrade coupon",
-		ItemsForSale.ShopType.Trade: "trade upgrade coupon",
+		ItemForSale.ShopType.Affairs: "affairs upgrade coupon",
+		ItemForSale.ShopType.Traffic: "traffic upgrade coupon",
+		ItemForSale.ShopType.Lottery: "lottery upgrade coupon",
+		ItemForSale.ShopType.Trade: "trade upgrade coupon",
 	}
 
 

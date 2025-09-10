@@ -1,0 +1,17 @@
+[gd_resource type="Resource" script_class="Upgrade" load_steps=3 format=3 uid="uid://bqm7cjpn74n80"]
+
+[ext_resource type="Script" uid="uid://deas45k8roqd" path="res://Scripts/upgrade.gd" id="1_x7y30"]
+[ext_resource type="Texture2D" uid="uid://dm5xpy83ou0ai" path="res://Assets/Sprites/Icon/1x/shop_manual_refresh.png" id="2_e3nr5"]
+
+[resource]
+script = ExtResource("1_x7y30")
+upgrade_name = "shop rarity +"
+upgrade_name_display = "SHOP_RARITY_PLUS"
+upgrade_icon = ExtResource("2_e3nr5")
+description = "SHOP_RARITY_PLUS_DESCRIPTION"
+effect_delta_per_level = 1
+upgrade_type = 3
+shop_slot_index = 0
+slot_order = 0
+upgrade_cost_per_level = Array[int]([1, 2, 2, 3, 3, 5])
+metadata/_custom_type_script = "uid://deas45k8roqd"

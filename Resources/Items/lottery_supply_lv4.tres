@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="Item" load_steps=3 format=3 uid="uid://dx6qog7i712ys"]
+
+[ext_resource type="Texture2D" uid="uid://ddvm3b6nxxten" path="res://icon.svg" id="1_iq27b"]
+[ext_resource type="Script" uid="uid://d0fc2fb7vpwyv" path="res://Scripts/item.gd" id="2_crkrj"]
+
+[resource]
+script = ExtResource("2_crkrj")
+item_name = "lottery_supply_lv4"
+item_name_display_key = "LOTTERY_SUPPLY_LV4"
+icon = ExtResource("1_iq27b")
+item_type = 2
+rarity = 4
+pts_value = 10
+pts_type = 2

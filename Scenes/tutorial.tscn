@@ -802,7 +802,7 @@ grid_position = Vector2i(4, 3)
 
 [node name="Functional Component" parent="Board/Grids/Grid_4_3" node_paths=PackedStringArray("upgrade_button_list") instance=ExtResource("12_ldnol")]
 upgrade_shop_type = 3
-upgrade_button_list = [NodePath("../Upgrade shop button"), NodePath("../Upgrade shop button2")]
+upgrade_button_list = []
 
 [node name="Upgrade shop button" parent="Board/Grids/Grid_4_3" instance=ExtResource("13_w1js8")]
 offset_left = -200.0

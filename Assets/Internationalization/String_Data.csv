@@ -1,35 +1,58 @@
 ﻿key,en,zh
-TIME_DAY_HOUR_REFRESH,DAY %s\n%s:00\n[font_size=26]Shop refresh in %sh[/font_size],第 %s 天\n%s:00\n[font_size=26]商店将在 %s 小时后刷新[/font_size]
+TIME_DAY_HOUR,DAY %s\n%02d:00\n,第 %s 天\n%02d:00\n
+TIME_REFRESH,[font_size=26]Shop refresh in %sh[/font_size],[font_size=26]商店将在 %s 小时后刷新[/font_size]
+SUCCESS_RATE,%.1f%%\n[font_size=34]SUCCESS RATE[/font_size],%.1f%%\n[font_size=34]冒险成功率[/font_size]
 PRICE,Price,价格
 FRUIT_UI_TAG,FRUIT,水果
 UPGRADE_COUPON_TAG,UPGRADE\nCOUPON,升级券
+PTS,Item Pts,道具点数
+AFFAIRS,Quest,任务
+TRAFFIC,Movement,移动
+LOTTERY,Luck,幸运
+TRADE,Shop,商店
 ,,
-AFFAIRS_COUPON,Affairs Upgrade Coupon,事务升级券
+AFFAIRS_COUPON,Quest Upgrade Coupon,任务升级券
 APPLE,Apple,苹果
 BANANA,Banana,香蕉
-BLUE,Blue,蓝球
 DRAW_COUPON,Draw Coupon,抽奖券
 EXCHANGE_COUPON,Exchange Coupon,交换券
 FRUIT_CHOICE,Fruit Of Your Choice,自选水果
 GRAPE,Grape,葡萄
-GREEN,Green,绿球
-HP_POTION,Hp Potion,生命药水
-LOTTERY_COUPON,Lottery Upgrade Coupon,抽奖升级券
+LOTTERY_COUPON,Luck Upgrade Coupon,幸运升级券
 MANGO,Mango,芒果
 MYSTERY_BOX,Mystery Box,盲盒
-ORANGE,Orange,橙球
-PURPLE,Purple,紫球
-RAINBOW,Rainbow,彩虹球
-RED,Red,红球
+TRADE__COUPON,Shop Upgrade Coupon,商店升级券
+TRAFFIC_COUPON,Movement Upgrade Coupon,移动升级券
+UPGRADE_CHOICE,Upgrade Coupon Of Your Choice,自选升级券
 SHOP_REFRESH,Shop Refresh,商店刷新
 STRAWBERRY,Strawberry,草莓
-TRADE__COUPON,Trade Upgrade Coupon,贸易升级券
-TRAFFIC_COUPON,Traffic Upgrade Coupon,交通升级券
-UPGRADE_CHOICE,Upgrade Coupon Of Your Choice,自选升级券
 WATERMELON,Watermelon,西瓜
-WHITE,White,白球
-YELLOW,Yellow,黄球
+HP_POTION,Hp Potion,生命药水
 ,,
+AFFAIRS_SUPPLY_LV1,Compass,任务罗盘
+AFFAIRS_SUPPLY_LV2,Treasure Map,​藏​宝图
+AFFAIRS_SUPPLY_LV3,Quest Journal,​任务日志​
+AFFAIRS_SUPPLY_LV4,Battle Pass,战斗通行证
+AFFAIRS_SUPPLY_LV5,Quest Bubble,任务气泡
+TRAFFIC_SUPPLY_LV1,Skateboard,滑板
+TRAFFIC_SUPPLY_LV2,Jump Pad,​跳板
+TRAFFIC_SUPPLY_LV3,Grappling Hook,钩爪
+TRAFFIC_SUPPLY_LV4,Rocket,​火箭​
+TRAFFIC_SUPPLY_LV5,Portal,​传送门
+TRADE_SUPPLY_LV1,Coin Bag,钱袋
+TRADE_SUPPLY_LV2,Balance,天平
+TRADE_SUPPLY_LV3,Shopping Cart,购物车
+TRADE_SUPPLY_LV4,Voucher,积分券
+TRADE_SUPPLY_LV5,Menbership Card,会员卡
+LOTTERY_SUPPLY_LV1,Clover,四​叶草
+LOTTERY_SUPPLY_LV2,Rabbit's Foot,​兔脚
+LOTTERY_SUPPLY_LV3,Dice,​骰子​
+LOTTERY_SUPPLY_LV4,Maneki Neko ,招​财猫​
+LOTTERY_SUPPLY_LV5,Lucky Star,幸​运星​
+,,
+,,
+SHOP_RARITY_PLUS,shop rarity +,商店道具稀有度+
+SHOP_MANUAL_REFRESH,shop manual refresh,解锁商店刷新
 FRUIT_PRODUCTION,fruit production +,水果产能+
 QUEST_REWARD,quest reward +,任务奖励+
 MOVE_SPEED,move speed +,移动速度+
@@ -55,3 +78,5 @@ REMOTE_COMPLETE_DESCRIPTION,NPCs' Fruit Quests can be submitted remotely.,可以
 REMOTE_VIEW_DESCRIPTION,Shop can now be viewed remotely.,可以远程查看商店。
 SHOP_REFRESH_PLUS_DESCRIPTION,+ %s -> + %s\ndaily manual shop refresh usage\nLv. %s -> %s / %s,+ %s -> + %s\n每日商店刷新次数\nLv. %s -> %s / %s
 UNLOCK_BALL_DESCRIPTION,White and Rainbow balls is now added to the Traffic Shop and its Mystery Boxes.,白球 和 彩球 现在可以在交通商店及其出售的盲盒中获取。
+SHOP_RARITY_PLUS_DESCRIPTION,+ %s -> + %s\nShop High-Rarity Restock Chance\nLv. %s -> %s / %s,+ %s -> + %s\n商品稀有度加成\nLv. %s -> %s / %s
+SHOP_MANUAL_REFRESH_DESCRIPTION,Shops can now be manually restocked 3 times per day.,商店的货物现在每天可以手动刷新 3 次。

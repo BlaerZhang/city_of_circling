@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="Item" load_steps=3 format=3 uid="uid://cmvs4oqplhemy"]
+
+[ext_resource type="Texture2D" uid="uid://ddvm3b6nxxten" path="res://icon.svg" id="1_mrkuk"]
+[ext_resource type="Script" uid="uid://d0fc2fb7vpwyv" path="res://Scripts/item.gd" id="2_5kidu"]
+
+[resource]
+script = ExtResource("2_5kidu")
+item_name = "lottery_supply_lv2"
+item_name_display_key = "LOTTERY_SUPPLY_LV2"
+icon = ExtResource("1_mrkuk")
+item_type = 2
+rarity = 2
+pts_value = 3
+pts_type = 2

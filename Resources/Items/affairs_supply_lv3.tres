@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="Item" load_steps=3 format=3 uid="uid://dekgarnlypc7r"]
+
+[ext_resource type="Texture2D" uid="uid://ddvm3b6nxxten" path="res://icon.svg" id="1_elcve"]
+[ext_resource type="Script" uid="uid://d0fc2fb7vpwyv" path="res://Scripts/item.gd" id="2_pigut"]
+
+[resource]
+script = ExtResource("2_pigut")
+item_name = "affairs_supply_lv3"
+item_name_display_key = "AFFAIRS_SUPPLY_LV3"
+icon = ExtResource("1_elcve")
+item_type = 2
+rarity = 3
+pts_value = 5
+pts_type = 0

@@ -1,4 +1,4 @@
-[gd_scene load_steps=105 format=3 uid="uid://c6e414gy1cwn5"]
+[gd_scene load_steps=108 format=3 uid="uid://c6e414gy1cwn5"]
 
 [ext_resource type="Script" uid="uid://tdlox2h37vxw" path="res://Scripts/test_input.gd" id="1_pqs0o"]
 [ext_resource type="PackedScene" uid="uid://b8imxf8a6f2lg" path="res://Scenes/spin_wheel.tscn" id="1_ru8g0"]
@@ -39,8 +39,9 @@
 [ext_resource type="Texture2D" uid="uid://b28o0fpr5uhhj" path="res://Assets/Sprites/Icon/1x/white.png" id="35_apgn6"]
 [ext_resource type="Texture2D" uid="uid://dq38vavtoi2l3" path="res://Assets/Sprites/Grid/1x/Gate.png" id="36_pqs0o"]
 [ext_resource type="PackedScene" uid="uid://bydkdm2kx36qd" path="res://Scenes/functional_component_gate.tscn" id="37_34x56"]
-[ext_resource type="Script" uid="uid://l0kyl2xsshwi" path="res://Scripts/time_ui.gd" id="38_4d1v3"]
+[ext_resource type="Script" uid="uid://hik0cobddr3t" path="res://Scripts/UI/time_ui.gd" id="40_pqs0o"]
 [ext_resource type="Texture2D" uid="uid://1f1pkyq3oliq" path="res://Assets/Sprites/Grid/1x/upgrades_ui_button.png" id="41_acjk4"]
+[ext_resource type="Script" uid="uid://ctqda62bjlceq" path="res://Scripts/UI/success_rate_ui.gd" id="41_apgn6"]
 [ext_resource type="Texture2D" uid="uid://c7qbvwcthokxi" path="res://Assets/Sprites/Grid/1x/upgrade_display_bar.png" id="42_3lc3d"]
 [ext_resource type="Texture2D" uid="uid://l10osv2s0rc8" path="res://Assets/Sprites/Grid/1x/fruit_ui_panel.png" id="42_apgn6"]
 [ext_resource type="Texture2D" uid="uid://7xkg8ryjugf3" path="res://Assets/Sprites/Grid/1x/upgrade_coupon_ui_panel.png" id="42_p4hnd"]
@@ -62,7 +63,9 @@
 [ext_resource type="Texture2D" uid="uid://denxgkoyad2jc" path="res://Assets/Sprites/Icon/1x/Trade_outline.png" id="57_kh3n4"]
 [ext_resource type="Resource" uid="uid://cftcygsaxiixx" path="res://Resources/Upgrades/shop_manual_refresh.tres" id="58_3657g"]
 [ext_resource type="Resource" uid="uid://ruu8cw78y2on" path="res://Resources/Upgrades/remote_view_store.tres" id="59_hognw"]
+[ext_resource type="PackedScene" uid="uid://c7u7l0rnbtilq" path="res://Scenes/points_ui_grid.tscn" id="62_34x56"]
 [ext_resource type="AudioStream" uid="uid://dxa84rdtwplt3" path="res://Assets/Audio/JollyEssentials_BGMdemo_v1_120bpm_Fullmix.wav" id="62_yiyb4"]
+[ext_resource type="Resource" uid="uid://bqm7cjpn74n80" path="res://Resources/Upgrades/shop_rarity_plus.tres" id="63_p4hnd"]
 
 [sub_resource type="Animation" id="Animation_7fl2r"]
 length = 0.001
@@ -596,7 +599,7 @@ grid_type = 2
 grid_position = Vector2i(3, 0)
 
 [node name="Functional Component" parent="Board/Grids/Grid_3_0" node_paths=PackedStringArray("upgrade_button_list") instance=ExtResource("12_874u5")]
-upgrade_button_list = [NodePath("../Upgrade shop button2"), NodePath("../Upgrade shop button")]
+upgrade_button_list = [NodePath("../Upgrade shop button"), NodePath("../Upgrade shop button2")]
 
 [node name="Upgrade shop button" parent="Board/Grids/Grid_3_0" instance=ExtResource("13_acjk4")]
 
@@ -1134,10 +1137,30 @@ text = "DAY 1
 [font_size=22]Shop refresh in 9h[/font_size]"
 fit_content = true
 scroll_active = false
+autowrap_mode = 0
 shortcut_keys_enabled = false
 horizontal_alignment = 1
 vertical_alignment = 1
-script = ExtResource("38_4d1v3")
+script = ExtResource("40_pqs0o")
+
+[node name="Success Rate UI" type="RichTextLabel" parent="Board/In-world UI"]
+layout_mode = 0
+offset_left = -89.7662
+offset_top = 1073.36
+offset_right = 175.234
+offset_bottom = 1321.36
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/normal_font_size = 80
+bbcode_enabled = true
+text = "99.9%
+[font_size=34]冒险成功率[/font_size]"
+fit_content = true
+scroll_active = false
+autowrap_mode = 2
+shortcut_keys_enabled = false
+horizontal_alignment = 1
+vertical_alignment = 1
+script = ExtResource("41_apgn6")
 
 [node name="Resource UI fruit choice" parent="Board/In-world UI" instance=ExtResource("15_j40bd")]
 visible = false
@@ -1306,62 +1329,36 @@ offset_right = -209.103
 offset_bottom = -699.865
 item_name = "draw coupon"
 
-[node name="SupplyGridContainer" type="GridContainer" parent="Board/In-world UI"]
+[node name="Points UI Grid" parent="Board/In-world UI" instance=ExtResource("62_34x56")]
 layout_mode = 0
-offset_left = -105.799
-offset_top = 885.06
-offset_right = 286.201
-offset_bottom = 1369.06
-theme_override_constants/v_separation = 35
-columns = 3
+offset_left = -272.509
+offset_top = 888.128
+offset_right = -144.509
+offset_bottom = 1016.13
 
-[node name="Resource UI Grid" parent="Board/In-world UI/SupplyGridContainer" instance=ExtResource("15_j40bd")]
-layout_mode = 2
-item_name = "red"
+[node name="Points UI Grid2" parent="Board/In-world UI" instance=ExtResource("62_34x56")]
+layout_mode = 0
+offset_left = -125.789
+offset_top = 887.901
+offset_right = 2.21126
+offset_bottom = 1015.9
+points_type = 1
 
-[node name="Resource UI Grid2" parent="Board/In-world UI/SupplyGridContainer" instance=ExtResource("15_j40bd")]
-self_modulate = Color(1, 1, 0.478431, 1)
-layout_mode = 2
-item_name = "yellow"
+[node name="Points UI Grid3" parent="Board/In-world UI" instance=ExtResource("62_34x56")]
+layout_mode = 0
+offset_left = 19.6862
+offset_top = 888.919
+offset_right = 147.686
+offset_bottom = 1016.92
+points_type = 2
 
-[node name="Resource UI Grid3" parent="Board/In-world UI/SupplyGridContainer" instance=ExtResource("15_j40bd")]
-self_modulate = Color(0.223529, 0.596078, 0.976471, 1)
-layout_mode = 2
-item_name = "blue"
-
-[node name="Resource UI Grid4" parent="Board/In-world UI/SupplyGridContainer" instance=ExtResource("15_j40bd")]
-self_modulate = Color(0.435294, 0.996078, 0.470588, 1)
-layout_mode = 2
-item_name = "green"
-
-[node name="Resource UI Grid5" parent="Board/In-world UI/SupplyGridContainer" instance=ExtResource("15_j40bd")]
-self_modulate = Color(0.988235, 0.415686, 0.976471, 1)
-layout_mode = 2
-item_name = "purple"
-
-[node name="Resource UI Grid6" parent="Board/In-world UI/SupplyGridContainer" instance=ExtResource("15_j40bd")]
-self_modulate = Color(0.992157, 0.705882, 0.439216, 1)
-layout_mode = 2
-item_name = "orange"
-
-[node name="Resource UI Grid7" parent="Board/In-world UI/SupplyGridContainer" instance=ExtResource("15_j40bd")]
-self_modulate = Color(1, 1, 1, 1)
-layout_mode = 2
-item_name = "white"
-
-[node name="Resource UI Grid8" parent="Board/In-world UI/SupplyGridContainer" instance=ExtResource("15_j40bd")]
-self_modulate = Color(0.988235, 0.109804, 0.494118, 1)
-layout_mode = 2
-item_name = "rainbow"
-
-[node name="Resource UI Grid_HP_Potion" parent="Board/In-world UI" instance=ExtResource("15_j40bd")]
-self_modulate = Color(0.141176, 0.796078, 0.439216, 1)
-layout_mode = 2
-offset_left = -275.759
-offset_top = 1054.9
-offset_right = -147.759
-offset_bottom = 1182.9
-item_name = "hp potion"
+[node name="Points UI Grid4" parent="Board/In-world UI" instance=ExtResource("62_34x56")]
+layout_mode = 0
+offset_left = 159.183
+offset_top = 888.94
+offset_right = 287.183
+offset_bottom = 1016.94
+points_type = 3
 
 [node name="Upgrades UI" type="Button" parent="Board/In-world UI"]
 custom_minimum_size = Vector2(128, 128)
@@ -1572,18 +1569,22 @@ stretch_mode = 3
 
 [node name="Level-up Upgrade Icon" parent="Board/In-world UI/Upgrades UI/VBoxContainer/Upgrades Display Bar4/HBoxContainer" instance=ExtResource("44_ltboj")]
 layout_mode = 2
-upgrade = ExtResource("58_3657g")
+upgrade = ExtResource("63_p4hnd")
 
 [node name="One-time Upgrade Icon" parent="Board/In-world UI/Upgrades UI/VBoxContainer/Upgrades Display Bar4/HBoxContainer" instance=ExtResource("44_ltboj")]
 layout_mode = 2
-upgrade = ExtResource("59_hognw")
+upgrade = ExtResource("58_3657g")
 upgrade_type = 1
 
 [node name="Arrow" type="TextureRect" parent="Board/In-world UI/Upgrades UI/VBoxContainer/Upgrades Display Bar4/HBoxContainer"]
-visible = false
 layout_mode = 2
 texture = ExtResource("46_eu0xb")
 stretch_mode = 5
+
+[node name="One-time Upgrade Icon2" parent="Board/In-world UI/Upgrades UI/VBoxContainer/Upgrades Display Bar4/HBoxContainer" instance=ExtResource("44_ltboj")]
+layout_mode = 2
+upgrade = ExtResource("59_hognw")
+upgrade_type = 1
 
 [node name="UI" type="Control" parent="."]
 layout_mode = 3

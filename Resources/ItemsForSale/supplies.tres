@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="ItemForSale" load_steps=2 format=3 uid="uid://cvraiglw2vmnj"]
+
+[ext_resource type="Script" uid="uid://deq76sa884uga" path="res://Scripts/item_for_sale.gd" id="1_qxouy"]
+
+[resource]
+script = ExtResource("1_qxouy")
+abstract_collection = true
+item_name = "supplies"
+price_range = Vector2i(0, 0)
+belonging_shops = Array[int]([0, 1, 2, 3])
+dynamic_weight = false
+weight_affecting_upgrade_name = ""
+weight_list_per_level = Array[float]([80.0])
+metadata/_custom_type_script = "uid://deq76sa884uga"

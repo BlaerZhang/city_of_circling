@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="Item" load_steps=3 format=3 uid="uid://dcs4jdpk8d8bc"]
+
+[ext_resource type="Texture2D" uid="uid://ddvm3b6nxxten" path="res://icon.svg" id="1_0k2eo"]
+[ext_resource type="Script" uid="uid://d0fc2fb7vpwyv" path="res://Scripts/item.gd" id="2_n0ki3"]
+
+[resource]
+script = ExtResource("2_n0ki3")
+item_name = "trade_supply_lv2"
+item_name_display_key = "TRADE_SUPPLY_LV2"
+icon = ExtResource("1_0k2eo")
+item_type = 2
+rarity = 2
+pts_value = 3
+pts_type = 3

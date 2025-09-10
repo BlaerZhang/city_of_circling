@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="ItemForSale" load_steps=2 format=3 uid="uid://brmwrbu1exybs"]
+
+[ext_resource type="Script" uid="uid://deq76sa884uga" path="res://Scripts/item_for_sale.gd" id="1_l0bij"]
+
+[resource]
+script = ExtResource("1_l0bij")
+abstract_collection = false
+item_name = "mystery box"
+price_range = Vector2i(3, 3)
+belonging_shops = Array[int]([0, 1, 2, 3, 4])
+dynamic_weight = false
+weight_affecting_upgrade_name = ""
+weight_list_per_level = Array[float]([0.0])
+metadata/_custom_type_script = "uid://deq76sa884uga"

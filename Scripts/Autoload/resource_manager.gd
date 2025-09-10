@@ -49,6 +49,18 @@ func get_item_sprite(item_name: String) -> Texture2D:
 	return item_sprite
 
 
+func get_item_pts_type(item_name: String) -> ItemForSale.ShopType:
+	var key = item_name.to_lower()
+	if key not in item_database or item_database[key].item_type != Item.ItemType.Supply: return ItemForSale.ShopType.None
+	return item_database[key].pts_type
+
+
+func get_item_pts_value(item_name: String) -> int:
+	var key = item_name.to_lower()
+	if key not in item_database or item_database[key].item_type != Item.ItemType.Supply: return 0
+	return item_database[key].pts_value
+
+
 func get_item_display_key(item_name: String) -> String:
 	var key = item_name.to_lower()
 	if key not in item_database: return item_name
@@ -123,9 +135,10 @@ func get_all_resources(count: int):
 
 #Temp: shop refresh related
 func refill_shop_refresh():
-	set_item_count("shop refresh", UpgradeManager.get_upgrade_level("shop refresh +"))
+	set_item_count("shop refresh", UpgradeManager.get_upgrade_level("shop manual refresh") * UpgradeManager.upgrade_database["shop manual refresh"].effect_delta_per_level)
 
 
 func adjust_shop_refresh(upgrade: Upgrade):
-	if upgrade.upgrade_name != "shop refresh +": return
-	change_item_count("shop refresh", 1, Vector2.ZERO)
+	if upgrade.upgrade_name != "shop manual refresh": return
+	change_item_count("shop refresh", upgrade.effect_delta_per_level, Vector2.ZERO)
+	print("refill shop refresh: ", upgrade.effect_delta_per_level)

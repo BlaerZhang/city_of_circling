@@ -1,6 +1,6 @@
 extends FunctionalGridComponent
 
-@export var upgrade_shop_type: ItemsForSale.ShopType
+@export var upgrade_shop_type: ItemForSale.ShopType
 var slots_upgrade_list: Array[Array]
 var current_upgrades_in_slot: Array[Upgrade]
 @export var upgrade_button_list: Array[Button]
@@ -9,10 +9,10 @@ var current_upgrades_in_slot: Array[Upgrade]
 var bypass_tween: Tween
 var preview_target_scale: Vector2 = Vector2.ZERO
 var coupon_map = {
-		ItemsForSale.ShopType.Affairs: "affairs upgrade coupon",
-		ItemsForSale.ShopType.Traffic: "traffic upgrade coupon",
-		ItemsForSale.ShopType.Lottery: "lottery upgrade coupon",
-		ItemsForSale.ShopType.Trade: "trade upgrade coupon",
+		ItemForSale.ShopType.Affairs: "affairs upgrade coupon",
+		ItemForSale.ShopType.Traffic: "traffic upgrade coupon",
+		ItemForSale.ShopType.Lottery: "lottery upgrade coupon",
+		ItemForSale.ShopType.Trade: "trade upgrade coupon",
 	}
 
 
@@ -53,9 +53,9 @@ func update_slots_state():
 	for i in slots_upgrade_list.size():
 		var button_to_update: Button = upgrade_button_list[i]
 		if is_player_arrived && GameManager.current_game_state == GameManager.GameState.Idle:
-			upgrade_button_list[i].disabled = false
+			button_to_update.disabled = false
 		else:
-			upgrade_button_list[i].disabled = true
+			button_to_update.disabled = true
 		#get current upgrade to sell
 		var current_available_upgrade: Upgrade = null
 		for j in slots_upgrade_list[i].size():

@@ -12,6 +12,6 @@ description = "REMOTE_VIEW_DESCRIPTION"
 effect_delta_per_level = 1
 upgrade_type = 3
 shop_slot_index = 1
-slot_order = 0
+slot_order = 1
 upgrade_cost_per_level = Array[int]([2])
 metadata/_custom_type_script = "uid://deas45k8roqd"

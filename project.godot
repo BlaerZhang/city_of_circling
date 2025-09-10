@@ -38,6 +38,7 @@ GameManager="*res://Scripts/Autoload/game_manager.gd"
 AudioManager="*res://Scripts/Autoload/AudioManager.gd"
 CursorManager="*res://Scripts/Autoload/cursor_manager.gd"
 SceneManager="*res://addons/scene_manager/SceneManager.tscn"
+PointManager="*res://Scripts/Autoload/point_manager.gd"
 
 [display]
 

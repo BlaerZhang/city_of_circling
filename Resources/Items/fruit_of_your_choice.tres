@@ -9,4 +9,7 @@ item_name = "fruit of your choice"
 item_name_display_key = "FRUIT_CHOICE"
 icon = ExtResource("1_eqpyt")
 item_type = 4
+rarity = 0
+pts_value = 0
+pts_type = 5
 metadata/_custom_type_script = "uid://d0fc2fb7vpwyv"

@@ -9,4 +9,6 @@ item_name = "banana"
 item_name_display_key = "BANANA"
 icon = ExtResource("1_rij8j")
 item_type = 0
+pts_value = 0
+pts_type = 5
 metadata/_custom_type_script = "uid://d0fc2fb7vpwyv"

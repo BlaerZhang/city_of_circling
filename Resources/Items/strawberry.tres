@@ -9,4 +9,6 @@ item_name = "strawberry"
 item_name_display_key = "STRAWBERRY"
 icon = ExtResource("1_hmfsr")
 item_type = 0
+pts_value = 0
+pts_type = 5
 metadata/_custom_type_script = "uid://d0fc2fb7vpwyv"

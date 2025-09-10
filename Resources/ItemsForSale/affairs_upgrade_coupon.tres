@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="ItemForSale" load_steps=2 format=3 uid="uid://coegnv3xbi5u8"]
+
+[ext_resource type="Script" uid="uid://deq76sa884uga" path="res://Scripts/item_for_sale.gd" id="1_hra1c"]
+
+[resource]
+script = ExtResource("1_hra1c")
+abstract_collection = false
+item_name = "affairs upgrade coupon"
+price_range = Vector2i(5, 5)
+belonging_shops = Array[int]([0])
+dynamic_weight = false
+weight_affecting_upgrade_name = ""
+weight_list_per_level = Array[float]([20.0])
+metadata/_custom_type_script = "uid://deq76sa884uga"

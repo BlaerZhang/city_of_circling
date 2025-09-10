@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="Item" load_steps=3 format=3 uid="uid://c0krcleqyp3k4"]
+
+[ext_resource type="Texture2D" uid="uid://ddvm3b6nxxten" path="res://icon.svg" id="1_gghmx"]
+[ext_resource type="Script" uid="uid://d0fc2fb7vpwyv" path="res://Scripts/item.gd" id="2_1k347"]
+
+[resource]
+script = ExtResource("2_1k347")
+item_name = "traffic_supply_lv1"
+item_name_display_key = "TRAFFIC_SUPPLY_LV1"
+icon = ExtResource("1_gghmx")
+item_type = 2
+rarity = 1
+pts_value = 2
+pts_type = 1
+metadata/_custom_type_script = "uid://d0fc2fb7vpwyv"

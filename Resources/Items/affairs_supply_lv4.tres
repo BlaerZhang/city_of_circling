@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="Item" load_steps=3 format=3 uid="uid://mquc3tnf36l1"]
+
+[ext_resource type="Texture2D" uid="uid://ddvm3b6nxxten" path="res://icon.svg" id="1_b8f45"]
+[ext_resource type="Script" uid="uid://d0fc2fb7vpwyv" path="res://Scripts/item.gd" id="2_23616"]
+
+[resource]
+script = ExtResource("2_23616")
+item_name = "affairs_supply_lv4"
+item_name_display_key = "AFFAIRS_SUPPLY_LV4"
+icon = ExtResource("1_b8f45")
+item_type = 2
+rarity = 4
+pts_value = 10
+pts_type = 0
