@@ -1,7 +1,7 @@
 [gd_scene load_steps=7 format=3 uid="uid://l713x8bwjq1c"]
 
 [ext_resource type="Texture2D" uid="uid://cy5q8fhujpt5h" path="res://Assets/Sprites/Grid/1x/ui_grid.png" id="1_wdufh"]
-[ext_resource type="Texture2D" uid="uid://cvy0itypb0q1e" path="res://Assets/Sprites/Icon/1x/red.png" id="2_wdufh"]
+[ext_resource type="Texture2D" uid="uid://b5d7hky60d0aj" path="res://Assets/Sprites/Icon/1x/lottery upgrade coupon.png" id="2_wdufh"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_4u1nn"]
 texture = ExtResource("1_wdufh")
@@ -35,17 +35,17 @@ alignment = 2
 icon_alignment = 1
 
 [node name="Shop Button Icon" type="TextureRect" parent="."]
-custom_minimum_size = Vector2(80, 80)
+custom_minimum_size = Vector2(100, 100)
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -20.0
-offset_top = -20.0
-offset_right = 20.0
-offset_bottom = 20.0
+offset_left = -40.0
+offset_top = -40.0
+offset_right = 40.0
+offset_bottom = 40.0
 grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("2_wdufh")

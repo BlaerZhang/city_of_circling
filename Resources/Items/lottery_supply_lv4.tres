@@ -1,6 +1,6 @@
 [gd_resource type="Resource" script_class="Item" load_steps=3 format=3 uid="uid://dx6qog7i712ys"]
 
-[ext_resource type="Texture2D" uid="uid://ddvm3b6nxxten" path="res://icon.svg" id="1_iq27b"]
+[ext_resource type="Texture2D" uid="uid://c3sqtwq1yl3a6" path="res://Assets/Sprites/Icon/1x/neko.png" id="1_iq27b"]
 [ext_resource type="Script" uid="uid://d0fc2fb7vpwyv" path="res://Scripts/item.gd" id="2_crkrj"]
 
 [resource]

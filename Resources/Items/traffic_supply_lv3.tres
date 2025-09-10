@@ -1,6 +1,6 @@
 [gd_resource type="Resource" script_class="Item" load_steps=3 format=3 uid="uid://d2rb2mnrt2h28"]
 
-[ext_resource type="Texture2D" uid="uid://ddvm3b6nxxten" path="res://icon.svg" id="1_04pj1"]
+[ext_resource type="Texture2D" uid="uid://caxq8yksm8ppl" path="res://Assets/Sprites/Icon/1x/jump_pad.png" id="1_04pj1"]
 [ext_resource type="Script" uid="uid://d0fc2fb7vpwyv" path="res://Scripts/item.gd" id="2_typbb"]
 
 [resource]
