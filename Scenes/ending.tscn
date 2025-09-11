@@ -7,13 +7,13 @@
 [ext_resource type="Texture2D" uid="uid://cekckf0prcvy6" path="res://Assets/Sprites/Grid/1x/grid_outline.png" id="4_equi1"]
 [ext_resource type="Script" uid="uid://clqc6neay12up" path="res://Scripts/line_drawer.gd" id="5_tnnkm"]
 [ext_resource type="PackedScene" uid="uid://cvj1o3m2uylun" path="res://Scenes/grid.tscn" id="6_wh6b7"]
+[ext_resource type="Script" uid="uid://hik0cobddr3t" path="res://Scripts/UI/time_ui.gd" id="9_xckqc"]
 [ext_resource type="Texture2D" uid="uid://denxgkoyad2jc" path="res://Assets/Sprites/Icon/1x/Trade_outline.png" id="24_0ucmh"]
 [ext_resource type="Texture2D" uid="uid://dvroiqn2jn4j2" path="res://Assets/Sprites/Icon/1x/Affairs_outline.png" id="27_gy8s0"]
 [ext_resource type="Texture2D" uid="uid://q1gvqpwytbhl" path="res://Assets/Sprites/Icon/1x/Lottery_outline.png" id="31_uc5xs"]
 [ext_resource type="Texture2D" uid="uid://cqpddw7ntt3er" path="res://Assets/Sprites/Icon/1x/Traffic_outline.png" id="34_45bla"]
 [ext_resource type="AudioStream" uid="uid://bf1r8loygtxpi" path="res://Assets/Audio/Running the Game_ID_07252025 (1).mp3" id="35_uhv51"]
 [ext_resource type="Texture2D" uid="uid://dq38vavtoi2l3" path="res://Assets/Sprites/Grid/1x/Gate.png" id="36_twrhr"]
-[ext_resource type="Script" uid="uid://l0kyl2xsshwi" path="res://Scripts/time_ui.gd" id="40_51dav"]
 [ext_resource type="PackedScene" uid="uid://dcpcolpctf6n0" path="res://Scenes/resource_ui_grid.tscn" id="41_w73yj"]
 [ext_resource type="Texture2D" uid="uid://7xkg8ryjugf3" path="res://Assets/Sprites/Grid/1x/upgrade_coupon_ui_panel.png" id="42_u76n8"]
 [ext_resource type="Texture2D" uid="uid://l10osv2s0rc8" path="res://Assets/Sprites/Grid/1x/fruit_ui_panel.png" id="43_cagjy"]
@@ -607,7 +607,7 @@ scroll_active = false
 shortcut_keys_enabled = false
 horizontal_alignment = 1
 vertical_alignment = 1
-script = ExtResource("40_51dav")
+script = ExtResource("9_xckqc")
 
 [node name="Resource UI fruit choice" parent="Board/In-world UI" instance=ExtResource("41_w73yj")]
 visible = false
@@ -775,63 +775,6 @@ offset_top = -827.865
 offset_right = -209.103
 offset_bottom = -699.865
 item_name = "draw coupon"
-
-[node name="SupplyGridContainer" type="GridContainer" parent="Board/In-world UI"]
-layout_mode = 0
-offset_left = -105.799
-offset_top = 885.06
-offset_right = 286.201
-offset_bottom = 1369.06
-theme_override_constants/v_separation = 35
-columns = 3
-
-[node name="Resource UI Grid" parent="Board/In-world UI/SupplyGridContainer" instance=ExtResource("41_w73yj")]
-layout_mode = 2
-item_name = "red"
-
-[node name="Resource UI Grid2" parent="Board/In-world UI/SupplyGridContainer" instance=ExtResource("41_w73yj")]
-self_modulate = Color(1, 1, 0.478431, 1)
-layout_mode = 2
-item_name = "yellow"
-
-[node name="Resource UI Grid3" parent="Board/In-world UI/SupplyGridContainer" instance=ExtResource("41_w73yj")]
-self_modulate = Color(0.223529, 0.596078, 0.976471, 1)
-layout_mode = 2
-item_name = "blue"
-
-[node name="Resource UI Grid4" parent="Board/In-world UI/SupplyGridContainer" instance=ExtResource("41_w73yj")]
-self_modulate = Color(0.435294, 0.996078, 0.470588, 1)
-layout_mode = 2
-item_name = "green"
-
-[node name="Resource UI Grid5" parent="Board/In-world UI/SupplyGridContainer" instance=ExtResource("41_w73yj")]
-self_modulate = Color(0.988235, 0.415686, 0.976471, 1)
-layout_mode = 2
-item_name = "purple"
-
-[node name="Resource UI Grid6" parent="Board/In-world UI/SupplyGridContainer" instance=ExtResource("41_w73yj")]
-self_modulate = Color(0.992157, 0.705882, 0.439216, 1)
-layout_mode = 2
-item_name = "orange"
-
-[node name="Resource UI Grid7" parent="Board/In-world UI/SupplyGridContainer" instance=ExtResource("41_w73yj")]
-self_modulate = Color(1, 1, 1, 1)
-layout_mode = 2
-item_name = "white"
-
-[node name="Resource UI Grid8" parent="Board/In-world UI/SupplyGridContainer" instance=ExtResource("41_w73yj")]
-self_modulate = Color(0.988235, 0.109804, 0.494118, 1)
-layout_mode = 2
-item_name = "rainbow"
-
-[node name="Resource UI Grid_HP_Potion" parent="Board/In-world UI" instance=ExtResource("41_w73yj")]
-self_modulate = Color(0.141176, 0.796078, 0.439216, 1)
-layout_mode = 2
-offset_left = -275.759
-offset_top = 1054.9
-offset_right = -147.759
-offset_bottom = 1182.9
-item_name = "hp potion"
 
 [node name="Upgrades UI" type="Button" parent="Board/In-world UI"]
 visible = false

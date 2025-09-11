@@ -1,0 +1,15 @@
+[remap]
+
+importer="csv_translation"
+type="Translation"
+uid="uid://bf4s4hh52tkxm"
+valid=false
+
+[deps]
+
+source_file="res://Resources/PrizeItems.csv"
+
+[params]
+
+compress=true
+delimiter=0

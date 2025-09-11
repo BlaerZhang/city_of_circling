@@ -73,6 +73,11 @@ func resolve_result(prize_item: PrizeItems):
 		else:
 			item_count = prize_item.item_list[item]
 		ResourceManager.change_item_count(item, item_count, pointer.global_position)
+
+		if item == "random fruit":
+			for i in range(item_count):
+				var random_fruit_name = ResourceManager.item_database.values().filter(func(item): return item.item_type == Item.ItemType.Fruit).pick_random().item_name
+				ResourceManager.change_item_count(random_fruit_name, 1, pointer.global_position)
 		
 	if prize_item.item_list.has("draw coupon"):
 		await get_tree().create_timer(1).timeout

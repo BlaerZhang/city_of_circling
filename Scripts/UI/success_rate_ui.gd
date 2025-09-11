@@ -21,6 +21,7 @@ func update_success_rate():
 		success_rate_tween.kill()
 	
 	success_rate_tween = create_tween()
+	success_rate_tween.tween_interval(3.15)
 	success_rate_tween.tween_method(
 		func(val: float): 
 			self.text = tr("SUCCESS_RATE") % [val * 100]

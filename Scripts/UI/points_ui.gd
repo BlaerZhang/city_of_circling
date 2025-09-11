@@ -23,12 +23,12 @@ func on_item_count_changed(item_name: String, count: int, change_amount: int, so
 			var scale_tween = create_tween()
 			scale_tween.tween_property(self, "scale", Vector2.ONE * 1.25, 0.2).set_ease(Tween.EASE_IN_OUT).set_trans(Tween.TRANS_EXPO)
 			scale_tween.tween_interval(0.25)
-			scale_tween.tween_method(func(val: int): ui_label.text = str(val), ui_label.text.to_int(), PointManager.get_points(points_type), 1.0).set_ease(Tween.EASE_IN_OUT).set_trans(Tween.TRANS_EXPO)
+			scale_tween.tween_method(func(val: int): ui_label.text = str(val), ui_label.text.to_int(), PointManager.get_points(points_type), 1.0).set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_QUART)
 			scale_tween.tween_property(self, "scale", Vector2.ONE * 1, 0.2).set_ease(Tween.EASE_IN_OUT).set_trans(Tween.TRANS_EXPO)
 			AudioManager.create_audio(SoundEffect.SOUND_EFFECT_TYPE.RESOURCE_GAIN)
 		elif change_amount <= 0:
 			var scale_tween = create_tween()
-			scale_tween.tween_property(ui_label, "text", str(PointManager.get_points(points_type)), 1.0).set_ease(Tween.EASE_IN_OUT).set_trans(Tween.TRANS_EXPO)
+			scale_tween.tween_property(ui_label, "text", str(PointManager.get_points(points_type)), 1.0).set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_QUART)
 			#spawn_particle(changed_item_name, -change_amount, ui_label.global_position, source_pos)
 			#AudioManager.create_audio(SoundEffect.SOUND_EFFECT_TYPE.RESOURCE_GAIN)
 			#await get_tree().create_timer(1.5).timeout

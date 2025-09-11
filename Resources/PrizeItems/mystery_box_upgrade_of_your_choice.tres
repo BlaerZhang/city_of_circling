@@ -8,6 +8,6 @@ prize_name_text = "Upgrade Coupon Of Your Choice x1"
 item_list = Dictionary[String, int]({
 "upgrade coupon of your choice": 1
 })
-sources_of_prize = Array[int]([0, 1, 2, 3, 10])
+sources_of_prize = Array[int]([1])
 weight_in_pool = 15.0
 metadata/_custom_type_script = "uid://bvl7w0dl5jg5h"
