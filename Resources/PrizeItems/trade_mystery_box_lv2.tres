@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="PrizeItems" load_steps=2 format=3 uid="uid://qjk2owbrhoto"]
+
+[ext_resource type="Script" uid="uid://bvl7w0dl5jg5h" path="res://Scripts/prize_items.gd" id="1_tdtqy"]
+
+[resource]
+script = ExtResource("1_tdtqy")
+prize_name_text = "Balance x1"
+item_list = Dictionary[String, int]({
+"trade_supply_lv2": 1
+})
+sources_of_prize = Array[int]([3])
+weight_in_pool = 7.0

@@ -1,0 +1,50 @@
+resource_path,prize_name_text,item_list,sources_of_prize,weight_in_pool
+res://Resources/PrizeItems/affairs_mystery_box_upgrade.tres,Affairs Upgrade Coupon x1,"{ ""affairs upgrade coupon"": 1 }",[0],30
+res://Resources/PrizeItems/apple_lottery_major.tres,Apple x1,"{ ""apple"": 1 }",[5],30
+res://Resources/PrizeItems/apple_lottery_minor.tres,Apple x1 + Watermelon x1,"{ ""apple"": 1, ""watermelon"": 1 }",[5],15
+res://Resources/PrizeItems/banana_lottery_major.tres,Banana x1,"{ ""banana"": 1 }",[9],30
+res://Resources/PrizeItems/banana_lottery_minor.tres,Banana x1 + Apple x1,"{ ""apple"": 1, ""banana"": 1 }",[9],15
+res://Resources/PrizeItems/fruit_lottery_affairs_upgrade.tres,Affairs Upgrade Coupon x1,"{ ""affairs upgrade coupon"": 1 }","[4, 5, 6, 7, 8, 9]",1
+res://Resources/PrizeItems/fruit_lottery_lottery_upgrade.tres,Lottery Upgrade Coupon x1,"{ ""lottery upgrade coupon"": 1 }","[4, 5, 6, 7, 8, 9]",1
+res://Resources/PrizeItems/fruit_lottery_reroll.tres,Draw Coupon x1 + Reroll,"{ ""draw coupon"": 1 }","[4, 5, 6, 7, 8, 9]",15
+res://Resources/PrizeItems/fruit_lottery_trade_upgrade.tres,Trade Upgrade Coupon x1,"{ ""trade upgrade coupon"": 1 }","[4, 5, 6, 7, 8, 9]",1
+res://Resources/PrizeItems/fruit_lottery_traffic_upgrade.tres,Traffic Upgrade Coupon x1,"{ ""traffic upgrade coupon"": 1 }","[4, 5, 6, 7, 8, 9]",1
+res://Resources/PrizeItems/grape_lottery_major.tres,Grape x1,"{ ""grape"": 1 }",[4],30
+res://Resources/PrizeItems/grape_lottery_minor.tres,Grape x1 + Strawberry x1,"{ ""grape"": 1, ""strawberry"": 1 }",[4],15
+res://Resources/PrizeItems/lottery_mystery_box_upgrade.tres,Lottery Upgrade Coupon x1,"{ ""lottery upgrade coupon"": 1 }",[2],30
+res://Resources/PrizeItems/mango_lottery_major.tres,Mango x1,"{ ""mango"": 1 }",[8],30
+res://Resources/PrizeItems/mango_lottery_minor.tres,Mango x1 + Grape x1,"{ ""grape"": 1, ""mango"": 1 }",[8],15
+res://Resources/PrizeItems/mystery_box_fruit_of_your_choice_2.tres,Fruit Of Your Choice x2,"{ ""fruit of your choice"": 2 }","[0, 1, 2, 3, 13]",25
+res://Resources/PrizeItems/mystery_box_random_fruit.tres,Random Fruit x3,"{ ""random fruit"": 3 }","[0, 1, 2, 3]",15
+res://Resources/PrizeItems/mystery_box_upgrade_of_your_choice.tres,Upgrade Coupon Of Your Choice x1,"{ ""upgrade coupon of your choice"": 1 }",[1],15
+res://Resources/PrizeItems/strawberry_lottery_major.tres,Strawberry x1,"{ ""strawberry"": 1 }",[6],30
+res://Resources/PrizeItems/strawberry_lottery_minor.tres,Strawberry x1 + Mango x1,"{ ""mango"": 1, ""strawberry"": 1 }",[6],15
+res://Resources/PrizeItems/trade_mystery_box_upgrade.tres,Trade Upgrade Coupon x1,"{ ""trade upgrade coupon"": 1 }",[3],30
+,,,,
+res://Resources/PrizeItems/traffic_mystery_box_upgrade.tres,Traffic Upgrade Coupon x1,"{ ""traffic upgrade coupon"": 1 }",[1],30
+res://Resources/PrizeItems/tutorial_apple_major.tres,Apple x1,"{ ""apple"": 1 }",[12],1
+res://Resources/PrizeItems/tutorial_fruit_lottery_affairs_upgrade.tres,Affairs Upgrade Coupon x1,"{ ""affairs upgrade coupon"": 1 }","[11, 12, 13]",0
+res://Resources/PrizeItems/tutorial_fruit_lottery_lottery_upgrade.tres,Lottery Upgrade Coupon x1,"{ ""lottery upgrade coupon"": 1 }","[11, 12, 13]",0
+res://Resources/PrizeItems/tutorial_fruit_lottery_reroll.tres,Draw Coupon x1 + Reroll,"{ ""draw coupon"": 1 }","[11, 12]",0
+res://Resources/PrizeItems/tutorial_fruit_lottery_trade_upgrade.tres,Trade Upgrade Coupon x1,"{ ""trade upgrade coupon"": 1 }","[11, 12, 13]",0
+res://Resources/PrizeItems/tutorial_fruit_lottery_traffic_upgrade.tres,Traffic Upgrade Coupon x1,"{ ""traffic upgrade coupon"": 1 }","[11, 12, 13]",0
+res://Resources/PrizeItems/tutorial_grape_major.tres,Grape x1,"{ ""grape"": 1 }",[11],1
+res://Resources/PrizeItems/watermelon_lottery_major.tres,Watermelon x1,"{ ""watermelon"": 1 }",[7],30
+res://Resources/PrizeItems/watermelon_lottery_minor.tres,Watermelon x1 + Banana x1,"{ ""banana"": 1, ""watermelon"": 1 }",[7],15
+,,,,
+res://Resources/PrizeItems/traffic_mystery_box_lv2.tres,Grappling Hook x1,"{ ""traffic_supply_lv2"": 1 }",[1],7
+res://Resources/PrizeItems/traffic_mystery_box_lv3.tres,Jump Pad x1,"{ ""traffic_supply_lv3"": 1 }",[1],5
+res://Resources/PrizeItems/traffic_mystery_box_lv4.tres,Rocket x1,"{ ""traffic_supply_lv4"": 1 }",[1],2
+res://Resources/PrizeItems/traffic_mystery_box_lv5.tres,Portal x1,"{ ""traffic_supply_lv5"": 1 }",[1],1
+res://Resources/PrizeItems/trade_mystery_box_lv2.tres,Balance x1,"{ ""trade_supply_lv2"": 1 }",[3],7
+res://Resources/PrizeItems/trade_mystery_box_lv3.tres,Shopping Cart x1,"{ ""trade_supply_lv3"": 1 }",[3],5
+res://Resources/PrizeItems/trade_mystery_box_lv4.tres,Voucher x1,"{ ""trade_supply_lv4"": 1 }",[3],2
+res://Resources/PrizeItems/trade_mystery_box_lv5.tres,Menbership Card x1,"{ ""trade_supply_lv5"": 1 }",[3],1
+res://Resources/PrizeItems/lottery_mystery_box_lv2.tres,Dice x1,"{ ""lottery_supply_lv2"": 1 }",[2],7
+res://Resources/PrizeItems/lottery_mystery_box_lv3.tres,Crystal Ball x1,"{ ""lottery_supply_lv3"": 1 }",[2],5
+res://Resources/PrizeItems/lottery_mystery_box_lv4.tres,Maneki Neko x1,"{ ""lottery_supply_lv4"": 1 }",[2],2
+res://Resources/PrizeItems/lottery_mystery_box_lv5.tres,Lucky Star x1,"{ ""lottery_supply_lv5"": 1 }",[2],1
+res://Resources/PrizeItems/affairs_mystery_box_lv2.tres,Treasure Map x1,"{ ""affairs_supply_lv2"": 1 }",[0],7
+res://Resources/PrizeItems/affairs_mystery_box_lv3.tres,Quest Journal x1,"{ ""affairs_supply_lv3"": 1 }",[0],5
+res://Resources/PrizeItems/affairs_mystery_box_lv4.tres,Battle Pass x1,"{ ""affairs_supply_lv4"": 1 }",[0],2
+res://Resources/PrizeItems/affairs_mystery_box_lv5.tres,Quest Bubble x1,"{ ""affairs_supply_lv5"": 1 }",[0],1

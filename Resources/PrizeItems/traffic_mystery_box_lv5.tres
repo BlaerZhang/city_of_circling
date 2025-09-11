@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="PrizeItems" load_steps=2 format=3 uid="uid://jjrhfwa2goiw"]
+
+[ext_resource type="Script" uid="uid://bvl7w0dl5jg5h" path="res://Scripts/prize_items.gd" id="1_modsr"]
+
+[resource]
+script = ExtResource("1_modsr")
+prize_name_text = "Portal x1"
+item_list = Dictionary[String, int]({
+"traffic_supply_lv5": 1
+})
+sources_of_prize = Array[int]([1])
+weight_in_pool = 1.0

@@ -8,5 +8,5 @@ prize_name_text = "Traffic Upgrade Coupon x1"
 item_list = Dictionary[String, int]({
 "traffic upgrade coupon": 1
 })
-sources_of_prize = Array[int]([1, 10])
+sources_of_prize = Array[int]([1])
 weight_in_pool = 30.0

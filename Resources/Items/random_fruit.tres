@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="Item" load_steps=3 format=3 uid="uid://b7duq45ob2bk3"]
+
+[ext_resource type="Texture2D" uid="uid://y00dl1siy1vc" path="res://Assets/Sprites/Icon/1x/random_fruit.png" id="1_r5ymg"]
+[ext_resource type="Script" uid="uid://d0fc2fb7vpwyv" path="res://Scripts/item.gd" id="2_qprhg"]
+
+[resource]
+script = ExtResource("2_qprhg")
+item_name = "random fruit"
+item_name_display_key = "RANDOM_FRUIT"
+icon = ExtResource("1_r5ymg")
+item_type = 4
+rarity = 0
+pts_value = 0
+pts_type = 5
+metadata/_custom_type_script = "uid://d0fc2fb7vpwyv"

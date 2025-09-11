@@ -7,6 +7,7 @@
 [ext_resource type="Texture2D" uid="uid://bswix5iqdn5ax" path="res://Assets/Sprites/Icon/1x/unlock_icon.png" id="4_7dskg"]
 
 [node name="Level-up Upgrade Icon" type="TextureRect"]
+self_modulate = Color(0.298039, 0.686275, 0.909804, 1)
 texture = ExtResource("1_dhj4i")
 stretch_mode = 3
 script = ExtResource("2_2n46o")
