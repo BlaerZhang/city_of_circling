@@ -1,6 +1,6 @@
 [gd_scene load_steps=78 format=3 uid="uid://5d7decdgnw2o"]
 
-[ext_resource type="Script" uid="uid://tdlox2h37vxw" path="res://Scripts/test_input.gd" id="1_13wev"]
+[ext_resource type="Script" uid="uid://0vlh64ugsg0e" path="res://Scripts/ending_manager.gd" id="1_xckqc"]
 [ext_resource type="Script" uid="uid://bljhqnbfuvtu0" path="res://Scripts/player_move_manager.gd" id="2_2xumm"]
 [ext_resource type="Texture2D" uid="uid://cb4mim7ejh66w" path="res://Assets/Sprites/Grid/1x/grid.png" id="2_xckqc"]
 [ext_resource type="Texture2D" uid="uid://dr23hnyyxd0py" path="res://Assets/Sprites/Character/isometric_character_walk.png" id="3_xegqu"]
@@ -463,7 +463,7 @@ modulate_color = Color(0.646029, 0.646029, 0.646029, 1)
 texture = ExtResource("46_7o0bg")
 
 [node name="Ending" type="Node2D"]
-script = ExtResource("1_13wev")
+script = ExtResource("1_xckqc")
 
 [node name="BG" type="TextureRect" parent="."]
 self_modulate = Color(0.6, 0.635294, 0.458824, 1)
