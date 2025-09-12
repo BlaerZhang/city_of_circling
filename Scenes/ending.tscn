@@ -628,6 +628,7 @@ offset_bottom = -688.536
 item_name = "upgrade coupon of your choice"
 
 [node name="Upgrade Coupon UI Panel" type="TextureRect" parent="Board/In-world UI"]
+visible = false
 layout_mode = 0
 offset_left = -824.49
 offset_top = -975.28
@@ -678,6 +679,7 @@ scroll_active = false
 vertical_alignment = 1
 
 [node name="Fruit UI Panel" type="TextureRect" parent="Board/In-world UI"]
+visible = false
 layout_mode = 0
 offset_left = -536.24
 offset_top = -1259.46
@@ -730,6 +732,7 @@ fit_content = true
 scroll_active = false
 
 [node name="Resource UI Grid Exchange coupon" parent="Board/In-world UI" instance=ExtResource("41_w73yj")]
+visible = false
 self_modulate = Color(0.792157, 0.407843, 0.12549, 1)
 layout_mode = 0
 offset_left = -537.203
@@ -768,6 +771,7 @@ offset_bottom = 75.0
 visible = false
 
 [node name="Resource UI Grid Draw coupon" parent="Board/In-world UI" instance=ExtResource("41_w73yj")]
+visible = false
 self_modulate = Color(0.886275, 0.701961, 0.207843, 1)
 layout_mode = 0
 offset_left = -337.103
@@ -1000,6 +1004,7 @@ texture = ExtResource("52_52nvk")
 stretch_mode = 5
 
 [node name="UI" type="Control" parent="."]
+visible = false
 layout_mode = 3
 anchors_preset = 0
 offset_right = 1920.0
