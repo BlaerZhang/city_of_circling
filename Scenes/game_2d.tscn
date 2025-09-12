@@ -1356,15 +1356,15 @@ patch_margin_bottom = 5
 [node name="Points UI Grid" parent="Board/In-world UI/Success Rate UI/Rate BG" instance=ExtResource("62_34x56")]
 show_behind_parent = true
 layout_mode = 0
-offset_top = -128.0
-offset_bottom = 0.0
+offset_top = -123.0
+offset_bottom = 5.0
 points_type = 3
 
 [node name="Points UI Grid2" parent="Board/In-world UI/Success Rate UI/Rate BG" instance=ExtResource("62_34x56")]
 show_behind_parent = true
 layout_mode = 0
-offset_top = 128.0
-offset_bottom = 256.0
+offset_top = 123.0
+offset_bottom = 251.0
 pivot_offset = Vector2(175.465, -64.2485)
 
 [node name="Icon" parent="Board/In-world UI/Success Rate UI/Rate BG/Points UI Grid2" index="1"]
@@ -1379,8 +1379,8 @@ text = "AFFAIRS_TITLE"
 [node name="Points UI Grid3" parent="Board/In-world UI/Success Rate UI/Rate BG" instance=ExtResource("62_34x56")]
 show_behind_parent = true
 layout_mode = 0
-offset_left = -344.0
-offset_right = 0.0
+offset_left = -339.0
+offset_right = 5.0
 pivot_offset = Vector2(515.526, 63.7058)
 points_type = 2
 
@@ -1396,8 +1396,8 @@ text = "LOTTERY_TITLE"
 [node name="Points UI Grid4" parent="Board/In-world UI/Success Rate UI/Rate BG" instance=ExtResource("62_34x56")]
 show_behind_parent = true
 layout_mode = 0
-offset_left = 344.0
-offset_right = 688.0
+offset_left = 339.0
+offset_right = 683.0
 pivot_offset = Vector2(-170.672, 63.3372)
 points_type = 1
 
@@ -1414,10 +1414,10 @@ text = "TRAFFIC_TITLE"
 self_modulate = Color(0, 0, 0, 0.278431)
 show_behind_parent = true
 layout_mode = 0
-offset_left = -1.0
-offset_top = 4.0
-offset_right = 343.0
-offset_bottom = 132.0
+offset_left = -4.0
+offset_top = 3.0
+offset_right = 346.0
+offset_bottom = 133.0
 texture = ExtResource("48_0gtsh")
 patch_margin_left = 5
 patch_margin_top = 5
