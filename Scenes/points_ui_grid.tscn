@@ -1,19 +1,33 @@
-[gd_scene load_steps=7 format=3 uid="uid://c7u7l0rnbtilq"]
+[gd_scene load_steps=6 format=3 uid="uid://c7u7l0rnbtilq"]
 
 [ext_resource type="Texture2D" uid="uid://cy5q8fhujpt5h" path="res://Assets/Sprites/Grid/1x/ui_grid.png" id="1_g00sh"]
 [ext_resource type="Script" uid="uid://c81v5s186i38t" path="res://Scripts/UI/points_ui.gd" id="2_k1qda"]
 [ext_resource type="PackedScene" uid="uid://cvy6pgutedfcu" path="res://Scenes/item_count_change_particle.tscn" id="3_g00sh"]
-[ext_resource type="Texture2D" uid="uid://dinty7jilgb14" path="res://Assets/Sprites/Icon/1x/apple.png" id="4_ph5jd"]
-[ext_resource type="Texture2D" uid="uid://b1e8m00201okm" path="res://Assets/Sprites/Grid/1x/ui_text_bg.png" id="5_lgoml"]
+[ext_resource type="Texture2D" uid="uid://clniig6wj2ukd" path="res://Assets/Sprites/Icon/1x/trade.png" id="4_k1qda"]
 [ext_resource type="Texture2D" uid="uid://c18pimaqq8gdm" path="res://Assets/Sprites/Grid/1x/ui_grid_outline.png" id="6_2ilcd"]
 
-[node name="Points UI Grid" type="TextureRect"]
-self_modulate = Color(0.988235, 0.415686, 0.411765, 1)
+[node name="Points UI Grid" type="NinePatchRect"]
+self_modulate = Color(0.901961, 0.901961, 0.901961, 1)
+custom_minimum_size = Vector2(344, 128)
+offset_right = 344.0
+offset_bottom = 128.0
 pivot_offset = Vector2(64, 64)
-mouse_default_cursor_shape = 2
+mouse_filter = 1
 texture = ExtResource("1_g00sh")
+region_rect = Rect2(0, 0, 128, 128)
+patch_margin_left = 5
+patch_margin_top = 5
+patch_margin_right = 5
+patch_margin_bottom = 5
 script = ExtResource("2_k1qda")
 item_count_change_particle_prefab = ExtResource("3_g00sh")
+rating_to_color = Dictionary[int, Color]({
+1: Color(0.901961, 0.901961, 0.901961, 1),
+2: Color(0.580392, 0.717647, 0.341176, 1),
+3: Color(0.298039, 0.686275, 0.909804, 1),
+4: Color(0.513726, 0.415686, 0.658824, 1),
+5: Color(0.847059, 0.709804, 0.270588, 1)
+})
 
 [node name="UI Grid Shadow" type="TextureRect" parent="."]
 modulate = Color(0, 0, 0, 0.278431)
@@ -21,72 +35,126 @@ show_behind_parent = true
 layout_mode = 2
 offset_left = -1.0
 offset_top = 4.0
-offset_right = 127.0
+offset_right = 343.0
 offset_bottom = 132.0
 texture = ExtResource("1_g00sh")
 
 [node name="Icon" type="TextureRect" parent="."]
 layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
+anchors_preset = 4
 anchor_top = 0.5
-anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -53.0
+offset_left = 11.0
 offset_top = -53.0
-offset_right = 53.0
+offset_right = 106.0
 offset_bottom = 53.0
-grow_horizontal = 2
 grow_vertical = 2
 pivot_offset = Vector2(53, 53)
-texture = ExtResource("4_ph5jd")
+mouse_filter = 2
+texture = ExtResource("4_k1qda")
+expand_mode = 5
 stretch_mode = 5
 
 [node name="Icon Shadow" type="TextureRect" parent="Icon"]
 self_modulate = Color(0, 0, 0, 0.501961)
 show_behind_parent = true
 layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
+anchors_preset = 4
 anchor_top = 0.5
-anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -54.0
+offset_left = -1.0
 offset_top = -49.0
-offset_right = 52.0
+offset_right = 94.0
 offset_bottom = 57.0
-grow_horizontal = 2
 grow_vertical = 2
-texture = ExtResource("4_ph5jd")
+texture = ExtResource("4_k1qda")
+expand_mode = 5
 stretch_mode = 5
 
-[node name="ResourceTextLabel" type="RichTextLabel" parent="."]
+[node name="PointsTextLabel" type="RichTextLabel" parent="."]
+clip_contents = false
 layout_mode = 1
-anchors_preset = 3
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 113.0
+offset_top = -60.0
+offset_right = 152.0
+offset_bottom = 58.0
+grow_vertical = 2
+mouse_filter = 1
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/normal_font_size = 60
+bbcode_enabled = true
+text = "999"
+fit_content = true
+scroll_active = false
+autowrap_mode = 0
+shortcut_keys_enabled = false
+vertical_alignment = 2
+
+[node name="PtLabel" type="RichTextLabel" parent="PointsTextLabel"]
+layout_mode = 1
+anchors_preset = 6
 anchor_left = 1.0
-anchor_top = 1.0
+anchor_top = 0.5
 anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = -50.0
-offset_top = -50.0
+anchor_bottom = 0.5
+offset_left = 3.0
+offset_top = 15.0
+offset_right = 85.0
+offset_bottom = 45.0
 grow_horizontal = 0
-grow_vertical = 0
+grow_vertical = 2
 mouse_filter = 1
 theme_override_colors/default_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/normal_font_size = 20
 bbcode_enabled = true
-text = "9999"
+text = "PTS_UI"
 scroll_active = false
 shortcut_keys_enabled = false
-horizontal_alignment = 1
-vertical_alignment = 1
+vertical_alignment = 2
 
-[node name="Text BG" type="TextureRect" parent="ResourceTextLabel"]
-show_behind_parent = true
-layout_mode = 0
-offset_right = 40.0
-offset_bottom = 40.0
-texture = ExtResource("5_lgoml")
+[node name="PointsRatingLabel" type="RichTextLabel" parent="."]
+layout_mode = 1
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -194.0
+offset_top = -76.0
+offset_right = -8.0
+offset_bottom = 76.0
+grow_horizontal = 0
+grow_vertical = 2
+mouse_filter = 1
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/normal_font_size = 100
+bbcode_enabled = true
+text = "D"
+scroll_active = false
+shortcut_keys_enabled = false
+horizontal_alignment = 2
+
+[node name="PointsTitleLabel" type="RichTextLabel" parent="."]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 113.0
+offset_top = -48.0
+offset_right = 273.0
+offset_bottom = -13.0
+grow_vertical = 2
+mouse_filter = 1
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/normal_font_size = 20
+bbcode_enabled = true
+text = "TRADE_TITLE"
+scroll_active = false
+shortcut_keys_enabled = false
+vertical_alignment = 2
 
 [node name="UI Grid Outline" type="Sprite2D" parent="."]
 visible = false
@@ -95,7 +163,3 @@ z_index = 1
 position = Vector2(64, 64)
 scale = Vector2(1.1, 1.1)
 texture = ExtResource("6_2ilcd")
-
-[connection signal="gui_input" from="." to="." method="_on_gui_input"]
-[connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]
-[connection signal="mouse_exited" from="." to="." method="_on_mouse_exited"]

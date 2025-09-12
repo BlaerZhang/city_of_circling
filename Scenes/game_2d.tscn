@@ -1154,25 +1154,6 @@ horizontal_alignment = 1
 vertical_alignment = 1
 script = ExtResource("40_pqs0o")
 
-[node name="Success Rate UI" type="RichTextLabel" parent="Board/In-world UI"]
-layout_mode = 0
-offset_left = -89.7662
-offset_top = 1073.36
-offset_right = 175.234
-offset_bottom = 1321.36
-theme_override_colors/default_color = Color(0, 0, 0, 1)
-theme_override_font_sizes/normal_font_size = 80
-bbcode_enabled = true
-text = "99.9%
-[font_size=34]冒险成功率[/font_size]"
-fit_content = true
-scroll_active = false
-autowrap_mode = 2
-shortcut_keys_enabled = false
-horizontal_alignment = 1
-vertical_alignment = 1
-script = ExtResource("41_apgn6")
-
 [node name="Resource UI fruit choice" parent="Board/In-world UI" instance=ExtResource("15_j40bd")]
 visible = false
 layout_mode = 0
@@ -1340,36 +1321,108 @@ offset_right = -209.103
 offset_bottom = -699.865
 item_name = "draw coupon"
 
-[node name="Points UI Grid" parent="Board/In-world UI" instance=ExtResource("62_34x56")]
+[node name="Success Rate UI" type="RichTextLabel" parent="Board/In-world UI" node_paths=PackedStringArray("points_uis")]
+clip_contents = false
 layout_mode = 0
-offset_left = -272.509
-offset_top = 888.128
-offset_right = -144.509
-offset_bottom = 1016.13
+offset_left = -138.779
+offset_top = 780.558
+offset_right = 205.221
+offset_bottom = 908.558
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+theme_override_constants/line_separation = -25
+theme_override_font_sizes/normal_font_size = 75
+bbcode_enabled = true
+text = "99.9%
+[font_size=28]冒险成功率[/font_size]"
+scroll_active = false
+autowrap_mode = 2
+shortcut_keys_enabled = false
+horizontal_alignment = 1
+script = ExtResource("41_apgn6")
+points_uis = [NodePath("Rate BG/Points UI Grid"), NodePath("Rate BG/Points UI Grid2"), NodePath("Rate BG/Points UI Grid3"), NodePath("Rate BG/Points UI Grid4")]
 
-[node name="Points UI Grid2" parent="Board/In-world UI" instance=ExtResource("62_34x56")]
+[node name="Rate BG" type="NinePatchRect" parent="Board/In-world UI/Success Rate UI"]
+show_behind_parent = true
 layout_mode = 0
-offset_left = -125.789
-offset_top = 887.901
-offset_right = 2.21126
-offset_bottom = 1015.9
-points_type = 1
+offset_top = 10.0
+offset_right = 344.0
+offset_bottom = 138.0
+texture = ExtResource("48_0gtsh")
+patch_margin_left = 5
+patch_margin_top = 5
+patch_margin_right = 5
+patch_margin_bottom = 5
 
-[node name="Points UI Grid3" parent="Board/In-world UI" instance=ExtResource("62_34x56")]
+[node name="Points UI Grid" parent="Board/In-world UI/Success Rate UI/Rate BG" instance=ExtResource("62_34x56")]
+show_behind_parent = true
 layout_mode = 0
-offset_left = 19.6862
-offset_top = 888.919
-offset_right = 147.686
-offset_bottom = 1016.92
+offset_top = -128.0
+offset_bottom = 0.0
+points_type = 3
+
+[node name="Points UI Grid2" parent="Board/In-world UI/Success Rate UI/Rate BG" instance=ExtResource("62_34x56")]
+show_behind_parent = true
+layout_mode = 0
+offset_top = 128.0
+offset_bottom = 256.0
+pivot_offset = Vector2(175.465, -64.2485)
+
+[node name="Icon" parent="Board/In-world UI/Success Rate UI/Rate BG/Points UI Grid2" index="1"]
+texture = ExtResource("57_2yk12")
+
+[node name="Icon Shadow" parent="Board/In-world UI/Success Rate UI/Rate BG/Points UI Grid2/Icon" index="0"]
+texture = ExtResource("57_2yk12")
+
+[node name="PointsTitleLabel" parent="Board/In-world UI/Success Rate UI/Rate BG/Points UI Grid2" index="4"]
+text = "AFFAIRS_TITLE"
+
+[node name="Points UI Grid3" parent="Board/In-world UI/Success Rate UI/Rate BG" instance=ExtResource("62_34x56")]
+show_behind_parent = true
+layout_mode = 0
+offset_left = -344.0
+offset_right = 0.0
+pivot_offset = Vector2(515.526, 63.7058)
 points_type = 2
 
-[node name="Points UI Grid4" parent="Board/In-world UI" instance=ExtResource("62_34x56")]
+[node name="Icon" parent="Board/In-world UI/Success Rate UI/Rate BG/Points UI Grid3" index="1"]
+texture = ExtResource("61_a3ncn")
+
+[node name="Icon Shadow" parent="Board/In-world UI/Success Rate UI/Rate BG/Points UI Grid3/Icon" index="0"]
+texture = ExtResource("61_a3ncn")
+
+[node name="PointsTitleLabel" parent="Board/In-world UI/Success Rate UI/Rate BG/Points UI Grid3" index="4"]
+text = "LOTTERY_TITLE"
+
+[node name="Points UI Grid4" parent="Board/In-world UI/Success Rate UI/Rate BG" instance=ExtResource("62_34x56")]
+show_behind_parent = true
 layout_mode = 0
-offset_left = 159.183
-offset_top = 888.94
-offset_right = 287.183
-offset_bottom = 1016.94
-points_type = 3
+offset_left = 344.0
+offset_right = 688.0
+pivot_offset = Vector2(-170.672, 63.3372)
+points_type = 1
+
+[node name="Icon" parent="Board/In-world UI/Success Rate UI/Rate BG/Points UI Grid4" index="1"]
+texture = ExtResource("51_7xuxf")
+
+[node name="Icon Shadow" parent="Board/In-world UI/Success Rate UI/Rate BG/Points UI Grid4/Icon" index="0"]
+texture = ExtResource("51_7xuxf")
+
+[node name="PointsTitleLabel" parent="Board/In-world UI/Success Rate UI/Rate BG/Points UI Grid4" index="4"]
+text = "TRAFFIC_TITLE"
+
+[node name="BG Shadow" type="NinePatchRect" parent="Board/In-world UI/Success Rate UI/Rate BG"]
+self_modulate = Color(0, 0, 0, 0.278431)
+show_behind_parent = true
+layout_mode = 0
+offset_left = -1.0
+offset_top = 4.0
+offset_right = 343.0
+offset_bottom = 132.0
+texture = ExtResource("48_0gtsh")
+patch_margin_left = 5
+patch_margin_top = 5
+patch_margin_right = 5
+patch_margin_bottom = 5
 
 [node name="Upgrades UI" type="Button" parent="Board/In-world UI"]
 custom_minimum_size = Vector2(128, 128)
@@ -1605,7 +1658,6 @@ upgrade = ExtResource("59_hognw")
 upgrade_type = 1
 
 [node name="UI" type="Control" parent="."]
-visible = false
 layout_mode = 3
 anchors_preset = 0
 offset_right = 1920.0
@@ -1636,6 +1688,11 @@ stream = ExtResource("62_yiyb4")
 volume_db = -10.0
 autoplay = true
 
+[connection signal="mouse_entered" from="Board/In-world UI/Success Rate UI" to="Board/In-world UI/Success Rate UI" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="Board/In-world UI/Success Rate UI" to="Board/In-world UI/Success Rate UI" method="_on_mouse_exited"]
 [connection signal="pressed" from="Board/In-world UI/Upgrades UI" to="Board/In-world UI/Upgrades UI" method="_on_pressed"]
 
 [editable path="Board/In-world UI/Resource UI Grid Exchange coupon"]
+[editable path="Board/In-world UI/Success Rate UI/Rate BG/Points UI Grid2"]
+[editable path="Board/In-world UI/Success Rate UI/Rate BG/Points UI Grid3"]
+[editable path="Board/In-world UI/Success Rate UI/Rate BG/Points UI Grid4"]
