@@ -39,3 +39,12 @@ func add_step_hour():
 	
 	# if current_hour % 8 == 0:
 	# 	shop_refresh_time.emit()
+
+func add_one_day():
+	current_day += 1
+	current_hour = 0
+	day_changed.emit()
+	shop_refresh_time.emit()
+	if current_day == 9:
+		day_9.emit()
+	time_changed.emit()

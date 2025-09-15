@@ -2,6 +2,7 @@ extends Node
 
 var item_database: Dictionary[String, Item]
 var items_owned: Dictionary[String, int]
+var items_total_gained: Dictionary[String, int]
 signal item_count_changed(item_name: String, count: int, change_amount: int, source_pos: Vector2)
 
 func _ready() -> void:
@@ -32,6 +33,7 @@ func load_all_items():
 				var key = res.item_name.to_lower()
 				item_database.get_or_add(key, res)
 				items_owned.get_or_add(key, 0)
+				items_total_gained.get_or_add(key, 0)
 				item_count_changed.emit(key, 0, 0, Vector2(0,0))
 				#print(res.item_name + " resource loaded")
 
@@ -39,6 +41,7 @@ func load_all_items():
 func reset_data():
 	for item in items_owned.keys():
 		items_owned[item] = 0
+		items_total_gained[item] = 0
 		item_count_changed.emit(item, 0, 0, Vector2(0,0))
 
 
@@ -73,6 +76,11 @@ func change_item_count(item_name: String, count: int, sourece_pos: Vector2):
 	if key not in items_owned: 
 		print("change_item_count: key not found ->", key)
 		return
+	
+	# 只有当count为正数（获得物品）时才更新历史总量
+	if count > 0:
+		items_total_gained[key] += count
+	
 	items_owned[key] = maxi(items_owned[key] + count, 0)
 	item_count_changed.emit(key, items_owned[key], count, sourece_pos)
 
