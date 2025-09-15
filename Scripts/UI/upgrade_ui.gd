@@ -154,7 +154,7 @@ func _build_level_up_tooltip_with_cost(
 	max_level: int
 ) -> String:
 	var formatted_desc: String = desc % [current_effect, next_effect, current_level, next_level, max_level]
-	return "[center][font_size=24]%s[/font_size]\n\n%s[/center][right][img=20]res://Assets/Sprites/Icon/1x/%s.png[/img] [font_size=30][b]%d[/b][/font_size][/right]" % [
+	return "[center][font_size=24]%s[/font_size]\n\n%s[/center][right][img=40]res://Assets/Sprites/Icon/1x/%s.png[/img] [font_size=30][b]%d[/b][/font_size][/right]" % [
 		upgrade_name, formatted_desc, coupon_icon, cost
 	]
 
@@ -167,7 +167,7 @@ func _build_level_up_tooltip_maxed(upgrade_name: String, desc: String, max_effec
 
 ## 构建一次性升级的提示文本（有购买费用）
 func _build_one_time_tooltip_with_cost(upgrade_name: String, desc: String, coupon_icon: String, cost: int) -> String:
-	return "[u]%s[/u]\n\n%s\n[right][img=20]res://Assets/Sprites/Icon/1x/%s.png[/img] [font_size=30][b]%d[/b][/font_size][/right]" % [
+	return "[u]%s[/u]\n\n%s\n[right][img=40]res://Assets/Sprites/Icon/1x/%s.png[/img] [font_size=30][b]%d[/b][/font_size][/right]" % [
 		upgrade_name, desc, coupon_icon, cost
 	]
 
@@ -179,6 +179,6 @@ func _build_one_time_tooltip_purchased(upgrade_name: String, desc: String) -> St
 
 ## 构建一次性升级的提示文本（锁定状态）
 func _build_one_time_tooltip_locked(upgrade_name: String, desc: String, coupon_icon: String, cost: int) -> String:
-	return "[u]%s[/u]\n\n%s\n[right][img=20]res://Assets/Sprites/Icon/1x/%s.png[/img] [font_size=30]%d[/font_size][/right]" % [
+	return "[u]%s[/u]\n\n%s\n[right][img=40]res://Assets/Sprites/Icon/1x/%s.png[/img] [font_size=30]%d[/font_size][/right]" % [
 		upgrade_name, desc, coupon_icon, cost
 	]
