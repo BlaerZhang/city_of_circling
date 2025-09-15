@@ -65,6 +65,11 @@ func try_arrive(arrive: bool):
 		functional_grid_component.try_arrive(arrive)
 
 
+func try_interact(interact: bool):
+	if functional_grid_component is FunctionalGridComponent:
+		functional_grid_component.try_interact(interact)
+
+
 func _on_area_2d_input_event(viewport: Node, event: InputEvent, shape_idx: int) -> void:
 	if event.is_action_pressed("left_click"):
 		mouse_clicked_down.emit(grid_position)
