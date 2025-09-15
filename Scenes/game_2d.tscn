@@ -37,8 +37,8 @@
 [ext_resource type="Texture2D" uid="uid://7hw3qvy8qkap" path="res://Assets/Sprites/Grid/1x/Affair_tile.png" id="31_q187p"]
 [ext_resource type="Texture2D" uid="uid://dq38vavtoi2l3" path="res://Assets/Sprites/Grid/1x/Gate.png" id="36_pqs0o"]
 [ext_resource type="PackedScene" uid="uid://bydkdm2kx36qd" path="res://Scenes/functional_component_gate.tscn" id="37_34x56"]
-[ext_resource type="Script" uid="uid://hik0cobddr3t" path="res://Scripts/UI/time_ui.gd" id="40_pqs0o"]
-[ext_resource type="Script" uid="uid://ctqda62bjlceq" path="res://Scripts/UI/success_rate_ui.gd" id="41_apgn6"]
+[ext_resource type="Script" path="res://Scripts/UI/time_ui.gd" id="40_pqs0o"]
+[ext_resource type="Script" path="res://Scripts/UI/success_rate_ui.gd" id="41_apgn6"]
 [ext_resource type="Texture2D" uid="uid://c7qbvwcthokxi" path="res://Assets/Sprites/Grid/1x/upgrade_display_bar.png" id="42_3lc3d"]
 [ext_resource type="Texture2D" uid="uid://l10osv2s0rc8" path="res://Assets/Sprites/Grid/1x/fruit_ui_panel.png" id="42_apgn6"]
 [ext_resource type="Texture2D" uid="uid://7xkg8ryjugf3" path="res://Assets/Sprites/Grid/1x/upgrade_coupon_ui_panel.png" id="42_p4hnd"]
@@ -60,7 +60,7 @@
 [ext_resource type="Resource" uid="uid://cftcygsaxiixx" path="res://Resources/Upgrades/shop_manual_refresh.tres" id="58_3657g"]
 [ext_resource type="Resource" uid="uid://ruu8cw78y2on" path="res://Resources/Upgrades/remote_view_store.tres" id="59_hognw"]
 [ext_resource type="Texture2D" uid="uid://bmnq510m5d0fk" path="res://Assets/Sprites/Icon/1x/lottery.png" id="61_a3ncn"]
-[ext_resource type="PackedScene" uid="uid://c7u7l0rnbtilq" path="res://Scenes/points_ui_grid.tscn" id="62_34x56"]
+[ext_resource type="PackedScene" uid="uid://d7x88c8vthvo" path="res://Scenes/points_ui_grid.tscn" id="62_34x56"]
 [ext_resource type="AudioStream" uid="uid://dxa84rdtwplt3" path="res://Assets/Audio/JollyEssentials_BGMdemo_v1_120bpm_Fullmix.wav" id="62_yiyb4"]
 [ext_resource type="Resource" uid="uid://bqm7cjpn74n80" path="res://Resources/Upgrades/shop_rarity_plus.tres" id="63_p4hnd"]
 [ext_resource type="Texture2D" uid="uid://clniig6wj2ukd" path="res://Assets/Sprites/Icon/1x/trade.png" id="65_4es2p"]
@@ -535,7 +535,6 @@ parameters/Idle/blend_position = Vector2(-0.125166, -0.494506)
 parameters/Walk/blend_position = Vector2(-0.716216, 0.5)
 
 [node name="Area2D" type="Area2D" parent="Player/Player Sprite"]
-scale = Vector2(1, 1)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Player/Player Sprite/Area2D"]
 position = Vector2(0, -24.3902)
