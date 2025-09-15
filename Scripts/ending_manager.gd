@@ -6,7 +6,7 @@ extends Node
 @export var grid_color_palette: Array[Color]
 @onready var ending_animation_player: AnimationPlayer = %EndingAnimationPlayer
 @onready var background: TextureRect = $BG
-@onready var bg_mask: TextureRect = %"BG Mask"
+@onready var bg_mask: Sprite2D = %"BG Mask"
 var days_left: int
 var success_rate: float
 var daily_sr: float

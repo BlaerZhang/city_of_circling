@@ -1,6 +1,6 @@
 [gd_scene load_steps=29 format=3 uid="uid://5d7decdgnw2o"]
 
-[ext_resource type="Script" path="res://Scripts/ending_manager.gd" id="1_xckqc"]
+[ext_resource type="Script" uid="uid://0vlh64ugsg0e" path="res://Scripts/ending_manager.gd" id="1_xckqc"]
 [ext_resource type="Texture2D" uid="uid://cb4mim7ejh66w" path="res://Assets/Sprites/Grid/1x/grid.png" id="2_xckqc"]
 [ext_resource type="Texture2D" uid="uid://dr23hnyyxd0py" path="res://Assets/Sprites/Character/isometric_character_walk.png" id="3_xegqu"]
 [ext_resource type="Texture2D" uid="uid://boa3m7xsr0prg" path="res://Assets/Sprites/Grid/1x/grid_outline_heavy.png" id="4_bfdlc"]
