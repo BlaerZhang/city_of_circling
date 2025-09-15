@@ -54,9 +54,9 @@
 [ext_resource type="Resource" uid="uid://clcnor83odgg6" path="res://Resources/Upgrades/remote_quest_acceptance.tres" id="51_ba7xp"]
 [ext_resource type="Resource" uid="uid://rb4y6ov5syh2" path="res://Resources/Upgrades/remote_quest_completion.tres" id="52_h3g56"]
 [ext_resource type="Resource" uid="uid://c4kr046pl7mbv" path="res://Resources/Upgrades/increase_fruit_production.tres" id="54_04kbk"]
-[ext_resource type="Resource" uid="uid://pmdxmdu6cbde" path="res://Resources/Upgrades/unlock_rainbow_white_ball.tres" id="55_2dtki"]
 [ext_resource type="Resource" uid="uid://ut46sekwlayi" path="res://Resources/Upgrades/lottery_bypass.tres" id="56_kh3n4"]
 [ext_resource type="Texture2D" uid="uid://dg62lbotueg53" path="res://Assets/Sprites/Icon/1x/affairs.png" id="57_2yk12"]
+[ext_resource type="Resource" uid="uid://bokvtw3q7ccft" path="res://Resources/Upgrades/lottery_remote_draw.tres" id="58_34x56"]
 [ext_resource type="Resource" uid="uid://cftcygsaxiixx" path="res://Resources/Upgrades/shop_manual_refresh.tres" id="58_3657g"]
 [ext_resource type="Resource" uid="uid://ruu8cw78y2on" path="res://Resources/Upgrades/remote_view_store.tres" id="59_hognw"]
 [ext_resource type="Texture2D" uid="uid://bmnq510m5d0fk" path="res://Assets/Sprites/Icon/1x/lottery.png" id="61_a3ncn"]
@@ -1604,7 +1604,7 @@ upgrade = ExtResource("54_04kbk")
 
 [node name="One-time Upgrade Icon" parent="Board/In-world UI/Upgrades UI/VBoxContainer/Upgrades Display Bar3/HBoxContainer" instance=ExtResource("44_ltboj")]
 layout_mode = 2
-upgrade = ExtResource("55_2dtki")
+upgrade = ExtResource("58_34x56")
 upgrade_type = 1
 
 [node name="Arrow" type="TextureRect" parent="Board/In-world UI/Upgrades UI/VBoxContainer/Upgrades Display Bar3/HBoxContainer"]

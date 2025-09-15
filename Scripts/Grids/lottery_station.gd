@@ -3,7 +3,7 @@ extends FunctionalGridComponent
 @export var prize_source: PrizeItems.Source
 @onready var wheel_manager: WheelManager
 var is_bypass_draw_unlocked:= false
-var is_remote_draw_unlocked:= true
+var is_remote_draw_unlocked:= false
 
 @export_group("UI Related")
 @onready var lottery_preview:= $"Preview Icon"
