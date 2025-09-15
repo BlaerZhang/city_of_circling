@@ -118,4 +118,3 @@ func on_moused_clicked_down_grid(grid_pos: Vector2i):
 		moused_clicked_down_grid.emit(grid_pos)
 		if GameManager.current_game_state == GameManager.GameState.Idle:
 			grid_database[grid_pos].interact()
-			grid_database[grid_pos].try_interact(true)

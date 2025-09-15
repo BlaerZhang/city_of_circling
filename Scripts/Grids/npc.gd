@@ -202,6 +202,9 @@ func interact(base_grid_pos: Vector2) -> void:
 		refresh_textures()
 		#update icon
 		delivery_sender_icon.visible = false
+	
+	#update preview
+	try_interact(true)
 
 
 enum PreviewMode {

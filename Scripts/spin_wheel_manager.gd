@@ -44,9 +44,19 @@ func _input(event: InputEvent) -> void:
 			hide_ui(self)
 
 
-func initiate_wheel(source: PrizeItems.Source):
+func initiate_wheel(source: PrizeItems.Source, button_state: WheelManager.button_state = WheelManager.button_state.free):
 	wheel_face.setup_wheel(source)
 	is_in_draw = false
+	match button_state:
+		WheelManager.button_state.free:
+			_button_state = WheelManager.button_state.free
+			spin_button_label.text = "GO"
+		WheelManager.button_state.draw_coupon:
+			_button_state = WheelManager.button_state.draw_coupon
+			spin_button_label.text = "[img=150x150]res://Assets/Sprites/Icon/1x/draw coupon italic.png[/img] [font_size=100]x[/font_size]1"
+		WheelManager.button_state.shop:
+			_button_state = WheelManager.button_state.shop
+			spin_button_label.text = "[img=150x150]res://Assets/Sprites/Icon/1x/exchange coupon italic.png[/img] [font_size=100]x[/font_size]3"
 	show_ui(self)
 
 
@@ -61,8 +71,6 @@ func show_ui(object):
 	AudioManager.create_audio(SoundEffect.SOUND_EFFECT_TYPE.SHOW_WHEEL)
 	var hide_tween:= create_tween()  
 	hide_tween.tween_property(object, "position:y", show_y_offset, 0.5).set_trans(Tween.TRANS_ELASTIC)
-	_button_state = button_state.free
-	spin_button_label.text = "GO"
 
 
 func resolve_result(prize_item: PrizeItems):
