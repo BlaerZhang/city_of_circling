@@ -8,6 +8,7 @@ extends CustomTooltip
 # @onready var ui_outline:= $"UI Grid Outline"
 var original_pos: Vector2
 var show_hide_tween: Tween
+var points_tween: Tween
 @export var item_count_change_particle_prefab: PackedScene
 @export var rating_to_color: Dictionary[Item.Rarity, Color] = {
 	Item.Rarity.Common: Color.WHITE,
@@ -42,7 +43,9 @@ func on_item_count_changed(item_name: String, count: int, change_amount: int, so
 			spawn_particle(item_name, change_amount, source_pos, ui_points_label.global_position)
 			position = current_pos
 			await show_ui()
-			var points_tween = create_tween()
+			if points_tween:
+				points_tween.kill()
+			points_tween = create_tween()
 			points_tween.tween_interval(1.75)
 			points_tween.tween_callback(func(): AudioManager.create_audio(SoundEffect.SOUND_EFFECT_TYPE.RESOURCE_GAIN))
 			points_tween.tween_callback(func(): update_rating(get_rating(PointManager.get_points(points_type))))
@@ -51,7 +54,9 @@ func on_item_count_changed(item_name: String, count: int, change_amount: int, so
 			await points_tween.finished
 			await hide_ui()
 		elif change_amount <= 0:
-			var points_tween = create_tween()
+			if points_tween:
+				points_tween.kill()
+			points_tween = create_tween()
 			points_tween.tween_property(ui_points_label, "text", str(PointManager.get_points(points_type)), 1.0).set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_QUART)
 			#spawn_particle(changed_item_name, -change_amount, ui_points_label.global_position, source_pos)
 			#AudioManager.create_audio(SoundEffect.SOUND_EFFECT_TYPE.RESOURCE_GAIN)

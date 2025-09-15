@@ -204,51 +204,93 @@ func interact(base_grid_pos: Vector2) -> void:
 		delivery_sender_icon.visible = false
 
 
+enum PreviewMode {
+	BYPASS,
+	ARRIVE, 
+	INTERACT
+}
+
+
+## 检查是否可以显示预览
+func _can_show_preview(mode: PreviewMode) -> bool:
+	match mode:
+		PreviewMode.BYPASS:
+			# bypass模式下：水果任务可提交 或 有送货任务需要处理
+			return is_fruit_quest_submittable() or not current_delivery_sender_list.is_empty()
+		PreviewMode.ARRIVE:
+			# arrive模式下：任何可处理的情况
+			return is_fruit_quest_submittable() or not current_delivery_sender_list.is_empty() or not is_in_quest
+		PreviewMode.INTERACT:
+			# interact模式下需要考虑远程权限限制
+			if not is_player_arrived and not is_remote_quest_acceptance_unlocked and not is_remote_quest_submission_unlocked:
+				return false
+			
+			# 玩家到达时：可以处理所有任务
+			if is_player_arrived:
+				return is_fruit_quest_submittable() or not current_delivery_sender_list.is_empty() or not is_in_quest
+			
+			# 远程时：只能处理水果任务提交和新任务接受，送货任务必须玩家到达
+			var can_remote_submit_fruit = is_remote_quest_submission_unlocked and is_fruit_quest_submittable()
+			var can_remote_accept_quest = is_remote_quest_acceptance_unlocked and not is_in_quest
+			return can_remote_submit_fruit or can_remote_accept_quest
+	return false
+
+
+## 获取预览图标纹理
+func _get_preview_texture(mode: PreviewMode) -> Texture2D:
+	match mode:
+		PreviewMode.BYPASS:
+			# bypass总是显示完成图标
+			return quest_status_sprite_complete
+		PreviewMode.ARRIVE:
+			# arrive时：没有任务显示新任务图标，有任务显示完成图标
+			return quest_status_sprite_new_quest if not is_in_quest else quest_status_sprite_complete
+		PreviewMode.INTERACT:
+			# interact时：没有任务显示新任务图标，有任务显示完成图标
+			# 由于 _can_show_preview 已经处理了权限检查，这里只需要根据任务状态选择图标
+			return quest_status_sprite_new_quest if not is_in_quest else quest_status_sprite_complete
+	return quest_status_sprite_new_quest
+
+
+## 统一的预览动画处理函数
+func _animate_preview(is_shown: bool, mode: PreviewMode) -> void:
+	if not _can_show_preview(mode) and is_shown:
+		_animate_preview_scale(Vector2.ZERO, Tween.EASE_IN)
+		return
+	
+	if is_shown:
+		bypass_submit_preview.texture = _get_preview_texture(mode)
+		_animate_preview_scale(Vector2(1.0, 1.4), Tween.EASE_OUT)
+	else:
+		_animate_preview_scale(Vector2.ZERO, Tween.EASE_IN)
+
+
+## 执行缩放动画
+func _animate_preview_scale(target_scale: Vector2, ease_type: Tween.EaseType) -> void:
+	if preview_target_scale == target_scale:
+		return
+	
+	preview_target_scale = target_scale
+	
+	if bypass_tween and bypass_tween.is_valid():
+		bypass_tween.kill()
+	
+	bypass_tween = create_tween()
+	bypass_tween.tween_property(
+		bypass_submit_preview,
+		"scale",
+		target_scale,
+		0.2
+	).set_ease(ease_type).set_trans(Tween.TRANS_EXPO)
+
 func try_bypass(forward: bool) -> void:
-	if is_fruit_quest_submittable() or !current_delivery_sender_list.is_empty():
-		var new_target = Vector2(1.0, 1.4) if forward else Vector2.ZERO
-		var ease = Tween.EASE_OUT if forward else Tween.EASE_IN
-		bypass_submit_preview.texture = quest_status_sprite_complete
-		
-		if preview_target_scale == new_target:
-			return
-		preview_target_scale = new_target
-		
-		if bypass_tween and bypass_tween.is_valid():
-			bypass_tween.kill()
-		
-		bypass_tween = create_tween()
-		bypass_tween.tween_property(
-			bypass_submit_preview,
-			"scale",
-			new_target,
-			0.2
-		).set_ease(ease).set_trans(Tween.TRANS_EXPO)
+	_animate_preview(forward, PreviewMode.BYPASS)
 
+func try_arrive(should_arrive: bool) -> void:
+	_animate_preview(should_arrive, PreviewMode.ARRIVE)
 
-func try_arrive(arrive: bool):
-	if is_fruit_quest_submittable() or !current_delivery_sender_list.is_empty() or !is_in_quest:
-		var new_target = Vector2(1.0, 1.4) if arrive else Vector2.ZERO
-		var ease = Tween.EASE_OUT if arrive else Tween.EASE_IN
-		if not is_in_quest:
-			bypass_submit_preview.texture = quest_status_sprite_new_quest
-		else:
-			bypass_submit_preview.texture = quest_status_sprite_complete
-		
-		if preview_target_scale == new_target:
-			return
-		preview_target_scale = new_target
-		
-		if bypass_tween and bypass_tween.is_valid():
-			bypass_tween.kill()
-		
-		bypass_tween = create_tween()
-		bypass_tween.tween_property(
-			bypass_submit_preview,
-			"scale",
-			new_target,
-			0.2
-		).set_ease(ease).set_trans(Tween.TRANS_EXPO)
+func try_interact(should_interact: bool) -> void:
+	_animate_preview(should_interact, PreviewMode.INTERACT)
 
 
 func on_item_count_changed(item_name: String, count: int, change_amount: int, source: Vector2):

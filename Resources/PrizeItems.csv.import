@@ -3,11 +3,13 @@
 importer="csv_translation"
 type="Translation"
 uid="uid://bf4s4hh52tkxm"
-valid=false
 
 [deps]
 
+files=["res://Resources/PrizeItems.prize.translation", "res://Resources/PrizeItems.item.translation", "res://Resources/PrizeItems.sources.translation", "res://Resources/PrizeItems.weight.translation"]
+
 source_file="res://Resources/PrizeItems.csv"
+dest_files=["res://Resources/PrizeItems.prize.translation", "res://Resources/PrizeItems.item.translation", "res://Resources/PrizeItems.sources.translation", "res://Resources/PrizeItems.weight.translation"]
 
 [params]
 

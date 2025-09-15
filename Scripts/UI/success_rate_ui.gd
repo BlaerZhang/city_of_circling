@@ -25,6 +25,7 @@ func update_success_rate():
 	is_tween_playing = true
 	success_rate_tween = create_tween()
 	success_rate_tween.tween_interval(4)
+	success_rate_tween.tween_callback(func(): is_tween_playing = false)
 	success_rate_tween.tween_method(
 		func(val: float): 
 			self.text = tr("SUCCESS_RATE") % [val * 100]
@@ -33,7 +34,6 @@ func update_success_rate():
 		target_rate, 
 		2.0
 	).set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_QUART)
-	success_rate_tween.tween_callback(func(): is_tween_playing = false)
 
 func _notification(what : int) -> void:
 	if what == NOTIFICATION_TRANSLATION_CHANGED:
