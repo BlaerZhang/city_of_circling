@@ -113,4 +113,5 @@ func on_moused_clicked_down_grid(grid_pos: Vector2i):
 	if !GameManager.input_lock && !GameManager.grid_input_lock:
 		moused_clicked_down_grid.emit(grid_pos)
 		grid_database[grid_pos].self_modulate = Color.WHITE
-		grid_database[grid_pos].interact()
+		if GameManager.current_game_state == GameManager.GameState.Idle:
+			grid_database[grid_pos].interact()

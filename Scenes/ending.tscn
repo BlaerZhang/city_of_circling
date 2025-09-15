@@ -13,7 +13,7 @@
 [ext_resource type="Texture2D" uid="uid://cqpddw7ntt3er" path="res://Assets/Sprites/Icon/1x/Traffic_outline.png" id="34_45bla"]
 [ext_resource type="AudioStream" uid="uid://bf1r8loygtxpi" path="res://Assets/Audio/Running the Game_ID_07252025 (1).mp3" id="35_uhv51"]
 [ext_resource type="Texture2D" uid="uid://dq38vavtoi2l3" path="res://Assets/Sprites/Grid/1x/Gate.png" id="36_twrhr"]
-[ext_resource type="Script" uid="uid://l0kyl2xsshwi" path="res://Scripts/time_ui.gd" id="40_51dav"]
+[ext_resource type="Script" path="res://Scripts/time_ui.gd" id="40_51dav"]
 [ext_resource type="PackedScene" uid="uid://dcpcolpctf6n0" path="res://Scenes/resource_ui_grid.tscn" id="41_w73yj"]
 [ext_resource type="Texture2D" uid="uid://7xkg8ryjugf3" path="res://Assets/Sprites/Grid/1x/upgrade_coupon_ui_panel.png" id="42_u76n8"]
 [ext_resource type="Texture2D" uid="uid://l10osv2s0rc8" path="res://Assets/Sprites/Grid/1x/fruit_ui_panel.png" id="43_cagjy"]

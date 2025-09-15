@@ -1,4 +1,4 @@
-[gd_scene load_steps=105 format=3 uid="uid://c6e414gy1cwn5"]
+[gd_scene load_steps=106 format=3 uid="uid://c6e414gy1cwn5"]
 
 [ext_resource type="Script" uid="uid://tdlox2h37vxw" path="res://Scripts/test_input.gd" id="1_pqs0o"]
 [ext_resource type="PackedScene" uid="uid://b8imxf8a6f2lg" path="res://Scenes/spin_wheel.tscn" id="1_ru8g0"]
@@ -39,7 +39,7 @@
 [ext_resource type="Texture2D" uid="uid://b28o0fpr5uhhj" path="res://Assets/Sprites/Icon/1x/white.png" id="35_apgn6"]
 [ext_resource type="Texture2D" uid="uid://dq38vavtoi2l3" path="res://Assets/Sprites/Grid/1x/Gate.png" id="36_pqs0o"]
 [ext_resource type="PackedScene" uid="uid://bydkdm2kx36qd" path="res://Scenes/functional_component_gate.tscn" id="37_34x56"]
-[ext_resource type="Script" uid="uid://l0kyl2xsshwi" path="res://Scripts/time_ui.gd" id="38_4d1v3"]
+[ext_resource type="Script" path="res://Scripts/time_ui.gd" id="38_4d1v3"]
 [ext_resource type="Texture2D" uid="uid://1f1pkyq3oliq" path="res://Assets/Sprites/Grid/1x/upgrades_ui_button.png" id="41_acjk4"]
 [ext_resource type="Texture2D" uid="uid://c7qbvwcthokxi" path="res://Assets/Sprites/Grid/1x/upgrade_display_bar.png" id="42_3lc3d"]
 [ext_resource type="Texture2D" uid="uid://l10osv2s0rc8" path="res://Assets/Sprites/Grid/1x/fruit_ui_panel.png" id="42_apgn6"]
@@ -478,6 +478,10 @@ states/Walk/position = Vector2(752, 116)
 transitions = ["Start", "Idle", SubResource("AnimationNodeStateMachineTransition_mdahh")]
 graph_offset = Vector2(-197, -14)
 
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_pqs0o"]
+radius = 25.2032
+height = 78.0488
+
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_0xfc0"]
 texture = ExtResource("41_acjk4")
 modulate_color = Color(0.752941, 0.752941, 0.752941, 1)
@@ -527,6 +531,13 @@ tree_root = SubResource("AnimationNodeStateMachine_gi8jr")
 anim_player = NodePath("../AnimationPlayer")
 parameters/Idle/blend_position = Vector2(-0.125166, -0.494506)
 parameters/Walk/blend_position = Vector2(-0.716216, 0.5)
+
+[node name="Area2D" type="Area2D" parent="Player/Player Sprite"]
+collision_priority = 10.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Player/Player Sprite/Area2D"]
+position = Vector2(-0.813008, -26.0163)
+shape = SubResource("CapsuleShape2D_pqs0o")
 
 [node name="Player Idle Outline" type="Sprite2D" parent="Player"]
 unique_name_in_owner = true
@@ -1616,6 +1627,9 @@ stream = ExtResource("62_yiyb4")
 volume_db = -10.0
 autoplay = true
 
+[connection signal="input_event" from="Player/Player Sprite/Area2D" to="Player/Player Movement Manager" method="_on_area_2d_input_event"]
+[connection signal="mouse_entered" from="Player/Player Sprite/Area2D" to="Player/Player Movement Manager" method="_on_area_2d_mouse_entered"]
+[connection signal="mouse_exited" from="Player/Player Sprite/Area2D" to="Player/Player Movement Manager" method="_on_area_2d_mouse_exited"]
 [connection signal="pressed" from="Board/In-world UI/Upgrades UI" to="Board/In-world UI/Upgrades UI" method="_on_pressed"]
 
 [editable path="Board/In-world UI/Resource UI Grid Exchange coupon"]

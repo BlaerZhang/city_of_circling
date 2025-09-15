@@ -55,11 +55,14 @@ func _ready() -> void:
 	player_grid_pos = player_initial_grid_pos
 	player_facing = player_initial_facing
 	is_player_moving = false
-	GridManager.moused_clicked_down_grid.connect(start_plan_move)
+	# GridManager.moused_clicked_down_grid.connect(start_plan_move)
 	GridManager.moused_entered_grid.connect(step_plan_move)
 	GridManager.moused_clicked_down_grid.connect(complete_plan_move)
 	UpgradeManager.upgrade_added.connect(on_upgrade_added)
 	GameManager.game_state_changed.connect(idle_set_player_grid_outline)
+
+	get_viewport().physics_object_picking_first_only = true
+	get_viewport().physics_object_picking_sort = true
 
 
 func _input(event: InputEvent) -> void:
@@ -284,3 +287,16 @@ func on_upgrade_added(upgrade: Upgrade):
 			interaction_distance_unlocked = true
 		"moving backward":
 			moving_backwards_unlocked = true
+
+
+func _on_area_2d_mouse_entered() -> void:
+	player_sprite.self_modulate = Color.GREEN
+
+
+func _on_area_2d_mouse_exited() -> void:
+	player_sprite.self_modulate = Color.WHITE
+
+
+func _on_area_2d_input_event(viewport: Node, event: InputEvent, shape_idx: int) -> void:
+	if event.is_action_pressed("left_click"):
+		start_plan_move(player_grid_pos)
