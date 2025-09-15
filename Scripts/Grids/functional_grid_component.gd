@@ -42,3 +42,7 @@ func try_bypass(forward: bool) -> void:
 
 func try_arrive(arrive: bool):
 	pass
+
+
+func try_interact(interact: bool):
+	pass

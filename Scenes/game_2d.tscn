@@ -1,4 +1,4 @@
-[gd_scene load_steps=106 format=3 uid="uid://c6e414gy1cwn5"]
+[gd_scene load_steps=107 format=3 uid="uid://c6e414gy1cwn5"]
 
 [ext_resource type="Script" uid="uid://tdlox2h37vxw" path="res://Scripts/test_input.gd" id="1_pqs0o"]
 [ext_resource type="PackedScene" uid="uid://b8imxf8a6f2lg" path="res://Scenes/spin_wheel.tscn" id="1_ru8g0"]
@@ -479,6 +479,10 @@ states/Walk/position = Vector2(752, 116)
 transitions = ["Start", "Idle", SubResource("AnimationNodeStateMachineTransition_mdahh")]
 graph_offset = Vector2(-197, -14)
 
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_34x56"]
+radius = 27.6423
+height = 68.2927
+
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_0gtsh"]
 texture = ExtResource("48_0gtsh")
 modulate_color = Color(0.399085, 0.741407, 0.948549, 1)
@@ -529,6 +533,13 @@ tree_root = SubResource("AnimationNodeStateMachine_gi8jr")
 anim_player = NodePath("../AnimationPlayer")
 parameters/Idle/blend_position = Vector2(-0.125166, -0.494506)
 parameters/Walk/blend_position = Vector2(-0.716216, 0.5)
+
+[node name="Area2D" type="Area2D" parent="Player/Player Sprite"]
+scale = Vector2(1, 1)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Player/Player Sprite/Area2D"]
+position = Vector2(0, -24.3902)
+shape = SubResource("CapsuleShape2D_34x56")
 
 [node name="Player Idle Outline" type="Sprite2D" parent="Player"]
 unique_name_in_owner = true
@@ -1688,6 +1699,9 @@ stream = ExtResource("62_yiyb4")
 volume_db = -10.0
 autoplay = true
 
+[connection signal="input_event" from="Player/Player Sprite/Area2D" to="Player/Player Movement Manager" method="_on_area_2d_input_event"]
+[connection signal="mouse_entered" from="Player/Player Sprite/Area2D" to="Player/Player Movement Manager" method="_on_area_2d_mouse_entered"]
+[connection signal="mouse_exited" from="Player/Player Sprite/Area2D" to="Player/Player Movement Manager" method="_on_area_2d_mouse_exited"]
 [connection signal="mouse_entered" from="Board/In-world UI/Success Rate UI" to="Board/In-world UI/Success Rate UI" method="_on_mouse_entered"]
 [connection signal="mouse_exited" from="Board/In-world UI/Success Rate UI" to="Board/In-world UI/Success Rate UI" method="_on_mouse_exited"]
 [connection signal="pressed" from="Board/In-world UI/Upgrades UI" to="Board/In-world UI/Upgrades UI" method="_on_pressed"]

@@ -95,22 +95,27 @@ func show_grid_at_pos(grid_pos: Vector2i):
 
 
 func on_moused_entered_grid(grid_pos: Vector2i):
-	#print("Manager received signals from:" + str(grid_pos) + " Entered")
+	# print("Manager received signals from:" + str(grid_pos) + " Entered")
 	if !GameManager.input_lock && !GameManager.grid_input_lock:
 		moused_entered_grid.emit(grid_pos)
-		grid_database[grid_pos].self_modulate = Color.hex(0xf0f0f0ff)
+		if GameManager.current_game_state == GameManager.GameState.Idle:
+			grid_database[grid_pos].grid_outline.modulate = Color.BLACK
+			grid_database[grid_pos].try_interact(true)
 
 
 func on_moused_exited_grid(grid_pos: Vector2i):
 	#print("Manager received signals from:" + str(grid_pos) + " Exited")
 	if !GameManager.input_lock && !GameManager.grid_input_lock:
 		moused_exited_grid.emit(grid_pos)
-		grid_database[grid_pos].self_modulate = Color.WHITE
+		if GameManager.current_game_state == GameManager.GameState.Idle:
+			grid_database[grid_pos].grid_outline.modulate = Color.TRANSPARENT
+			grid_database[grid_pos].try_interact(false)
 
 
 func on_moused_clicked_down_grid(grid_pos: Vector2i):
 	#print("Manager received signals from:" + str(grid_pos) + " Clicked Down")
 	if !GameManager.input_lock && !GameManager.grid_input_lock:
 		moused_clicked_down_grid.emit(grid_pos)
-		grid_database[grid_pos].self_modulate = Color.WHITE
-		grid_database[grid_pos].interact()
+		if GameManager.current_game_state == GameManager.GameState.Idle:
+			grid_database[grid_pos].interact()
+			grid_database[grid_pos].try_interact(true)
