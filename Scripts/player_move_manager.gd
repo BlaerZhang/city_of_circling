@@ -290,7 +290,7 @@ func on_upgrade_added(upgrade: Upgrade):
 
 
 func _on_area_2d_mouse_entered() -> void:
-	if GameManager.current_game_state == GameManager.GameState.Idle:
+	# if GameManager.current_game_state == GameManager.GameState.Idle:
 		player_sprite.self_modulate = Color.GREEN
 
 
@@ -302,4 +302,4 @@ func _on_area_2d_input_event(viewport: Node, event: InputEvent, shape_idx: int) 
 	if GameManager.current_game_state == GameManager.GameState.Idle:
 		if event.is_action_pressed("left_click"):
 			start_plan_move(player_grid_pos)
-			_on_area_2d_mouse_exited()
+			# _on_area_2d_mouse_exited()
