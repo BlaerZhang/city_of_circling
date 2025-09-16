@@ -1,9 +1,10 @@
-[gd_scene load_steps=107 format=3 uid="uid://c6e414gy1cwn5"]
+[gd_scene load_steps=109 format=3 uid="uid://c6e414gy1cwn5"]
 
 [ext_resource type="Script" uid="uid://tdlox2h37vxw" path="res://Scripts/test_input.gd" id="1_pqs0o"]
 [ext_resource type="PackedScene" uid="uid://b8imxf8a6f2lg" path="res://Scenes/spin_wheel.tscn" id="1_ru8g0"]
 [ext_resource type="Script" uid="uid://bljhqnbfuvtu0" path="res://Scripts/player_move_manager.gd" id="1_xt382"]
 [ext_resource type="Script" uid="uid://clqc6neay12up" path="res://Scripts/line_drawer.gd" id="3_8hnth"]
+[ext_resource type="Shader" uid="uid://c8jyyb08wssev" path="res://outline.gdshader" id="3_apgn6"]
 [ext_resource type="Texture2D" uid="uid://dr23hnyyxd0py" path="res://Assets/Sprites/Character/isometric_character_walk.png" id="3_gi8jr"]
 [ext_resource type="Texture2D" uid="uid://cekckf0prcvy6" path="res://Assets/Sprites/Grid/1x/grid_outline.png" id="6_34x56"]
 [ext_resource type="PackedScene" uid="uid://cvj1o3m2uylun" path="res://Scenes/grid.tscn" id="6_xt382"]
@@ -64,6 +65,15 @@
 [ext_resource type="AudioStream" uid="uid://dxa84rdtwplt3" path="res://Assets/Audio/JollyEssentials_BGMdemo_v1_120bpm_Fullmix.wav" id="62_yiyb4"]
 [ext_resource type="Resource" uid="uid://bqm7cjpn74n80" path="res://Resources/Upgrades/shop_rarity_plus.tres" id="63_p4hnd"]
 [ext_resource type="Texture2D" uid="uid://clniig6wj2ukd" path="res://Assets/Sprites/Icon/1x/trade.png" id="65_4es2p"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_p4hnd"]
+shader = ExtResource("3_apgn6")
+shader_parameter/color = Color(0.533333, 0.72549, 0.309804, 1)
+shader_parameter/width = 3.0
+shader_parameter/pattern = 0
+shader_parameter/inside = false
+shader_parameter/add_margins = false
+shader_parameter/number_of_images = Vector2(1, 1)
 
 [sub_resource type="Animation" id="Animation_7fl2r"]
 length = 0.001
@@ -514,6 +524,8 @@ step_time = 0.35
 unique_name_in_owner = true
 z_index = 5
 texture_filter = 1
+material = SubResource("ShaderMaterial_p4hnd")
+use_parent_material = true
 scale = Vector2(1.23, 1.23)
 texture = ExtResource("3_gi8jr")
 offset = Vector2(0, -24.475)

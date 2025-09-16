@@ -240,9 +240,9 @@ func update_grid_outline():
 		if planned_move_grid_positions.has(grid.grid_position):
 			if grid.grid_position == planning_grid_pos:
 				grid.outline_tween.set_loops()
-				grid.outline_tween.tween_property(grid.grid_outline, "modulate", Color.TRANSPARENT, 0.25).set_ease(Tween.EASE_IN_OUT).set_trans(Tween.TRANS_SINE)
-				grid.outline_tween.tween_property(grid.grid_outline, "modulate", outline_selected_color, 0.25).set_ease(Tween.EASE_IN_OUT).set_trans(Tween.TRANS_SINE)
-				grid.outline_tween.tween_interval(0.25)
+				grid.outline_tween.tween_property(grid.grid_outline, "modulate", Color.TRANSPARENT, 0.125).set_ease(Tween.EASE_IN_OUT).set_trans(Tween.TRANS_SINE)
+				grid.outline_tween.tween_property(grid.grid_outline, "modulate", outline_selected_color, 0.125).set_ease(Tween.EASE_IN_OUT).set_trans(Tween.TRANS_SINE)
+				grid.outline_tween.tween_interval(0.125)
 			else:
 				grid.outline_tween.tween_property(grid.grid_outline, "modulate", outline_selected_color, 0.1)
 		elif planning_grids_in_range.has(grid):
@@ -291,11 +291,11 @@ func on_upgrade_added(upgrade: Upgrade):
 
 func _on_area_2d_mouse_entered() -> void:
 	# if GameManager.current_game_state == GameManager.GameState.Idle:
-		player_sprite.self_modulate = Color.GREEN
+		player_sprite.use_parent_material = false
 
 
 func _on_area_2d_mouse_exited() -> void:
-	player_sprite.self_modulate = Color.WHITE
+	player_sprite.use_parent_material = true
 
 
 func _on_area_2d_input_event(viewport: Node, event: InputEvent, shape_idx: int) -> void:
