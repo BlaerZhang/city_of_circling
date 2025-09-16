@@ -1,0 +1,17 @@
+[remap]
+
+importer="csv_translation"
+type="Translation"
+uid="uid://dy31lu0aauqm4"
+
+[deps]
+
+files=["res://Assets/Internationalization/Ending_String_Data.en.translation", "res://Assets/Internationalization/Ending_String_Data.zh.translation"]
+
+source_file="res://Assets/Internationalization/Ending_String_Data.csv"
+dest_files=["res://Assets/Internationalization/Ending_String_Data.en.translation", "res://Assets/Internationalization/Ending_String_Data.zh.translation"]
+
+[params]
+
+compress=true
+delimiter=0

@@ -1,7 +1,7 @@
 [gd_scene load_steps=6 format=3 uid="uid://d7x88c8vthvo"]
 
 [ext_resource type="Texture2D" uid="uid://cy5q8fhujpt5h" path="res://Assets/Sprites/Grid/1x/ui_grid.png" id="1_g00sh"]
-[ext_resource type="Script" path="res://Scripts/UI/points_ui.gd" id="2_k1qda"]
+[ext_resource type="Script" uid="uid://c81v5s186i38t" path="res://Scripts/UI/points_ui.gd" id="2_k1qda"]
 [ext_resource type="PackedScene" uid="uid://cvy6pgutedfcu" path="res://Scenes/item_count_change_particle.tscn" id="3_g00sh"]
 [ext_resource type="Texture2D" uid="uid://clniig6wj2ukd" path="res://Assets/Sprites/Icon/1x/trade.png" id="4_k1qda"]
 [ext_resource type="Texture2D" uid="uid://c18pimaqq8gdm" path="res://Assets/Sprites/Grid/1x/ui_grid_outline.png" id="6_2ilcd"]

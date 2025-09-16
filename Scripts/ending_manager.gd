@@ -7,52 +7,137 @@ extends Node
 @onready var ending_animation_player: AnimationPlayer = %EndingAnimationPlayer
 @onready var background: TextureRect = $BG
 @onready var bg_mask: Sprite2D = %"BG Mask"
+@onready var score_ui: RichTextLabel = %"Adventure Score UI"
+@onready var score_delta_ui: RichTextLabel = %"Score Delta UI"
 var days_left: int
+var days_passed: int = 0
 var success_rate: float
 var daily_sr: float
 var adventure_score: int = 0
-var player_health: int = 3
+var current_milestone: int = 0
 
-var resolving:= false
+@export_group("Health Related")
+@export var max_player_health: int = 3
+@export var hp_icons: Array[TextureRect]
+var player_health: int = 3
+@onready var hp_icon_texture: Texture2D = preload("res://Assets/Sprites/Icon/1x/suit_hearts.png")
+@onready var damage_icon_texture: Texture2D = preload("res://Assets/Sprites/Icon/1x/suit_hearts_broken.png")
+
+@export_group("Event Related")
+@export var event_text_key_success_count: int = 40
+@export var event_text_key_failure_count: int = 10
+@onready var event_ui: RichTextLabel = %"Event UI"
+
+var resolving_step:= false
+var ended: bool = false
 
 func _ready() -> void:
 	days_left = total_days - TimeManager.current_day
+	days_passed = 0
 	success_rate = PointManager.success_rate
 	daily_sr = solve_dsr_from_sr_and_d(success_rate, days_left)
-	print(daily_sr)
+	current_milestone = 0
+	adventure_score = 0
+	player_health = max_player_health
+	update_stage_ui(current_milestone)
+	score_ui.text = str(adventure_score)
+	score_delta_ui.text = ""
+
 
 func _input(event: InputEvent) -> void:
 	if event.is_action_pressed("left_click"):
-		if not resolving: 
-			resolving = true
-			await resolve_day()
-			resolving = false
+		if not resolving_step and not ended: 
+			resolving_step = true
+			if days_left > 0 and player_health > 0:
+				await resolve_day()
+			elif player_health > 0:
+				resolve_game(true)
+			else:
+				resolve_game(false)
+			resolving_step = false
+	
+	if event.is_action_pressed("right_click"):
+		if ended:
+			SceneManager.change_scene("res://Scenes/translation_manager.tscn")
 
 
 func gain_adventure_score():
-	adventure_score += 1
+	var score_delta = roundi((10 + current_milestone * 40 + days_passed * 5) * randf_range(0.5, 2.0))
+	adventure_score += score_delta
+	score_delta_ui.text = "+" + str(score_delta)
+	var score_tween = create_tween()
+	score_tween.tween_property(score_delta_ui, "position:y", 150, 0).as_relative()
+	score_tween.tween_property(score_delta_ui, "self_modulate", Color.WHITE, 0.25)
+	score_tween.parallel().tween_property(score_delta_ui, "position:y", -75, 0.25).as_relative()
+	score_tween.tween_callback(func(): score_delta_ui.text = "+" + str(score_delta))
+	score_tween.tween_interval(0.25)
+	score_tween.tween_property(score_delta_ui, "self_modulate", Color.TRANSPARENT, 0.25)
+	score_tween.parallel().tween_property(score_delta_ui, "position:y", -75, 0.25).as_relative()
+	score_tween.tween_method(func(val: int): score_ui.text = str(val), score_ui.text.to_int(), adventure_score, 0.5).set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_QUART)
+	await score_tween.finished
 
 
 func resolve_day():
 	days_left -= 1
+	days_passed += 1
 	TimeManager.add_one_day()
+
+	if days_passed % 10 == 0:
+		current_milestone += 1
+		update_stage_ui(current_milestone)
 	
 	if try_daily_sr(daily_sr):
-		gain_adventure_score()
+		update_event(true)
 		ending_animation_player.play("ending_grid_move")
-		await ending_animation_player.animation_finished
-		if days_left == 0:
-			resolve_game(true)
+		ending_animation_player.animation_finished
+		await gain_adventure_score()
 	else:
+		update_event(false)
 		await take_damage()
-		if player_health == 0:
-			resolve_game(false)
+
 
 func resolve_game(succeeded: bool):
+	ended = true
+	update_stage_ui(current_milestone + 1)
 	if succeeded:
-		pass
+		event_ui.self_modulate = Color.WHITE
+		event_ui.text = ""
+		var event_end_tween = create_tween()
+		event_end_tween.tween_property(event_ui, "text", tr("EVENT_SUCCESS"), 2)
+
+		score_delta_ui.self_modulate = Color.WHITE
+		score_delta_ui.text = ""
+		var score_end_tween = create_tween()
+		score_end_tween.tween_property(score_delta_ui, "position:y", 75, 0).as_relative()
+		score_end_tween.tween_property(score_delta_ui, "text", tr("FINAL_SCORE"), 0.25)
 	else:
-		pass
+		event_ui.self_modulate = Color.WHITE
+		event_ui.text = ""
+		var event_end_tween = create_tween()
+		event_end_tween.tween_property(event_ui, "text", tr("EVENT_FAILURE"), 2)
+
+		score_delta_ui.self_modulate = Color.WHITE
+		score_delta_ui.text = ""
+		var score_end_tween = create_tween()
+		score_end_tween.tween_property(score_delta_ui, "position:y", 75, 0).as_relative()
+		score_end_tween.tween_property(score_delta_ui, "text", tr("FINAL_SCORE"), 0.25)
+
+
+func update_stage_ui(milestone: int):
+	var stage_tween = create_tween().set_parallel(true)
+	stage_tween.tween_property(bg_mask, "self_modulate", bg_color_palette[milestone], 2)
+	stage_tween.tween_property(background, "self_modulate", bg_color_palette[milestone], 2)
+	for grid in grids:
+		stage_tween.tween_property(grid, "self_modulate", grid_color_palette[milestone], 2)
+
+
+func update_event(succeeded: bool):
+	var event_tween = create_tween()
+	event_tween.tween_property(event_ui, "self_modulate", Color.TRANSPARENT, 0.25)
+	event_tween.parallel().tween_property(event_ui, "position:y", 50, 0.25).as_relative()
+	event_tween.tween_callback(func(): event_ui.text = "EVENT_" + "SUCCESS_" + str(randi_range(1, event_text_key_success_count)) if succeeded else "EVENT_" + "FAILURE_" + str(randi_range(1, event_text_key_failure_count)))
+	event_tween.tween_property(event_ui, "self_modulate", Color.WHITE, 0.25)
+	event_tween.parallel().tween_property(event_ui, "position:y", -50, 0.25).as_relative()
 
 
 func try_daily_sr(dsr: float) -> bool:
@@ -61,6 +146,14 @@ func try_daily_sr(dsr: float) -> bool:
 
 func take_damage():
 	player_health -= 1
+	hp_icons[player_health].texture = damage_icon_texture
+	var damage_tween = create_tween()
+	damage_tween.tween_property(background, "self_modulate", Color.RED, 0.1)
+	damage_tween.parallel().tween_property(bg_mask, "self_modulate", Color.RED, 0.1)
+	damage_tween.tween_property(background, "self_modulate", bg_color_palette[current_milestone], 0.5)
+	damage_tween.parallel().tween_property(bg_mask, "self_modulate", bg_color_palette[current_milestone], 0.5)
+	damage_tween.tween_property(hp_icons[player_health], "position:y", -50, 0.5).as_relative()
+	damage_tween.parallel().tween_property(hp_icons[player_health], "self_modulate", Color.TRANSPARENT, 0.25)
 
 
 ## 根据冒险成功率(SR)和剩余天数(D)求解每日冒险成功率(DSR)

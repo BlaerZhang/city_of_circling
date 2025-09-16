@@ -1,0 +1,56 @@
+﻿key,en,zh
+EVENT_START,Left the City of Circling.,离开了盘旋城。
+EVENT_SUCCESS,Adventure Succeeded.\n60 days well spent.,冒险圆满结束了。\n度过了有收获的60天。
+EVENT_SUCCESS_1,"The task compass points to a hidden mountain path, greatly improving exploration efficiency.",任务罗盘指明隐秘山径，探索效率大幅提升。
+EVENT_SUCCESS_2,"The treasure map reveals an underground cave entrance, uncovering valuable artifacts.",藏宝图揭示地下洞穴入口，发现珍贵古物。
+EVENT_SUCCESS_3,"The task log records previous explorers’ experience, unlocking complex mechanisms smoothly.",任务日志记录前人经验，顺利解开机关谜题。
+EVENT_SUCCESS_4,"The battle pass grants extra support, accelerating progression through the stage.",战斗通行证换取支援，加快关卡推进速度。
+EVENT_SUCCESS_5,"The skateboard speeds across the canyon, saving significant travel time.",滑板高速穿越峡谷，节省大量行进时间。
+EVENT_SUCCESS_6,"The grappling hook secures rare ore on a cliff, allowing successful collection.",钩爪挂住悬崖边稀有矿石，成功采集。
+EVENT_SUCCESS_7,"The jump pad helps reach a high platform, revealing a hidden chest.",跳板助力跃上高台，找到隐藏宝箱。
+EVENT_SUCCESS_8,"The rocket dash bypasses obstacles, gaining resources ahead of time.",火箭短暂冲刺避开障碍，率先收集资源。
+EVENT_SUCCESS_9,"The portal leads directly to a distant ruin, expanding the exploration range.",传送门直达远方废墟，探索范围扩大。
+EVENT_SUCCESS_10,"The crystal reveals traps along the path, avoiding danger successfully.",水晶球提前显现路径陷阱，顺利避开危险。
+EVENT_SUCCESS_11,"The coin bag contains extra coins, enabling smoother trading.",钱袋发现额外金币，完成交易更为顺利。
+EVENT_SUCCESS_12,"The balance ensures fair trades, acquiring rare supplies.",天平衡量交易公平，换得珍稀补给。
+EVENT_SUCCESS_13,"The voucher redeems hidden rewards, accelerating equipment upgrades.",积分券换得隐藏奖励，加快装备升级。
+EVENT_SUCCESS_14,"The membership card unlocks a secret shop, obtaining rare items.",会员卡解锁秘密商店，获得稀有物资。
+EVENT_SUCCESS_15,"The clover shines in the wind, revealing unexpected treasures.",四叶草在风中闪耀好运，意外发现珍宝。
+EVENT_SUCCESS_16,"The dice roll produces a perfect result, triggering additional exploration opportunities.",骰子掷出奇妙点数，触发额外探索机会。
+EVENT_SUCCESS_17,"The canyon echoes expose a hidden path, gaining vital clues.",山谷回声暴露隐藏通道，获得重要线索。
+EVENT_SUCCESS_18,A flash of light under an ancient tree reveals valuable runes.,古树下闪烁光点，找到珍贵符文。
+EVENT_SUCCESS_19,Ruins by the river provide historical documents for insight.,河岸边出现破碎遗迹，拾得历史资料。
+EVENT_SUCCESS_20,"A shooting star streaks across the night sky, marking a hidden treasure.",夜空流星划过，发现暗示宝藏的标记。
+EVENT_SUCCESS_21,"Wind blows down an old scroll, revealing mechanism hints.",风吹落古老卷轴，解开机关提示。
+EVENT_SUCCESS_22,"Rare herbs appear in cliff crevices, usable for crafting enhancements.",悬崖石缝中显露稀有草药，可制作强化物品。
+EVENT_SUCCESS_23,"Mysterious music echoes through the ruins, unveiling a hidden route.",废墟中回响神秘乐声，揭示隐藏路线。
+EVENT_SUCCESS_24,"A rainbow illuminates the ravine, revealing a shortcut.",雨后彩虹照亮裂谷，找到捷径通路。
+EVENT_SUCCESS_25,Debris in the wilderness conceals fragments that form useful tools.,荒野石堆中隐藏碎片，组合成有用道具。
+EVENT_SUCCESS_26,A golden glimmer deep in the cave unlocks a new exploration target.,岩洞深处闪烁金光，解锁新的探险目标。
+EVENT_SUCCESS_27,Exposed ruins in the desert reveal clue fragments for progress.,荒原沙地露出古代遗迹，获得线索碎片。
+EVENT_SUCCESS_28,"Glimmering gemstones appear in stone bridge cracks, enhancing equipment.",石桥裂缝中发现闪光宝石，增强装备效果。
+EVENT_SUCCESS_29,"Secret herbs appear along forest paths, used for life-restoring remedies.",密林小径露出隐秘药草，制作生命补剂。
+EVENT_SUCCESS_30,Ancient scrolls in a tall tower unlock puzzle solutions.,高塔阴影下藏着古卷，顺利解锁谜题。
+EVENT_SUCCESS_31,"Glittering fragments appear in riverside ruins, revealing hidden resources.",河边废墟里出现闪光碎片，发现隐藏资源。
+EVENT_SUCCESS_32,"Echoes in a cave indicate direction, allowing swift passage.",山洞回音显现方向，快速穿越险地。
+EVENT_SUCCESS_33,Storage boxes in snowy ruins contain rare materials.,雪地遗迹中找到储藏箱，收获稀有材料。
+EVENT_SUCCESS_34,Flickering lights along the cliff guide a safe descent.,悬崖边闪烁光点，引导安全下行路径。
+EVENT_SUCCESS_35,"Ancient symbols appear deep in the forest, advancing task progress.",荒林深处偶现古代符号，推进任务进度。
+EVENT_SUCCESS_36,Broken stone slabs in desert ruins reveal crucial clues.,沙漠废墟里出现破碎石板，获得重要线索。
+EVENT_SUCCESS_37,"Shimmering ore is exposed in a valley stream, collected successfully.",山谷流水旁显露闪光矿石，成功采集。
+EVENT_SUCCESS_38,Hidden treasures on a wild hill unlock additional exploration.,荒野小丘上藏有神秘宝物，解锁额外探索。
+EVENT_SUCCESS_39,Flickering lights in the forest grass uncover concealed supplies.,荒林草丛闪烁光芒，发现隐藏补给。
+EVENT_SUCCESS_40,"Ancient scrolls fall in a tower ruin, pushing the expedition forward.",高塔废墟中掉落古代卷轴，推进探险进程。
+EVENT_FAILURE,Adventure Failed.\nIt will be an unforgettable 60 days of your life.,冒险失败了。\n会是人生中难忘的60天。
+EVENT_FAILURE_1,"The compass malfunctions, losing direction and delaying progress.",罗盘指针失灵，迷失方向延误行进。
+EVENT_FAILURE_2,"The skateboard gets stuck in mud, severely reducing travel speed.",滑板陷入泥泞，行动速度大幅降低。
+EVENT_FAILURE_3,"The rocket loses control and hits a rock, losing rare resources.",火箭失控撞向岩壁，损失稀有资源。
+EVENT_FAILURE_4,"The grappling hook breaks, falling from a high platform and getting injured.",钩爪断裂，从高台跌落受伤。
+EVENT_FAILURE_5,"A wild beast lunges, causing injury and slowing progress.",野兽猛扑，受伤严重影响行动。
+EVENT_FAILURE_6,Rolling boulders nearly block the path.,落石滚落，险些砸中探险路线。
+EVENT_FAILURE_7,"Thorns cut arms, restricting movement and draining stamina.",荆棘划伤，行动受阻且消耗体力。
+EVENT_FAILURE_8,"A trap triggers, falling into a pit and losing supplies.",陷阱触发，跌入深坑损失补给。
+EVENT_FAILURE_9,Freezing wind slows movement and weakens endurance.,寒风侵袭，行动迟缓且精神受扰。
+EVENT_FAILURE_10,"Night fog obscures the way, wasting time and energy.",夜间迷雾笼罩，迷路导致时间浪费。
+ADVENTURE_SCORE,adventure score,冒险点数
+FINAL_SCORE,final score,最终得分
