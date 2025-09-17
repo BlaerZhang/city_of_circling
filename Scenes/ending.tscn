@@ -1,4 +1,4 @@
-[gd_scene load_steps=30 format=3 uid="uid://5d7decdgnw2o"]
+[gd_scene load_steps=32 format=3 uid="uid://5d7decdgnw2o"]
 
 [ext_resource type="Script" uid="uid://0vlh64ugsg0e" path="res://Scripts/ending_manager.gd" id="1_xckqc"]
 [ext_resource type="Texture2D" uid="uid://cb4mim7ejh66w" path="res://Assets/Sprites/Grid/1x/grid.png" id="2_xckqc"]
@@ -6,6 +6,8 @@
 [ext_resource type="Texture2D" uid="uid://boa3m7xsr0prg" path="res://Assets/Sprites/Grid/1x/grid_outline_heavy.png" id="4_bfdlc"]
 [ext_resource type="Texture2D" uid="uid://dbqsvbanelj7h" path="res://Assets/Sprites/Grid/SVG/ending_mask.svg" id="5_8w7g3"]
 [ext_resource type="Texture2D" uid="uid://crqgq34j3sdq2" path="res://Assets/Sprites/Icon/1x/suit_hearts.png" id="7_hv2aa"]
+[ext_resource type="Texture2D" uid="uid://cy5q8fhujpt5h" path="res://Assets/Sprites/Grid/1x/ui_grid.png" id="8_ox17v"]
+[ext_resource type="Texture2D" uid="uid://eveia5kvx6mp" path="res://Assets/Sprites/Icon/1x/footprint.png" id="9_ox17v"]
 [ext_resource type="Script" uid="uid://hik0cobddr3t" path="res://Scripts/UI/time_ui.gd" id="9_xckqc"]
 [ext_resource type="AudioStream" uid="uid://bf1r8loygtxpi" path="res://Assets/Audio/Running the Game_ID_07252025 (1).mp3" id="35_uhv51"]
 
@@ -594,11 +596,12 @@ texture = ExtResource("7_hv2aa")
 
 [node name="Adventure Score UI" type="RichTextLabel" parent="Board/In-world UI"]
 unique_name_in_owner = true
+clip_contents = false
 layout_mode = 0
-offset_left = -123.712
-offset_top = -223.337
-offset_right = 200.288
-offset_bottom = 442.666
+offset_left = -59.07
+offset_top = -223.452
+offset_right = 264.93
+offset_bottom = 442.551
 mouse_filter = 2
 theme_override_colors/default_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/normal_font_size = 76
@@ -628,6 +631,65 @@ text = "+999"
 fit_content = true
 autowrap_mode = 0
 horizontal_alignment = 1
+
+[node name="Points UI Grid" type="NinePatchRect" parent="Board/In-world UI/Adventure Score UI"]
+show_behind_parent = true
+custom_minimum_size = Vector2(344, 128)
+layout_mode = 0
+offset_left = -53.23
+offset_top = -16.905
+offset_right = 290.77
+offset_bottom = 111.095
+pivot_offset = Vector2(64, 64)
+texture = ExtResource("8_ox17v")
+region_rect = Rect2(0, 0, 128, 128)
+patch_margin_left = 5
+patch_margin_top = 5
+patch_margin_right = 5
+patch_margin_bottom = 5
+
+[node name="UI Grid Shadow" type="TextureRect" parent="Board/In-world UI/Adventure Score UI/Points UI Grid"]
+modulate = Color(0, 0, 0, 0.278431)
+show_behind_parent = true
+layout_mode = 2
+offset_left = -1.0
+offset_top = 4.0
+offset_right = 343.0
+offset_bottom = 132.0
+texture = ExtResource("8_ox17v")
+
+[node name="Icon" type="TextureRect" parent="Board/In-world UI/Adventure Score UI/Points UI Grid"]
+self_modulate = Color(0.866667, 0.701961, 0.384314, 1)
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 11.0
+offset_top = -53.0
+offset_right = 106.0
+offset_bottom = 53.0
+grow_vertical = 2
+pivot_offset = Vector2(53, 53)
+mouse_filter = 2
+texture = ExtResource("9_ox17v")
+expand_mode = 5
+stretch_mode = 5
+
+[node name="Icon Shadow" type="TextureRect" parent="Board/In-world UI/Adventure Score UI/Points UI Grid/Icon"]
+self_modulate = Color(0, 0, 0, 0.501961)
+show_behind_parent = true
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = -1.0
+offset_top = -49.0
+offset_right = 94.0
+offset_bottom = 57.0
+grow_vertical = 2
+texture = ExtResource("9_ox17v")
+expand_mode = 5
+stretch_mode = 5
 
 [node name="Event UI" type="RichTextLabel" parent="Board/In-world UI"]
 unique_name_in_owner = true

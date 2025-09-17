@@ -68,13 +68,13 @@ func gain_adventure_score():
 	adventure_score += score_delta
 	score_delta_ui.text = "+" + str(score_delta)
 	var score_tween = create_tween()
-	score_tween.tween_property(score_delta_ui, "position:y", 150, 0).as_relative()
+	score_tween.tween_property(score_delta_ui, "position:y", 200, 0).as_relative()
 	score_tween.tween_property(score_delta_ui, "self_modulate", Color.WHITE, 0.25)
-	score_tween.parallel().tween_property(score_delta_ui, "position:y", -75, 0.25).as_relative()
+	score_tween.parallel().tween_property(score_delta_ui, "position:y", -100, 0.25).as_relative()
 	score_tween.tween_callback(func(): score_delta_ui.text = "+" + str(score_delta))
 	score_tween.tween_interval(0.25)
 	score_tween.tween_property(score_delta_ui, "self_modulate", Color.TRANSPARENT, 0.25)
-	score_tween.parallel().tween_property(score_delta_ui, "position:y", -75, 0.25).as_relative()
+	score_tween.parallel().tween_property(score_delta_ui, "position:y", -100, 0.25).as_relative()
 	score_tween.tween_method(func(val: int): score_ui.text = str(val), score_ui.text.to_int(), adventure_score, 0.5).set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_QUART)
 	await score_tween.finished
 
@@ -111,7 +111,7 @@ func resolve_game(succeeded: bool):
 		score_delta_ui.self_modulate = Color.WHITE
 		score_delta_ui.text = ""
 		var score_end_tween = create_tween()
-		score_end_tween.tween_property(score_delta_ui, "position:y", 75, 0).as_relative()
+		score_end_tween.tween_property(score_delta_ui, "position:y", 100, 0).as_relative()
 		score_end_tween.tween_property(score_delta_ui, "text", tr("FINAL_SCORE"), 0.25)
 	else:
 		event_ui.self_modulate = Color.WHITE
@@ -122,7 +122,7 @@ func resolve_game(succeeded: bool):
 		score_delta_ui.self_modulate = Color.WHITE
 		score_delta_ui.text = ""
 		var score_end_tween = create_tween()
-		score_end_tween.tween_property(score_delta_ui, "position:y", 75, 0).as_relative()
+		score_end_tween.tween_property(score_delta_ui, "position:y", 100, 0).as_relative()
 		score_end_tween.tween_property(score_delta_ui, "text", tr("FINAL_SCORE"), 0.25)
 
 
