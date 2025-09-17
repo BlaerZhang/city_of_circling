@@ -41,7 +41,7 @@ EVENT_SUCCESS_37,"Shimmering ore is exposed in a valley stream, collected succes
 EVENT_SUCCESS_38,Hidden treasures on a wild hill unlock additional exploration.,荒野小丘上藏有神秘宝物，解锁额外探索。
 EVENT_SUCCESS_39,Flickering lights in the forest grass uncover concealed supplies.,荒林草丛闪烁光芒，发现隐藏补给。
 EVENT_SUCCESS_40,"Ancient scrolls fall in a tower ruin, pushing the expedition forward.",高塔废墟中掉落古代卷轴，推进探险进程。
-EVENT_FAILURE,Adventure Failed.\nIt will be an unforgettable 60 days of your life.,冒险失败了。\n会是人生中难忘的60天。
+EVENT_FAILURE,Adventure failed. \nMight as well have circled around the city for a little longer...,冒险失败了。\n要是在城里多盘旋一下的话…
 EVENT_FAILURE_1,"The compass malfunctions, losing direction and delaying progress.",罗盘指针失灵，迷失方向延误行进。
 EVENT_FAILURE_2,"The skateboard gets stuck in mud, severely reducing travel speed.",滑板陷入泥泞，行动速度大幅降低。
 EVENT_FAILURE_3,"The rocket loses control and hits a rock, losing rare resources.",火箭失控撞向岩壁，损失稀有资源。
@@ -52,8 +52,8 @@ EVENT_FAILURE_7,"Thorns cut arms, restricting movement and draining stamina.",�
 EVENT_FAILURE_8,"A trap triggers, falling into a pit and losing supplies.",陷阱触发，跌入深坑损失补给。
 EVENT_FAILURE_9,Freezing wind slows movement and weakens endurance.,寒风侵袭，行动迟缓且精神受扰。
 EVENT_FAILURE_10,"Night fog obscures the way, wasting time and energy.",夜间迷雾笼罩，迷路导致时间浪费。
-ADVENTURE_SCORE,adventure score,冒险点数
-FINAL_SCORE,final score,最终得分
+ADVENTURE_SCORE,Adventure Score,冒险点数
+FINAL_SCORE,Final Score,最终得分
 ,,
 EVENT_ARRIVE,Now Visiting,已到达
 EVENT_LOCATION_1,Outer Circling,盘旋城郊
