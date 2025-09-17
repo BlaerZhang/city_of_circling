@@ -28,6 +28,7 @@ var player_health: int = 3
 @export var event_text_key_success_count: int = 40
 @export var event_text_key_failure_count: int = 10
 @onready var event_ui: RichTextLabel = %"Event UI"
+@onready var event_location_ui: RichTextLabel = %"Location UI"
 
 var resolving_step:= false
 var ended: bool = false
@@ -40,9 +41,9 @@ func _ready() -> void:
 	current_milestone = 0
 	adventure_score = 0
 	player_health = max_player_health
-	update_stage_ui(current_milestone)
 	score_ui.text = str(adventure_score)
 	score_delta_ui.text = ""
+	event_location_ui.text = ""
 
 
 func _input(event: InputEvent) -> void:
@@ -63,7 +64,7 @@ func _input(event: InputEvent) -> void:
 
 
 func gain_adventure_score():
-	var score_delta = roundi((10 + current_milestone * 40 + days_passed * 5) * randf_range(0.5, 2.0))
+	var score_delta = roundi((10 + (current_milestone - 1) * 40 + days_passed * 5) * randf_range(0.5, 2.0))
 	adventure_score += score_delta
 	score_delta_ui.text = "+" + str(score_delta)
 	var score_tween = create_tween()
@@ -83,17 +84,17 @@ func resolve_day():
 	days_passed += 1
 	TimeManager.add_one_day()
 
-	if days_passed % 10 == 0:
+	if days_passed % 10 == 1:
 		current_milestone += 1
 		update_stage_ui(current_milestone)
 	
 	if try_daily_sr(daily_sr):
-		update_event(true)
+		update_event(true, days_passed % 10 == 1)
 		ending_animation_player.play("ending_grid_move")
 		ending_animation_player.animation_finished
 		await gain_adventure_score()
 	else:
-		update_event(false)
+		update_event(false, days_passed % 10 == 1)
 		await take_damage()
 
 
@@ -103,6 +104,7 @@ func resolve_game(succeeded: bool):
 	if succeeded:
 		event_ui.self_modulate = Color.WHITE
 		event_ui.text = ""
+		event_location_ui.text = ""
 		var event_end_tween = create_tween()
 		event_end_tween.tween_property(event_ui, "text", tr("EVENT_SUCCESS"), 2)
 
@@ -126,17 +128,19 @@ func resolve_game(succeeded: bool):
 
 func update_stage_ui(milestone: int):
 	var stage_tween = create_tween().set_parallel(true)
-	stage_tween.tween_property(bg_mask, "self_modulate", bg_color_palette[milestone], 2)
-	stage_tween.tween_property(background, "self_modulate", bg_color_palette[milestone], 2)
+	stage_tween.tween_property(bg_mask, "self_modulate", bg_color_palette[milestone - 1], 2)
+	stage_tween.tween_property(background, "self_modulate", bg_color_palette[milestone - 1], 2)
 	for grid in grids:
-		stage_tween.tween_property(grid, "self_modulate", grid_color_palette[milestone], 2)
+		stage_tween.tween_property(grid, "self_modulate", grid_color_palette[milestone - 1], 2)
 
 
-func update_event(succeeded: bool):
+func update_event(succeeded: bool, milestone_reached: bool = false):
+	if milestone_reached: print("Milestone Reached: " + str(current_milestone))
 	var event_tween = create_tween()
 	event_tween.tween_property(event_ui, "self_modulate", Color.TRANSPARENT, 0.25)
 	event_tween.parallel().tween_property(event_ui, "position:y", 50, 0.25).as_relative()
 	event_tween.tween_callback(func(): event_ui.text = "EVENT_" + "SUCCESS_" + str(randi_range(1, event_text_key_success_count)) if succeeded else "EVENT_" + "FAILURE_" + str(randi_range(1, event_text_key_failure_count)))
+	event_tween.tween_callback(func(): event_location_ui.text = tr("EVENT_ARRIVE") + " " + tr("EVENT_LOCATION_" + str(current_milestone)) if milestone_reached else "")
 	event_tween.tween_property(event_ui, "self_modulate", Color.WHITE, 0.25)
 	event_tween.parallel().tween_property(event_ui, "position:y", -50, 0.25).as_relative()
 
@@ -152,8 +156,8 @@ func take_damage():
 	damage_tween.tween_property(background, "self_modulate", Color.RED, 0.1)
 	damage_tween.parallel().tween_property(bg_mask, "self_modulate", Color.RED, 0.1)
 	damage_tween.parallel().tween_property(hp_ui_parent, "modulate", Color.WHITE, 0.1)
-	damage_tween.tween_property(background, "self_modulate", bg_color_palette[current_milestone], 0.5)
-	damage_tween.parallel().tween_property(bg_mask, "self_modulate", bg_color_palette[current_milestone], 0.5)
+	damage_tween.tween_property(background, "self_modulate", bg_color_palette[current_milestone - 1], 0.5)
+	damage_tween.parallel().tween_property(bg_mask, "self_modulate", bg_color_palette[current_milestone - 1], 0.5)
 	damage_tween.parallel().tween_property(hp_ui_parent, "modulate", Color.html("#EA5A47"), 0.5)
 	damage_tween.tween_property(hp_icons[player_health], "position:y", -50, 0.5).as_relative()
 	damage_tween.parallel().tween_property(hp_icons[player_health], "self_modulate", Color.TRANSPARENT, 0.25)

@@ -55,7 +55,7 @@ EVENT_FAILURE_10,"Night fog obscures the way, wasting time and energy.",夜间�
 ADVENTURE_SCORE,adventure score,冒险点数
 FINAL_SCORE,final score,最终得分
 ,,
-EVENT_ARRIVE,Visiting,已到达
+EVENT_ARRIVE,Now Visiting,已到达
 EVENT_LOCATION_1,Outer Circling,盘旋城郊
 EVENT_LOCATION_2,Promoton,笙阡
 EVENT_LOCATION_3,Desirough,峪望
