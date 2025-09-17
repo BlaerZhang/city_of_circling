@@ -27,6 +27,7 @@ var player_health: int = 3
 @export_group("Event Related")
 @export var event_text_key_success_count: int = 40
 @export var event_text_key_failure_count: int = 10
+var event_text_key_failure_index_array: Array[int]
 @onready var event_ui: RichTextLabel = %"Event UI"
 @onready var event_location_ui: RichTextLabel = %"Location UI"
 
@@ -44,6 +45,8 @@ func _ready() -> void:
 	score_ui.text = str(adventure_score)
 	score_delta_ui.text = ""
 	event_location_ui.text = ""
+	for i in range(event_text_key_failure_count):
+		event_text_key_failure_index_array.append(i + 1)
 
 
 func _input(event: InputEvent) -> void:
@@ -151,7 +154,9 @@ func update_event_text(succeeded: bool):
 		var event_index = days_passed if days_passed <= event_text_key_success_count else days_passed - event_text_key_success_count + 3
 		event_ui.text = "EVENT_" + "SUCCESS_" + str(event_index)
 	else:
-		event_ui.text = "EVENT_" + "FAILURE_" + str(randi_range(1, event_text_key_failure_count))
+		var event_index = event_text_key_failure_index_array.pick_random()
+		event_text_key_failure_index_array.erase(event_index)
+		event_ui.text = "EVENT_" + "FAILURE_" + str(event_index)
 
 
 func update_event_location(milestone_reached: bool):

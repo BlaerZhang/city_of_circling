@@ -407,6 +407,7 @@ grids = [NodePath("Board/Grids/Grid_1"), NodePath("Board/Grids/Grid_2"), NodePat
 bg_color_palette = Array[Color]([Color(0.6, 0.635294, 0.458824, 1), Color(0.621905, 0.294037, 0.302246, 1), Color(0.423162, 0.725253, 0.918915, 1), Color(0.885677, 0.958666, 1, 1), Color(1, 0.650769, 0.322478, 1), Color(0.625597, 0.625597, 0.625597, 1), Color(4.81308e-06, 0.806365, 0.961302, 1)])
 grid_color_palette = Array[Color]([Color(1, 1, 1, 1), Color(0.722284, 0.767861, 0.877541, 1), Color(0.411765, 0.635294, 0.309804, 1), Color(0.30732, 0.655976, 1, 1), Color(0.840891, 0.669844, 0.37946, 1), Color(0.162066, 0.162066, 0.162066, 1), Color(1, 1, 1, 1)])
 hp_icons = [NodePath("Board/In-world UI/HP UI/HP UI Icon"), NodePath("Board/In-world UI/HP UI/HP UI Icon2"), NodePath("Board/In-world UI/HP UI/HP UI Icon3")]
+event_text_key_success_count = 43
 event_text_key_failure_count = 8
 
 [node name="BG" type="TextureRect" parent="."]

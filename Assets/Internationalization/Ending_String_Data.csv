@@ -42,6 +42,10 @@ EVENT_SUCCESS_37,The grilled fish tonight was crispy outside and tender inside.,
 EVENT_SUCCESS_38,Found extra supplies in a backpack corner.,在背包的角落里翻出额外的物资。
 EVENT_SUCCESS_39,"At the end of the road, found a stone smooth as a chair, very comfortable.",长路的尽头发现一块平整如椅的石头，很舒适。
 EVENT_SUCCESS_40,Looked back on the journey and felt growth.,回顾来时路，感受到了成长。
+EVENT_SUCCESS_41,Caught the largest fish in the lake.,钓上​了​湖里​最​大​的​鱼。
+EVENT_SUCCESS_42,Added a new marker to the map.,​在​地图​上​添​加​了​新​的​标记。
+EVENT_SUCCESS_43,Used a lockpick to open a chest and found another lockpick inside.,用​撬锁器​打开​了​箱子，​发现​了​撬锁器。
+,,
 ,,
 EVENT_FAILURE,Adventure failed. \nMight as well have stayed in the city for a little longer...,冒险失败了。\n要是在城里多停留一下的话…
 EVENT_FAILURE_1,A supposed shortcut led to a dead end.,一条看似捷径的路没能走通。
