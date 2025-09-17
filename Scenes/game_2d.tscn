@@ -68,8 +68,8 @@
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_p4hnd"]
 shader = ExtResource("3_apgn6")
-shader_parameter/color = Color(0.533333, 0.72549, 0.309804, 1)
-shader_parameter/width = 3.0
+shader_parameter/color = Color(0, 0, 0, 1)
+shader_parameter/width = 2.0
 shader_parameter/pattern = 0
 shader_parameter/inside = false
 shader_parameter/add_margins = false

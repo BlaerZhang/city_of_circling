@@ -54,3 +54,12 @@ EVENT_FAILURE_9,Freezing wind slows movement and weakens endurance.,寒风侵袭
 EVENT_FAILURE_10,"Night fog obscures the way, wasting time and energy.",夜间迷雾笼罩，迷路导致时间浪费。
 ADVENTURE_SCORE,adventure score,冒险点数
 FINAL_SCORE,final score,最终得分
+,,
+EVENT_ARRIVE,Visiting,已到达
+EVENT_LOCATION_1,Outer Circling,盘旋城郊
+EVENT_LOCATION_2,Promoton,笙阡
+EVENT_LOCATION_3,Desirough,峪望
+EVENT_LOCATION_4,Materiar,婺​治
+EVENT_LOCATION_5,Feedberg,畈馈
+EVENT_LOCATION_6,Incremont,蓬丈
+EVENT_LOCATION_7,Addicthorp,尚​郢

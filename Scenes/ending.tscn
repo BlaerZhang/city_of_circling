@@ -539,10 +539,10 @@ anchors_preset = 0
 
 [node name="Time UI" type="RichTextLabel" parent="Board/In-world UI"]
 layout_mode = 0
-offset_left = -102.817
-offset_top = -274.804
-offset_right = 197.183
-offset_bottom = -26.8047
+offset_left = -120.551
+offset_top = 96.135
+offset_right = 179.449
+offset_bottom = 344.134
 mouse_filter = 2
 theme_override_colors/default_color = Color(0, 0, 0, 1)
 theme_override_constants/line_separation = -24
@@ -559,6 +559,8 @@ vertical_alignment = 1
 script = ExtResource("9_xckqc")
 
 [node name="HP UI" type="Control" parent="Board/In-world UI"]
+unique_name_in_owner = true
+modulate = Color(0.917647, 0.352941, 0.278431, 1)
 anchors_preset = 0
 offset_left = -192.776
 offset_top = 340.088
@@ -593,10 +595,10 @@ texture = ExtResource("7_hv2aa")
 [node name="Adventure Score UI" type="RichTextLabel" parent="Board/In-world UI"]
 unique_name_in_owner = true
 layout_mode = 0
-offset_left = -176.285
-offset_top = 528.566
-offset_right = 147.715
-offset_bottom = 1194.57
+offset_left = -123.712
+offset_top = -223.337
+offset_right = 200.288
+offset_bottom = 442.666
 mouse_filter = 2
 theme_override_colors/default_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/normal_font_size = 76

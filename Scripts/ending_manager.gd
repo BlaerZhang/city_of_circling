@@ -19,6 +19,7 @@ var current_milestone: int = 0
 @export_group("Health Related")
 @export var max_player_health: int = 3
 @export var hp_icons: Array[TextureRect]
+@onready var hp_ui_parent: Control = %"HP UI"
 var player_health: int = 3
 @onready var hp_icon_texture: Texture2D = preload("res://Assets/Sprites/Icon/1x/suit_hearts.png")
 @onready var damage_icon_texture: Texture2D = preload("res://Assets/Sprites/Icon/1x/suit_hearts_broken.png")
@@ -150,10 +151,13 @@ func take_damage():
 	var damage_tween = create_tween()
 	damage_tween.tween_property(background, "self_modulate", Color.RED, 0.1)
 	damage_tween.parallel().tween_property(bg_mask, "self_modulate", Color.RED, 0.1)
+	damage_tween.parallel().tween_property(hp_ui_parent, "modulate", Color.WHITE, 0.1)
 	damage_tween.tween_property(background, "self_modulate", bg_color_palette[current_milestone], 0.5)
 	damage_tween.parallel().tween_property(bg_mask, "self_modulate", bg_color_palette[current_milestone], 0.5)
+	damage_tween.parallel().tween_property(hp_ui_parent, "modulate", Color.html("#EA5A47"), 0.5)
 	damage_tween.tween_property(hp_icons[player_health], "position:y", -50, 0.5).as_relative()
 	damage_tween.parallel().tween_property(hp_icons[player_health], "self_modulate", Color.TRANSPARENT, 0.25)
+	await damage_tween.finished
 
 
 ## 根据冒险成功率(SR)和剩余天数(D)求解每日冒险成功率(DSR)
