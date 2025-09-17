@@ -1,65 +1,66 @@
 ﻿key,en,zh
-EVENT_START,Left the City of Circling.,离开了盘旋城。
+EVENT_START,Left the City of Stayvesant.,离开了斗鎏城。
+,,
 EVENT_SUCCESS,Adventure Succeeded.\n60 days well spent.,冒险圆满结束了。\n度过了有收获的60天。
-EVENT_SUCCESS_1,"The task compass points to a hidden mountain path, greatly improving exploration efficiency.",任务罗盘指明隐秘山径，探索效率大幅提升。
-EVENT_SUCCESS_2,"The treasure map reveals an underground cave entrance, uncovering valuable artifacts.",藏宝图揭示地下洞穴入口，发现珍贵古物。
-EVENT_SUCCESS_3,"The task log records previous explorers’ experience, unlocking complex mechanisms smoothly.",任务日志记录前人经验，顺利解开机关谜题。
-EVENT_SUCCESS_4,"The battle pass grants extra support, accelerating progression through the stage.",战斗通行证换取支援，加快关卡推进速度。
-EVENT_SUCCESS_5,"The skateboard speeds across the canyon, saving significant travel time.",滑板高速穿越峡谷，节省大量行进时间。
-EVENT_SUCCESS_6,"The grappling hook secures rare ore on a cliff, allowing successful collection.",钩爪挂住悬崖边稀有矿石，成功采集。
-EVENT_SUCCESS_7,"The jump pad helps reach a high platform, revealing a hidden chest.",跳板助力跃上高台，找到隐藏宝箱。
-EVENT_SUCCESS_8,"The rocket dash bypasses obstacles, gaining resources ahead of time.",火箭短暂冲刺避开障碍，率先收集资源。
-EVENT_SUCCESS_9,"The portal leads directly to a distant ruin, expanding the exploration range.",传送门直达远方废墟，探索范围扩大。
-EVENT_SUCCESS_10,"The crystal reveals traps along the path, avoiding danger successfully.",水晶球提前显现路径陷阱，顺利避开危险。
-EVENT_SUCCESS_11,"The coin bag contains extra coins, enabling smoother trading.",钱袋发现额外金币，完成交易更为顺利。
-EVENT_SUCCESS_12,"The balance ensures fair trades, acquiring rare supplies.",天平衡量交易公平，换得珍稀补给。
-EVENT_SUCCESS_13,"The voucher redeems hidden rewards, accelerating equipment upgrades.",积分券换得隐藏奖励，加快装备升级。
-EVENT_SUCCESS_14,"The membership card unlocks a secret shop, obtaining rare items.",会员卡解锁秘密商店，获得稀有物资。
-EVENT_SUCCESS_15,"The clover shines in the wind, revealing unexpected treasures.",四叶草在风中闪耀好运，意外发现珍宝。
-EVENT_SUCCESS_16,"The dice roll produces a perfect result, triggering additional exploration opportunities.",骰子掷出奇妙点数，触发额外探索机会。
-EVENT_SUCCESS_17,"The canyon echoes expose a hidden path, gaining vital clues.",山谷回声暴露隐藏通道，获得重要线索。
-EVENT_SUCCESS_18,A flash of light under an ancient tree reveals valuable runes.,古树下闪烁光点，找到珍贵符文。
-EVENT_SUCCESS_19,Ruins by the river provide historical documents for insight.,河岸边出现破碎遗迹，拾得历史资料。
-EVENT_SUCCESS_20,"A shooting star streaks across the night sky, marking a hidden treasure.",夜空流星划过，发现暗示宝藏的标记。
-EVENT_SUCCESS_21,"Wind blows down an old scroll, revealing mechanism hints.",风吹落古老卷轴，解开机关提示。
-EVENT_SUCCESS_22,"Rare herbs appear in cliff crevices, usable for crafting enhancements.",悬崖石缝中显露稀有草药，可制作强化物品。
-EVENT_SUCCESS_23,"Mysterious music echoes through the ruins, unveiling a hidden route.",废墟中回响神秘乐声，揭示隐藏路线。
-EVENT_SUCCESS_24,"A rainbow illuminates the ravine, revealing a shortcut.",雨后彩虹照亮裂谷，找到捷径通路。
-EVENT_SUCCESS_25,Debris in the wilderness conceals fragments that form useful tools.,荒野石堆中隐藏碎片，组合成有用道具。
-EVENT_SUCCESS_26,A golden glimmer deep in the cave unlocks a new exploration target.,岩洞深处闪烁金光，解锁新的探险目标。
-EVENT_SUCCESS_27,Exposed ruins in the desert reveal clue fragments for progress.,荒原沙地露出古代遗迹，获得线索碎片。
-EVENT_SUCCESS_28,"Glimmering gemstones appear in stone bridge cracks, enhancing equipment.",石桥裂缝中发现闪光宝石，增强装备效果。
-EVENT_SUCCESS_29,"Secret herbs appear along forest paths, used for life-restoring remedies.",密林小径露出隐秘药草，制作生命补剂。
-EVENT_SUCCESS_30,Ancient scrolls in a tall tower unlock puzzle solutions.,高塔阴影下藏着古卷，顺利解锁谜题。
-EVENT_SUCCESS_31,"Glittering fragments appear in riverside ruins, revealing hidden resources.",河边废墟里出现闪光碎片，发现隐藏资源。
-EVENT_SUCCESS_32,"Echoes in a cave indicate direction, allowing swift passage.",山洞回音显现方向，快速穿越险地。
-EVENT_SUCCESS_33,Storage boxes in snowy ruins contain rare materials.,雪地遗迹中找到储藏箱，收获稀有材料。
-EVENT_SUCCESS_34,Flickering lights along the cliff guide a safe descent.,悬崖边闪烁光点，引导安全下行路径。
-EVENT_SUCCESS_35,"Ancient symbols appear deep in the forest, advancing task progress.",荒林深处偶现古代符号，推进任务进度。
-EVENT_SUCCESS_36,Broken stone slabs in desert ruins reveal crucial clues.,沙漠废墟里出现破碎石板，获得重要线索。
-EVENT_SUCCESS_37,"Shimmering ore is exposed in a valley stream, collected successfully.",山谷流水旁显露闪光矿石，成功采集。
-EVENT_SUCCESS_38,Hidden treasures on a wild hill unlock additional exploration.,荒野小丘上藏有神秘宝物，解锁额外探索。
-EVENT_SUCCESS_39,Flickering lights in the forest grass uncover concealed supplies.,荒林草丛闪烁光芒，发现隐藏补给。
-EVENT_SUCCESS_40,"Ancient scrolls fall in a tower ruin, pushing the expedition forward.",高塔废墟中掉落古代卷轴，推进探险进程。
-EVENT_FAILURE,Adventure failed. \nMight as well have circled around the city for a little longer...,冒险失败了。\n要是在城里多盘旋一下的话…
-EVENT_FAILURE_1,"The compass malfunctions, losing direction and delaying progress.",罗盘指针失灵，迷失方向延误行进。
-EVENT_FAILURE_2,"The skateboard gets stuck in mud, severely reducing travel speed.",滑板陷入泥泞，行动速度大幅降低。
-EVENT_FAILURE_3,"The rocket loses control and hits a rock, losing rare resources.",火箭失控撞向岩壁，损失稀有资源。
-EVENT_FAILURE_4,"The grappling hook breaks, falling from a high platform and getting injured.",钩爪断裂，从高台跌落受伤。
-EVENT_FAILURE_5,"A wild beast lunges, causing injury and slowing progress.",野兽猛扑，受伤严重影响行动。
-EVENT_FAILURE_6,Rolling boulders nearly block the path.,落石滚落，险些砸中探险路线。
-EVENT_FAILURE_7,"Thorns cut arms, restricting movement and draining stamina.",荆棘划伤，行动受阻且消耗体力。
-EVENT_FAILURE_8,"A trap triggers, falling into a pit and losing supplies.",陷阱触发，跌入深坑损失补给。
-EVENT_FAILURE_9,Freezing wind slows movement and weakens endurance.,寒风侵袭，行动迟缓且精神受扰。
-EVENT_FAILURE_10,"Night fog obscures the way, wasting time and energy.",夜间迷雾笼罩，迷路导致时间浪费。
+EVENT_SUCCESS_1,An exciting adventure begins.,激动人心的冒险开始了。
+EVENT_SUCCESS_2,Feeling confident with ample supplies.,因为充足的物资感到信心满满。
+EVENT_SUCCESS_3,Everything is going smoothly so far.,目前一切进展顺利。
+EVENT_SUCCESS_4,Casually solved a roadside puzzle.,随手解开了路边的谜题。
+EVENT_SUCCESS_5,Noticed a hidden shortcut.,留意到一处隐蔽的捷径。
+EVENT_SUCCESS_6,Recalled a thought from before departure.,回忆起了出发前的某个念头。
+EVENT_SUCCESS_7,Backpack management succeeded.,背包管理成功。
+EVENT_SUCCESS_8,Broke a personal record on stone skipping.,打水漂破了个人纪录。
+EVENT_SUCCESS_9,Found treasure at a shiny spot under the tree.,在树下的光点获得了宝贝。
+EVENT_SUCCESS_10,Discovered a hidden hot spring.,发现了隐藏的温泉。
+EVENT_SUCCESS_11,Learned a new skill.,领悟了新的技能。
+EVENT_SUCCESS_12,Bargained well with a traveling merchant.,在旅行商人手上淘到了便宜货。
+EVENT_SUCCESS_13,Cleverly avoided a troublesome area.,巧妙地规避了麻烦的区域。
+EVENT_SUCCESS_14,A day of pleasant mood.,心情舒畅的一天。
+EVENT_SUCCESS_15,Skillfully built a campfire with sticks and stones.,娴熟地用树枝和石头搭建了火堆。
+EVENT_SUCCESS_16,Discovered a breathtaking view.,发现一处绝景。
+EVENT_SUCCESS_17,Found a map left by predecessors.,找到了前人留下的地图。
+EVENT_SUCCESS_18,Discovered an excellent campsite.,发现了一处得天独厚的扎营点。
+EVENT_SUCCESS_19,Made perfect use of an obscure survival skill.,完美用上了一个很冷门的生存技巧。
+EVENT_SUCCESS_20,Jumped from a great height unscathed.,从很高的地方跳下来，毫发无伤。
+EVENT_SUCCESS_21,Enjoyed a refreshing bath in the lake.,在湖里洗了个痛快澡。
+EVENT_SUCCESS_22,Quickly repaired worn shoes.,三下五除二补好了磨损的鞋。
+EVENT_SUCCESS_23,"Rations spoiled just right, adding a special flavor.",干粮肉变质得恰到好处，别有风味。
+EVENT_SUCCESS_24,"Didn't fooled by road signs, stayed true to the path.",没有上路牌的当，坚定了内心的道路。
+EVENT_SUCCESS_25,A small boat happened to be moored by the broken bridge.,断桥旁刚好停着一尾小船。
+EVENT_SUCCESS_26,Climbed an impossible-looking cliff.,爬上了看似不可能的峭壁。
+EVENT_SUCCESS_27,Found a handy stick.,找到了一根趁手的木棍。
+EVENT_SUCCESS_28,"With plenty of supplies left, indulged in a lavish dinner.",还剩很多物资，晚餐奢侈了一把。
+EVENT_SUCCESS_29,"Passed a fruit tree, ate and stocked up.",路过一棵果树，连吃带拿。
+EVENT_SUCCESS_30,"Climbed an abandoned watchtower, surveyed the surroundings.",登上一座废弃瞭望塔，掌握了周边信息。
+EVENT_SUCCESS_31,Brought down a bird's nest with just one stone.,只用一发石头就击落了鸟窝。
+EVENT_SUCCESS_32,Experienced the legendary runner's high.,体会到了传说中的跑步高潮。
+EVENT_SUCCESS_33,The lake water was cooling under the blazing sun.,烈日下的湖水透心凉。
+EVENT_SUCCESS_34,Ducked into a cave a second before the rain fell.,在雨点落下的前一秒躲进了一个洞穴。
+EVENT_SUCCESS_35,Harvested honey while the bees were away.,趁蜂群外出，采集到了蜂蜜。
+EVENT_SUCCESS_36,Stayed overnight in a deserted house.,在无人的房屋里借宿了一宿。
+EVENT_SUCCESS_37,The grilled fish tonight was crispy outside and tender inside.,今晚的鱼烤得外酥里嫩，恰到好处。
+EVENT_SUCCESS_38,Found extra supplies in a backpack corner.,在背包的角落里翻出额外的物资。
+EVENT_SUCCESS_39,"At the end of the road, found a stone smooth as a chair, very comfortable.",长路的尽头发现一块平整如椅的石头，很舒适。
+EVENT_SUCCESS_40,Looked back on the journey and felt growth.,回顾来时路，感受到了成长。
+,,
+EVENT_FAILURE,Adventure failed. \nMight as well have stayed in the city for a little longer...,冒险失败了。\n要是在城里多停留一下的话…
+EVENT_FAILURE_1,A supposed shortcut led to a dead end.,一条看似捷径的路没能走通。
+EVENT_FAILURE_2,A carefully built camp was destroyed.,精心搭建的营地被摧毁了。
+EVENT_FAILURE_3,"It rained all night, couldn’t sleep well.",雨下整夜，没有睡好。
+EVENT_FAILURE_4,"Overestimated jumping ability, landed in mud.",高估了自己的跳跃能力，在小河沟摔得一身淤泥。
+EVENT_FAILURE_5,"Sat by the river all day, bait all eaten.",在河边坐了一整天，鱼饵都被吃完了。
+EVENT_FAILURE_6,A day of constant misfortune.,诸事不顺的一天。
+EVENT_FAILURE_7,Steps grew lighter—turns out the backpack had a hole.,脚步愈发轻快，原来是背包破了洞。
+EVENT_FAILURE_8,"Conquered the hill, only to realize it was the wrong one.",征服了眼前的山丘，到顶才发现爬错了。
+,,
 ADVENTURE_SCORE,Adventure Score,冒险点数
 FINAL_SCORE,Final Score,最终得分
 ,,
 EVENT_ARRIVE,Now Visiting,已到达
-EVENT_LOCATION_1,Outer Circling,盘旋城郊
+EVENT_LOCATION_1,Outer Stayvesant,斗鎏城郊
 EVENT_LOCATION_2,Promoton,笙阡
 EVENT_LOCATION_3,Desirough,峪望
 EVENT_LOCATION_4,Materiar,婺​治
-EVENT_LOCATION_5,Feedberg,畈馈
+EVENT_LOCATION_5,Feedburg,畈馈
 EVENT_LOCATION_6,Incremont,蓬丈
 EVENT_LOCATION_7,Addicthorp,尚​郢

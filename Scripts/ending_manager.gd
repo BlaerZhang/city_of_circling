@@ -139,10 +139,26 @@ func update_event(succeeded: bool, milestone_reached: bool = false):
 	var event_tween = create_tween()
 	event_tween.tween_property(event_ui, "self_modulate", Color.TRANSPARENT, 0.25)
 	event_tween.parallel().tween_property(event_ui, "position:y", 50, 0.25).as_relative()
-	event_tween.tween_callback(func(): event_ui.text = "EVENT_" + "SUCCESS_" + str(randi_range(1, event_text_key_success_count)) if succeeded else "EVENT_" + "FAILURE_" + str(randi_range(1, event_text_key_failure_count)))
+	event_tween.tween_callback(func(): update_event_text(succeeded))
+	event_tween.tween_callback(func(): update_event_location(milestone_reached))
 	event_tween.tween_callback(func(): event_location_ui.text = tr("EVENT_ARRIVE") + " " + tr("EVENT_LOCATION_" + str(current_milestone)) if milestone_reached else "")
 	event_tween.tween_property(event_ui, "self_modulate", Color.WHITE, 0.25)
 	event_tween.parallel().tween_property(event_ui, "position:y", -50, 0.25).as_relative()
+
+
+func update_event_text(succeeded: bool):
+	if succeeded:
+		var event_index = days_passed if days_passed <= event_text_key_success_count else days_passed - event_text_key_success_count + 3
+		event_ui.text = "EVENT_" + "SUCCESS_" + str(event_index)
+	else:
+		event_ui.text = "EVENT_" + "FAILURE_" + str(randi_range(1, event_text_key_failure_count))
+
+
+func update_event_location(milestone_reached: bool):
+	if milestone_reached:
+		event_location_ui.text = tr("EVENT_ARRIVE") + " " + tr("EVENT_LOCATION_" + str(current_milestone))
+	else:
+		event_location_ui.text = ""
 
 
 func try_daily_sr(dsr: float) -> bool:

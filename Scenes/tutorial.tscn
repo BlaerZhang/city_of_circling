@@ -16,13 +16,14 @@
 [ext_resource type="PackedScene" uid="uid://b48kaaap15g6f" path="res://Scenes/functional_component_lottery.tscn" id="15_wfdcw"]
 [ext_resource type="Texture2D" uid="uid://dinty7jilgb14" path="res://Assets/Sprites/Icon/1x/apple.png" id="16_5eib8"]
 [ext_resource type="Texture2D" uid="uid://cpwbam4wawrjj" path="res://Assets/Sprites/Icon/1x/mango.png" id="18_acrh7"]
+[ext_resource type="Texture2D" uid="uid://dg62lbotueg53" path="res://Assets/Sprites/Icon/1x/affairs.png" id="19_8yxqp"]
 [ext_resource type="Texture2D" uid="uid://5ht047khbbax" path="res://Assets/Sprites/Icon/1x/grape.png" id="19_213eo"]
+[ext_resource type="Texture2D" uid="uid://cmbfr35puvhfq" path="res://Assets/Sprites/Icon/1x/shop_deco.png" id="19_pql20"]
 [ext_resource type="Texture2D" uid="uid://bmvmdgneomc8w" path="res://Assets/Sprites/Grid/1x/Shop.png" id="21_j8v3e"]
 [ext_resource type="PackedScene" uid="uid://dudejnhqfh51r" path="res://Scenes/functional_component_shop.tscn" id="22_bmrfs"]
 [ext_resource type="Script" uid="uid://dsncmuoo1toxj" path="res://Scripts/Grids/gate.gd" id="24_pql20"]
 [ext_resource type="Texture2D" uid="uid://denxgkoyad2jc" path="res://Assets/Sprites/Icon/1x/Trade_outline.png" id="24_yaauq"]
 [ext_resource type="Texture2D" uid="uid://cmu7eyen056mj" path="res://Assets/Sprites/Icon/1x/exit.png" id="25_8yxqp"]
-[ext_resource type="Texture2D" uid="uid://cvy0itypb0q1e" path="res://Assets/Sprites/Icon/1x/red.png" id="26_b464c"]
 [ext_resource type="Script" uid="uid://jt3qro1q1rsg" path="res://Scripts/custom_tooltip.gd" id="26_sv2l3"]
 [ext_resource type="Texture2D" uid="uid://cy5q8fhujpt5h" path="res://Assets/Sprites/Grid/1x/ui_grid.png" id="27_44pwq"]
 [ext_resource type="Texture2D" uid="uid://dvroiqn2jn4j2" path="res://Assets/Sprites/Icon/1x/Affairs_outline.png" id="27_hpmw0"]
@@ -31,7 +32,6 @@
 [ext_resource type="Texture2D" uid="uid://q1gvqpwytbhl" path="res://Assets/Sprites/Icon/1x/Lottery_outline.png" id="31_5btkv"]
 [ext_resource type="Texture2D" uid="uid://cqpddw7ntt3er" path="res://Assets/Sprites/Icon/1x/Traffic_outline.png" id="34_cl78f"]
 [ext_resource type="Texture2D" uid="uid://dq38vavtoi2l3" path="res://Assets/Sprites/Grid/1x/Gate.png" id="36_13r5g"]
-[ext_resource type="Script" uid="uid://l0kyl2xsshwi" path="res://Scripts/time_ui.gd" id="40_0gm25"]
 [ext_resource type="PackedScene" uid="uid://dcpcolpctf6n0" path="res://Scenes/resource_ui_grid.tscn" id="41_ol5mg"]
 [ext_resource type="Texture2D" uid="uid://cm5vubrw6llx7" path="res://Assets/Sprites/Grid/1x/ui_grid_large.png" id="44_x1j8j"]
 [ext_resource type="Texture2D" uid="uid://baknh18j5v6ui" path="res://Assets/Sprites/Icon/1x/exchange coupon.png" id="45_kdu66"]
@@ -47,7 +47,6 @@
 [ext_resource type="Resource" uid="uid://clcnor83odgg6" path="res://Resources/Upgrades/remote_quest_acceptance.tres" id="55_8cqir"]
 [ext_resource type="Resource" uid="uid://rb4y6ov5syh2" path="res://Resources/Upgrades/remote_quest_completion.tres" id="56_vcybo"]
 [ext_resource type="Resource" uid="uid://c4kr046pl7mbv" path="res://Resources/Upgrades/increase_fruit_production.tres" id="57_ipe8w"]
-[ext_resource type="Resource" uid="uid://pmdxmdu6cbde" path="res://Resources/Upgrades/unlock_rainbow_white_ball.tres" id="58_e5aaq"]
 [ext_resource type="Resource" uid="uid://ut46sekwlayi" path="res://Resources/Upgrades/lottery_bypass.tres" id="59_fmbdk"]
 [ext_resource type="Resource" uid="uid://cftcygsaxiixx" path="res://Resources/Upgrades/shop_manual_refresh.tres" id="60_u6qh2"]
 [ext_resource type="Resource" uid="uid://ruu8cw78y2on" path="res://Resources/Upgrades/remote_view_store.tres" id="61_asqmw"]
@@ -525,6 +524,9 @@ modulate_color = Color(0.646029, 0.646029, 0.646029, 1)
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_3lc3d"]
 texture = ExtResource("46_ivg13")
 
+[sub_resource type="Resource" id="Resource_bbpun"]
+metadata/__load_path__ = "res://Resources/Upgrades/unlock_rainbow_white_ball.tres"
+
 [node name="Tutorial" type="Node2D"]
 script = ExtResource("1_8yxqp")
 text_play_speed = Dictionary[String, float]({
@@ -744,17 +746,14 @@ grid_position = Vector2i(5, 1)
 shop_type = 4
 shop_ui_panel_offset = Vector2(-308.7, -333)
 
-[node name="Basic Ball Icon" type="Sprite2D" parent="Board/Grids/Grid_5_1"]
-visible = false
-position = Vector2(-37.8264, -38.0289)
-scale = Vector2(0.5, 0.5)
-texture = ExtResource("26_b464c")
-
 [node name="Shop Type Icon" type="Sprite2D" parent="Board/Grids/Grid_5_1"]
-visible = false
-position = Vector2(0, 11.527)
-scale = Vector2(0.5, 0.5)
-texture = ExtResource("27_hpmw0")
+position = Vector2(-6.10352e-05, 5)
+scale = Vector2(1, 1)
+texture = ExtResource("19_8yxqp")
+
+[node name="Shop Deco" type="Sprite2D" parent="Board/Grids/Grid_5_1"]
+position = Vector2(0, -70)
+texture = ExtResource("19_pql20")
 
 [node name="Grid_7_1" parent="Board/Grids" instance=ExtResource("6_hiip6")]
 position = Vector2(42, -226)
@@ -802,7 +801,7 @@ grid_position = Vector2i(4, 3)
 
 [node name="Functional Component" parent="Board/Grids/Grid_4_3" node_paths=PackedStringArray("upgrade_button_list") instance=ExtResource("12_ldnol")]
 upgrade_shop_type = 3
-upgrade_button_list = []
+upgrade_button_list = [NodePath("../Upgrade shop button"), NodePath("../Upgrade shop button2")]
 
 [node name="Upgrade shop button" parent="Board/Grids/Grid_4_3" instance=ExtResource("13_w1js8")]
 offset_left = -200.0
@@ -890,7 +889,6 @@ scroll_active = false
 shortcut_keys_enabled = false
 horizontal_alignment = 1
 vertical_alignment = 1
-script = ExtResource("40_0gm25")
 metadata/_edit_use_anchors_ = true
 
 [node name="Resource UI fruit choice" parent="Board/In-world UI" instance=ExtResource("41_ol5mg")]
@@ -1279,7 +1277,7 @@ upgrade = ExtResource("57_ipe8w")
 
 [node name="One-time Upgrade Icon" parent="Board/In-world UI/Upgrades UI/VBoxContainer/Upgrades Display Bar3/HBoxContainer" instance=ExtResource("49_0nqp4")]
 layout_mode = 2
-upgrade = ExtResource("58_e5aaq")
+upgrade = SubResource("Resource_bbpun")
 upgrade_type = 1
 
 [node name="Arrow" type="TextureRect" parent="Board/In-world UI/Upgrades UI/VBoxContainer/Upgrades Display Bar3/HBoxContainer"]
