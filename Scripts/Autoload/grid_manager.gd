@@ -17,7 +17,7 @@ func on_scene_loaded_with_name(scene_name: String):
 	setup_grid_system()
 	if scene_name == "Tutorial":
 		invisualize_all_grids()
-	elif scene_name == "Game2D" || scene_name == "Ending":
+	elif scene_name == "Game2d":
 		invisualize_all_grids()
 		await SceneManager.transition_finished
 		var shuffled_grids = grid_database.values()
