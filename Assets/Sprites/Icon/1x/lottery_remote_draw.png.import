@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dc1j7vsv87dx1"
-path="res://.godot/imported/图层 1.png-de29ddb193db6f659db57e5827465120.ctex"
+uid="uid://b5l7xyjbixf0i"
+path="res://.godot/imported/lottery_remote_draw.png-cc1a479a3e43d8bdf7222f35c2c0242e.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Sprites/Icon/1x/图层 1.png"
-dest_files=["res://.godot/imported/图层 1.png-de29ddb193db6f659db57e5827465120.ctex"]
+source_file="res://Assets/Sprites/Icon/1x/lottery_remote_draw.png"
+dest_files=["res://.godot/imported/lottery_remote_draw.png-cc1a479a3e43d8bdf7222f35c2c0242e.ctex"]
 
 [params]
 

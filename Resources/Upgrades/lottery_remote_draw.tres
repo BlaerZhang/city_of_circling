@@ -1,13 +1,13 @@
 [gd_resource type="Resource" script_class="Upgrade" load_steps=3 format=3 uid="uid://bokvtw3q7ccft"]
 
 [ext_resource type="Script" uid="uid://deas45k8roqd" path="res://Scripts/upgrade.gd" id="1_gqka2"]
-[ext_resource type="Texture2D" uid="uid://b6p41gunfemrg" path="res://Assets/Sprites/Icon/1x/lottery_bypass.png" id="2_lcobd"]
+[ext_resource type="Texture2D" uid="uid://b5l7xyjbixf0i" path="res://Assets/Sprites/Icon/1x/lottery_remote_draw.png" id="2_gqka2"]
 
 [resource]
 script = ExtResource("1_gqka2")
 upgrade_name = "lottery remote draw"
 upgrade_name_display = "LOTTERY_REMOTE_DRAW"
-upgrade_icon = ExtResource("2_lcobd")
+upgrade_icon = ExtResource("2_gqka2")
 description = "LOTTERY_REMOTE_DRAW_DESCRIPTION"
 effect_delta_per_level = 1
 upgrade_type = 2

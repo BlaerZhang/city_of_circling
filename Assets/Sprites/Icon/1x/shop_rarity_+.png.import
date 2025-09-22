@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dskly3a34fimb"
-path="res://.godot/imported/图层 18.png-5f61fe294b4551d2a88e60c127cc10de.ctex"
+uid="uid://bowdbrqsvjg5j"
+path="res://.godot/imported/shop_rarity_+.png-08a94658036ac83e6d0832eec6d72c95.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Sprites/Icon/1x/图层 18.png"
-dest_files=["res://.godot/imported/图层 18.png-5f61fe294b4551d2a88e60c127cc10de.ctex"]
+source_file="res://Assets/Sprites/Icon/1x/shop_rarity_+.png"
+dest_files=["res://.godot/imported/shop_rarity_+.png-08a94658036ac83e6d0832eec6d72c95.ctex"]
 
 [params]
 
