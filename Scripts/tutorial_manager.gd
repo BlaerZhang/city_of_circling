@@ -131,6 +131,7 @@ func tutorial_sequence_start() -> void:
 	ResourceManager.change_item_count("affairs_supply_lv5", 1, Vector2(0, 0))
 	ResourceManager.change_item_count("traffic_supply_lv5", 1, Vector2(0, 0))
 	ResourceManager.change_item_count("lottery_supply_lv5", 1, Vector2(0, 0))
+	ResourceManager.change_item_count("trade_supply_lv5", 1, Vector2(0, 0))
 	await get_tree().create_timer(4).timeout
 	await display_text(tr("TUTORIAL_POINTS_4"))
 	await get_tree().create_timer(4).timeout

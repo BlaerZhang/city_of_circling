@@ -136,7 +136,7 @@ func generate_item_slots(items_in_slots_list: Array[Dictionary]):
 		item_slot.self_modulate = rarity_to_color[item.rarity]
 		item_slot.pressed.connect(on_item_slot_pressed.bind(item_slot, item_for_sale, price))
 		if item.item_type == Item.ItemType.Supply:
-			item_slot.tooltip_text = "%s\n%s%s: %s\n%s: %s" % [tr(ResourceManager.get_item_display_key(item_for_sale.item_name)).capitalize(), tr(ItemForSale.ShopType.keys()[item.pts_type].to_upper()), tr("PTS"), item.pts_value, tr("PRICE"), price]
+			item_slot.tooltip_text = "%s\n%s %s: %s\n%s: %s" % [tr(ResourceManager.get_item_display_key(item_for_sale.item_name)).capitalize(), tr(ItemForSale.ShopType.keys()[item.pts_type].to_upper() + "_TITLE"), tr("PTS_UI"), item.pts_value, tr("PRICE"), price]
 		else:
 			item_slot.tooltip_text = "%s\n%s: %s" % [tr(ResourceManager.get_item_display_key(item_for_sale.item_name)).capitalize(), tr("PRICE"), price]
 		current_items_for_sale_and_slots.get_or_add(item_slot, item_data)
