@@ -512,7 +512,7 @@ text_play_speed = Dictionary[String, float]({
 })
 
 [node name="Player" type="Node2D" parent="."]
-position = Vector2(974, 608)
+position = Vector2(974.476, 608.609)
 
 [node name="Player Movement Manager" type="Node2D" parent="Player"]
 unique_name_in_owner = true

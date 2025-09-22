@@ -37,7 +37,7 @@ alignment = 1
 [node name="Button_en" type="Button" parent="HBoxContainer"]
 layout_mode = 2
 theme_override_font_sizes/font_size = 60
-text = " English "
+text = "ENGLISH"
 
 [node name="Button_zh" type="Button" parent="HBoxContainer"]
 layout_mode = 2
