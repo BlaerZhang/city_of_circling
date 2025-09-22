@@ -4,7 +4,8 @@ var points_data: Dictionary[ItemForSale.ShopType, int]
 var success_rate: float:
 	get:
 		return 1.0 - exp(-0.02 * geo_mean(points_data.values()))
-signal points_changed(shop_type: ItemForSale.ShopType, points: int)	
+signal points_changed(shop_type: ItemForSale.ShopType, points: int)
+signal points_reset()	
 
 func _ready() -> void:
 	SceneManager.scene_loaded_with_name.connect(on_scene_loaded_with_name)
@@ -32,9 +33,10 @@ func reset_points() -> void:
 		ItemForSale.ShopType.Lottery: 0, 
 		ItemForSale.ShopType.Trade: 0,
 	}
+	points_reset.emit()
 
 
-func on_item_count_changed(item_name: String, count: int, change_amount: int, source_pos: Vector2):
+func on_item_count_changed(item_name: String, _count: int, change_amount: int, _source_pos: Vector2):
 	if change_amount == 0: return
 	if ResourceManager.get_item_pts_type(item_name) != ItemForSale.ShopType.None:
 		change_points(ResourceManager.get_item_pts_type(item_name), ResourceManager.get_item_pts_value(item_name) * change_amount)

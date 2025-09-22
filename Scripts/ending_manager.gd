@@ -94,7 +94,7 @@ func resolve_day():
 	if try_daily_sr(daily_sr):
 		update_event(true, days_passed % 10 == 1)
 		ending_animation_player.play("ending_grid_move")
-		ending_animation_player.animation_finished
+		# await ending_animation_player.animation_finished
 		await gain_adventure_score()
 	else:
 		update_event(false, days_passed % 10 == 1)
@@ -122,11 +122,10 @@ func resolve_game(succeeded: bool):
 		var event_end_tween = create_tween()
 		event_end_tween.tween_property(event_ui, "text", tr("EVENT_FAILURE"), 2)
 
-		score_delta_ui.self_modulate = Color.WHITE
 		score_delta_ui.text = ""
-		var score_end_tween = create_tween()
-		score_end_tween.tween_property(score_delta_ui, "position:y", 100, 0).as_relative()
-		score_end_tween.tween_property(score_delta_ui, "text", tr("FINAL_SCORE"), 0.25)
+
+		var score_ui_hide_tween = create_tween()
+		score_ui_hide_tween.tween_property(score_ui, "scale", Vector2.ZERO, 0.25).set_trans(Tween.TRANS_EXPO)
 
 
 func update_stage_ui(milestone: int):

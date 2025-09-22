@@ -3,12 +3,13 @@ extends Node
 @export var text_play_speed: Dictionary[String, float]
 @onready var tutorial_label: RichTextLabel = %"Tutorial Label"
 var tutorial_label_tween: Tween
+var skip_confirmed: bool = false
 
 func _ready() -> void:
 	tutorial_label.text = ""
 	await SceneManager.transition_finished
 	tutorial_sequence_start()
-	
+
 
 func display_text(text: String) -> void:
 	var text_length: int = text.length()
@@ -23,6 +24,7 @@ func display_text(text: String) -> void:
 		AudioManager.create_audio(SoundEffect.SOUND_EFFECT_TYPE.TUTORIAL_PRINT)
 		await get_tree().create_timer(0.06).timeout
 	# await tutorial_label_tween.finished
+
 
 func tutorial_sequence_start() -> void:
 	await display_text(tr("TUTORIAL_1"))
@@ -105,13 +107,53 @@ func tutorial_sequence_start() -> void:
 	await get_tree().create_timer(2).timeout
 	await display_text(tr("TUTORIAL_UPGRADE_7"))
 	await get_tree().create_timer(2).timeout
-	await display_text(tr("TUTORIAL_UPGRADE_8") % "[img=40]res://Assets/Sprites/Icon/1x/exchange coupon italic.png[/img]")
+	await display_text(tr("TUTORIAL_UPGRADE_8"))
 	await get_tree().create_timer(2).timeout
 	await display_text(tr("TUTORIAL_UPGRADE_9"))
 	await get_tree().create_timer(2).timeout
 	await display_text(tr("TUTORIAL_UPGRADE_10"))
 	await get_tree().create_timer(2).timeout
+	var sale_pool = GridManager.grid_database[Vector2i(5, 1)].functional_grid_component.sale_pool
+	sale_pool[sale_pool.find_custom(func(item: ItemForSale): return item.item_name == "supplies")].weight_list_per_level[0] = 80
+	sale_pool[sale_pool.find_custom(func(item: ItemForSale): return item.item_name == "trade upgrade coupon")].weight_list_per_level[0] = 0
+	display_text(tr("TUTORIAL_UPGRADE_11"))
+	while true:
+		var signal_args = await ResourceManager.item_count_changed
+		if signal_args[0] == "trade_supply_lv3" and signal_args[2] >= 1:
+			break
+	%"Success Rate UI".show_ui()
+	await display_text(tr("TUTORIAL_POINTS_1"))
+	await get_tree().create_timer(2).timeout
+	await display_text(tr("TUTORIAL_POINTS_2"))
+	%"Success Rate UI".show_points_uis()
+	await get_tree().create_timer(4).timeout
+	await display_text(tr("TUTORIAL_POINTS_3"))
+	ResourceManager.change_item_count("affairs_supply_lv5", 1, Vector2(0, 0))
+	ResourceManager.change_item_count("traffic_supply_lv5", 1, Vector2(0, 0))
+	ResourceManager.change_item_count("lottery_supply_lv5", 1, Vector2(0, 0))
+	await get_tree().create_timer(4).timeout
+	await display_text(tr("TUTORIAL_POINTS_4"))
+	await get_tree().create_timer(4).timeout
+	await display_text(tr("TUTORIAL_POINTS_5"))
+	await get_tree().create_timer(4).timeout
+	await display_text(tr("TUTORIAL_POINTS_6"))
+	await get_tree().create_timer(4).timeout
 	GridManager.show_grid_at_pos(Vector2i(4, 4))
 	GridManager.show_grid_at_pos(Vector2i(4, 5))
 	GridManager.show_grid_at_pos(Vector2i(5, 5))
 	display_text(tr("TUTORIAL_GATE"))
+
+
+func _on_skip_tutorial_button_pressed() -> void:
+	skip_tutorial()
+
+
+func skip_tutorial() -> void:
+	if !skip_confirmed:
+		skip_confirmed = true
+		%"Skip Tutorial Button".text = "SKIP_TUTORIAL_CONFIRM"
+		await get_tree().create_timer(3).timeout
+		%"Skip Tutorial Button".text = "SKIP_TUTORIAL"
+		skip_confirmed = false
+	else:
+		SceneManager.change_scene("res://Scenes/game_2d.tscn")

@@ -1,10 +1,10 @@
-[gd_scene load_steps=109 format=3 uid="uid://c6e414gy1cwn5"]
+[gd_scene load_steps=108 format=3 uid="uid://c6e414gy1cwn5"]
 
 [ext_resource type="Script" uid="uid://tdlox2h37vxw" path="res://Scripts/test_input.gd" id="1_pqs0o"]
 [ext_resource type="PackedScene" uid="uid://b8imxf8a6f2lg" path="res://Scenes/spin_wheel.tscn" id="1_ru8g0"]
 [ext_resource type="Script" uid="uid://bljhqnbfuvtu0" path="res://Scripts/player_move_manager.gd" id="1_xt382"]
 [ext_resource type="Script" uid="uid://clqc6neay12up" path="res://Scripts/line_drawer.gd" id="3_8hnth"]
-[ext_resource type="Shader" uid="uid://c8jyyb08wssev" path="res://outline.gdshader" id="3_apgn6"]
+[ext_resource type="Material" uid="uid://cmuuwp47t06g6" path="res://Scenes/player_outline_shader.material" id="3_apgn6"]
 [ext_resource type="Texture2D" uid="uid://dr23hnyyxd0py" path="res://Assets/Sprites/Character/isometric_character_walk.png" id="3_gi8jr"]
 [ext_resource type="Texture2D" uid="uid://cekckf0prcvy6" path="res://Assets/Sprites/Grid/1x/grid_outline.png" id="6_34x56"]
 [ext_resource type="PackedScene" uid="uid://cvj1o3m2uylun" path="res://Scenes/grid.tscn" id="6_xt382"]
@@ -65,15 +65,6 @@
 [ext_resource type="AudioStream" uid="uid://dxa84rdtwplt3" path="res://Assets/Audio/JollyEssentials_BGMdemo_v1_120bpm_Fullmix.wav" id="62_yiyb4"]
 [ext_resource type="Resource" uid="uid://bqm7cjpn74n80" path="res://Resources/Upgrades/shop_rarity_plus.tres" id="63_p4hnd"]
 [ext_resource type="Texture2D" uid="uid://clniig6wj2ukd" path="res://Assets/Sprites/Icon/1x/trade.png" id="65_4es2p"]
-
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_p4hnd"]
-shader = ExtResource("3_apgn6")
-shader_parameter/color = Color(0, 0, 0, 1)
-shader_parameter/width = 2.0
-shader_parameter/pattern = 0
-shader_parameter/inside = false
-shader_parameter/add_margins = false
-shader_parameter/number_of_images = Vector2(1, 1)
 
 [sub_resource type="Animation" id="Animation_7fl2r"]
 length = 0.001
@@ -392,89 +383,89 @@ _data = {
 &"walk_w": SubResource("Animation_d0cs8")
 }
 
-[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_xt382"]
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_gyc06"]
 animation = &"idle_s"
 
-[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_gi8jr"]
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_0uns8"]
 animation = &"idle_se"
 
-[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_7fl2r"]
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_d0bl5"]
 animation = &"idle_e"
 
-[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_60due"]
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_boubs"]
 animation = &"idle_ne"
 
-[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_x1nq2"]
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_dtmgi"]
 animation = &"idle_n"
 
-[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_d4vnq"]
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_ilalk"]
 animation = &"idle_nw"
 
-[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_pgjt0"]
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_b3wap"]
 animation = &"idle_w"
 
-[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_pmt01"]
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_e1qrx"]
 animation = &"idle_sw"
 
 [sub_resource type="AnimationNodeBlendSpace2D" id="AnimationNodeBlendSpace2D_xt382"]
-blend_point_0/node = SubResource("AnimationNodeAnimation_xt382")
+blend_point_0/node = SubResource("AnimationNodeAnimation_gyc06")
 blend_point_0/pos = Vector2(-0.5, 0.5)
-blend_point_1/node = SubResource("AnimationNodeAnimation_gi8jr")
+blend_point_1/node = SubResource("AnimationNodeAnimation_0uns8")
 blend_point_1/pos = Vector2(0, 1)
-blend_point_2/node = SubResource("AnimationNodeAnimation_7fl2r")
+blend_point_2/node = SubResource("AnimationNodeAnimation_d0bl5")
 blend_point_2/pos = Vector2(0.5, 0.5)
-blend_point_3/node = SubResource("AnimationNodeAnimation_60due")
+blend_point_3/node = SubResource("AnimationNodeAnimation_boubs")
 blend_point_3/pos = Vector2(1, 0)
-blend_point_4/node = SubResource("AnimationNodeAnimation_x1nq2")
+blend_point_4/node = SubResource("AnimationNodeAnimation_dtmgi")
 blend_point_4/pos = Vector2(0.5, -0.5)
-blend_point_5/node = SubResource("AnimationNodeAnimation_d4vnq")
+blend_point_5/node = SubResource("AnimationNodeAnimation_ilalk")
 blend_point_5/pos = Vector2(0, -1)
-blend_point_6/node = SubResource("AnimationNodeAnimation_pgjt0")
+blend_point_6/node = SubResource("AnimationNodeAnimation_b3wap")
 blend_point_6/pos = Vector2(-0.5, -0.5)
-blend_point_7/node = SubResource("AnimationNodeAnimation_pmt01")
+blend_point_7/node = SubResource("AnimationNodeAnimation_e1qrx")
 blend_point_7/pos = Vector2(-1, 0)
 blend_mode = 2
 
-[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_mdahh"]
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_7myka"]
 animation = &"walk_s"
 
-[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_j40bd"]
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_nv5le"]
 animation = &"walk_se"
 
-[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_wox2a"]
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_bhnj3"]
 animation = &"walk_e"
 
-[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_g1qwh"]
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_makl7"]
 animation = &"walk_ne"
 
-[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_d0cs8"]
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_rp1ed"]
 animation = &"walk_n"
 
-[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_fae2n"]
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_bbpun"]
 animation = &"walk_nw"
 
-[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_ef4aw"]
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_pql20"]
 animation = &"walk_w"
 
-[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_owh20"]
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_8yxqp"]
 animation = &"walk_sw"
 
 [sub_resource type="AnimationNodeBlendSpace2D" id="AnimationNodeBlendSpace2D_gi8jr"]
-blend_point_0/node = SubResource("AnimationNodeAnimation_mdahh")
+blend_point_0/node = SubResource("AnimationNodeAnimation_7myka")
 blend_point_0/pos = Vector2(-0.5, 0.5)
-blend_point_1/node = SubResource("AnimationNodeAnimation_j40bd")
+blend_point_1/node = SubResource("AnimationNodeAnimation_nv5le")
 blend_point_1/pos = Vector2(0, 1)
-blend_point_2/node = SubResource("AnimationNodeAnimation_wox2a")
+blend_point_2/node = SubResource("AnimationNodeAnimation_bhnj3")
 blend_point_2/pos = Vector2(0.5, 0.5)
-blend_point_3/node = SubResource("AnimationNodeAnimation_g1qwh")
+blend_point_3/node = SubResource("AnimationNodeAnimation_makl7")
 blend_point_3/pos = Vector2(1, 0)
-blend_point_4/node = SubResource("AnimationNodeAnimation_d0cs8")
+blend_point_4/node = SubResource("AnimationNodeAnimation_rp1ed")
 blend_point_4/pos = Vector2(0.5, -0.5)
-blend_point_5/node = SubResource("AnimationNodeAnimation_fae2n")
+blend_point_5/node = SubResource("AnimationNodeAnimation_bbpun")
 blend_point_5/pos = Vector2(0, -1)
-blend_point_6/node = SubResource("AnimationNodeAnimation_ef4aw")
+blend_point_6/node = SubResource("AnimationNodeAnimation_pql20")
 blend_point_6/pos = Vector2(-0.5, -0.5)
-blend_point_7/node = SubResource("AnimationNodeAnimation_owh20")
+blend_point_7/node = SubResource("AnimationNodeAnimation_8yxqp")
 blend_point_7/pos = Vector2(-1, 0)
 blend_mode = 2
 
@@ -524,7 +515,7 @@ step_time = 0.35
 unique_name_in_owner = true
 z_index = 5
 texture_filter = 1
-material = SubResource("ShaderMaterial_p4hnd")
+material = ExtResource("3_apgn6")
 use_parent_material = true
 scale = Vector2(1.23, 1.23)
 texture = ExtResource("3_gi8jr")

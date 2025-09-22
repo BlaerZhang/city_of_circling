@@ -31,11 +31,25 @@ func _ready() -> void:
 	ui_points_label.text = str(PointManager.get_points(points_type))
 	# tooltip_text = tr(ItemForSale.ShopType.keys()[points_type].to_upper() + "_TITLE") + tr("PTS")
 	ResourceManager.item_count_changed.connect(on_item_count_changed)
+	PointManager.points_reset.connect(on_points_reset)
 	original_pos = position
 	position = Vector2(0, 0)
 
 
-func on_item_count_changed(item_name: String, count: int, change_amount: int, source_pos: Vector2):
+func on_points_reset() -> void:
+	# 重置UI显示和评级
+	ui_points_label.text = "0"
+	update_rating(Item.Rarity.Common)
+	# 停止所有正在进行的动画
+	if points_tween:
+		points_tween.kill()
+	if show_hide_tween:
+		show_hide_tween.kill()
+	# 重置位置
+	position = Vector2(0, 0)
+
+
+func on_item_count_changed(item_name: String, _count: int, change_amount: int, source_pos: Vector2):
 	if ResourceManager.get_item_pts_type(item_name) == points_type:
 		if change_amount > 0:
 			var current_pos = position

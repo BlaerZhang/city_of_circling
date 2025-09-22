@@ -604,6 +604,7 @@ offset_left = -59.07
 offset_top = -223.452
 offset_right = 264.93
 offset_bottom = 442.551
+pivot_offset = Vector2(114.307, 49.2688)
 mouse_filter = 2
 theme_override_colors/default_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/normal_font_size = 76

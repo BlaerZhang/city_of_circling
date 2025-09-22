@@ -1,32 +1,34 @@
 ﻿key,en,zh
 TUTORIAL_GATE_BUTTON,End Tutorial,结束教程
 TUTORIAL_GATE_TOOLTIP,You're ready to proceed.,你已经准备好了。
-TUTORIAL_1,Welcome to the City of Circling.,欢迎来到盘旋城。
+SKIP_TUTORIAL,Skip Tutorial,跳过教程
+SKIP_TUTORIAL_CONFIRM,Are you sure to skip tutorial?,确定要跳过教程吗？
+TUTORIAL_1,Welcome to the City of Stayvesant to prepare for the upcoming adventure.,欢迎来到斗鎏城，为即将到来的冒险做准备。
 TUTORIAL_MOVE_1,Click on your character to start moving.,点一下角色就能开始移动。
 TUTORIAL_MOVE_2,"Move your mouse along tiles to plan a path, \nthen click the destination to confirm.",移动鼠标沿格子规划路径，点一下终点就能确认。
-TUTORIAL_MOVE_3,Each move takes 1 hour. Keep that in mind.,移动一次会消耗 1 小时，要留意哦。
-,,
+TUTORIAL_MOVE_3,Each move takes 3 hour. Keep that in mind.,移动一次会消耗 3 小时，要留意哦。
+add_grid(),,
 TUTORIAL_LOTTERY_1,Try stepping on that strange tile over there.,试着走到那个奇怪的格子上吧。
 TUTORIAL_LOTTERY_2,You got 1 Apple!\nNot sure what it's for yet...,获得了 1 个苹果。\n虽然不知道能用来做什么...
 ,,
 ,,
 ,,
 ,,
-TUTORIAL_NPC_1,A citizen seems to need help.\nGo pay them a visit.,一位城民似乎需要帮助。\n拜访看看吧。
+TUTORIAL_NPC_1,Someone seems to need help.\nGo pay them a visit.,似乎有人需要帮助。\n拜访看看吧。
 TUTORIAL_NPC_2,"""I need 1 Apple and 1 Grapes, please!""",“我想要 1 个苹果和 1 串葡萄，拜托了！”
 TUTORIAL_NPC_3,Just 1 Grapes left to complete the request.,还差 1 串葡萄，就能完成委托。
 ,,
 TUTORIAL_NPC_4,That tile ahead might have some.\nGive it a try.,前面的格子或许可以抽到。\n试试看吧。
 ,,
-TUTORIAL_NPC_5,Got the fruit you needed!\nNow head back to deliver it.,抽到了需要的水果。\n现在回去交给城民吧。
-TUTORIAL_NPC_6,"""Thanks for the fruit! Here's 2 Exchange Coupons you can use at the shop.""",“感谢你的水果！送你 2 张交换券，可以在商店买东西用哦。”
-TUTORIAL_NPC_7,"By the way, unlike accepting requests,\nyou can deliver fruit just by passing by. No need to stop!",另外，不同于接受水果委托，\n提交水果不用停下脚步，路过城民时就会自动交付。
+TUTORIAL_NPC_5,Got the fruit you needed!\nNow head back to deliver it.,抽到了需要的水果。\n现在回去交给ta吧。
+TUTORIAL_NPC_6,"""Thanks for the fruit! Here's 2 Exchange Coupons you can use at the shop.""",“感谢你的水果！送你 2 张交换券，可以在商店买冒险物资用哦。”
+TUTORIAL_NPC_7,"By the way, unlike accepting requests,\nyou can deliver fruit just by passing by. No need to stop!",另外，不同于接受水果委托，\n提交水果不用停留，路过时就会自动交付。
 ,,
 ,,
 ,,
-TUTORIAL_NPC_8,Another citizen has a request too? Go check it out.,另一位城民似乎也有请求？拜访看看吧。
-TUTORIAL_NPC_9,"""Could you deliver a message to the Giraffe for me? Please!""","""可以麻烦帮我传个口信给长颈鹿吗？拜托了！”"
-TUTORIAL_NPC_10,"""Thanks for the message! Here's 1 Exchange Coupon. Check out the shop nearby when you can.""",“感谢传信！给你 1 张交换券，有空的话去附近的商店看看吧。”
+TUTORIAL_NPC_8,Another request? Go check it out.,另一位似乎也有请求？拜访看看吧。
+TUTORIAL_NPC_9,"""Could you deliver a message to the Giraffe for me? Please!""","""可以麻烦帮我捎个口信给长颈鹿吗？拜托了！”"
+TUTORIAL_NPC_10,"""Thanks for the message! Here's 1 Exchange Coupon. Check out the shop nearby when you can.""",“感谢稍信！给你 1 张交换券，有空的话去附近的商店看看吧。”
 TUTORIAL_NPC_11,"Besides fruit requests, you'll sometimes get message delivery requests.",除了水果，有时也会接到传信的委托。
 TUTORIAL_NPC_12,Message deliveries complete automatically when you pass by too.\nUse this to save time!,传信任务路过目标也能自动完成。\n好好利用可以节省时间哦。
 ,,
@@ -35,15 +37,22 @@ TUTORIAL_SHOP_2,Things are a bit pricey right now.\nHow about trying a Mystery B
 TUTORIAL_SHOP_3,You got 2 Fruits of your choice!\nClick the glowing fruit icons to pick the ones you want.,获得了 2 个自选水果。\n点击亮着的水果图标，挑你想要的吧。
 ,,
 ,,
-TUTORIAL_UPGRADE_1,The Upgrade Shop lets you unlock abilities with Upgrade Coupons.,升级商店里，可以用升级券解锁各种能力。
+TUTORIAL_UPGRADE_1,The Upgrade Tiles let you unlock abilities with Upgrade Coupons.,在升级格可以用升级券解锁各种能力。
 TUTORIAL_UPGRADE_2,"You don't have any Upgrade Coupons yet.\nComplete some requests first, then buy one at the shop.",现在还没有升级券呢。\n先努力完成委托，在商店里买 1 张吧。
-TUTORIAL_UPGRADE_3,You got 1 Trade Upgrade Coupon!\nVisit the Trade Upgrade Shop.,获得了 1 张贸易升级券。\n去贸易升级商店看看吧。
-TUTORIAL_UPGRADE_4,"There are two upgrades available here.\nGet ""Shop Refresh+"" first.",目前这里有两种升级可选。\n先买“商店刷新+”吧。
-TUTORIAL_UPGRADE_5,Upgrade Shops usually sell Basic Upgrades and Special Upgrades.,升级商店通常会卖 基础升级 和 特殊升级。
+TUTORIAL_UPGRADE_3,You got 1 Trade Upgrade Coupon!\nVisit the Shop Upgrade Grid.,获得了 1 张商店升级券。\n去商店升级格看看吧。
+TUTORIAL_UPGRADE_4,"There are two upgrades available here.\nGet ""Shop Manual Refresh"" first.",目前这里有两种升级可选。\n先买“解锁商店刷新”吧。
+TUTORIAL_UPGRADE_5,Upgrade Tiles usually sell both Basic Upgrades and Special Upgrades.,升级格通常会同时卖 基础升级 和 特殊升级。
 TUTORIAL_UPGRADE_6,"Basic Upgrades can be bought multiple times, improving with each level.\nCheck the tooltip for current level and effects.",基础升级可以反复购买，等级和效果随之提升。\n可以在描述中查看当前等级和效果。
-TUTORIAL_UPGRADE_7,"You just got ""Shop Refresh+"", so now you can manually refresh the shop.",刚刚买到的是 “商店刷新+”，现在可以手动刷新商店。
-TUTORIAL_UPGRADE_8,"Except for the unlimited 3%s Mystery Boxes, other items go out of stock after purchase.",除了无限供应的 3%s 盲盒，其他商品买完都会暂时缺货。
-TUTORIAL_UPGRADE_9,"The shop restocks at 00:00 / 08:00 / 16:00 daily with random goods, or when you manually refresh.",商店会在每天 00:00 / 08:00 / 16:00 上架随机商品，或者手动刷新时也会更新。
-TUTORIAL_UPGRADE_10,Manual refresh uses reset daily at 00:00.,手动刷新次数会在每日00:00重置。
+TUTORIAL_UPGRADE_7,"You just got ""Shop Manual Refresh"", so now you can manually refresh the shop.",刚刚买到的是 “解锁商店刷新”，现在可以手动刷新商店。
+TUTORIAL_UPGRADE_8,"Except for the unlimited Mystery Boxes, other items go out of stock after purchase.",除了无限供应的盲盒，其他商品买完都会暂时缺货。
+TUTORIAL_UPGRADE_9,"The shop restocks at 00:00 daily with random goods, or when you manually refresh.",商店会在每天 00:00上架随机商品，或者手动刷新时也会更新。
+TUTORIAL_UPGRADE_10,Manual refresh refills to 3 uses daily at 00:00.,手动刷新次数会在每日00:00重置为 3 次。
+TUTORIAL_UPGRADE_11,"Please visit the shop again and buy the Shopping Cart.\nIf it isn’t available, try the manual refresh you just unlocked,\nor wait for a restock.",请再次拜访商店，买下 购物车 吧。\n如果目前没有上架的话，试试刚解锁的手动刷新，\n或者打发一会儿时间吧。
+TUTORIAL_POINTS_1,"The Shopping Cart is a rare item,\nand provides 5 Shop Pts.",买到的 购物车 稀有度较高，可以提供 5 点商店点数。
+TUTORIAL_POINTS_2,"Raising different types of points increases adventure success rate.\nBut only when LUCK, MOVEMENT, QUEST, and SHOP Pts all work together\nthe effect will be significant.",提升各类点数可以增加冒险成功率。\n不过需要幸运、移动、任务、商店四项点数共同作用，效果才会显著哦。
+TUTORIAL_POINTS_3,"LUCK, MOVEMENT, and QUEST items are sold at their respective shops.\nThey’re not available yet, so let’s give you some for demonstration.",幸运、移动、任务物资在对应的商店出售。\n目前没有地方能买到呢，先发放一些物资以作说明吧。
+TUTORIAL_POINTS_4,"Success rate increased!\nThe more items you prepare, the less likely you are to fail.\nIf you fail... you’ll return empty-handed.",冒险成功率提升了！\n物资准备越充分，就越能够避免冒险失败的情况。\n如果失败的话...就一无所获了呢。
+TUTORIAL_POINTS_5,"You have 60 days in total.\nThe more time you spend stocking up in the city, the less time you’ll have to venture out.\nAdventure scores also decrease as days pass. Keep that in mind.",此外，一共有 60 天的时间。\n花费更多时间在城里囤积物资的话，可用于出城冒险的时间则会相应减少。\n能够获得的冒险得分也会随天数降低。请注意。
+TUTORIAL_POINTS_6,"The goal is to achieve a higher adventure score.\nSo, improve your efficiency in stocking up.\nRaise your Success Rate while saving more days for the adventure itself!",游戏的目标是获取更高的冒险得分。\n因此，提高在城里准备物资的效率。\n在提高冒险成功率的同时，努力留出更多天数用来冒险吧。
 ,,
-TUTORIAL_GATE,"When you're ready, head to the city gate to end the tutorial and start the real game!",准备妥当的话，就前往城门结束教程，正式开始游戏吧。
+TUTORIAL_GATE,"When you're ready, head to the city gate to end the tutorial and start the game!",准备妥当的话，就前往城门结束教程，正式开始游戏吧。

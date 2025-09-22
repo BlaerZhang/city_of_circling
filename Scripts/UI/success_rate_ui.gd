@@ -7,8 +7,19 @@ var is_tween_playing: bool
 
 func _ready() -> void:
 	current_displayed_success_rate = PointManager.success_rate
-	PointManager.points_changed.connect(func(shop_type: ItemForSale.ShopType, points: int): update_success_rate())
+	PointManager.points_changed.connect(func(_shop_type: ItemForSale.ShopType, _points: int): update_success_rate())
+	PointManager.points_reset.connect(on_points_reset)
 	text = tr("SUCCESS_RATE") % [current_displayed_success_rate * 100]
+	is_tween_playing = false
+
+
+func on_points_reset() -> void:
+	# 重置成功率显示
+	current_displayed_success_rate = 0.0
+	text = tr("SUCCESS_RATE") % [0]
+	# 停止正在进行的动画
+	if success_rate_tween:
+		success_rate_tween.kill()
 	is_tween_playing = false
 
 
@@ -35,6 +46,7 @@ func update_success_rate():
 		2.0
 	).set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_QUART)
 
+
 func _notification(what : int) -> void:
 	if what == NOTIFICATION_TRANSLATION_CHANGED:
 		update_success_rate()
@@ -42,11 +54,31 @@ func _notification(what : int) -> void:
 
 func _on_mouse_entered() -> void:
 	if is_tween_playing: return
-	for points_ui in points_uis:
-		points_ui.show_ui()
+	show_points_uis()
 
 
 func _on_mouse_exited() -> void:
 	if is_tween_playing: return
+	hide_points_uis()
+
+
+func show_ui():
+	var show_tween = create_tween()
+	show_tween.tween_property(self, "scale", Vector2.ONE, 0.5).set_trans(Tween.TRANS_ELASTIC)
+	await show_tween.finished
+
+
+func hide_ui():
+	var hide_tween = create_tween()
+	hide_tween.tween_property(self, "scale", Vector2.ZERO, 0.5).set_trans(Tween.TRANS_ELASTIC)
+	await hide_tween.finished
+
+
+func show_points_uis():
+	for points_ui in points_uis:
+		points_ui.show_ui()
+
+
+func hide_points_uis():
 	for points_ui in points_uis:
 		points_ui.hide_ui()
