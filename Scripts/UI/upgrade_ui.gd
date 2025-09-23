@@ -24,10 +24,16 @@ const COUPON_MAP: Dictionary = {
 func _ready() -> void:
 	init()
 	UpgradeManager.upgrade_added.connect(update_icon_and_tooltip)
+	UpgradeManager.upgrades_reset.connect(on_upgrades_reset)
 
 
 func init() -> void:
 	upgrade_icon.texture = upgrade.upgrade_icon
+	update_icon_and_tooltip(null)
+
+
+func on_upgrades_reset() -> void:
+	# 重置升级UI到初始状态
 	update_icon_and_tooltip(null)
 
 

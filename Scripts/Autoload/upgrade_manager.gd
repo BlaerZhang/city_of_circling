@@ -3,6 +3,7 @@ extends Node
 var upgrade_database: Dictionary[String, Upgrade]
 var upgrades_owned: Dictionary[String, int]
 signal upgrade_added(upgrade: Upgrade)
+signal upgrades_reset()
 
 
 func _ready() -> void:
@@ -10,8 +11,9 @@ func _ready() -> void:
 	SceneManager.scene_loaded_with_name.connect(on_scene_loaded_with_name)
 
 
-func on_scene_loaded_with_name(scene_name: String):
+func on_scene_loaded_with_name(_scene_name: String) -> void:
 	upgrades_owned.clear()
+	upgrades_reset.emit()
 
 
 # Load all resources in the folder to dict
