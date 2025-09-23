@@ -80,16 +80,19 @@ func tutorial_sequence_start() -> void:
 	await display_text(tr("TUTORIAL_NPC_12"))
 	await get_tree().create_timer(2).timeout
 	GridManager.show_grid_at_pos(Vector2i(5, 1))
+	GridManager.show_grid_at_pos(Vector2i(4, 1))
+	GridManager.show_grid_at_pos(Vector2i(4, 2))
+	GridManager.show_grid_at_pos(Vector2i(4, 3))
+	GridManager.show_grid_at_pos(Vector2i(5, 3))
 	display_text(tr("TUTORIAL_SHOP_1"))
 	await GridManager.grid_database[Vector2i(5, 1)].player_arrived
 	display_text(tr("TUTORIAL_SHOP_2"))
 	await %"Spin Wheel".wheel_face.on_end_spin
 	display_text(tr("TUTORIAL_SHOP_3"))
 	await %"Spin Wheel".draw_finished
-	GridManager.show_grid_at_pos(Vector2i(4, 1))
-	GridManager.show_grid_at_pos(Vector2i(4, 2))
-	GridManager.show_grid_at_pos(Vector2i(4, 3))
-	GridManager.show_grid_at_pos(Vector2i(5, 3))
+	GridManager.show_grid_at_pos(Vector2i(4, 4))
+	GridManager.show_grid_at_pos(Vector2i(4, 5))
+	GridManager.show_grid_at_pos(Vector2i(5, 5))
 	await display_text(tr("TUTORIAL_UPGRADE_1"))
 	await get_tree().create_timer(2).timeout
 	display_text(tr("TUTORIAL_UPGRADE_2"))
@@ -98,7 +101,7 @@ func tutorial_sequence_start() -> void:
 		if signal_args[0] == "trade upgrade coupon" and signal_args[2] >= 1:
 			break
 	display_text(tr("TUTORIAL_UPGRADE_3"))
-	await GridManager.grid_database[Vector2i(4, 3)].player_arrived
+	await GridManager.grid_database[Vector2i(4, 4)].player_arrived
 	display_text(tr("TUTORIAL_UPGRADE_4"))
 	await UpgradeManager.upgrade_added
 	await display_text(tr("TUTORIAL_UPGRADE_5"))
@@ -139,9 +142,7 @@ func tutorial_sequence_start() -> void:
 	await get_tree().create_timer(4).timeout
 	await display_text(tr("TUTORIAL_POINTS_6"))
 	await get_tree().create_timer(4).timeout
-	GridManager.show_grid_at_pos(Vector2i(4, 4))
-	GridManager.show_grid_at_pos(Vector2i(4, 5))
-	GridManager.show_grid_at_pos(Vector2i(5, 5))
+	GridManager.show_grid_at_pos(Vector2i(4, 6))
 	display_text(tr("TUTORIAL_GATE"))
 
 
