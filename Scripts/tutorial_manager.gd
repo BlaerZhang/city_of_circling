@@ -17,8 +17,9 @@ func display_text(text: String) -> void:
 	if tutorial_label_tween:
 		tutorial_label_tween.kill()
 	tutorial_label_tween = create_tween()
-	tutorial_label.text = ""
-	tutorial_label_tween.tween_property(tutorial_label, "text", text, time_to_play)
+	tutorial_label.visible_ratio = 0
+	tutorial_label.text = text
+	tutorial_label_tween.tween_property(tutorial_label, "visible_ratio", 1, time_to_play).from(0)
 	#play sound effect every fixed interval until the text is finished
 	while tutorial_label_tween.is_valid():
 		AudioManager.create_audio(SoundEffect.SOUND_EFFECT_TYPE.TUTORIAL_PRINT)
@@ -43,6 +44,8 @@ func tutorial_sequence_start() -> void:
 	GridManager.show_grid_at_pos(Vector2i(9, 5))
 	display_text(tr("TUTORIAL_LOTTERY_1"))
 	await %"Spin Wheel".wheel_face.on_end_spin
+	var icon_show_tween = create_tween()
+	icon_show_tween.tween_property(GridManager.grid_database[Vector2i(9, 5)].get_node("Major Fruit Icon"), "scale", Vector2.ONE, 0.2).from(Vector2.ZERO).set_trans(Tween.TRANS_EXPO)
 	await display_text(tr("TUTORIAL_LOTTERY_2"))
 	await get_tree().create_timer(2).timeout
 	GridManager.show_grid_at_pos(Vector2i(9, 4))
@@ -80,16 +83,19 @@ func tutorial_sequence_start() -> void:
 	await display_text(tr("TUTORIAL_NPC_12"))
 	await get_tree().create_timer(2).timeout
 	GridManager.show_grid_at_pos(Vector2i(5, 1))
+	GridManager.show_grid_at_pos(Vector2i(4, 1))
+	GridManager.show_grid_at_pos(Vector2i(4, 2))
+	GridManager.show_grid_at_pos(Vector2i(4, 3))
+	GridManager.show_grid_at_pos(Vector2i(5, 3))
 	display_text(tr("TUTORIAL_SHOP_1"))
 	await GridManager.grid_database[Vector2i(5, 1)].player_arrived
 	display_text(tr("TUTORIAL_SHOP_2"))
 	await %"Spin Wheel".wheel_face.on_end_spin
 	display_text(tr("TUTORIAL_SHOP_3"))
 	await %"Spin Wheel".draw_finished
-	GridManager.show_grid_at_pos(Vector2i(4, 1))
-	GridManager.show_grid_at_pos(Vector2i(4, 2))
-	GridManager.show_grid_at_pos(Vector2i(4, 3))
-	GridManager.show_grid_at_pos(Vector2i(5, 3))
+	GridManager.show_grid_at_pos(Vector2i(4, 4))
+	GridManager.show_grid_at_pos(Vector2i(4, 5))
+	GridManager.show_grid_at_pos(Vector2i(5, 5))
 	await display_text(tr("TUTORIAL_UPGRADE_1"))
 	await get_tree().create_timer(2).timeout
 	display_text(tr("TUTORIAL_UPGRADE_2"))
@@ -98,7 +104,7 @@ func tutorial_sequence_start() -> void:
 		if signal_args[0] == "trade upgrade coupon" and signal_args[2] >= 1:
 			break
 	display_text(tr("TUTORIAL_UPGRADE_3"))
-	await GridManager.grid_database[Vector2i(4, 3)].player_arrived
+	await GridManager.grid_database[Vector2i(4, 4)].player_arrived
 	display_text(tr("TUTORIAL_UPGRADE_4"))
 	await UpgradeManager.upgrade_added
 	await display_text(tr("TUTORIAL_UPGRADE_5"))
@@ -119,7 +125,7 @@ func tutorial_sequence_start() -> void:
 	display_text(tr("TUTORIAL_UPGRADE_11"))
 	while true:
 		var signal_args = await ResourceManager.item_count_changed
-		if signal_args[0] == "trade_supply_lv3" and signal_args[2] >= 1:
+		if signal_args[0] == "trade_supply_lv2" and signal_args[2] >= 1:
 			break
 	%"Success Rate UI".show_ui()
 	await display_text(tr("TUTORIAL_POINTS_1"))
@@ -139,9 +145,7 @@ func tutorial_sequence_start() -> void:
 	await get_tree().create_timer(4).timeout
 	await display_text(tr("TUTORIAL_POINTS_6"))
 	await get_tree().create_timer(4).timeout
-	GridManager.show_grid_at_pos(Vector2i(4, 4))
-	GridManager.show_grid_at_pos(Vector2i(4, 5))
-	GridManager.show_grid_at_pos(Vector2i(5, 5))
+	GridManager.show_grid_at_pos(Vector2i(4, 6))
 	display_text(tr("TUTORIAL_GATE"))
 
 

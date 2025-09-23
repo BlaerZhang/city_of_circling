@@ -34,7 +34,7 @@ TUTORIAL_NPC_12,Message deliveries complete automatically when you pass by too.\
 ,,
 TUTORIAL_SHOP_1,The shop is open! You can buy things with Exchange Coupons.\nTake a look.,商店开张了，可以用交换券买东西。\n进去看看吧。
 TUTORIAL_SHOP_2,Things are a bit pricey right now.\nHow about trying a Mystery Box?,现在商品有点贵。\n不如先买个盲盒碰碰运气？
-TUTORIAL_SHOP_3,You got 2 Fruits of your choice!\nClick the glowing fruit icons to pick the ones you want.,获得了 2 个自选水果。\n点击亮着的水果图标，挑你想要的吧。
+TUTORIAL_SHOP_3,You got 2 Fruits of your choice!\nClick the glowing fruit icons to pick the ones you want.,获得了 2 个自选水果。\n点击亮着的水果图标，挑选想要的吧。
 ,,
 ,,
 TUTORIAL_UPGRADE_1,The Upgrade Tiles let you unlock abilities with Upgrade Coupons.,在升级格可以用升级券解锁各种能力。
@@ -47,8 +47,8 @@ TUTORIAL_UPGRADE_7,"You just got ""Shop Manual Refresh"", so now you can manuall
 TUTORIAL_UPGRADE_8,"Except for the unlimited Mystery Boxes, other items go out of stock after purchase.",除了无限供应的盲盒，其他商品买完都会暂时缺货。
 TUTORIAL_UPGRADE_9,"The shop restocks at 00:00 daily with random goods, or when you manually refresh.",商店会在每天 00:00上架随机商品，或者手动刷新时也会更新。
 TUTORIAL_UPGRADE_10,Manual refresh refills to 3 uses daily at 00:00.,手动刷新次数会在每日00:00重置为 3 次。
-TUTORIAL_UPGRADE_11,"Please visit the shop again and buy the Shopping Cart.\nIf it isn’t available, try the manual refresh you just unlocked,\nor wait for a restock.",请再次拜访商店，买下 购物车 吧。\n如果目前没有上架的话，试试刚解锁的手动刷新，\n或者打发一会儿时间吧。
-TUTORIAL_POINTS_1,"The Shopping Cart is a rare item,\nand provides 5 Shop Pts.",买到的 购物车 稀有度较高，可以提供 5 点商店点数。
+TUTORIAL_UPGRADE_11,"Please visit the shop again and buy the [font_size=40][color=#94b757]Balance[/color][/font_size].\nIf it isn’t available, try the manual refresh you just unlocked.",请再次拜访商店，买下 [font_size=40][color=#94b757]天平[/color][/font_size] 吧。\n如果目前没有上架的话，试试刚解锁的手动刷新吧。
+TUTORIAL_POINTS_1,The [font_size=40][color=#94b757]天平[/color][/font_size] provides 5 Shop Pts.,买到的 [font_size=40][color=#94b757]天平[/color][/font_size] 可以提供 3 点商店点数。
 TUTORIAL_POINTS_2,"Raising different types of points increases adventure success rate.\nBut only when LUCK, MOVEMENT, QUEST, and SHOP Pts all work together\nthe effect will be significant.",提升各类点数可以增加冒险成功率。\n不过需要幸运、移动、任务、商店四项点数共同作用，效果才会显著哦。
 TUTORIAL_POINTS_3,"LUCK, MOVEMENT, and QUEST items are sold at their respective shops.\nThey’re not available yet, so let’s give you some for demonstration.",幸运、移动、任务物资在对应的商店出售。\n目前没有地方能买到呢，先发放一些物资以作说明吧。
 TUTORIAL_POINTS_4,"Success rate increased!\nThe more items you prepare, the less likely you are to fail.\nIf you fail... you’ll return empty-handed.",冒险成功率提升了！\n物资准备越充分，就越能够避免冒险失败的情况。\n如果失败的话...就一无所获了呢。
