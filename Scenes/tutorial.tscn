@@ -658,10 +658,10 @@ position = Vector2(-94, 182)
 grid_type = 0
 grid_position = Vector2i(6, 4)
 
-[node name="Grid_4_5" parent="Board/Grids" instance=ExtResource("6_hiip6")]
-position = Vector2(-366.215, 318.182)
+[node name="Grid_4_4" parent="Board/Grids" instance=ExtResource("6_hiip6")]
+position = Vector2(-366.215, 182.182)
 grid_type = 0
-grid_position = Vector2i(4, 5)
+grid_position = Vector2i(4, 4)
 
 [node name="Grid_6_5" parent="Board/Grids" instance=ExtResource("6_hiip6")]
 position = Vector2(-94, 318)
@@ -786,24 +786,24 @@ position = Vector2(314, -90)
 grid_type = 0
 grid_position = Vector2i(9, 2)
 
-[node name="Grid_4_4" parent="Board/Grids" instance=ExtResource("6_hiip6")]
-position = Vector2(-366.215, 182.182)
+[node name="Grid_4_5" parent="Board/Grids" instance=ExtResource("6_hiip6")]
+position = Vector2(-366.215, 318.182)
 texture = ExtResource("29_x0eg5")
 grid_type = 2
-grid_position = Vector2i(4, 4)
+grid_position = Vector2i(4, 5)
 
-[node name="Functional Component" parent="Board/Grids/Grid_4_4" node_paths=PackedStringArray("upgrade_button_list") instance=ExtResource("12_ldnol")]
+[node name="Functional Component" parent="Board/Grids/Grid_4_5" node_paths=PackedStringArray("upgrade_button_list") instance=ExtResource("12_ldnol")]
 upgrade_shop_type = 3
 upgrade_button_list = [NodePath("../Upgrade shop button"), NodePath("../Upgrade shop button2")]
 
-[node name="Upgrade shop button" parent="Board/Grids/Grid_4_4" instance=ExtResource("13_w1js8")]
+[node name="Upgrade shop button" parent="Board/Grids/Grid_4_5" instance=ExtResource("13_w1js8")]
 offset_left = -200.0
 offset_top = -64.0
 offset_right = -72.0
 offset_bottom = 64.0
 pivot_offset = Vector2(200, 64)
 
-[node name="Upgrade shop button2" parent="Board/Grids/Grid_4_4" instance=ExtResource("13_w1js8")]
+[node name="Upgrade shop button2" parent="Board/Grids/Grid_4_5" instance=ExtResource("13_w1js8")]
 offset_left = -200.0
 offset_top = -200.0
 offset_right = -72.0
@@ -1186,7 +1186,7 @@ theme_override_colors/font_outline_color = Color(1, 1, 1, 1)
 theme_override_constants/outline_size = 12
 theme_override_font_sizes/normal_font_size = 36
 bbcode_enabled = true
-text = "每次移动会消耗[color=crimson] 3 小时[/color]，还请留意。"
+text = "每次移动会消耗[color=#BC3D37] 3 小时[/color]，还请留意。"
 scroll_active = false
 horizontal_alignment = 1
 vertical_alignment = 1

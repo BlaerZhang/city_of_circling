@@ -12,13 +12,13 @@ func _ready() -> void:
 
 
 func display_text(text: String) -> void:
-	var text_length: int = text.length()
+	tutorial_label.visible_ratio = 0
+	tutorial_label.text = text
+	var text_length: int = tutorial_label.get_parsed_text().length()
 	var time_to_play: float = text_length / text_play_speed[TranslationServer.get_locale()]
 	if tutorial_label_tween:
 		tutorial_label_tween.kill()
 	tutorial_label_tween = create_tween()
-	tutorial_label.visible_ratio = 0
-	tutorial_label.text = text
 	tutorial_label_tween.tween_property(tutorial_label, "visible_ratio", 1, time_to_play).from(0)
 	#play sound effect every fixed interval until the text is finished
 	while tutorial_label_tween.is_valid():
@@ -29,6 +29,8 @@ func display_text(text: String) -> void:
 
 func tutorial_sequence_start() -> void:
 	await display_text(tr("TUTORIAL_1"))
+	await get_tree().create_timer(1).timeout
+	await display_text(tr("TUTORIAL_2"))
 	await get_tree().create_timer(2).timeout
 	GridManager.show_grid_at_pos(Vector2i(6, 3))
 	GridManager.show_grid_at_pos(Vector2i(6, 4))
@@ -60,10 +62,10 @@ func tutorial_sequence_start() -> void:
 	GridManager.show_grid_at_pos(Vector2i(7, 3))
 	display_text(tr("TUTORIAL_NPC_4"))
 	await %"Spin Wheel".wheel_face.on_end_spin
-	display_text(tr("TUTORIAL_NPC_5"))
+	await display_text(tr("TUTORIAL_NPC_5"))
+	await get_tree().create_timer(1).timeout
+	display_text(tr("TUTORIAL_NPC_6"))
 	await GridManager.grid_database[Vector2i(9, 3)].functional_grid_component.fruit_quest_completed
-	await display_text(tr("TUTORIAL_NPC_6"))
-	await get_tree().create_timer(2).timeout
 	await display_text(tr("TUTORIAL_NPC_7"))
 	await get_tree().create_timer(2).timeout
 	GridManager.show_grid_at_pos(Vector2i(9, 2))
@@ -74,13 +76,11 @@ func tutorial_sequence_start() -> void:
 	GridManager.show_grid_at_pos(Vector2i(6, 2))
 	display_text(tr("TUTORIAL_NPC_8"))
 	await GridManager.grid_database[Vector2i(7, 1)].functional_grid_component.delivery_quest_generated
-	display_text(tr("TUTORIAL_NPC_9"))
+	await display_text(tr("TUTORIAL_NPC_9"))
+	await get_tree().create_timer(1).timeout
+	display_text(tr("TUTORIAL_NPC_10"))
 	await GridManager.grid_database[Vector2i(9, 3)].functional_grid_component.delivery_quest_completed
-	await display_text(tr("TUTORIAL_NPC_10"))
-	await get_tree().create_timer(2).timeout
 	await display_text(tr("TUTORIAL_NPC_11"))
-	await get_tree().create_timer(2).timeout
-	await display_text(tr("TUTORIAL_NPC_12"))
 	await get_tree().create_timer(2).timeout
 	GridManager.show_grid_at_pos(Vector2i(5, 1))
 	GridManager.show_grid_at_pos(Vector2i(4, 1))
@@ -93,9 +93,7 @@ func tutorial_sequence_start() -> void:
 	await %"Spin Wheel".wheel_face.on_end_spin
 	display_text(tr("TUTORIAL_SHOP_3"))
 	await %"Spin Wheel".draw_finished
-	GridManager.show_grid_at_pos(Vector2i(4, 4))
 	GridManager.show_grid_at_pos(Vector2i(4, 5))
-	GridManager.show_grid_at_pos(Vector2i(5, 5))
 	await display_text(tr("TUTORIAL_UPGRADE_1"))
 	await get_tree().create_timer(2).timeout
 	display_text(tr("TUTORIAL_UPGRADE_2"))
@@ -103,48 +101,48 @@ func tutorial_sequence_start() -> void:
 		var signal_args = await ResourceManager.item_count_changed
 		if signal_args[0] == "trade upgrade coupon" and signal_args[2] >= 1:
 			break
-	display_text(tr("TUTORIAL_UPGRADE_3"))
-	await GridManager.grid_database[Vector2i(4, 4)].player_arrived
-	display_text(tr("TUTORIAL_UPGRADE_4"))
+	await display_text(tr("TUTORIAL_UPGRADE_3"))
+	await get_tree().create_timer(2).timeout
+	await display_text(tr("TUTORIAL_UPGRADE_4"))
+	await get_tree().create_timer(2).timeout
+	GridManager.show_grid_at_pos(Vector2i(4, 4))
+	GridManager.show_grid_at_pos(Vector2i(5, 5))
+	display_text(tr("TUTORIAL_UPGRADE_5"))
+	await GridManager.grid_database[Vector2i(4, 5)].player_arrived
+	display_text(tr("TUTORIAL_UPGRADE_6"))
 	await UpgradeManager.upgrade_added
-	await display_text(tr("TUTORIAL_UPGRADE_5"))
-	await get_tree().create_timer(2).timeout
-	await display_text(tr("TUTORIAL_UPGRADE_6"))
-	await get_tree().create_timer(2).timeout
 	await display_text(tr("TUTORIAL_UPGRADE_7"))
-	await get_tree().create_timer(2).timeout
-	await display_text(tr("TUTORIAL_UPGRADE_8"))
-	await get_tree().create_timer(2).timeout
-	await display_text(tr("TUTORIAL_UPGRADE_9"))
-	await get_tree().create_timer(2).timeout
-	await display_text(tr("TUTORIAL_UPGRADE_10"))
 	await get_tree().create_timer(2).timeout
 	var sale_pool = GridManager.grid_database[Vector2i(5, 1)].functional_grid_component.sale_pool
 	sale_pool[sale_pool.find_custom(func(item: ItemForSale): return item.item_name == "supplies")].weight_list_per_level[0] = 80
 	sale_pool[sale_pool.find_custom(func(item: ItemForSale): return item.item_name == "trade upgrade coupon")].weight_list_per_level[0] = 0
-	display_text(tr("TUTORIAL_UPGRADE_11"))
+	display_text(tr("TUTORIAL_POINTS_1"))
 	while true:
 		var signal_args = await ResourceManager.item_count_changed
 		if signal_args[0] == "trade_supply_lv2" and signal_args[2] >= 1:
 			break
 	%"Success Rate UI".show_ui()
-	await display_text(tr("TUTORIAL_POINTS_1"))
-	await get_tree().create_timer(2).timeout
 	await display_text(tr("TUTORIAL_POINTS_2"))
-	%"Success Rate UI".show_points_uis()
-	await get_tree().create_timer(4).timeout
+	await get_tree().create_timer(2).timeout
 	await display_text(tr("TUTORIAL_POINTS_3"))
+	%"Success Rate UI".show_points_uis()
+	await get_tree().create_timer(2).timeout
+	await display_text(tr("TUTORIAL_POINTS_4"))
 	ResourceManager.change_item_count("affairs_supply_lv5", 1, Vector2(0, 0))
 	ResourceManager.change_item_count("traffic_supply_lv5", 1, Vector2(0, 0))
 	ResourceManager.change_item_count("lottery_supply_lv5", 1, Vector2(0, 0))
 	ResourceManager.change_item_count("trade_supply_lv5", 1, Vector2(0, 0))
 	await get_tree().create_timer(4).timeout
-	await display_text(tr("TUTORIAL_POINTS_4"))
-	await get_tree().create_timer(4).timeout
 	await display_text(tr("TUTORIAL_POINTS_5"))
-	await get_tree().create_timer(4).timeout
+	await get_tree().create_timer(2).timeout
 	await display_text(tr("TUTORIAL_POINTS_6"))
-	await get_tree().create_timer(4).timeout
+	await get_tree().create_timer(2).timeout
+	await display_text(tr("TUTORIAL_POINTS_7"))
+	await get_tree().create_timer(1).timeout
+	await display_text(tr("TUTORIAL_POINTS_8"))
+	await get_tree().create_timer(3).timeout
+	await display_text(tr("TUTORIAL_POINTS_9"))
+	await get_tree().create_timer(3).timeout
 	GridManager.show_grid_at_pos(Vector2i(4, 6))
 	display_text(tr("TUTORIAL_GATE"))
 
