@@ -1,4 +1,4 @@
-[gd_scene load_steps=88 format=3 uid="uid://ctc4iqiwppgrh"]
+[gd_scene load_steps=89 format=3 uid="uid://ctc4iqiwppgrh"]
 
 [ext_resource type="Script" uid="uid://gl1tsjc40q5w" path="res://Scripts/tutorial_manager.gd" id="1_8yxqp"]
 [ext_resource type="Script" uid="uid://tdlox2h37vxw" path="res://Scripts/test_input.gd" id="1_nftjj"]
@@ -17,6 +17,7 @@
 [ext_resource type="PackedScene" uid="uid://b48kaaap15g6f" path="res://Scenes/functional_component_lottery.tscn" id="15_wfdcw"]
 [ext_resource type="Texture2D" uid="uid://dinty7jilgb14" path="res://Assets/Sprites/Icon/1x/apple.png" id="16_5eib8"]
 [ext_resource type="Texture2D" uid="uid://cpwbam4wawrjj" path="res://Assets/Sprites/Icon/1x/mango.png" id="18_acrh7"]
+[ext_resource type="Texture2D" uid="uid://clniig6wj2ukd" path="res://Assets/Sprites/Icon/1x/trade.png" id="18_d0bl5"]
 [ext_resource type="Texture2D" uid="uid://dg62lbotueg53" path="res://Assets/Sprites/Icon/1x/affairs.png" id="19_8yxqp"]
 [ext_resource type="Texture2D" uid="uid://5ht047khbbax" path="res://Assets/Sprites/Icon/1x/grape.png" id="19_213eo"]
 [ext_resource type="Texture2D" uid="uid://cmbfr35puvhfq" path="res://Assets/Sprites/Icon/1x/shop_deco.png" id="19_pql20"]
@@ -720,6 +721,7 @@ prize_source = 12
 
 [node name="Major Fruit Icon" type="Sprite2D" parent="Board/Grids/Grid_9_5"]
 position = Vector2(-22.1317, 24.1905)
+scale = Vector2(1e-05, 1e-05)
 texture = ExtResource("16_5eib8")
 
 [node name="Minor Fruit Icon" type="Sprite2D" parent="Board/Grids/Grid_9_5"]
@@ -740,7 +742,7 @@ shop_ui_panel_offset = Vector2(-308.7, -333)
 
 [node name="Shop Type Icon" type="Sprite2D" parent="Board/Grids/Grid_5_1"]
 position = Vector2(-6.10352e-05, 5)
-texture = ExtResource("19_8yxqp")
+texture = ExtResource("18_d0bl5")
 
 [node name="Shop Deco" type="Sprite2D" parent="Board/Grids/Grid_5_1"]
 position = Vector2(0, -70)
@@ -1184,10 +1186,11 @@ theme_override_colors/font_outline_color = Color(1, 1, 1, 1)
 theme_override_constants/outline_size = 12
 theme_override_font_sizes/normal_font_size = 36
 bbcode_enabled = true
-text = "除了无限供应的 3[img=40]res://Assets/Sprites/Icon/1x/exchange coupon italic.png[/img] 盲盒，其他商品在购买后会暂时售罄。"
+text = "每次移动会消耗[color=crimson] 3 小时[/color]，还请留意。"
 scroll_active = false
 horizontal_alignment = 1
 vertical_alignment = 1
+visible_characters_behavior = 1
 
 [node name="Skip Tutorial Button" type="Button" parent="UI"]
 unique_name_in_owner = true
