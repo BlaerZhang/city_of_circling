@@ -128,6 +128,8 @@ func tutorial_sequence_start() -> void:
 	display_text(tr("TUTORIAL_SHOP_3"))
 	await %"Spin Wheel".draw_finished
 	GridManager.show_grid_at_pos(Vector2i(4, 5))
+	GridManager.show_grid_at_pos(Vector2i(4, 4))
+	GridManager.show_grid_at_pos(Vector2i(5, 5))
 	await display_text(tr("TUTORIAL_UPGRADE_1"))
 	await wait_for_input_to_continue()
 	display_text(tr("TUTORIAL_UPGRADE_2"))
@@ -139,8 +141,6 @@ func tutorial_sequence_start() -> void:
 	await wait_for_input_to_continue()
 	await display_text(tr("TUTORIAL_UPGRADE_4"))
 	await wait_for_input_to_continue()
-	GridManager.show_grid_at_pos(Vector2i(4, 4))
-	GridManager.show_grid_at_pos(Vector2i(5, 5))
 	display_text(tr("TUTORIAL_UPGRADE_5"))
 	await GridManager.grid_database[Vector2i(4, 5)].player_arrived
 	display_text(tr("TUTORIAL_UPGRADE_6"))

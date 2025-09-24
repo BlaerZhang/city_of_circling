@@ -1186,7 +1186,8 @@ theme_override_colors/font_outline_color = Color(1, 1, 1, 1)
 theme_override_constants/outline_size = 12
 theme_override_font_sizes/normal_font_size = 36
 bbcode_enabled = true
-text = "[img={\"height\":\"45\"}]res://Assets/Sprites/Icon/1x/trade_shop.png[/img] [font_size=40]商店[/font_size] 开张，可以用交换券购物了。\\n进去看看吧。"
+text = "现在请再次前往商店购买 [img={\"height\":\"60\"}]res://Assets/Sprites/Icon/1x/balance.png[/img][font_size=40][color=#94b757] 天平 [/color] x 1 [/font_size]吧。
+"
 scroll_active = false
 horizontal_alignment = 1
 vertical_alignment = 1
