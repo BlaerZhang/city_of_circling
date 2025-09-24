@@ -152,6 +152,7 @@ func complete_plan_move(grid_pos: Vector2i) -> void:
 		line_drawer.finish_draw()
 		is_planning_move = false
 		planning_grids_in_range.clear()
+		planning_grid_pos = Vector2i(-1, -1)
 		
 		update_grid_outline()
 
@@ -240,9 +241,9 @@ func update_grid_outline():
 		if planned_move_grid_positions.has(grid.grid_position):
 			if grid.grid_position == planning_grid_pos:
 				grid.outline_tween.set_loops()
-				grid.outline_tween.tween_property(grid.grid_outline, "modulate", Color.TRANSPARENT, 0.125).set_ease(Tween.EASE_IN_OUT).set_trans(Tween.TRANS_SINE)
-				grid.outline_tween.tween_property(grid.grid_outline, "modulate", outline_selected_color, 0.125).set_ease(Tween.EASE_IN_OUT).set_trans(Tween.TRANS_SINE)
-				grid.outline_tween.tween_interval(0.125)
+				grid.outline_tween.tween_property(grid.grid_outline, "modulate", Color.TRANSPARENT, 0.25).set_ease(Tween.EASE_IN_OUT).set_trans(Tween.TRANS_SINE)
+				grid.outline_tween.tween_property(grid.grid_outline, "modulate", outline_selected_color, 0.25).set_ease(Tween.EASE_IN_OUT).set_trans(Tween.TRANS_SINE)
+				grid.outline_tween.tween_interval(0.25)
 			else:
 				grid.outline_tween.tween_property(grid.grid_outline, "modulate", outline_selected_color, 0.1)
 		elif planning_grids_in_range.has(grid):
