@@ -1159,7 +1159,7 @@ offset_top = 2.265
 offset_right = 1920.0
 offset_bottom = 1082.27
 pivot_offset = Vector2(960, 540)
-mouse_filter = 2
+mouse_default_cursor_shape = 5
 
 [node name="Spin Wheel" parent="UI" instance=ExtResource("62_es7xy")]
 unique_name_in_owner = true
@@ -1186,7 +1186,7 @@ theme_override_colors/font_outline_color = Color(1, 1, 1, 1)
 theme_override_constants/outline_size = 12
 theme_override_font_sizes/normal_font_size = 36
 bbcode_enabled = true
-text = "每次移动会消耗[color=#BC3D37] 3 小时[/color]，还请留意。"
+text = "[img={\"height\":\"45\"}]res://Assets/Sprites/Icon/1x/trade_shop.png[/img] [font_size=40]商店[/font_size] 开张，可以用交换券购物了。\\n进去看看吧。"
 scroll_active = false
 horizontal_alignment = 1
 vertical_alignment = 1

@@ -11,4 +11,3 @@ belonging_shops = Array[int]([0, 1, 2, 3])
 dynamic_weight = false
 weight_affecting_upgrade_name = ""
 weight_list_per_level = Array[float]([80.0])
-metadata/_custom_type_script = "uid://deq76sa884uga"

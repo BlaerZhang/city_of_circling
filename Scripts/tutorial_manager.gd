@@ -1,9 +1,13 @@
 extends Node
 
 @export var text_play_speed: Dictionary[String, float]
+@export var skip_interval: float = 0.2
 @onready var tutorial_label: RichTextLabel = %"Tutorial Label"
+@onready var ui_layer: Control = $"UI"
 var tutorial_label_tween: Tween
 var skip_confirmed: bool = false
+var dialog_skippable: bool = false
+signal input_signal
 
 func _ready() -> void:
 	tutorial_label.text = ""
@@ -11,7 +15,18 @@ func _ready() -> void:
 	tutorial_sequence_start()
 
 
+func _input(event: InputEvent) -> void:
+	if event.is_action_pressed("left_click"):
+		input_signal.emit()
+		if dialog_skippable:
+			if tutorial_label_tween:
+				tutorial_label_tween.kill()
+				tutorial_label.visible_ratio = 1
+
+
 func display_text(text: String) -> void:
+	ui_layer.mouse_filter = Control.MOUSE_FILTER_STOP
+	dialog_skippable = false
 	tutorial_label.visible_ratio = 0
 	tutorial_label.text = text
 	var text_length: int = tutorial_label.get_parsed_text().length()
@@ -20,18 +35,37 @@ func display_text(text: String) -> void:
 		tutorial_label_tween.kill()
 	tutorial_label_tween = create_tween()
 	tutorial_label_tween.tween_property(tutorial_label, "visible_ratio", 1, time_to_play).from(0)
+	
+	# 创建单独的定时器来控制跳过时机
+	var skip_timer: Timer = Timer.new()
+	add_child(skip_timer)
+	skip_timer.wait_time = skip_interval
+	skip_timer.one_shot = true
+	skip_timer.timeout.connect(func(): 
+		dialog_skippable = true
+		skip_timer.queue_free()
+	)
+	skip_timer.start()
+	
 	#play sound effect every fixed interval until the text is finished
 	while tutorial_label_tween.is_valid():
 		AudioManager.create_audio(SoundEffect.SOUND_EFFECT_TYPE.TUTORIAL_PRINT)
 		await get_tree().create_timer(0.06).timeout
 	# await tutorial_label_tween.finished
+	ui_layer.mouse_filter = Control.MOUSE_FILTER_IGNORE
+
+
+func wait_for_input_to_continue() -> void:
+	ui_layer.mouse_filter = Control.MOUSE_FILTER_STOP
+	await input_signal
+	ui_layer.mouse_filter = Control.MOUSE_FILTER_IGNORE
 
 
 func tutorial_sequence_start() -> void:
 	await display_text(tr("TUTORIAL_1"))
-	await get_tree().create_timer(1).timeout
+	await wait_for_input_to_continue()
 	await display_text(tr("TUTORIAL_2"))
-	await get_tree().create_timer(2).timeout
+	await wait_for_input_to_continue()
 	GridManager.show_grid_at_pos(Vector2i(6, 3))
 	GridManager.show_grid_at_pos(Vector2i(6, 4))
 	GridManager.show_grid_at_pos(Vector2i(6, 5))
@@ -42,32 +76,32 @@ func tutorial_sequence_start() -> void:
 	display_text(tr("TUTORIAL_MOVE_2"))
 	await %"Player Movement Manager".move_completed
 	await display_text(tr("TUTORIAL_MOVE_3"))
-	await get_tree().create_timer(2).timeout
+	await wait_for_input_to_continue()
 	GridManager.show_grid_at_pos(Vector2i(9, 5))
 	display_text(tr("TUTORIAL_LOTTERY_1"))
 	await %"Spin Wheel".wheel_face.on_end_spin
 	var icon_show_tween = create_tween()
 	icon_show_tween.tween_property(GridManager.grid_database[Vector2i(9, 5)].get_node("Major Fruit Icon"), "scale", Vector2.ONE, 0.2).from(Vector2.ZERO).set_trans(Tween.TRANS_EXPO)
 	await display_text(tr("TUTORIAL_LOTTERY_2"))
-	await get_tree().create_timer(2).timeout
+	await wait_for_input_to_continue()
 	GridManager.show_grid_at_pos(Vector2i(9, 4))
 	GridManager.show_grid_at_pos(Vector2i(9, 3))
 	display_text(tr("TUTORIAL_NPC_1"))
 	await GridManager.grid_database[Vector2i(9, 3)].functional_grid_component.fruit_quest_generated
 	await display_text(tr("TUTORIAL_NPC_2"))
-	await get_tree().create_timer(2).timeout
+	await wait_for_input_to_continue()
 	await display_text(tr("TUTORIAL_NPC_3"))
-	await get_tree().create_timer(2).timeout
+	await wait_for_input_to_continue()
 	GridManager.show_grid_at_pos(Vector2i(8, 3))
 	GridManager.show_grid_at_pos(Vector2i(7, 3))
 	display_text(tr("TUTORIAL_NPC_4"))
 	await %"Spin Wheel".wheel_face.on_end_spin
 	await display_text(tr("TUTORIAL_NPC_5"))
-	await get_tree().create_timer(1).timeout
+	await wait_for_input_to_continue()
 	display_text(tr("TUTORIAL_NPC_6"))
 	await GridManager.grid_database[Vector2i(9, 3)].functional_grid_component.fruit_quest_completed
 	await display_text(tr("TUTORIAL_NPC_7"))
-	await get_tree().create_timer(2).timeout
+	await wait_for_input_to_continue()
 	GridManager.show_grid_at_pos(Vector2i(9, 2))
 	GridManager.show_grid_at_pos(Vector2i(9, 1))
 	GridManager.show_grid_at_pos(Vector2i(8, 1))
@@ -77,11 +111,11 @@ func tutorial_sequence_start() -> void:
 	display_text(tr("TUTORIAL_NPC_8"))
 	await GridManager.grid_database[Vector2i(7, 1)].functional_grid_component.delivery_quest_generated
 	await display_text(tr("TUTORIAL_NPC_9"))
-	await get_tree().create_timer(1).timeout
+	await wait_for_input_to_continue()
 	display_text(tr("TUTORIAL_NPC_10"))
 	await GridManager.grid_database[Vector2i(9, 3)].functional_grid_component.delivery_quest_completed
 	await display_text(tr("TUTORIAL_NPC_11"))
-	await get_tree().create_timer(2).timeout
+	await wait_for_input_to_continue()
 	GridManager.show_grid_at_pos(Vector2i(5, 1))
 	GridManager.show_grid_at_pos(Vector2i(4, 1))
 	GridManager.show_grid_at_pos(Vector2i(4, 2))
@@ -95,16 +129,16 @@ func tutorial_sequence_start() -> void:
 	await %"Spin Wheel".draw_finished
 	GridManager.show_grid_at_pos(Vector2i(4, 5))
 	await display_text(tr("TUTORIAL_UPGRADE_1"))
-	await get_tree().create_timer(2).timeout
+	await wait_for_input_to_continue()
 	display_text(tr("TUTORIAL_UPGRADE_2"))
 	while true:
 		var signal_args = await ResourceManager.item_count_changed
 		if signal_args[0] == "trade upgrade coupon" and signal_args[2] >= 1:
 			break
 	await display_text(tr("TUTORIAL_UPGRADE_3"))
-	await get_tree().create_timer(2).timeout
+	await wait_for_input_to_continue()
 	await display_text(tr("TUTORIAL_UPGRADE_4"))
-	await get_tree().create_timer(2).timeout
+	await wait_for_input_to_continue()
 	GridManager.show_grid_at_pos(Vector2i(4, 4))
 	GridManager.show_grid_at_pos(Vector2i(5, 5))
 	display_text(tr("TUTORIAL_UPGRADE_5"))
@@ -112,7 +146,7 @@ func tutorial_sequence_start() -> void:
 	display_text(tr("TUTORIAL_UPGRADE_6"))
 	await UpgradeManager.upgrade_added
 	await display_text(tr("TUTORIAL_UPGRADE_7"))
-	await get_tree().create_timer(2).timeout
+	await wait_for_input_to_continue()
 	var sale_pool = GridManager.grid_database[Vector2i(5, 1)].functional_grid_component.sale_pool
 	sale_pool[sale_pool.find_custom(func(item: ItemForSale): return item.item_name == "supplies")].weight_list_per_level[0] = 80
 	sale_pool[sale_pool.find_custom(func(item: ItemForSale): return item.item_name == "trade upgrade coupon")].weight_list_per_level[0] = 0
@@ -123,26 +157,26 @@ func tutorial_sequence_start() -> void:
 			break
 	%"Success Rate UI".show_ui()
 	await display_text(tr("TUTORIAL_POINTS_2"))
-	await get_tree().create_timer(2).timeout
+	await wait_for_input_to_continue()
 	await display_text(tr("TUTORIAL_POINTS_3"))
 	%"Success Rate UI".show_points_uis()
-	await get_tree().create_timer(2).timeout
+	await wait_for_input_to_continue()
 	await display_text(tr("TUTORIAL_POINTS_4"))
 	ResourceManager.change_item_count("affairs_supply_lv5", 1, Vector2(0, 0))
 	ResourceManager.change_item_count("traffic_supply_lv5", 1, Vector2(0, 0))
 	ResourceManager.change_item_count("lottery_supply_lv5", 1, Vector2(0, 0))
 	ResourceManager.change_item_count("trade_supply_lv5", 1, Vector2(0, 0))
-	await get_tree().create_timer(4).timeout
+	await wait_for_input_to_continue()
 	await display_text(tr("TUTORIAL_POINTS_5"))
-	await get_tree().create_timer(2).timeout
+	await wait_for_input_to_continue()
 	await display_text(tr("TUTORIAL_POINTS_6"))
-	await get_tree().create_timer(2).timeout
+	await wait_for_input_to_continue()
 	await display_text(tr("TUTORIAL_POINTS_7"))
-	await get_tree().create_timer(1).timeout
+	await wait_for_input_to_continue()
 	await display_text(tr("TUTORIAL_POINTS_8"))
-	await get_tree().create_timer(3).timeout
+	await wait_for_input_to_continue()
 	await display_text(tr("TUTORIAL_POINTS_9"))
-	await get_tree().create_timer(3).timeout
+	await wait_for_input_to_continue()
 	GridManager.show_grid_at_pos(Vector2i(4, 6))
 	display_text(tr("TUTORIAL_GATE"))
 
