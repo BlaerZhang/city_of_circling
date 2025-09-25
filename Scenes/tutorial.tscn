@@ -694,13 +694,11 @@ required_fruit_type_1 = "apple"
 required_fruit_type_2 = "grape"
 
 [node name="Fruit Icon 1" type="Sprite2D" parent="Board/Grids/Grid_9_3"]
-visible = false
 position = Vector2(-75.811, 33.2648)
 scale = Vector2(0.667, 0.667)
 texture = ExtResource("16_5eib8")
 
 [node name="Fruit Icon 2" type="Sprite2D" parent="Board/Grids/Grid_9_3"]
-visible = false
 position = Vector2(-25.2798, 38.488)
 scale = Vector2(0.667, 0.667)
 texture = ExtResource("19_213eo")

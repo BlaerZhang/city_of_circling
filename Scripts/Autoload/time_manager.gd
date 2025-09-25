@@ -2,6 +2,7 @@ extends Node
 
 var current_hour: int
 var current_day: int
+var step_taken: int = 0
 
 signal time_changed(day: int, hour: int)
 signal day_changed(day: int)
@@ -22,11 +23,13 @@ func on_scene_loaded_with_name(scene_name: String):
 func reset_data():
 	current_hour = 0
 	current_day = 1
+	step_taken = 0
 	day_changed.emit()
 	time_changed.emit()
 
 
 func add_step_hour():
+	step_taken += 1
 	current_hour += 3
 	if current_hour >= 24:
 		current_day += 1

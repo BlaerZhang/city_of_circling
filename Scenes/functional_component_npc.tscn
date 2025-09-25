@@ -1,8 +1,8 @@
 [gd_scene load_steps=9 format=3 uid="uid://bhviilfrl5qds"]
 
 [ext_resource type="Script" uid="uid://dad7k0wysynkr" path="res://Scripts/Grids/npc.gd" id="1_jqbj8"]
-[ext_resource type="Texture2D" uid="uid://dxltm2r3nvlnh" path="res://Assets/Sprites/Icon/1x/Quest_New.png" id="2_gr4yh"]
-[ext_resource type="Texture2D" uid="uid://bktfmcvdn8ubg" path="res://Assets/Sprites/Icon/1x/Quest_Complete.png" id="3_467il"]
+[ext_resource type="Texture2D" uid="uid://dxltm2r3nvlnh" path="res://Assets/Sprites/Icon/1x/quest_new.png" id="2_gr4yh"]
+[ext_resource type="Texture2D" uid="uid://bktfmcvdn8ubg" path="res://Assets/Sprites/Icon/1x/quest_complete.png" id="3_467il"]
 [ext_resource type="Texture2D" uid="uid://2r3uikrytvjm" path="res://Assets/Sprites/Icon/1x/quest_delivery.png" id="4_ras7k"]
 [ext_resource type="Texture2D" uid="uid://cddy03b17j7ce" path="res://Assets/Sprites/Icon/1x/quest_fruit.png" id="5_7r2sm"]
 [ext_resource type="Texture2D" uid="uid://kayoirvwf8bf" path="res://Assets/Sprites/Grid/1x/NPC (4).png" id="6_nt3rg"]
