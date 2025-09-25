@@ -2,6 +2,8 @@ extends Node2D
 
 @onready var line_drawer:= %LineDrawer
 
+@export_group("Movement")
+@export var input_style_cursor: bool = true
 var player_grid_pos: Vector2i
 var player_facing: Vector2i:
 	set(value):
@@ -17,7 +19,7 @@ var interaction_distance_unlocked:= false
 @onready var player_idle_outline:= %"Player Idle Outline"
 var player_idle_outline_tween: Tween
 
-#movement planning related
+@export_group("Planning")
 var is_planning_move:= false
 var planning_facing: Vector2i = Vector2i.RIGHT
 var planning_grid_pos: Vector2i
@@ -27,7 +29,12 @@ var previewed_grids: Array[Vector2i]
 @export var outline_selected_color:= Color.CORAL
 @export var outline_available_color:= Color.YELLOW_GREEN
 
-#moving & animation related
+# Velocity-based movement control variables
+var velocity_threshold: float = 5  # Minimum accumulated velocity to trigger movement
+var movement_cooldown_time: float = 0.1  # Time between movements in seconds
+var last_movement_time: float = 0.0  # Track when last movement occurred
+
+@export_group("Animation")
 @export var step_time:= 0.5
 var planned_move_grid_positions: Array[Vector2i]
 @onready var player_animation_tree:= %"Player AnimationTree"
@@ -56,8 +63,9 @@ func _ready() -> void:
 	player_facing = player_initial_facing
 	is_player_moving = false
 	# GridManager.moused_clicked_down_grid.connect(start_plan_move)
-	GridManager.moused_entered_grid.connect(step_plan_move)
-	GridManager.moused_clicked_down_grid.connect(complete_plan_move)
+	if input_style_cursor:
+		GridManager.moused_entered_grid.connect(step_plan_move)
+		GridManager.moused_clicked_down_grid.connect(complete_plan_move)
 	UpgradeManager.upgrade_added.connect(on_upgrade_added)
 	GameManager.game_state_changed.connect(idle_set_player_grid_outline)
 
@@ -69,6 +77,16 @@ func _input(event: InputEvent) -> void:
 	if is_planning_move && event.is_action_pressed("right_click"):
 		GameManager.resume_last_game_state()
 		cancel_plan_move()
+
+	if !input_style_cursor:
+		if is_planning_move && event is InputEventMouseMotion:
+			var mouse_motion := event as InputEventMouseMotion
+			if mouse_motion.relative.length() > velocity_threshold:
+				handle_velocity_based_movement(mouse_motion.relative)
+				
+		if is_planning_move && event.is_action_pressed("left_click"):
+			CursorManager.cursor_visible(true)
+			complete_plan_move(planning_grid_pos)
 
 
 func start_plan_move(grid_pos: Vector2i):
@@ -85,8 +103,66 @@ func start_plan_move(grid_pos: Vector2i):
 		line_drawer.add_draw_point(GridManager.grid_database[grid_pos].position)
 		planned_move_grid_positions.append(planning_grid_pos)
 		
+		# Reset movement timer when starting planning
+		if !input_style_cursor:
+			last_movement_time = 0.0
+		
 		update_grid_outline()
 		AudioManager.create_audio(SoundEffect.SOUND_EFFECT_TYPE.START_PLANNING)
+
+
+func handle_velocity_based_movement(velocity: Vector2) -> void:
+	# Check if enough time has passed since last movement
+	var current_time: float = Time.get_ticks_msec() / 1000.0  # Convert to seconds
+	if current_time - last_movement_time < movement_cooldown_time:
+		return
+	
+	# Determine the strongest direction from velocity
+	var direction := get_dominant_direction(velocity)
+	
+	# Only process if there's a valid direction
+	if direction != Vector2i.ZERO:
+		var target_grid_pos := planning_grid_pos + direction
+		step_plan_move(target_grid_pos)
+		last_movement_time = current_time  # Update last movement time
+
+
+func get_dominant_direction(velocity: Vector2) -> Vector2i:
+	# Convert 2D screen velocity to isometric grid movement
+	# Isometric mapping: 
+	# Screen up-left diagonal -> game UP (左上 = 上)
+	# Screen up-right diagonal -> game RIGHT (右上 = 右)  
+	# Screen down-left diagonal -> game LEFT (左下 = 左)
+	# Screen down-right diagonal -> game DOWN (右下 = 下)
+	
+	# Transform screen coordinates to isometric diagonal coordinates
+	# Rotate by 45 degrees to align with isometric axes
+	var iso_x: float = velocity.x + velocity.y  # right-down diagonal
+	var iso_y: float = velocity.x - velocity.y  # right-up diagonal
+	
+	var abs_iso_x: float = abs(iso_x)
+	var abs_iso_y: float = abs(iso_y)
+	
+	# Determine the dominant isometric axis
+	if abs_iso_x > abs_iso_y:
+		# Right-down / Left-up diagonal dominant
+		if iso_x > 0:
+			# Right-down diagonal -> game DOWN (右下 = 下)
+			return Vector2i.DOWN
+		else:
+			# Left-up diagonal -> game UP (左上 = 上)
+			return Vector2i.UP
+	elif abs_iso_y > abs_iso_x:
+		# Right-up / Left-down diagonal dominant
+		if iso_y > 0:
+			# Right-up diagonal -> game RIGHT (右上 = 右)
+			return Vector2i.RIGHT
+		else:
+			# Left-down diagonal -> game LEFT (左下 = 左)
+			return Vector2i.LEFT
+	else:
+		# No clear dominant direction or velocity too weak
+		return Vector2i.ZERO
 
 
 func step_plan_move(grid_pos: Vector2i):
@@ -195,6 +271,11 @@ func cancel_plan_move():
 	planning_grids_in_range.clear()
 	planned_move_grid_positions.clear()
 	
+	# Reset movement timer
+	if !input_style_cursor:
+		last_movement_time = 0.0
+		CursorManager.cursor_visible(true)
+	
 	update_grid_outline()
 	update_preview()
 	AudioManager.create_audio(SoundEffect.SOUND_EFFECT_TYPE.CANCEL)
@@ -299,8 +380,9 @@ func _on_area_2d_mouse_exited() -> void:
 	player_sprite.use_parent_material = true
 
 
-func _on_area_2d_input_event(viewport: Node, event: InputEvent, shape_idx: int) -> void:
+func _on_area_2d_input_event(_viewport: Node, event: InputEvent, _shape_idx: int) -> void:
 	if GameManager.current_game_state == GameManager.GameState.Idle:
 		if event.is_action_pressed("left_click"):
 			start_plan_move(player_grid_pos)
-			# _on_area_2d_mouse_exited()
+			if !input_style_cursor:
+				CursorManager.cursor_visible(false)

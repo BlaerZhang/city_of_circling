@@ -10,3 +10,7 @@ func _ready() -> void:
 	Input.set_custom_mouse_cursor(cursor_pointing, Input.CURSOR_POINTING_HAND, Vector2(4,2))
 	Input.set_custom_mouse_cursor(cursor_step, Input.CURSOR_MOVE, Vector2(4,2))
 	Input.set_custom_mouse_cursor(cursor_dialog, Input.CURSOR_BUSY, Vector2(4,2))
+
+
+func cursor_visible(visible: bool):
+	Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE if visible else Input.MOUSE_MODE_CAPTURED)
