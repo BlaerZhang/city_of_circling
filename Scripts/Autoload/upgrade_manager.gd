@@ -12,8 +12,9 @@ func _ready() -> void:
 
 
 func on_scene_loaded_with_name(_scene_name: String) -> void:
-	upgrades_owned.clear()
-	upgrades_reset.emit()
+	if _scene_name != "Ending":
+		upgrades_owned.clear()
+		upgrades_reset.emit()
 
 
 # Load all resources in the folder to dict

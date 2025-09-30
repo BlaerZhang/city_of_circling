@@ -8,6 +8,7 @@ signal time_changed(day: int, hour: int)
 signal day_changed(day: int)
 signal day_9
 signal shop_refresh_time
+signal stepped(step: int)
 
 
 func _ready() -> void:
@@ -30,6 +31,8 @@ func reset_data():
 
 func add_step_hour():
 	step_taken += 1
+	stepped.emit(step_taken)
+
 	current_hour += 3
 	if current_hour >= 24:
 		current_day += 1

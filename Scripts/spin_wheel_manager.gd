@@ -33,6 +33,7 @@ signal choice_finished
 func _ready() -> void:
 	position.y = hide_y_offset
 	TimeManager.day_9.connect(func(): spin_speed_up = true)
+	LogManager.spin_wheel_in_scene = self
 	#confirm_window.scale = Vector2.ZERO
 
 
@@ -83,8 +84,8 @@ func resolve_result(prize_item: PrizeItems):
 		ResourceManager.change_item_count(item, item_count, pointer.global_position)
 
 		if item == "random fruit":
-			for i in range(item_count):
-				var random_fruit_name = ResourceManager.item_database.values().filter(func(item): return item.item_type == Item.ItemType.Fruit).pick_random().item_name
+			for i in item_count:
+				var random_fruit_name = ResourceManager.item_database.values().filter(func(_item): return _item.item_type == Item.ItemType.Fruit).pick_random().item_name
 				ResourceManager.change_item_count(random_fruit_name, 1, pointer.global_position)
 		
 	if prize_item.item_list.has("draw coupon"):
@@ -142,7 +143,7 @@ func _on_spin_button_pressed() -> void:
 			wheel_face.spin_wheel(spin_animation_duration)
 			AudioManager.create_audio(SoundEffect.SOUND_EFFECT_TYPE.SPIN_START)
 		button_state.draw_coupon:
-			if (ResourceManager.try_pay_item('draw coupon', 1, spin_button.global_position)):
+			if (ResourceManager.try_buy_item('fruit draw', 1, 'draw coupon', 1, spin_button.global_position)):
 				is_in_draw = true
 				spin_button_animation_tree.set("parameters/conditions/is_pressed", true)
 				spin_button_animation_tree.set("parameters/conditions/is_spin_end", false)

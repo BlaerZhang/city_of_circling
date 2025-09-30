@@ -20,11 +20,13 @@ func _ready() -> void:
 func bypass() -> void:
 	if is_bypass_draw_unlocked:
 		wheel_manager.initiate_wheel(prize_source)
+		ResourceManager.change_item_count("fruit draw", 1, Vector2.ZERO)
 		await wheel_manager.draw_finished
 
 
 func arrive() -> void:
 	wheel_manager.initiate_wheel(prize_source)
+	ResourceManager.change_item_count("fruit draw", 1, Vector2.ZERO)
 	await wheel_manager.draw_finished
 
 

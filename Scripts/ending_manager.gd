@@ -9,6 +9,9 @@ extends Node
 @onready var bg_mask: Sprite2D = %"BG Mask"
 @onready var score_ui: RichTextLabel = %"Adventure Score UI"
 @onready var score_delta_ui: RichTextLabel = %"Score Delta UI"
+@onready var log_button: Button = %"Log Button"
+@onready var reset_button: Button = %"Reset Button"
+@onready var endgame_panel: PanelContainer = %"Endgame Panel"
 var days_left: int
 var days_passed: int = 0
 var success_rate: float
@@ -33,8 +36,11 @@ var event_text_key_failure_index_array: Array[int]
 
 var resolving_step:= false
 var ended: bool = false
+var endgame_panel_shown: bool = false
+signal resolve_ended
 
 func _ready() -> void:
+	LogManager.ending_manager_in_scene = self
 	days_left = total_days - TimeManager.current_day
 	days_passed = 0
 	success_rate = PointManager.success_rate
@@ -51,6 +57,9 @@ func _ready() -> void:
 
 func _input(event: InputEvent) -> void:
 	if event.is_action_pressed("left_click"):
+		if ended:
+			await show_endgame_panel()
+
 		if not resolving_step and not ended: 
 			resolving_step = true
 			if days_left > 0 and player_health > 0:
@@ -60,10 +69,6 @@ func _input(event: InputEvent) -> void:
 			else:
 				resolve_game(false)
 			resolving_step = false
-	
-	if event.is_action_pressed("right_click"):
-		if ended:
-			SceneManager.change_scene("res://Scenes/translation_manager.tscn")
 
 
 func gain_adventure_score():
@@ -103,6 +108,8 @@ func resolve_day():
 
 func resolve_game(succeeded: bool):
 	ended = true
+	resolve_ended.emit()
+	LogManager.on_resolve_ended()
 	update_stage_ui(current_milestone + 1)
 	if succeeded:
 		event_ui.self_modulate = Color.WHITE
@@ -236,3 +243,22 @@ func solve_dsr_from_sr_and_d(sr: float, d: int, tolerance: float = 1e-12, max_it
 			lo = mid
 	
 	return 0.5 * (lo + hi)
+
+
+func _on_reset_button_pressed() -> void:
+	if ended:
+		SceneManager.change_scene("res://Scenes/translation_manager.tscn")
+
+
+func _on_log_button_pressed() -> void:
+	if ended:
+		LogManager.copy_log_to_clipboard()
+		log_button.text = "LOG_COPIED"
+
+
+func show_endgame_panel():
+	if endgame_panel_shown: return
+	endgame_panel_shown = true
+	var show_endgame_panel_tween = create_tween()
+	show_endgame_panel_tween.tween_property(endgame_panel, "position:x", -500, 0.5).as_relative().set_trans(Tween.TRANS_EXPO)
+	await show_endgame_panel_tween.finished

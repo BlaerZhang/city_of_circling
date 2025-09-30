@@ -59,6 +59,10 @@ EVENT_FAILURE_8,"Conquered the hill, only to realize it was the wrong one.",征�
 ,,
 ADVENTURE_SCORE,Adventure Score,冒险得分
 FINAL_SCORE,Final Score,最终得分
+THANK_YOU,"Thank you for playtesting! \nTo better help us design, if you agree, please click the button below to export the game log to your clipboard and send it to us through Discord. Much Appreciated!",感谢测试！\n为了更好地帮助我们设计，如您同意，请点击下方按钮导出游戏日志到您的剪贴板，并通过微信发送给我们。再次感谢！
+LOG_COPY,Copy Log,复制日志
+LOG_COPIED,Log Copied to Clipboard,已复制到剪贴板
+PLAY_AGAIN,Play Again,再次游玩
 ,,
 EVENT_ARRIVE,Now Visiting,已到达
 EVENT_LOCATION_1,Outer Stayvesant,逗留城郊

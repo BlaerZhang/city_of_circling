@@ -4,6 +4,7 @@ var item_database: Dictionary[String, Item]
 var items_owned: Dictionary[String, int]
 var items_total_gained: Dictionary[String, int]
 signal item_count_changed(item_name: String, count: int, change_amount: int, source_pos: Vector2)
+signal item_purchased(item_to_buy_name: String, buy_count: int, item_to_pay_name: String, pay_count: int)
 
 func _ready() -> void:
 	load_all_items()
@@ -94,6 +95,15 @@ func get_item_count(item_name: String) -> int:
 	return count
 
 
+func get_item_total_gained_count(item_name: String) -> int:
+	var key = item_name.to_lower()
+	if key not in items_total_gained: 
+		print("get_item_total_gained_count: key not found ->", key)
+		return -1
+	var count := items_total_gained[key]
+	return count
+
+
 func set_item_count(item_name: String, count: int):
 	var key = item_name.to_lower()
 	if key not in items_owned: return
@@ -128,6 +138,7 @@ func try_buy_item(item_to_buy_name: String, buy_count: int, item_to_pay_name: St
 	if key_pay not in items_owned: return false
 	if try_pay_item(key_pay, pay_count, sourece_pos):
 		change_item_count(key_buy, buy_count, sourece_pos)
+		item_purchased.emit(key_buy, buy_count, key_pay, pay_count)
 		return true
 	else:
 		return false
@@ -137,7 +148,7 @@ func try_buy_item(item_to_buy_name: String, buy_count: int, item_to_pay_name: St
 func get_all_resources(count: int):
 	print("hack pressed")
 	for item in items_owned.keys():
-		if item != "fruit of your choice" and item != "upgrade coupon of your choice":
+		if item != "fruit of your choice" and item != "upgrade coupon of your choice" and item != "fruit draw" and item != "mystery box":
 			change_item_count(item, count, Vector2.ZERO)
 
 
