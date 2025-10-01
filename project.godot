@@ -24,7 +24,7 @@ resources_spreadsheet_view/freeze_first_column=true
 [application]
 
 config/name="City of Circling"
-run/main_scene="uid://cf53254xhpkcd"
+run/main_scene="uid://c6e414gy1cwn5"
 config/features=PackedStringArray("4.4", "GL Compatibility")
 config/icon="res://icon.svg"
 
