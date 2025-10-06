@@ -25,6 +25,7 @@ var is_in_draw = false:
 		is_in_draw = value
 var spin_speed_up:= false
 var is_mouse_over:= false
+var show_hide_tween: Tween
 signal draw_finished
 signal choice_made
 signal choice_finished
@@ -38,7 +39,7 @@ func _ready() -> void:
 
 func _input(event: InputEvent) -> void:
 	if GameManager.current_game_state != GameManager.GameState.Draw: return
-	if event.is_action_pressed("left_click") && !is_mouse_over:
+	if event.is_action_pressed("left_click") && !is_mouse_over && !show_hide_tween.is_running():
 		if not wheel_face._is_spinning && not is_in_draw && not _button_state == button_state.free:
 			spin_button.disabled = true
 			hide_ui(self)
@@ -51,16 +52,18 @@ func initiate_wheel(source: PrizeItems.Source):
 
 
 func hide_ui(object):
-	var hide_tween:= create_tween()
-	hide_tween.tween_property(object, "position:y", hide_y_offset, 0.5).set_trans(Tween.TRANS_ELASTIC)
-	hide_tween.tween_callback(draw_finished.emit)
+	if show_hide_tween: show_hide_tween.kill()
+	show_hide_tween = create_tween()
+	show_hide_tween.tween_property(object, "position:y", hide_y_offset, 0.5).set_trans(Tween.TRANS_ELASTIC)
+	show_hide_tween.tween_callback(draw_finished.emit)
 
 
 func show_ui(object):
 	GameManager.switch_game_state(GameManager.GameState.Draw)
 	AudioManager.create_audio(SoundEffect.SOUND_EFFECT_TYPE.SHOW_WHEEL)
-	var hide_tween:= create_tween()  
-	hide_tween.tween_property(object, "position:y", show_y_offset, 0.5).set_trans(Tween.TRANS_ELASTIC)
+	if show_hide_tween: show_hide_tween.kill()
+	show_hide_tween = create_tween()  
+	show_hide_tween.tween_property(object, "position:y", show_y_offset, 0.5).set_trans(Tween.TRANS_ELASTIC)
 	_button_state = button_state.free
 	spin_button_label.text = "GO"
 
@@ -110,12 +113,14 @@ func _on_wheel_face_on_end_spin(prize_item: PrizeItems) -> void:
 				_button_state = button_state.draw_coupon
 				spin_button_label.text = "[img=150x150]res://Assets/Sprites/Icon/1x/draw coupon italic.png[/img] [font_size=100]x[/font_size]1"
 			else:
+				spin_button.disabled = true
 				hide_ui(self)
 		PrizeItems.Source.Traffic, PrizeItems.Source.Affairs, PrizeItems.Source.Lottery, PrizeItems.Source.Trade, PrizeItems.Source.Traffic_Locked, PrizeItems.Source.Tutorial_Shop:
 			if (ResourceManager.get_item_count("exchange coupon") >= 3):
 				_button_state = button_state.shop
 				spin_button_label.text = "[img=150x150]res://Assets/Sprites/Icon/1x/exchange coupon italic.png[/img] [font_size=100]x[/font_size]3"
 			else:
+				spin_button.disabled = true
 				hide_ui(self)
 
 

@@ -42,7 +42,7 @@ func on_item_count_changed(changed_item_name: String, count: int, change_amount:
 			scale_tween.tween_property(self, "scale", Vector2.ONE * 1.25, 0.2).set_ease(Tween.EASE_IN_OUT).set_trans(Tween.TRANS_EXPO)
 			scale_tween.tween_interval(0.25)
 			scale_tween.tween_property(self, "scale", Vector2.ONE * 1, 0.2).set_ease(Tween.EASE_IN_OUT).set_trans(Tween.TRANS_EXPO)
-			ui_label.text = str(count)
+			ui_label.text = str(ResourceManager.get_item_count(changed_item_name))
 			AudioManager.create_audio(SoundEffect.SOUND_EFFECT_TYPE.RESOURCE_GAIN)
 		elif change_amount <= 0:
 			ui_label.text = str(count)
