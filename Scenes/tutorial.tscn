@@ -34,7 +34,7 @@
 [ext_resource type="PackedScene" uid="uid://dcpcolpctf6n0" path="res://Scenes/resource_ui_grid.tscn" id="41_ol5mg"]
 [ext_resource type="Texture2D" uid="uid://cm5vubrw6llx7" path="res://Assets/Sprites/Grid/1x/ui_grid_large.png" id="44_x1j8j"]
 [ext_resource type="Texture2D" uid="uid://baknh18j5v6ui" path="res://Assets/Sprites/Icon/1x/exchange coupon.png" id="45_kdu66"]
-[ext_resource type="Script" uid="uid://ctqda62bjlceq" path="res://Scripts/UI/success_rate_ui.gd" id="51_57ryo"]
+[ext_resource type="Script" path="res://Scripts/UI/success_rate_ui.gd" id="51_57ryo"]
 [ext_resource type="PackedScene" uid="uid://d7x88c8vthvo" path="res://Scenes/points_ui_grid.tscn" id="52_tqsy5"]
 [ext_resource type="Texture2D" uid="uid://bmnq510m5d0fk" path="res://Assets/Sprites/Icon/1x/lottery.png" id="53_5cm3m"]
 [ext_resource type="Texture2D" uid="uid://50qomwqowcid" path="res://Assets/Sprites/Icon/1x/traffic.png" id="54_2apiv"]
