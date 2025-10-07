@@ -14,3 +14,13 @@ func update_time():
 func _notification(what : int) -> void:
 	if what == NOTIFICATION_TRANSLATION_CHANGED:
 		update_time()
+
+
+func _on_hour_button_pressed() -> void:
+	for i in 60:
+		TimeManager.add_one_hour()
+
+
+func _on_minute_button_pressed() -> void:
+	TimeManager.add_one_hour()
+	

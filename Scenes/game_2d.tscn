@@ -1119,6 +1119,7 @@ layout_mode = 3
 anchors_preset = 0
 
 [node name="Time UI" type="RichTextLabel" parent="Board/In-world UI"]
+clip_contents = false
 layout_mode = 0
 offset_left = -313.094
 offset_top = -667.595
@@ -1138,6 +1139,22 @@ shortcut_keys_enabled = false
 horizontal_alignment = 1
 vertical_alignment = 1
 script = ExtResource("38_4d1v3")
+
+[node name="+Hour Button" type="Button" parent="Board/In-world UI/Time UI"]
+layout_mode = 0
+offset_left = -100.516
+offset_top = 95.8654
+offset_right = -24.5158
+offset_bottom = 127.865
+text = "+ 1 Hour"
+
+[node name="+Minute Button" type="Button" parent="Board/In-world UI/Time UI"]
+layout_mode = 0
+offset_left = -100.759
+offset_top = 137.963
+offset_right = -24.7587
+offset_bottom = 169.963
+text = "+ 1 Min   "
 
 [node name="Resource UI fruit choice" parent="Board/In-world UI" instance=ExtResource("15_j40bd")]
 visible = false
@@ -1616,6 +1633,8 @@ stream = ExtResource("62_yiyb4")
 volume_db = -10.0
 autoplay = true
 
+[connection signal="pressed" from="Board/In-world UI/Time UI/+Hour Button" to="Board/In-world UI/Time UI" method="_on_hour_button_pressed"]
+[connection signal="pressed" from="Board/In-world UI/Time UI/+Minute Button" to="Board/In-world UI/Time UI" method="_on_minute_button_pressed"]
 [connection signal="pressed" from="Board/In-world UI/Upgrades UI" to="Board/In-world UI/Upgrades UI" method="_on_pressed"]
 
 [editable path="Board/In-world UI/Resource UI Grid Exchange coupon"]
