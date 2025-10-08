@@ -158,7 +158,7 @@ func complete_quest(reward_coupon_count:= 1):
 	
 	var final_reward_count:= reward_coupon_count + UpgradeManager.get_upgrade_level("quest reward +") * UpgradeManager.upgrade_database["quest reward +"].effect_delta_per_level
 	ResourceManager.change_item_count('exchange coupon', final_reward_count, global_position)
-	ResourceManager.change_item_count('upgrade coupon of your choice', 1, global_position)
+	
 	#update icon
 	quest_status_icon.texture = quest_status_sprite_new_quest
 	AudioManager.create_audio(SoundEffect.SOUND_EFFECT_TYPE.COMPLETE_QUEST)

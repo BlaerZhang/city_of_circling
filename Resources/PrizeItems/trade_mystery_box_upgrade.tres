@@ -6,7 +6,7 @@
 script = ExtResource("1_c17n0")
 prize_name_text = "Trade Upgrade Coupon x1"
 item_list = Dictionary[String, int]({
-"trade upgrade coupon": 1
+"trade upgrade coupon": 2
 })
 sources_of_prize = Array[int]([3])
 weight_in_pool = 30.0

@@ -6,7 +6,7 @@
 script = ExtResource("1_bg5de")
 item_name = "lottery upgrade coupon"
 item_count = 1
-price = 5
+price = 2
 belonging_shops = Array[int]([2])
 pool_index = 1
 weight_in_pool = 2.5

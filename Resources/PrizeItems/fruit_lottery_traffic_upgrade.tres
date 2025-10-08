@@ -6,7 +6,7 @@
 script = ExtResource("1_xunrv")
 prize_name_text = "Traffic Upgrade Coupon x1"
 item_list = Dictionary[String, int]({
-"traffic upgrade coupon": 1
+"traffic upgrade coupon": 2
 })
 sources_of_prize = Array[int]([4, 5, 6, 7, 8, 9])
 weight_in_pool = 1.0
