@@ -47,7 +47,7 @@
 [ext_resource type="Texture2D" uid="uid://dssg37voqna8j" path="res://Assets/Sprites/Icon/1x/orange.png" id="37_7wrb3"]
 [ext_resource type="PackedScene" uid="uid://bydkdm2kx36qd" path="res://Scenes/functional_component_gate.tscn" id="37_34x56"]
 [ext_resource type="Script" uid="uid://hik0cobddr3t" path="res://Scripts/UI/time_ui.gd" id="40_pqs0o"]
-[ext_resource type="Script" uid="uid://ctqda62bjlceq" path="res://Scripts/UI/success_rate_ui.gd" id="41_apgn6"]
+[ext_resource type="Script" path="res://Scripts/UI/success_rate_ui.gd" id="41_apgn6"]
 [ext_resource type="Texture2D" uid="uid://c7qbvwcthokxi" path="res://Assets/Sprites/Grid/1x/upgrade_display_bar.png" id="42_3lc3d"]
 [ext_resource type="Texture2D" uid="uid://l10osv2s0rc8" path="res://Assets/Sprites/Grid/1x/fruit_ui_panel.png" id="42_apgn6"]
 [ext_resource type="Texture2D" uid="uid://7xkg8ryjugf3" path="res://Assets/Sprites/Grid/1x/upgrade_coupon_ui_panel.png" id="42_p4hnd"]
@@ -760,17 +760,17 @@ texture = ExtResource("29_a3ncn")
 
 [node name="Green" type="Sprite2D" parent="Board/Grids/Grid_9_4"]
 position = Vector2(-25.915, 59.161)
-scale = Vector2(0.5, 0.714)
+scale = Vector2(0.5, 0.5)
 texture = ExtResource("27_a3ncn")
 
 [node name="Blue" type="Sprite2D" parent="Board/Grids/Grid_9_4"]
 position = Vector2(-67.4758, 59.3443)
-scale = Vector2(0.5, 0.714)
+scale = Vector2(0.5, 0.5)
 texture = ExtResource("28_4es2p")
 
 [node name="Rainbow" type="Sprite2D" parent="Board/Grids/Grid_9_4"]
 position = Vector2(46.2357, 61.1755)
-scale = Vector2(0.3, 0.428)
+scale = Vector2(0.3, 0.3)
 texture = ExtResource("32_p4hnd")
 
 [node name="Grid_10_4" parent="Board/Grids" instance=ExtResource("6_xt382")]
@@ -817,17 +817,17 @@ texture = ExtResource("29_a3ncn")
 
 [node name="Purple" type="Sprite2D" parent="Board/Grids/Grid_9_0"]
 position = Vector2(-25.915, 59.161)
-scale = Vector2(0.5, 0.714)
+scale = Vector2(0.5, 0.5)
 texture = ExtResource("31_2ce8t")
 
 [node name="Red" type="Sprite2D" parent="Board/Grids/Grid_9_0"]
 position = Vector2(-67.4758, 59.3443)
-scale = Vector2(0.5, 0.714)
+scale = Vector2(0.5, 0.5)
 texture = ExtResource("32_lhq0g")
 
 [node name="Rainbow" type="Sprite2D" parent="Board/Grids/Grid_9_0"]
 position = Vector2(44.6597, 55.6591)
-scale = Vector2(0.3, 0.428)
+scale = Vector2(0.3, 0.3)
 texture = ExtResource("32_p4hnd")
 
 [node name="Grid_10_0" parent="Board/Grids" instance=ExtResource("6_xt382")]
@@ -945,17 +945,17 @@ texture = ExtResource("29_a3ncn")
 
 [node name="Yellow" type="Sprite2D" parent="Board/Grids/Grid_1_3"]
 position = Vector2(-63.8651, 50.5018)
-scale = Vector2(0.5, 0.714)
+scale = Vector2(0.5, 0.5)
 texture = ExtResource("36_v2dka")
 
 [node name="Orange" type="Sprite2D" parent="Board/Grids/Grid_1_3"]
 position = Vector2(-24.6311, 54.8668)
-scale = Vector2(0.5, 0.714)
+scale = Vector2(0.5, 0.5)
 texture = ExtResource("37_7wrb3")
 
 [node name="Rainbow" type="Sprite2D" parent="Board/Grids/Grid_1_3"]
 position = Vector2(51.4691, 53.7571)
-scale = Vector2(0.3, 0.428)
+scale = Vector2(0.3, 0.3)
 texture = ExtResource("32_p4hnd")
 
 [node name="Grid_2_3" parent="Board/Grids" instance=ExtResource("6_xt382")]
@@ -1055,12 +1055,12 @@ texture = ExtResource("29_a3ncn")
 
 [node name="Rainbow" type="Sprite2D" parent="Board/Grids/Grid_1_6"]
 position = Vector2(-25.915, 59.161)
-scale = Vector2(0.5, 0.714)
+scale = Vector2(0.5, 0.5)
 texture = ExtResource("32_p4hnd")
 
 [node name="White" type="Sprite2D" parent="Board/Grids/Grid_1_6"]
 position = Vector2(-69.2583, 60.6492)
-scale = Vector2(0.5, 0.714)
+scale = Vector2(0.5, 0.5)
 texture = ExtResource("33_0gtsh")
 
 [node name="Grid_5_6" parent="Board/Grids" instance=ExtResource("6_xt382")]
@@ -1229,18 +1229,18 @@ script = ExtResource("40_pqs0o")
 
 [node name="add_hour" type="Button" parent="Board/In-world UI/Time UI"]
 layout_mode = 0
-offset_left = -55.527
-offset_top = 152.026
-offset_right = 11.473
-offset_bottom = 184.026
+offset_left = -83.4296
+offset_top = 136.33
+offset_right = -16.4296
+offset_bottom = 168.33
 text = "+ 01:00"
 
 [node name="add_minute" type="Button" parent="Board/In-world UI/Time UI"]
 layout_mode = 0
-offset_left = -55.8952
-offset_top = 189.018
-offset_right = 11.1048
-offset_bottom = 221.018
+offset_left = -83.7978
+offset_top = 173.322
+offset_right = -16.7978
+offset_bottom = 205.322
 text = "+ 00:01"
 
 [node name="Resource UI fruit choice" parent="Board/In-world UI" instance=ExtResource("15_j40bd")]
