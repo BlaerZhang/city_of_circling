@@ -4,7 +4,7 @@
 [ext_resource type="PackedScene" uid="uid://b8imxf8a6f2lg" path="res://Scenes/spin_wheel.tscn" id="1_ru8g0"]
 [ext_resource type="Script" uid="uid://bljhqnbfuvtu0" path="res://Scripts/player_move_manager.gd" id="1_xt382"]
 [ext_resource type="Script" uid="uid://clqc6neay12up" path="res://Scripts/line_drawer.gd" id="3_8hnth"]
-[ext_resource type="Material" uid="uid://dodjy823tvvxq" path="res://Scenes/player_outline_shader.material" id="3_apgn6"]
+[ext_resource type="Material" uid="uid://cmuuwp47t06g6" path="res://Scenes/player_outline_shader.material" id="3_apgn6"]
 [ext_resource type="Texture2D" uid="uid://dr23hnyyxd0py" path="res://Assets/Sprites/Character/isometric_character_walk.png" id="3_gi8jr"]
 [ext_resource type="Texture2D" uid="uid://cekckf0prcvy6" path="res://Assets/Sprites/Grid/1x/grid_outline.png" id="6_34x56"]
 [ext_resource type="PackedScene" uid="uid://cvj1o3m2uylun" path="res://Scenes/grid.tscn" id="6_xt382"]
@@ -63,7 +63,7 @@
 [ext_resource type="Texture2D" uid="uid://bmnq510m5d0fk" path="res://Assets/Sprites/Icon/1x/lottery.png" id="61_a3ncn"]
 [ext_resource type="PackedScene" uid="uid://d7x88c8vthvo" path="res://Scenes/points_ui_grid.tscn" id="62_34x56"]
 [ext_resource type="AudioStream" uid="uid://dxa84rdtwplt3" path="res://Assets/Audio/JollyEssentials_BGMdemo_v1_120bpm_Fullmix.wav" id="62_yiyb4"]
-[ext_resource type="Resource" uid="uid://b4rirq5fedrly" path="res://Resources/Upgrades/shop_rarity_plus.tres" id="63_p4hnd"]
+[ext_resource type="Resource" uid="uid://bqm7cjpn74n80" path="res://Resources/Upgrades/shop_rarity_plus.tres" id="63_p4hnd"]
 [ext_resource type="Texture2D" uid="uid://clniig6wj2ukd" path="res://Assets/Sprites/Icon/1x/trade.png" id="65_4es2p"]
 
 [sub_resource type="Animation" id="Animation_7fl2r"]
@@ -1451,6 +1451,54 @@ patch_margin_left = 5
 patch_margin_top = 5
 patch_margin_right = 5
 patch_margin_bottom = 5
+
+[node name="SupplyGridContainer" type="GridContainer" parent="Board/In-world UI"]
+layout_mode = 0
+offset_left = -105.799
+offset_top = 885.06
+offset_right = 286.201
+offset_bottom = 1369.06
+theme_override_constants/v_separation = 35
+columns = 3
+
+[node name="Resource UI Grid" parent="Board/In-world UI/SupplyGridContainer" instance=ExtResource("15_j40bd")]
+layout_mode = 2
+item_name = "red"
+
+[node name="Resource UI Grid2" parent="Board/In-world UI/SupplyGridContainer" instance=ExtResource("15_j40bd")]
+self_modulate = Color(1, 1, 0.478431, 1)
+layout_mode = 2
+item_name = "yellow"
+
+[node name="Resource UI Grid3" parent="Board/In-world UI/SupplyGridContainer" instance=ExtResource("15_j40bd")]
+self_modulate = Color(0.223529, 0.596078, 0.976471, 1)
+layout_mode = 2
+item_name = "blue"
+
+[node name="Resource UI Grid4" parent="Board/In-world UI/SupplyGridContainer" instance=ExtResource("15_j40bd")]
+self_modulate = Color(0.435294, 0.996078, 0.470588, 1)
+layout_mode = 2
+item_name = "green"
+
+[node name="Resource UI Grid5" parent="Board/In-world UI/SupplyGridContainer" instance=ExtResource("15_j40bd")]
+self_modulate = Color(0.988235, 0.415686, 0.976471, 1)
+layout_mode = 2
+item_name = "purple"
+
+[node name="Resource UI Grid6" parent="Board/In-world UI/SupplyGridContainer" instance=ExtResource("15_j40bd")]
+self_modulate = Color(0.992157, 0.705882, 0.439216, 1)
+layout_mode = 2
+item_name = "orange"
+
+[node name="Resource UI Grid7" parent="Board/In-world UI/SupplyGridContainer" instance=ExtResource("15_j40bd")]
+self_modulate = Color(1, 1, 1, 1)
+layout_mode = 2
+item_name = "white"
+
+[node name="Resource UI Grid8" parent="Board/In-world UI/SupplyGridContainer" instance=ExtResource("15_j40bd")]
+self_modulate = Color(0.988235, 0.109804, 0.494118, 1)
+layout_mode = 2
+item_name = "rainbow"
 
 [node name="Upgrades UI" type="Button" parent="Board/In-world UI"]
 custom_minimum_size = Vector2(128, 128)
