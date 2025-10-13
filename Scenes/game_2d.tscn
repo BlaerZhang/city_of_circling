@@ -1,4 +1,4 @@
-[gd_scene load_steps=107 format=3 uid="uid://c6e414gy1cwn5"]
+[gd_scene load_steps=115 format=3 uid="uid://c6e414gy1cwn5"]
 
 [ext_resource type="Script" uid="uid://tdlox2h37vxw" path="res://Scripts/test_input.gd" id="1_pqs0o"]
 [ext_resource type="PackedScene" uid="uid://b8imxf8a6f2lg" path="res://Scenes/spin_wheel.tscn" id="1_ru8g0"]
@@ -31,12 +31,20 @@
 [ext_resource type="Texture2D" uid="uid://dinty7jilgb14" path="res://Assets/Sprites/Icon/1x/apple.png" id="24_vg072"]
 [ext_resource type="Texture2D" uid="uid://fihoyd0f662r" path="res://Assets/Sprites/Grid/1x/NPC (5).png" id="25_80uim"]
 [ext_resource type="Texture2D" uid="uid://kayoirvwf8bf" path="res://Assets/Sprites/Grid/1x/NPC (4).png" id="26_lu7og"]
+[ext_resource type="Texture2D" uid="uid://01flfxmh5k2p" path="res://Assets/Sprites/Icon/1x/green.png" id="27_a3ncn"]
+[ext_resource type="Texture2D" uid="uid://cd0s37mfeoe8" path="res://Assets/Sprites/Icon/1x/blue.png" id="28_4es2p"]
 [ext_resource type="Texture2D" uid="uid://qyq5cy7ts0j1" path="res://Assets/Sprites/Grid/1x/Trade_tile.png" id="28_q2r72"]
 [ext_resource type="Texture2D" uid="uid://cmbfr35puvhfq" path="res://Assets/Sprites/Icon/1x/shop_deco.png" id="29_a3ncn"]
 [ext_resource type="Texture2D" uid="uid://dk1nvku7uudyi" path="res://Assets/Sprites/Grid/1x/NPC (6).png" id="29_nxrph"]
 [ext_resource type="Texture2D" uid="uid://falk3xqwudge" path="res://Assets/Sprites/Icon/1x/upgrade_available_icon.png" id="30_2yk12"]
+[ext_resource type="Texture2D" uid="uid://ple4egfha21" path="res://Assets/Sprites/Icon/1x/purple.png" id="31_2ce8t"]
 [ext_resource type="Texture2D" uid="uid://7hw3qvy8qkap" path="res://Assets/Sprites/Grid/1x/Affair_tile.png" id="31_q187p"]
+[ext_resource type="Texture2D" uid="uid://cvy0itypb0q1e" path="res://Assets/Sprites/Icon/1x/red.png" id="32_lhq0g"]
+[ext_resource type="Texture2D" uid="uid://dx0a8artvu3oi" path="res://Assets/Sprites/Icon/1x/rainbow.png" id="32_p4hnd"]
+[ext_resource type="Texture2D" uid="uid://b28o0fpr5uhhj" path="res://Assets/Sprites/Icon/1x/white.png" id="33_0gtsh"]
 [ext_resource type="Texture2D" uid="uid://dq38vavtoi2l3" path="res://Assets/Sprites/Grid/1x/Gate.png" id="36_pqs0o"]
+[ext_resource type="Texture2D" uid="uid://0sqey8fb61ce" path="res://Assets/Sprites/Icon/1x/yellow.png" id="36_v2dka"]
+[ext_resource type="Texture2D" uid="uid://dssg37voqna8j" path="res://Assets/Sprites/Icon/1x/orange.png" id="37_7wrb3"]
 [ext_resource type="PackedScene" uid="uid://bydkdm2kx36qd" path="res://Scenes/functional_component_gate.tscn" id="37_34x56"]
 [ext_resource type="Script" uid="uid://hik0cobddr3t" path="res://Scripts/UI/time_ui.gd" id="40_pqs0o"]
 [ext_resource type="Script" uid="uid://ctqda62bjlceq" path="res://Scripts/UI/success_rate_ui.gd" id="41_apgn6"]
@@ -750,6 +758,21 @@ texture = ExtResource("65_4es2p")
 position = Vector2(0, -70)
 texture = ExtResource("29_a3ncn")
 
+[node name="Green" type="Sprite2D" parent="Board/Grids/Grid_9_4"]
+position = Vector2(-25.915, 59.161)
+scale = Vector2(0.5, 0.714)
+texture = ExtResource("27_a3ncn")
+
+[node name="Blue" type="Sprite2D" parent="Board/Grids/Grid_9_4"]
+position = Vector2(-67.4758, 59.3443)
+scale = Vector2(0.5, 0.714)
+texture = ExtResource("28_4es2p")
+
+[node name="Rainbow" type="Sprite2D" parent="Board/Grids/Grid_9_4"]
+position = Vector2(46.2357, 61.1755)
+scale = Vector2(0.3, 0.428)
+texture = ExtResource("32_p4hnd")
+
 [node name="Grid_10_4" parent="Board/Grids" instance=ExtResource("6_xt382")]
 position = Vector2(450, 182)
 grid_type = 0
@@ -791,6 +814,21 @@ texture = ExtResource("57_2yk12")
 [node name="Shop Deco" type="Sprite2D" parent="Board/Grids/Grid_9_0"]
 position = Vector2(0, -70)
 texture = ExtResource("29_a3ncn")
+
+[node name="Purple" type="Sprite2D" parent="Board/Grids/Grid_9_0"]
+position = Vector2(-25.915, 59.161)
+scale = Vector2(0.5, 0.714)
+texture = ExtResource("31_2ce8t")
+
+[node name="Red" type="Sprite2D" parent="Board/Grids/Grid_9_0"]
+position = Vector2(-67.4758, 59.3443)
+scale = Vector2(0.5, 0.714)
+texture = ExtResource("32_lhq0g")
+
+[node name="Rainbow" type="Sprite2D" parent="Board/Grids/Grid_9_0"]
+position = Vector2(44.6597, 55.6591)
+scale = Vector2(0.3, 0.428)
+texture = ExtResource("32_p4hnd")
 
 [node name="Grid_10_0" parent="Board/Grids" instance=ExtResource("6_xt382")]
 position = Vector2(450, -362)
@@ -905,6 +943,21 @@ texture = ExtResource("61_a3ncn")
 position = Vector2(0, -70)
 texture = ExtResource("29_a3ncn")
 
+[node name="Yellow" type="Sprite2D" parent="Board/Grids/Grid_1_3"]
+position = Vector2(-63.8651, 50.5018)
+scale = Vector2(0.5, 0.714)
+texture = ExtResource("36_v2dka")
+
+[node name="Orange" type="Sprite2D" parent="Board/Grids/Grid_1_3"]
+position = Vector2(-24.6311, 54.8668)
+scale = Vector2(0.5, 0.714)
+texture = ExtResource("37_7wrb3")
+
+[node name="Rainbow" type="Sprite2D" parent="Board/Grids/Grid_1_3"]
+position = Vector2(51.4691, 53.7571)
+scale = Vector2(0.3, 0.428)
+texture = ExtResource("32_p4hnd")
+
 [node name="Grid_2_3" parent="Board/Grids" instance=ExtResource("6_xt382")]
 position = Vector2(-637.722, 45.9008)
 grid_type = 0
@@ -999,6 +1052,16 @@ texture = ExtResource("51_7xuxf")
 [node name="Shop Deco" type="Sprite2D" parent="Board/Grids/Grid_1_6"]
 position = Vector2(0, -70)
 texture = ExtResource("29_a3ncn")
+
+[node name="Rainbow" type="Sprite2D" parent="Board/Grids/Grid_1_6"]
+position = Vector2(-25.915, 59.161)
+scale = Vector2(0.5, 0.714)
+texture = ExtResource("32_p4hnd")
+
+[node name="White" type="Sprite2D" parent="Board/Grids/Grid_1_6"]
+position = Vector2(-69.2583, 60.6492)
+scale = Vector2(0.5, 0.714)
+texture = ExtResource("33_0gtsh")
 
 [node name="Grid_5_6" parent="Board/Grids" instance=ExtResource("6_xt382")]
 position = Vector2(-229, 452)

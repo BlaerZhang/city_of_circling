@@ -6,7 +6,7 @@
 script = ExtResource("1_4s85v")
 prize_name_text = "Fruit Of Your Choice x1"
 item_list = Dictionary[String, int]({
-"fruit of your choice": 1
+"fruit of your choice": 2
 })
 sources_of_prize = Array[int]([1])
 weight_in_pool = 17.5
