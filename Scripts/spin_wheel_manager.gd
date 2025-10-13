@@ -116,12 +116,12 @@ func _on_wheel_face_on_end_spin(prize_item: PrizeItems) -> void:
 				spin_button.disabled = true
 				hide_ui(self)
 		PrizeItems.Source.Traffic, PrizeItems.Source.Affairs, PrizeItems.Source.Lottery, PrizeItems.Source.Trade, PrizeItems.Source.Traffic_Locked, PrizeItems.Source.Tutorial_Shop:
-			if (ResourceManager.get_item_count("exchange coupon") >= 3):
-				_button_state = button_state.shop
-				spin_button_label.text = "[img=150x150]res://Assets/Sprites/Icon/1x/exchange coupon italic.png[/img] [font_size=100]x[/font_size]3"
-			else:
-				spin_button.disabled = true
-				hide_ui(self)
+			#if (ResourceManager.get_item_count("exchange coupon") >= 3):
+				#_button_state = button_state.shop
+				#spin_button_label.text = "[img=150x150]res://Assets/Sprites/Icon/1x/exchange coupon italic.png[/img] [font_size=100]x[/font_size]3"
+			#else:
+			spin_button.disabled = true
+			hide_ui(self)
 
 
 func _on_spin_button_pressed() -> void:

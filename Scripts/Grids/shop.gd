@@ -137,15 +137,8 @@ func update_refresh_button():
 func on_item_slot_pressed(item_slot: Button, item_for_sale: ItemsForSale):
 	if ResourceManager.try_buy_item(item_for_sale.item_name, item_for_sale.item_count, "exchange coupon", item_for_sale.price, item_slot.global_position):
 		if item_for_sale.item_name.to_lower() == "mystery box":
-			if item_for_sale.price != 3:
-				current_items_for_sale_and_slots[item_slot] = null
-			if shop_type as PrizeItems.Source == PrizeItems.Source.Traffic:
-				if is_rainbow_white_ball_unlocked:
-					wheel_manager.initiate_wheel(shop_type as PrizeItems.Source)
-				else:
-					wheel_manager.initiate_wheel(PrizeItems.Source.Traffic_Locked)
-			else:
-				wheel_manager.initiate_wheel(PrizeItems.Source[ItemsForSale.ShopType.keys()[shop_type]])
+			current_items_for_sale_and_slots[item_slot] = null
+			wheel_manager.initiate_wheel(PrizeItems.Source[ItemsForSale.ShopType.keys()[shop_type]])
 			await wheel_manager.draw_finished
 			GameManager.switch_game_state(GameManager.GameState.Idle)
 		else:
