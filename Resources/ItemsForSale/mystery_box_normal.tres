@@ -6,7 +6,7 @@
 script = ExtResource("1_01b8p")
 abstract_collection = false
 item_name = "mystery box"
-price_range = Vector2i(3, 10)
+price_range = Vector2i(2, 7)
 belonging_shops = Array[int]([0, 2, 3, 4])
 dynamic_weight = false
 weight_affecting_upgrade_name = ""

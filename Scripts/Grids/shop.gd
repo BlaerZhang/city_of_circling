@@ -116,9 +116,9 @@ func restock_shop(quantity: int = 3):
 
 
 func generate_item_slots(items_in_slots_list: Array[Dictionary]):
+	current_items_for_sale_and_slots.clear()
 	for slot in item_slots_parent.get_children():
 		slot.queue_free()
-	current_items_for_sale_and_slots.clear()
 	
 	for item_data in items_in_slots_list:
 		var item_for_sale: ItemForSale = item_data["item"]
