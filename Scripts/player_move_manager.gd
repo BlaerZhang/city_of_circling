@@ -236,7 +236,7 @@ func complete_plan_move(grid_pos: Vector2i) -> void:
 
 		player_grid_pos = grid_pos
 		#is_player_moving = false
-		TimeManager.add_step_hour()
+		TimeManager.add_step_time()
 		await GridManager.grid_database[player_grid_pos].arrive()
 		if interaction_distance_unlocked:
 			for neighbour_grid_pos in GridManager.grid_database[player_grid_pos].neighbour_grids:

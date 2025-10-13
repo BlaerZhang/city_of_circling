@@ -10,7 +10,7 @@ func _ready() -> void:
 	load_all_items()
 	
 	#Temp: shop refresh related
-	TimeManager.day_changed.connect(refill_shop_refresh)
+	TimeManager.manual_refresh_refill_time.connect(refill_shop_refresh)
 	UpgradeManager.upgrade_added.connect(adjust_shop_refresh)
 	SceneManager.scene_loaded_with_name.connect(on_scene_loaded_with_name)
 

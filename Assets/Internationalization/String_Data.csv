@@ -1,7 +1,8 @@
 ﻿key,en,zh
-TIME_DAY_HOUR,DAY %s\n%02d:00\n,第 %s 天\n%02d:00\n
-TIME_REFRESH,[font_size=26]Shop refresh in %sh[/font_size],[font_size=26]商店将在 %s 小时后刷新[/font_size]
+TIME_DAY_HOUR_MINUTE,DAY %s\n%02d:%02d\n,第 %s 天\n%02d:%02d\n
+TIME_REFRESH,[font_size=26]Shop refresh in %smin[/font_size],[font_size=26]商店将在 %s 分钟后刷新[/font_size]
 SUCCESS_RATE,%.1f%%\n[font_size=34]SUCCESS RATE[/font_size],%.1f%%\n[font_size=34]冒险成功率[/font_size]
+SOLD,SOLD,售罄
 PRICE,Price,价格
 FRUIT_UI_TAG,FRUIT,水果
 UPGRADE_COUPON_TAG,UPGRADE\nCOUPON,升级券

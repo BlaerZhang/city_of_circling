@@ -8,7 +8,7 @@
 [ext_resource type="Texture2D" uid="uid://crqgq34j3sdq2" path="res://Assets/Sprites/Icon/1x/suit_hearts.png" id="7_hv2aa"]
 [ext_resource type="Texture2D" uid="uid://cy5q8fhujpt5h" path="res://Assets/Sprites/Grid/1x/ui_grid.png" id="8_ox17v"]
 [ext_resource type="Texture2D" uid="uid://u5v8llcf5mvi" path="res://Assets/Sprites/Icon/1x/trophy.png" id="9_ox17v"]
-[ext_resource type="Script" path="res://Scripts/UI/time_ui.gd" id="9_xckqc"]
+[ext_resource type="Script" uid="uid://hik0cobddr3t" path="res://Scripts/UI/time_ui.gd" id="9_xckqc"]
 [ext_resource type="AudioStream" uid="uid://bf1r8loygtxpi" path="res://Assets/Audio/Running the Game_ID_07252025 (1).mp3" id="35_uhv51"]
 
 [sub_resource type="Animation" id="Animation_7fl2r"]

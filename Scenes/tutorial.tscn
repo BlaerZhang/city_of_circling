@@ -29,7 +29,7 @@
 [ext_resource type="Texture2D" uid="uid://cy5q8fhujpt5h" path="res://Assets/Sprites/Grid/1x/ui_grid.png" id="27_44pwq"]
 [ext_resource type="Texture2D" uid="uid://c7fmwutlde8qt" path="res://Assets/Sprites/Grid/1x/NPC (3).png" id="28_arqee"]
 [ext_resource type="Texture2D" uid="uid://qyq5cy7ts0j1" path="res://Assets/Sprites/Grid/1x/Trade_tile.png" id="29_x0eg5"]
-[ext_resource type="Script" path="res://Scripts/UI/time_ui.gd" id="30_0uns8"]
+[ext_resource type="Script" uid="uid://hik0cobddr3t" path="res://Scripts/UI/time_ui.gd" id="30_0uns8"]
 [ext_resource type="Texture2D" uid="uid://dq38vavtoi2l3" path="res://Assets/Sprites/Grid/1x/Gate.png" id="36_13r5g"]
 [ext_resource type="PackedScene" uid="uid://dcpcolpctf6n0" path="res://Scenes/resource_ui_grid.tscn" id="41_ol5mg"]
 [ext_resource type="Texture2D" uid="uid://cm5vubrw6llx7" path="res://Assets/Sprites/Grid/1x/ui_grid_large.png" id="44_x1j8j"]

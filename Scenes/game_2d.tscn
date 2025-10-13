@@ -38,7 +38,7 @@
 [ext_resource type="Texture2D" uid="uid://7hw3qvy8qkap" path="res://Assets/Sprites/Grid/1x/Affair_tile.png" id="31_q187p"]
 [ext_resource type="Texture2D" uid="uid://dq38vavtoi2l3" path="res://Assets/Sprites/Grid/1x/Gate.png" id="36_pqs0o"]
 [ext_resource type="PackedScene" uid="uid://bydkdm2kx36qd" path="res://Scenes/functional_component_gate.tscn" id="37_34x56"]
-[ext_resource type="Script" path="res://Scripts/UI/time_ui.gd" id="40_pqs0o"]
+[ext_resource type="Script" uid="uid://hik0cobddr3t" path="res://Scripts/UI/time_ui.gd" id="40_pqs0o"]
 [ext_resource type="Script" path="res://Scripts/UI/success_rate_ui.gd" id="41_apgn6"]
 [ext_resource type="Texture2D" uid="uid://c7qbvwcthokxi" path="res://Assets/Sprites/Grid/1x/upgrade_display_bar.png" id="42_3lc3d"]
 [ext_resource type="Texture2D" uid="uid://l10osv2s0rc8" path="res://Assets/Sprites/Grid/1x/fruit_ui_panel.png" id="42_apgn6"]
@@ -1146,6 +1146,7 @@ layout_mode = 3
 anchors_preset = 0
 
 [node name="Time UI" type="RichTextLabel" parent="Board/In-world UI"]
+clip_contents = false
 layout_mode = 0
 offset_left = -313.094
 offset_top = -667.595
@@ -1166,6 +1167,22 @@ shortcut_keys_enabled = false
 horizontal_alignment = 1
 vertical_alignment = 1
 script = ExtResource("40_pqs0o")
+
+[node name="add_hour" type="Button" parent="Board/In-world UI/Time UI"]
+layout_mode = 0
+offset_left = -55.527
+offset_top = 152.026
+offset_right = 11.473
+offset_bottom = 184.026
+text = "+ 01:00"
+
+[node name="add_minute" type="Button" parent="Board/In-world UI/Time UI"]
+layout_mode = 0
+offset_left = -55.8952
+offset_top = 189.018
+offset_right = 11.1048
+offset_bottom = 221.018
+text = "+ 00:01"
 
 [node name="Resource UI fruit choice" parent="Board/In-world UI" instance=ExtResource("15_j40bd")]
 visible = false
@@ -1335,6 +1352,7 @@ offset_bottom = -699.865
 item_name = "draw coupon"
 
 [node name="Success Rate UI" type="RichTextLabel" parent="Board/In-world UI" node_paths=PackedStringArray("points_uis")]
+visible = false
 clip_contents = false
 layout_mode = 0
 offset_left = -138.779
@@ -1706,6 +1724,8 @@ autoplay = true
 [connection signal="input_event" from="Player/Player Sprite/Area2D" to="Player/Player Movement Manager" method="_on_area_2d_input_event"]
 [connection signal="mouse_entered" from="Player/Player Sprite/Area2D" to="Player/Player Movement Manager" method="_on_area_2d_mouse_entered"]
 [connection signal="mouse_exited" from="Player/Player Sprite/Area2D" to="Player/Player Movement Manager" method="_on_area_2d_mouse_exited"]
+[connection signal="pressed" from="Board/In-world UI/Time UI/add_hour" to="Board/In-world UI/Time UI" method="_on_add_hour_pressed"]
+[connection signal="pressed" from="Board/In-world UI/Time UI/add_minute" to="Board/In-world UI/Time UI" method="_on_add_minute_pressed"]
 [connection signal="mouse_entered" from="Board/In-world UI/Success Rate UI" to="Board/In-world UI/Success Rate UI" method="_on_mouse_entered"]
 [connection signal="mouse_exited" from="Board/In-world UI/Success Rate UI" to="Board/In-world UI/Success Rate UI" method="_on_mouse_exited"]
 [connection signal="pressed" from="Board/In-world UI/Upgrades UI" to="Board/In-world UI/Upgrades UI" method="_on_pressed"]
