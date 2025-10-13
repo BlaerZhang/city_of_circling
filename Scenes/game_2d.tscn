@@ -1501,6 +1501,7 @@ item_name = "rainbow"
 
 [node name="Resource UI Grid HP Potion" parent="Board/In-world UI" instance=ExtResource("15_j40bd")]
 self_modulate = Color(0.533333, 0.72549, 0.309804, 1)
+layout_mode = 0
 offset_left = -297.395
 offset_top = 1052.53
 offset_right = -169.395
