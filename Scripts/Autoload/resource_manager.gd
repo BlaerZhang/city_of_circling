@@ -154,10 +154,10 @@ func get_all_resources(count: int):
 
 #Temp: shop refresh related
 func refill_shop_refresh():
-	set_item_count("shop refresh", UpgradeManager.get_upgrade_level("shop manual refresh") * UpgradeManager.upgrade_database["shop manual refresh"].effect_delta_per_level)
+	set_item_count("shop refresh", UpgradeManager.get_upgrade_level("shop refresh +") * UpgradeManager.upgrade_database["shop refresh +"].effect_delta_per_level)
 
 
 func adjust_shop_refresh(upgrade: Upgrade):
-	if upgrade.upgrade_name != "shop manual refresh": return
+	if upgrade.upgrade_name != "shop refresh +": return
 	change_item_count("shop refresh", upgrade.effect_delta_per_level, Vector2.ZERO)
 	print("refill shop refresh: ", upgrade.effect_delta_per_level)

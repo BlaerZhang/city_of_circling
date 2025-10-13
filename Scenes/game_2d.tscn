@@ -1,4 +1,4 @@
-[gd_scene load_steps=108 format=3 uid="uid://c6e414gy1cwn5"]
+[gd_scene load_steps=107 format=3 uid="uid://c6e414gy1cwn5"]
 
 [ext_resource type="Script" uid="uid://tdlox2h37vxw" path="res://Scripts/test_input.gd" id="1_pqs0o"]
 [ext_resource type="PackedScene" uid="uid://b8imxf8a6f2lg" path="res://Scenes/spin_wheel.tscn" id="1_ru8g0"]
@@ -58,12 +58,11 @@
 [ext_resource type="Resource" uid="uid://ut46sekwlayi" path="res://Resources/Upgrades/lottery_bypass.tres" id="56_kh3n4"]
 [ext_resource type="Texture2D" uid="uid://dg62lbotueg53" path="res://Assets/Sprites/Icon/1x/affairs.png" id="57_2yk12"]
 [ext_resource type="Resource" uid="uid://bokvtw3q7ccft" path="res://Resources/Upgrades/lottery_remote_draw.tres" id="58_34x56"]
-[ext_resource type="Resource" uid="uid://cftcygsaxiixx" path="res://Resources/Upgrades/shop_manual_refresh.tres" id="58_3657g"]
 [ext_resource type="Resource" uid="uid://ruu8cw78y2on" path="res://Resources/Upgrades/remote_view_store.tres" id="59_hognw"]
+[ext_resource type="Resource" uid="uid://bsgikntp0tp4k" path="res://Resources/Upgrades/shop refresh +.tres" id="61_34x56"]
 [ext_resource type="Texture2D" uid="uid://bmnq510m5d0fk" path="res://Assets/Sprites/Icon/1x/lottery.png" id="61_a3ncn"]
 [ext_resource type="PackedScene" uid="uid://d7x88c8vthvo" path="res://Scenes/points_ui_grid.tscn" id="62_34x56"]
 [ext_resource type="AudioStream" uid="uid://dxa84rdtwplt3" path="res://Assets/Audio/JollyEssentials_BGMdemo_v1_120bpm_Fullmix.wav" id="62_yiyb4"]
-[ext_resource type="Resource" uid="uid://bqm7cjpn74n80" path="res://Resources/Upgrades/shop_rarity_plus.tres" id="63_p4hnd"]
 [ext_resource type="Texture2D" uid="uid://clniig6wj2ukd" path="res://Assets/Sprites/Icon/1x/trade.png" id="65_4es2p"]
 
 [sub_resource type="Animation" id="Animation_7fl2r"]
@@ -1500,6 +1499,14 @@ self_modulate = Color(0.988235, 0.109804, 0.494118, 1)
 layout_mode = 2
 item_name = "rainbow"
 
+[node name="Resource UI Grid HP Potion" parent="Board/In-world UI" instance=ExtResource("15_j40bd")]
+self_modulate = Color(0.533333, 0.72549, 0.309804, 1)
+offset_left = -297.395
+offset_top = 1052.53
+offset_right = -169.395
+offset_bottom = 1180.53
+item_name = "hp potion"
+
 [node name="Upgrades UI" type="Button" parent="Board/In-world UI"]
 custom_minimum_size = Vector2(128, 128)
 layout_mode = 0
@@ -1716,19 +1723,21 @@ stretch_mode = 3
 
 [node name="Level-up Upgrade Icon" parent="Board/In-world UI/Upgrades UI/VBoxContainer/Upgrades Display Bar4/HBoxContainer" instance=ExtResource("44_ltboj")]
 layout_mode = 2
-upgrade = ExtResource("63_p4hnd")
+upgrade = ExtResource("61_34x56")
 
 [node name="One-time Upgrade Icon" parent="Board/In-world UI/Upgrades UI/VBoxContainer/Upgrades Display Bar4/HBoxContainer" instance=ExtResource("44_ltboj")]
 layout_mode = 2
-upgrade = ExtResource("58_3657g")
+upgrade = ExtResource("59_hognw")
 upgrade_type = 1
 
 [node name="Arrow" type="TextureRect" parent="Board/In-world UI/Upgrades UI/VBoxContainer/Upgrades Display Bar4/HBoxContainer"]
+visible = false
 layout_mode = 2
 texture = ExtResource("46_eu0xb")
 stretch_mode = 5
 
 [node name="One-time Upgrade Icon2" parent="Board/In-world UI/Upgrades UI/VBoxContainer/Upgrades Display Bar4/HBoxContainer" instance=ExtResource("44_ltboj")]
+visible = false
 layout_mode = 2
 upgrade = ExtResource("59_hognw")
 upgrade_type = 1

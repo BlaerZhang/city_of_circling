@@ -167,7 +167,7 @@ func update_slots_state():
 
 func update_refresh_button():
 	#update ui
-	if UpgradeManager.get_upgrade_level("shop manual refresh") > 0:
+	if UpgradeManager.get_upgrade_level("shop refresh +") > 0:
 		refresh_button.visible = true
 		refresh_button.text = "\nx%s " % ResourceManager.get_item_count("shop refresh")
 	else:
@@ -248,6 +248,7 @@ func on_upgrade_added(upgrade: Upgrade):
 			update_slots_state()
 		"shop refresh +":
 			await get_tree().create_timer(0.1).timeout
+			update_refresh_button()
 
 
 func _on_refresh_button_pressed() -> void:
