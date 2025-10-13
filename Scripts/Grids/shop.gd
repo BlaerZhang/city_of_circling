@@ -141,6 +141,9 @@ func generate_item_slots(items_in_slots_list: Array[Dictionary]):
 			item_slot.tooltip_text = "%s\n%s: %s" % [tr(ResourceManager.get_item_display_key(item_for_sale.item_name)).capitalize(), tr("PRICE"), price]
 		current_items_for_sale_and_slots.get_or_add(item_slot, item_data)
 	
+	# try to remove null keys in this dict
+	current_items_for_sale_and_slots.erase(null)
+	
 	update_slots_state()
 
 
