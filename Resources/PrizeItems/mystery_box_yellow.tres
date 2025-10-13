@@ -9,4 +9,4 @@ item_list = Dictionary[String, int]({
 "yellow": 1
 })
 sources_of_prize = Array[int]([2])
-weight_in_pool = 7.5
+weight_in_pool = 6.5
