@@ -1807,6 +1807,7 @@ upgrade = ExtResource("59_hognw")
 upgrade_type = 1
 
 [node name="UI" type="Control" parent="."]
+visible = false
 layout_mode = 3
 anchors_preset = 0
 offset_right = 1920.0

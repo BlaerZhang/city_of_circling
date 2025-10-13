@@ -8,5 +8,5 @@ prize_name_text = "Orange x1"
 item_list = Dictionary[String, int]({
 "orange": 1
 })
-sources_of_prize = Array[int]([2, 0])
+sources_of_prize = Array[int]([2])
 weight_in_pool = 15.0
