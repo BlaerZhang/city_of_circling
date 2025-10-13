@@ -4,6 +4,7 @@ extends Node
 var current_minute: int
 var current_hour: int
 var current_day: int
+var current_subminute: int
 var step_taken: int = 0
 
 signal time_changed(day: int, hour: int, minute: int)
@@ -16,6 +17,7 @@ signal stepped(step: int)
 func _ready() -> void:
 	reset_data()
 	SceneManager.scene_loaded_with_name.connect(on_scene_loaded_with_name)
+	ResourceManager.item_count_changed.connect(on_item_count_changed)
 
 
 func on_scene_loaded_with_name(scene_name: String):
@@ -71,3 +73,11 @@ func add_step_time():
 	step_taken += 1
 	stepped.emit(step_taken)
 	add_one_minute()
+
+
+func on_item_count_changed(item_name: String, count: int, change_amount: int, source_pos: Vector2):
+	if item_name == "mystery box":
+		current_subminute += 1
+		if current_subminute >= 5:
+			current_subminute = 0
+			add_one_minute()
