@@ -3,7 +3,7 @@ extends FunctionalGridComponent
 @export var upgrade_shop_type: ItemForSale.ShopType
 var slots_upgrade_list: Array[Array]
 var current_upgrades_in_slot: Array[Upgrade]
-@export var upgrade_button_list: Array[Button]
+var upgrade_button_list: Array[Button]
 @onready var upgrade_available_icon:= $"Upgrade Available Icon"
 @onready var arrive_preview:= $"Preview Icon"
 var bypass_tween: Tween
@@ -18,6 +18,10 @@ var coupon_map = {
 
 func _ready() -> void:
 	load_upgrades_to_slots()
+	# 只获取Button类型的子节点
+	for child in get_children():
+		if child is Button:
+			upgrade_button_list.append(child)
 	update_slots_state()
 	for button in upgrade_button_list:
 		button.scale = Vector2.ZERO

@@ -4,7 +4,7 @@
 [ext_resource type="Script" uid="uid://tdlox2h37vxw" path="res://Scripts/test_input.gd" id="1_nftjj"]
 [ext_resource type="Script" uid="uid://bljhqnbfuvtu0" path="res://Scripts/player_move_manager.gd" id="2_0gcu3"]
 [ext_resource type="Texture2D" uid="uid://dr23hnyyxd0py" path="res://Assets/Sprites/Character/isometric_character_walk.png" id="3_5hb4g"]
-[ext_resource type="Material" uid="uid://cmuuwp47t06g6" path="res://Scenes/player_outline_shader.material" id="3_gyc06"]
+[ext_resource type="Material" uid="uid://dodjy823tvvxq" path="res://Scenes/player_outline_shader.material" id="3_gyc06"]
 [ext_resource type="Texture2D" uid="uid://cekckf0prcvy6" path="res://Assets/Sprites/Grid/1x/grid_outline.png" id="4_m4j6x"]
 [ext_resource type="Script" uid="uid://clqc6neay12up" path="res://Scripts/line_drawer.gd" id="5_l4tcc"]
 [ext_resource type="PackedScene" uid="uid://cvj1o3m2uylun" path="res://Scenes/grid.tscn" id="6_hiip6"]
@@ -790,22 +790,21 @@ texture = ExtResource("29_x0eg5")
 grid_type = 2
 grid_position = Vector2i(4, 5)
 
-[node name="Functional Component" parent="Board/Grids/Grid_4_5" node_paths=PackedStringArray("upgrade_button_list") instance=ExtResource("12_ldnol")]
+[node name="Functional Component" parent="Board/Grids/Grid_4_5" instance=ExtResource("12_ldnol")]
 upgrade_shop_type = 3
-upgrade_button_list = [NodePath("../Upgrade shop button"), NodePath("../Upgrade shop button2")]
 
-[node name="Upgrade shop button" parent="Board/Grids/Grid_4_5" instance=ExtResource("13_w1js8")]
+[node name="Upgrade shop button" parent="Board/Grids/Grid_4_5/Functional Component" instance=ExtResource("13_w1js8")]
 offset_left = -200.0
 offset_top = -64.0
-offset_right = -72.0
+offset_right = -72.0001
 offset_bottom = 64.0
 pivot_offset = Vector2(200, 64)
 
-[node name="Upgrade shop button2" parent="Board/Grids/Grid_4_5" instance=ExtResource("13_w1js8")]
+[node name="Upgrade shop button2" parent="Board/Grids/Grid_4_5/Functional Component" instance=ExtResource("13_w1js8")]
 offset_left = -200.0
 offset_top = -200.0
-offset_right = -72.0
-offset_bottom = -72.0
+offset_right = -72.0001
+offset_bottom = -72.0002
 pivot_offset = Vector2(200, 200)
 
 [node name="Grid_4_6" parent="Board/Grids" instance=ExtResource("6_hiip6")]
