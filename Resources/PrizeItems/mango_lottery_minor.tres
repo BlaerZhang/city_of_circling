@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="PrizeItems" load_steps=2 format=3 uid="uid://bdr06jetchec8"]
+[gd_resource type="Resource" script_class="PrizeItems" load_steps=2 format=3 uid="uid://rdp1jt2yctlv"]
 
 [ext_resource type="Script" uid="uid://bvl7w0dl5jg5h" path="res://Scripts/prize_items.gd" id="1_fs4a1"]
 
@@ -11,4 +11,3 @@ item_list = Dictionary[String, int]({
 })
 sources_of_prize = Array[int]([8])
 weight_in_pool = 15.0
-metadata/_custom_type_script = "uid://bvl7w0dl5jg5h"

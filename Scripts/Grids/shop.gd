@@ -183,8 +183,7 @@ func update_refresh_button():
 func on_item_slot_pressed(item_slot: Button, item_for_sale: ItemForSale, price: int):
 	if ResourceManager.try_buy_item(item_for_sale.item_name, 1, "exchange coupon", price, item_slot.global_position):
 		if item_for_sale.item_name.to_lower() == "mystery box":
-			if price != 3:
-				current_items_for_sale_and_slots[item_slot] = {}
+			current_items_for_sale_and_slots[item_slot] = {}
 			wheel_manager.initiate_wheel(PrizeItems.Source[ItemForSale.ShopType.keys()[shop_type]])
 			await wheel_manager.draw_finished
 			GameManager.switch_game_state(GameManager.GameState.Idle)

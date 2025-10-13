@@ -1,13 +1,12 @@
-[gd_resource type="Resource" script_class="PrizeItems" load_steps=2 format=3 uid="uid://d13iocfuc8fwg"]
+[gd_resource type="Resource" script_class="PrizeItems" load_steps=2 format=3 uid="uid://cxwg8djd5dht3"]
 
-[ext_resource type="Script" uid="uid://bvl7w0dl5jg5h" path="res://Scripts/prize_items.gd" id="1_mhi58"]
+[ext_resource type="Script" uid="uid://bvl7w0dl5jg5h" path="res://Scripts/prize_items.gd" id="1_jby1m"]
 
 [resource]
-script = ExtResource("1_mhi58")
+script = ExtResource("1_jby1m")
 prize_name_text = "Upgrade Coupon Of Your Choice x1"
 item_list = Dictionary[String, int]({
-"upgrade coupon of your choice": 1
+"upgrade coupon of your choice": 2
 })
-sources_of_prize = Array[int]([1, 0, 2, 3])
+sources_of_prize = Array[int]([0, 1, 2, 3, 10])
 weight_in_pool = 15.0
-metadata/_custom_type_script = "uid://bvl7w0dl5jg5h"
