@@ -64,8 +64,6 @@ func add_one_hour():
 
 func add_one_day():
 	current_day += 1
-	manual_refresh_refill_time.emit()
-	shop_refresh_time.emit()
 	time_changed.emit()
 
 

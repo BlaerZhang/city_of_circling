@@ -98,7 +98,7 @@ func draw_items_from_pool(pool: Array) -> ItemForSale:
 	return null
 
 
-func restock_shop(quantity: int = 2):
+func restock_shop(quantity: int = 3):
 	var items_in_slots: Array[Dictionary] = []
 	for i in quantity:
 		var item_for_sale: ItemForSale = draw_items_from_pool(sale_pool)
@@ -106,11 +106,11 @@ func restock_shop(quantity: int = 2):
 		items_in_slots.append({"item": item_for_sale, "price": price})
 	
 	# 查找盲盒并添加
-	var mystery_box = sale_pool[sale_pool.find_custom(func(item: ItemForSale): return item.item_name.to_lower() == "mystery box")]
-	if mystery_box != null:
-		items_in_slots.append({"item": mystery_box, "price": mystery_box.price_range.x})
-	else:
-		print("警告：未找到盲盒物品！")
+	# var mystery_box = sale_pool[sale_pool.find_custom(func(item: ItemForSale): return item.item_name.to_lower() == "mystery box")]
+	# if mystery_box != null:
+	# 	items_in_slots.append({"item": mystery_box, "price": mystery_box.price_range.x})
+	# else:
+	# 	print("警告：未找到盲盒物品！")
 	
 	generate_item_slots(items_in_slots)
 

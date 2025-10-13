@@ -18,8 +18,9 @@ func _notification(what : int) -> void:
 
 
 func _on_add_hour_pressed() -> void:
-	TimeManager.add_one_hour()
+	for i in 60:
+		TimeManager.add_step_time()
 
 
 func _on_add_minute_pressed() -> void:
-	TimeManager.add_one_minute()
+	TimeManager.add_step_time()
