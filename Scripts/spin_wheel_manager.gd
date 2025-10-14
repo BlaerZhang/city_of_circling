@@ -4,7 +4,9 @@ extends Control
 enum button_state{
 	free,
 	draw_coupon,
-	shop
+	shop_supply,
+	shop_upgrade_coupon,
+	grande,
 }
 
 @onready var wheel_face := $"Wheel Face"
@@ -51,14 +53,12 @@ func initiate_wheel(source: PrizeItems.Source, button_state: WheelManager.button
 	is_in_draw = false
 	match button_state:
 		WheelManager.button_state.free:
-			_button_state = WheelManager.button_state.free
 			spin_button_label.text = "GO"
 		WheelManager.button_state.draw_coupon:
-			_button_state = WheelManager.button_state.draw_coupon
 			spin_button_label.text = "[img=150x150]res://Assets/Sprites/Icon/1x/draw coupon italic.png[/img] [font_size=100]x[/font_size]1"
-		WheelManager.button_state.shop:
-			_button_state = WheelManager.button_state.shop
+		WheelManager.button_state.shop_supply, WheelManager.button_state.shop_upgrade_coupon, WheelManager.button_state.grande:
 			spin_button_label.text = "[img=150x150]res://Assets/Sprites/Icon/1x/exchange coupon italic.png[/img] [font_size=100]x[/font_size]3"
+	_button_state = button_state
 	show_ui(self)
 
 
@@ -131,8 +131,22 @@ func _on_wheel_face_on_end_spin(prize_item: PrizeItems) -> void:
 				hide_ui(self)
 		PrizeItems.Source.Traffic, PrizeItems.Source.Affairs, PrizeItems.Source.Lottery, PrizeItems.Source.Trade, PrizeItems.Source.Traffic_Locked, PrizeItems.Source.Tutorial_Shop:
 			if (ResourceManager.get_item_count("exchange coupon") >= 3):
-				_button_state = button_state.shop
+				_button_state = button_state.shop_supply
 				spin_button_label.text = "[img=150x150]res://Assets/Sprites/Icon/1x/exchange coupon italic.png[/img] [font_size=100]x[/font_size]3"
+			else:
+				spin_button.disabled = true
+				hide_ui(self)
+		PrizeItems.Source.Grande:
+			if (ResourceManager.get_item_count("exchange coupon") >= 3):
+				_button_state = button_state.grande
+				spin_button_label.text = "[img=150x150]res://Assets/Sprites/Icon/1x/exchange coupon italic.png[/img] [font_size=100]x[/font_size]3"
+			else:
+				spin_button.disabled = true
+				hide_ui(self)
+		PrizeItems.Source.Upgrade_Coupon:
+			if (ResourceManager.get_item_count("exchange coupon") >= 3):
+				_button_state = button_state.shop_upgrade_coupon
+				spin_button_label.text = "[img=150x150]res://Assets/Sprites/Icon/1x/upgrade coupon italic.png[/img] [font_size=100]x[/font_size]3"
 			else:
 				spin_button.disabled = true
 				hide_ui(self)
@@ -158,7 +172,29 @@ func _on_spin_button_pressed() -> void:
 					wheel_face.spin_wheel(spin_animation_duration_after_day3)
 				else:
 					wheel_face.spin_wheel(spin_animation_duration)
-		button_state.shop:
+		button_state.shop_supply:
+			if (ResourceManager.try_buy_item("supply mystery box", 1, "exchange coupon", 3, spin_button.global_position)):
+				is_in_draw = true
+				spin_button_animation_tree.set("parameters/conditions/is_pressed", true)
+				spin_button_animation_tree.set("parameters/conditions/is_spin_end", false)
+				AudioManager.create_audio(SoundEffect.SOUND_EFFECT_TYPE.SPIN_START)
+				#await get_tree().create_timer(1).timeout
+				if spin_speed_up:
+					wheel_face.spin_wheel(spin_animation_duration_after_day3)
+				else:
+					wheel_face.spin_wheel(spin_animation_duration)
+		button_state.shop_upgrade_coupon:
+			if (ResourceManager.try_buy_item("upgrade coupon mystery box", 1, "exchange coupon", 3, spin_button.global_position)):
+				is_in_draw = true
+				spin_button_animation_tree.set("parameters/conditions/is_pressed", true)
+				spin_button_animation_tree.set("parameters/conditions/is_spin_end", false)
+				AudioManager.create_audio(SoundEffect.SOUND_EFFECT_TYPE.SPIN_START)
+				#await get_tree().create_timer(1).timeout
+				if spin_speed_up:
+					wheel_face.spin_wheel(spin_animation_duration_after_day3)
+				else:
+					wheel_face.spin_wheel(spin_animation_duration)
+		button_state.grande:
 			if (ResourceManager.try_buy_item("mystery box", 1, "exchange coupon", 3, spin_button.global_position)):
 				is_in_draw = true
 				spin_button_animation_tree.set("parameters/conditions/is_pressed", true)
@@ -169,7 +205,6 @@ func _on_spin_button_pressed() -> void:
 					wheel_face.spin_wheel(spin_animation_duration_after_day3)
 				else:
 					wheel_face.spin_wheel(spin_animation_duration)
-
 
 func _on_close_button_pressed() -> void:
 	hide_ui(self)

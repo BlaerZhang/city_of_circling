@@ -1,4 +1,4 @@
-[gd_scene load_steps=107 format=3 uid="uid://c6e414gy1cwn5"]
+[gd_scene load_steps=108 format=3 uid="uid://c6e414gy1cwn5"]
 
 [ext_resource type="Script" uid="uid://tdlox2h37vxw" path="res://Scripts/test_input.gd" id="1_pqs0o"]
 [ext_resource type="PackedScene" uid="uid://b8imxf8a6f2lg" path="res://Scenes/spin_wheel.tscn" id="1_ru8g0"]
@@ -28,6 +28,7 @@
 [ext_resource type="Texture2D" uid="uid://baknh18j5v6ui" path="res://Assets/Sprites/Icon/1x/exchange coupon.png" id="17_g1qwh"]
 [ext_resource type="Texture2D" uid="uid://cgbh0yfyl4rr8" path="res://Assets/Sprites/Grid/1x/Lottery_tile.png" id="20_874u5"]
 [ext_resource type="Texture2D" uid="uid://cpwbam4wawrjj" path="res://Assets/Sprites/Icon/1x/mango.png" id="20_dvnqc"]
+[ext_resource type="Texture2D" uid="uid://1vho1awbxia2" path="res://Assets/Sprites/Icon/1x/mystery_box.png" id="22_apgn6"]
 [ext_resource type="Texture2D" uid="uid://dinty7jilgb14" path="res://Assets/Sprites/Icon/1x/apple.png" id="24_vg072"]
 [ext_resource type="Texture2D" uid="uid://fihoyd0f662r" path="res://Assets/Sprites/Grid/1x/NPC (5).png" id="25_80uim"]
 [ext_resource type="Texture2D" uid="uid://kayoirvwf8bf" path="res://Assets/Sprites/Grid/1x/NPC (4).png" id="26_lu7og"]
@@ -693,6 +694,25 @@ texture = ExtResource("12_07cyw")
 position = Vector2(-94, 46)
 grid_type = 0
 grid_position = Vector2i(6, 3)
+
+[node name="Grid_5_3" parent="Board/Grids" instance=ExtResource("6_xt382")]
+position = Vector2(-230, 46)
+texture = ExtResource("9_d4vnq")
+grid_type = 3
+grid_position = Vector2i(5, 3)
+
+[node name="Functional Component" parent="Board/Grids/Grid_5_3" instance=ExtResource("9_pgjt0")]
+prize_source = 15
+
+[node name="Major Fruit Icon" type="Sprite2D" parent="Board/Grids/Grid_5_3"]
+position = Vector2(-23.4699, 24.2907)
+texture = ExtResource("22_apgn6")
+
+[node name="Minor Fruit Icon" type="Sprite2D" parent="Board/Grids/Grid_5_3"]
+visible = false
+position = Vector2(40.6224, 37.5141)
+scale = Vector2(0.59, 0.59)
+texture = ExtResource("12_07cyw")
 
 [node name="Grid_6_4" parent="Board/Grids" instance=ExtResource("6_xt382")]
 position = Vector2(-94, 182)

@@ -1,11 +1,12 @@
 [gd_resource type="Resource" script_class="ItemForSale" load_steps=2 format=3 uid="uid://cwx7cdqg8koa"]
 
-[ext_resource type="Script" path="res://Scripts/item_for_sale.gd" id="1_nvord"]
+[ext_resource type="Script" uid="uid://deq76sa884uga" path="res://Scripts/item_for_sale.gd" id="1_nvord"]
 
 [resource]
 script = ExtResource("1_nvord")
 abstract_collection = false
 item_name = "trade_supply_lv2"
+count = 1
 price_range = Vector2i(2, 4)
 belonging_shops = Array[int]([4])
 dynamic_weight = false

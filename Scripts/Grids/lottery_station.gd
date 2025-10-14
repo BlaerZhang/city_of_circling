@@ -18,33 +18,38 @@ func _ready() -> void:
 
 
 func bypass() -> void:
-	if is_bypass_draw_unlocked:
+	if is_bypass_draw_unlocked and prize_source != PrizeItems.Source.Grande:
 		wheel_manager.initiate_wheel(prize_source)
-		ResourceManager.change_item_count("fruit draw", 1, Vector2.ZERO)
+		if prize_source != PrizeItems.Source.Grande:
+			ResourceManager.change_item_count("fruit draw", 1, Vector2.ZERO)
 		await wheel_manager.draw_finished
 
 
 func arrive() -> void:
 	wheel_manager.initiate_wheel(prize_source)
-	ResourceManager.change_item_count("fruit draw", 1, Vector2.ZERO)
+	if prize_source != PrizeItems.Source.Grande:
+		ResourceManager.change_item_count("fruit draw", 1, Vector2.ZERO)
 	await wheel_manager.draw_finished
 
 
 func interact(base_grid_pos: Vector2) -> void:
-	if (is_remote_draw_unlocked and ResourceManager.items_owned["draw coupon"] > 0) or is_player_arrived:
+	if (is_remote_draw_unlocked and ResourceManager.items_owned["draw coupon"] > 0 and prize_source != PrizeItems.Source.Grande) or is_player_arrived:
 		#update preview
 		try_interact(false)
-		wheel_manager.initiate_wheel(prize_source, WheelManager.button_state.draw_coupon)
+		if prize_source == PrizeItems.Source.Grande:
+			wheel_manager.initiate_wheel(prize_source, WheelManager.button_state.grande)
+		else:
+			wheel_manager.initiate_wheel(prize_source, WheelManager.button_state.draw_coupon)
 		await wheel_manager.draw_finished
 		GameManager.switch_game_state(GameManager.GameState.Idle)
 
 
 ## 检查是否可以显示预览
 func _can_show_preview_bypass() -> bool:
-	return is_bypass_draw_unlocked
+	return is_bypass_draw_unlocked and prize_source != PrizeItems.Source.Grande
 
 func _can_show_preview_interact() -> bool:
-	return (is_remote_draw_unlocked and ResourceManager.items_owned["draw coupon"] > 0) or is_player_arrived
+	return (is_remote_draw_unlocked and ResourceManager.items_owned["draw coupon"] > 0 and prize_source != PrizeItems.Source.Grande) or is_player_arrived
 
 ## 统一的预览动画处理函数
 func _animate_preview(is_shown: bool, can_show_condition: bool) -> void:
