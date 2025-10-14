@@ -147,7 +147,6 @@ func generate_item_slots(items_in_slots_list: Array[Dictionary]):
 
 func update_slots_state():
 	# 清理字典中无效的按钮引用
-	print("update_slots_state: before cleanup: ", current_items_for_sale_and_slots.size())
 	var valid_slots: Dictionary[Button, Dictionary] = {}
 	var current_children = item_slots_parent.get_children()
 	
@@ -159,11 +158,9 @@ func update_slots_state():
 			print("update_slots_state: 移除无效按钮引用: ", item_slot)
 	
 	current_items_for_sale_and_slots = valid_slots
-	print("update_slots_state: after cleanup: ", current_items_for_sale_and_slots.size())
 	
 	#Idle State && Player at shop
 	for item_slot: Button in current_items_for_sale_and_slots.keys():
-		print("update_slots_state: item_slot: ", item_slot)
 		var price_label: RichTextLabel = item_slot.get_node("Price Label")
 		if is_player_arrived && GameManager.current_game_state == GameManager.GameState.Idle:
 			item_slot.disabled = false
