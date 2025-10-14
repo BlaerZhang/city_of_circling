@@ -23,7 +23,7 @@ var prize_source_type: PrizeItems.Source:
 		return shop_type as PrizeItems.Source
 var sale_pool: Array[ItemForSale]
 var sub_pools: Dictionary[String, Array]
-var current_items_for_sale_and_slots: Dictionary[Button, Dictionary]
+@export var current_items_for_sale_and_slots: Dictionary[Button, Dictionary]
 
 var is_remote_view_unlocked:= false
 var is_rainbow_white_ball_unlocked:= false
@@ -118,6 +118,7 @@ func restock_shop(quantity: int = 3):
 func generate_item_slots(items_in_slots_list: Array[Dictionary]):
 	current_items_for_sale_and_slots.clear()
 	for slot in item_slots_parent.get_children():
+		item_slots_parent.remove_child(slot)
 		slot.queue_free()
 	
 	for item_data in items_in_slots_list:
@@ -141,15 +142,28 @@ func generate_item_slots(items_in_slots_list: Array[Dictionary]):
 			item_slot.tooltip_text = "%s\n%s: %s" % [tr(ResourceManager.get_item_display_key(item_for_sale.item_name)).capitalize(), tr("PRICE"), price]
 		current_items_for_sale_and_slots.get_or_add(item_slot, item_data)
 	
-	# try to remove null keys in this dict
-	current_items_for_sale_and_slots.erase(null)
-	
 	update_slots_state()
 
 
 func update_slots_state():
+	# 清理字典中无效的按钮引用
+	print("update_slots_state: before cleanup: ", current_items_for_sale_and_slots.size())
+	var valid_slots: Dictionary[Button, Dictionary] = {}
+	var current_children = item_slots_parent.get_children()
+	
+	# 只保留仍然是子节点的按钮
+	for item_slot: Button in current_items_for_sale_and_slots.keys():
+		if item_slot in current_children:
+			valid_slots[item_slot] = current_items_for_sale_and_slots[item_slot]
+		else:
+			print("update_slots_state: 移除无效按钮引用: ", item_slot)
+	
+	current_items_for_sale_and_slots = valid_slots
+	print("update_slots_state: after cleanup: ", current_items_for_sale_and_slots.size())
+	
 	#Idle State && Player at shop
 	for item_slot: Button in current_items_for_sale_and_slots.keys():
+		print("update_slots_state: item_slot: ", item_slot)
 		var price_label: RichTextLabel = item_slot.get_node("Price Label")
 		if is_player_arrived && GameManager.current_game_state == GameManager.GameState.Idle:
 			item_slot.disabled = false
@@ -185,14 +199,12 @@ func update_refresh_button():
 
 func on_item_slot_pressed(item_slot: Button, item_for_sale: ItemForSale, price: int):
 	if ResourceManager.try_buy_item(item_for_sale.item_name, 1, "exchange coupon", price, item_slot.global_position):
+		current_items_for_sale_and_slots[item_slot] = {}
+		update_slots_state()
 		if item_for_sale.item_name.to_lower() == "mystery box":
-			current_items_for_sale_and_slots[item_slot] = {}
 			wheel_manager.initiate_wheel(PrizeItems.Source[ItemForSale.ShopType.keys()[shop_type]])
 			await wheel_manager.draw_finished
 			GameManager.switch_game_state(GameManager.GameState.Idle)
-		else:
-			current_items_for_sale_and_slots[item_slot] = {}
-		update_slots_state()
 	else:
 		var slot_tween = create_tween().set_loops(2)
 		slot_tween.tween_property(item_slot, "modulate", Color.RED, 0.1).set_trans(Tween.TRANS_EXPO)
