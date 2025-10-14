@@ -53,15 +53,16 @@ expand_mode = 3
 stretch_mode = 5
 
 [node name="Quantity Label" type="RichTextLabel" parent="Shop Button Icon"]
-visible = false
+clip_contents = false
 layout_mode = 1
 anchors_preset = 3
 anchor_left = 1.0
 anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = -82.0
+offset_left = -85.0
 offset_top = -40.0
+offset_right = -3.0
 grow_horizontal = 0
 grow_vertical = 0
 theme_override_constants/outline_size = 10

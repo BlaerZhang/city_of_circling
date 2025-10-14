@@ -100,10 +100,28 @@ func draw_items_from_pool(pool: Array) -> ItemForSale:
 
 func restock_shop(quantity: int = 3):
 	var items_in_slots: Array[Dictionary] = []
+	var used_item_names: Array[String] = []
+	const MAX_ATTEMPTS: int = 100  # 防止无限循环
+	
 	for i in quantity:
-		var item_for_sale: ItemForSale = draw_items_from_pool(sale_pool)
-		var price = randi_range(item_for_sale.price_range.x, item_for_sale.price_range.y)
-		items_in_slots.append({"item": item_for_sale, "price": price})
+		var item_for_sale: ItemForSale = null
+		var attempts: int = 0
+		
+		# 尝试抽取不重复的物品
+		while attempts < MAX_ATTEMPTS:
+			item_for_sale = draw_items_from_pool(sale_pool)
+			if item_for_sale != null && !used_item_names.has(item_for_sale.item_name):
+				break
+			attempts += 1
+		
+		# 如果找到了不重复的物品，添加到列表
+		if item_for_sale != null && !used_item_names.has(item_for_sale.item_name):
+			var price = randi_range(item_for_sale.price_range.x, item_for_sale.price_range.y)
+			items_in_slots.append({"item": item_for_sale, "price": price})
+			used_item_names.append(item_for_sale.item_name)
+		else:
+			print("警告：无法找到足够的不重复物品！已生成 %d/%d 个物品槽位" % [items_in_slots.size(), quantity])
+			break
 	
 	# 查找盲盒并添加
 	# var mystery_box = sale_pool[sale_pool.find_custom(func(item: ItemForSale): return item.item_name.to_lower() == "mystery box")]
@@ -130,9 +148,9 @@ func generate_item_slots(items_in_slots_list: Array[Dictionary]):
 		var item: Item = ResourceManager.item_database[item_for_sale.item_name]
 		var price_label: RichTextLabel = item_slot.get_node("Price Label")
 		var item_icon: TextureRect = item_slot.get_node("Shop Button Icon")
-		# var quantity_label: RichTextLabel = item_icon.get_node("Quantity Label")
+		var quantity_label: RichTextLabel = item_icon.get_node("Quantity Label")
 		price_label.text = "%s [img=15x25]res://Assets/Sprites/Icon/1x/exchange coupon.png[/img]" % price
-		# quantity_label.text = "x%s" % item_for_sale.item_count
+		quantity_label.text = "x%s" % item_for_sale.count
 		item_icon.texture = ResourceManager.get_item_sprite(item_for_sale.item_name)
 		item_slot.self_modulate = rarity_to_color[item.rarity]
 		item_slot.pressed.connect(on_item_slot_pressed.bind(item_slot, item_for_sale, price))
@@ -195,11 +213,17 @@ func update_refresh_button():
 
 
 func on_item_slot_pressed(item_slot: Button, item_for_sale: ItemForSale, price: int):
-	if ResourceManager.try_buy_item(item_for_sale.item_name, 1, "exchange coupon", price, item_slot.global_position):
-		current_items_for_sale_and_slots[item_slot] = {}
+	if ResourceManager.try_buy_item(item_for_sale.item_name, item_for_sale.count, "exchange coupon", price, item_slot.global_position):
+		#choose 3 from 1, meaning 1 purchase will clear all values in the dictionary
+		for _item_slot in current_items_for_sale_and_slots.keys():
+			current_items_for_sale_and_slots[_item_slot] = {}
 		update_slots_state()
-		if item_for_sale.item_name.to_lower() == "mystery box":
+		if item_for_sale.item_name.to_lower() == "supply mystery box":
 			wheel_manager.initiate_wheel(PrizeItems.Source[ItemForSale.ShopType.keys()[shop_type]])
+			await wheel_manager.draw_finished
+			GameManager.switch_game_state(GameManager.GameState.Idle)
+		elif item_for_sale.item_name.to_lower() == "upgrade coupon mystery box":
+			wheel_manager.initiate_wheel(PrizeItems.Source.Upgrade_Coupon)
 			await wheel_manager.draw_finished
 			GameManager.switch_game_state(GameManager.GameState.Idle)
 	else:

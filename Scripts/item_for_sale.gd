@@ -13,6 +13,7 @@ enum ShopType
 
 @export var abstract_collection:= false
 @export var item_name: String
+@export var count: int = 1
 @export var price_range: Vector2i
 @export var belonging_shops: Array[ShopType]
 

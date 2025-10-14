@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="Item" load_steps=3 format=3 uid="uid://c4h8mmvm8eh56"]
+
+[ext_resource type="Texture2D" uid="uid://1vho1awbxia2" path="res://Assets/Sprites/Icon/1x/mystery_box.png" id="1_ue3yp"]
+[ext_resource type="Script" uid="uid://d0fc2fb7vpwyv" path="res://Scripts/item.gd" id="2_7kek3"]
+
+[resource]
+script = ExtResource("2_7kek3")
+item_name = "upgrade coupon mystery box"
+item_name_display_key = "UPGRADE_COUPON_MYSTERY_BOX"
+icon = ExtResource("1_ue3yp")
+item_type = 4
+rarity = 0
+pts_value = 0
+pts_type = 5
+metadata/_custom_type_script = "uid://d0fc2fb7vpwyv"

@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="Item" load_steps=3 format=3 uid="uid://b5ys306llbfe7"]
+
+[ext_resource type="Texture2D" uid="uid://1vho1awbxia2" path="res://Assets/Sprites/Icon/1x/mystery_box.png" id="1_a4bqv"]
+[ext_resource type="Script" uid="uid://d0fc2fb7vpwyv" path="res://Scripts/item.gd" id="2_ivp57"]
+
+[resource]
+script = ExtResource("2_ivp57")
+item_name = "supply mystery box"
+item_name_display_key = "SUPPLY_MYSTERY_BOX"
+icon = ExtResource("1_a4bqv")
+item_type = 4
+rarity = 0
+pts_value = 0
+pts_type = 5
+metadata/_custom_type_script = "uid://d0fc2fb7vpwyv"

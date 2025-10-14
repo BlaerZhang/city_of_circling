@@ -14,7 +14,7 @@ LOTTERY_TITLE,LUCK,幸运
 TRADE_TITLE,SHOP,商店
 ,,
 AFFAIRS_COUPON,Quest Upgrade Coupon,任务升级券
-,,
+ORANGE,Orange,橘子
 APPLE,Apple,苹果
 BANANA,Banana,香蕉
 DRAW_COUPON,Draw Coupon,抽奖券
@@ -23,7 +23,7 @@ FRUIT_CHOICE,Fruit Of Your Choice,自选水果
 GRAPE,Grape,葡萄
 LOTTERY_COUPON,Luck Upgrade Coupon,幸运升级券
 MANGO,Mango,芒果
-MYSTERY_BOX,Mystery Box,盲盒
+MYSTERY_BOX,Mystery Box,大盲盒
 TRADE__COUPON,Shop Upgrade Coupon,商店升级券
 TRAFFIC_COUPON,Movement Upgrade Coupon,移动升级券
 UPGRADE_CHOICE,Upgrade Coupon Of Your Choice,自选升级券
@@ -31,6 +31,8 @@ SHOP_REFRESH,Shop Refresh,商店刷新
 STRAWBERRY,Strawberry,草莓
 WATERMELON,Watermelon,西瓜
 HP_POTION,Hp Potion,生命药水
+SUPPLY_MYSTERY_BOX,Supply Mystery Box,物资盲盒
+UPGRADE_COUPON_MYSTERY_BOX,Upgrade Coupon Mystery Box,升级券盲盒
 ,,
 AFFAIRS_SUPPLY_LV1,Compass,任务罗盘
 AFFAIRS_SUPPLY_LV2,Treasure Map,​藏​宝图

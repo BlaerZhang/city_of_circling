@@ -17,6 +17,8 @@ enum Source
 	Tutorial_Grape,
 	Tutorial_Apple,
 	Tutorial_Shop,
+	Upgrade_Coupon,
+	Grande,
 }
 
 @export var prize_name_text: String
