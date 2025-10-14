@@ -1166,18 +1166,18 @@ script = ExtResource("40_pqs0o")
 
 [node name="add_hour" type="Button" parent="Board/In-world UI/Time UI"]
 layout_mode = 0
-offset_left = -55.527
-offset_top = 152.026
-offset_right = 11.473
-offset_bottom = 184.026
+offset_left = -61.0112
+offset_top = 131.351
+offset_right = 5.98879
+offset_bottom = 163.351
 text = "+ 01:00"
 
 [node name="add_minute" type="Button" parent="Board/In-world UI/Time UI"]
 layout_mode = 0
-offset_left = -55.8952
-offset_top = 189.018
-offset_right = 11.1048
-offset_bottom = 221.018
+offset_left = -61.3794
+offset_top = 168.343
+offset_right = 5.6206
+offset_bottom = 200.343
 text = "+ 00:01"
 
 [node name="Resource UI fruit choice" parent="Board/In-world UI" instance=ExtResource("15_j40bd")]
@@ -1501,6 +1501,7 @@ item_name = "rainbow"
 
 [node name="Resource UI Grid HP Potion" parent="Board/In-world UI" instance=ExtResource("15_j40bd")]
 self_modulate = Color(0.533333, 0.72549, 0.309804, 1)
+layout_mode = 0
 offset_left = -297.395
 offset_top = 1052.53
 offset_right = -169.395

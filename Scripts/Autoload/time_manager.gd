@@ -64,8 +64,6 @@ func add_one_hour():
 
 func add_one_day():
 	current_day += 1
-	manual_refresh_refill_time.emit()
-	shop_refresh_time.emit()
 	time_changed.emit()
 
 
@@ -76,8 +74,8 @@ func add_step_time():
 
 
 func on_item_count_changed(item_name: String, count: int, change_amount: int, source_pos: Vector2):
-	if item_name == "mystery box":
+	if item_name == "mystery box" && change_amount > 0:
 		current_subminute += 1
-		if current_subminute >= 5:
+		if current_subminute >= 1:
 			current_subminute = 0
-			add_one_minute()
+			add_step_time()
