@@ -26,9 +26,11 @@ func bypass() -> void:
 
 
 func arrive() -> void:
-	wheel_manager.initiate_wheel(prize_source)
 	if prize_source != PrizeItems.Source.Grande:
+		wheel_manager.initiate_wheel(prize_source)
 		ResourceManager.change_item_count("fruit draw", 1, Vector2.ZERO)
+	else:
+		wheel_manager.initiate_wheel(prize_source, WheelManager.button_state.grande)
 	await wheel_manager.draw_finished
 
 

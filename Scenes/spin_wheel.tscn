@@ -201,6 +201,8 @@ outer_line = false
 text_size = 24.0
 icon_height = 106.0
 icon_radius = 64.0
+count_badge_font_size = 28
+count_badge_outline_size = 2
 
 [node name="Pointer" type="TextureRect" parent="."]
 self_modulate = Color(0.737255, 0.239216, 0.215686, 1)

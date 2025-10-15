@@ -107,8 +107,7 @@
     "res://Resources/Upgrades/",
     "res://Resources/ItemsForSale_table_import.tres",
     "res://Resources/",
-    "res://Resources/SoundEffects/",
-    "res://Resources/ItemsForSale/Supplies/"
+    "res://Resources/SoundEffects/"
   ],
   "table_functions": {
     "filter": [

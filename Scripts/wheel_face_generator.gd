@@ -29,6 +29,10 @@ var prize_items_label_scene = preload("res://Scenes/prize_item_rich_text_label.t
 @export var icon_height: float = 24.0
 @export var icon_spacing: float = 4.0
 @export var icon_radius: float = 8.0  # 控制图标沿半径的偏移
+@export var count_badge_font_size: int = 12
+@export var count_badge_color: Color = Color.WHITE
+@export var count_badge_outline_size: int = 1
+@export var count_badge_outline_color: Color = Color.BLACK
 
 
 var prize_list: Array[PrizeItems]
@@ -89,43 +93,65 @@ func _draw() -> void:
 		#draw_set_transform(Vector2.from_angle(mid_rads) * radius_mid + pivot_offset, mid_rads)
 		#draw_string(font, text_offset, prize_items.prize_name_text, HORIZONTAL_ALIGNMENT_LEFT, -1, font_size, text_color)
 
-		# --- 绘制图标 ---
-		var icon_count = 0
-		var scaled_widths: Array[float] = []
+		# --- 绘制图标（每个物品类型一个图标 + 数量角标） ---
+		# 计算所有图标的尺寸和总宽度
+		var icon_data: Array[Dictionary] = []
+		var total_icon_width := 0.0
+		
 		for item: String in prize_items.item_list.keys():
 			var count: int = prize_items.item_list[item]
 			var icon_tex: Texture2D = ResourceManager.get_item_icon(item.to_lower())
 			if icon_tex:
 				var tex_size = icon_tex.get_size()
-				var scale = icon_height / tex_size.y
-				var new_width = tex_size.x * scale
-				for k in count:
-					scaled_widths.append(new_width)
-					icon_count += 1
-
-		var total_icon_width = 0.0
-		for w in scaled_widths:
-			total_icon_width += w
-		if icon_count > 0:
-			total_icon_width += (icon_count - 1) * icon_spacing
-
-		var start_x = -total_icon_width / 2.0
-		var current_x = start_x
-		var radius_for_icons = (inner_radius + outer_radius)/2 - icon_radius  # 使用 icon_radius 调整位置
-
-		for item: String in prize_items.item_list.keys():
-			var count: int = prize_items.item_list[item]
-			var icon_tex: Texture2D = ResourceManager.get_item_icon(item.to_lower())
-			if icon_tex:
-				var tex_size = icon_tex.get_size()
-				var scale = icon_height / tex_size.y
-				var draw_size = Vector2(tex_size.x * scale, icon_height)
-				for k in count:
-					var pos = Vector2(current_x, -draw_size.y)  # 底部对齐
-					draw_set_transform(Vector2.from_angle(mid_rads) * radius_for_icons + pivot_offset, mid_rads + PI/2)
-					draw_texture_rect(icon_tex, Rect2(pos, draw_size), false)
-					current_x += draw_size.x + icon_spacing
-
+				var icon_scale: float = icon_height / tex_size.y
+				var draw_size = Vector2(tex_size.x * icon_scale, icon_height)
+				icon_data.append({
+					"texture": icon_tex,
+					"size": draw_size,
+					"count": count
+				})
+				total_icon_width += draw_size.x
+		
+		# 添加间距
+		if icon_data.size() > 0:
+			total_icon_width += (icon_data.size() - 1) * icon_spacing
+		
+		# 开始绘制图标
+		var current_x := -total_icon_width / 2.0
+		var radius_for_icons := (inner_radius + outer_radius) / 2 - icon_radius
+		var font := ThemeDB.fallback_font
+		
+		for data in icon_data:
+			var icon_tex: Texture2D = data["texture"]
+			var draw_size: Vector2 = data["size"]
+			var count: int = data["count"]
+			
+			# 绘制图标
+			var pos := Vector2(current_x, -draw_size.y)  # 底部对齐
+			draw_set_transform(Vector2.from_angle(mid_rads) * radius_for_icons + pivot_offset, mid_rads + PI/2)
+			draw_texture_rect(icon_tex, Rect2(pos, draw_size), false)
+			
+			# 如果数量大于1，绘制数量角标
+			if count > 1:
+				var count_text := "x" + str(count)
+				var text_size_vec := font.get_string_size(count_text, HORIZONTAL_ALIGNMENT_LEFT, -1, count_badge_font_size)
+				# 角标位置：图标右下角
+				var badge_pos := pos + Vector2(draw_size.x - text_size_vec.x - 2, draw_size.y - 2)
+				
+				# 绘制描边（通过多次绘制实现）
+				if count_badge_outline_size > 0:
+					for offset_x in range(-count_badge_outline_size, count_badge_outline_size + 1):
+						for offset_y in range(-count_badge_outline_size, count_badge_outline_size + 1):
+							if offset_x != 0 or offset_y != 0:
+								draw_string(font, badge_pos + Vector2(offset_x, offset_y), count_text, 
+									HORIZONTAL_ALIGNMENT_LEFT, -1, count_badge_font_size, count_badge_outline_color)
+				
+				# 绘制文字
+				draw_string(font, badge_pos, count_text, HORIZONTAL_ALIGNMENT_LEFT, -1, 
+					count_badge_font_size, count_badge_color)
+			
+			current_x += draw_size.x + icon_spacing
+		
 		# 恢复默认变换
 		draw_set_transform(pivot_offset, 0.0)
 

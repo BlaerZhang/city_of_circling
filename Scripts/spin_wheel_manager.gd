@@ -4,8 +4,6 @@ extends Control
 enum button_state{
 	free,
 	draw_coupon,
-	shop_supply,
-	shop_upgrade_coupon,
 	grande,
 }
 
