@@ -4,6 +4,7 @@ TIME_REFRESH,[font_size=26]Shop refresh in %smin[/font_size],[font_size=26]商�
 SUCCESS_RATE,%.1f%%\n[font_size=34]SUCCESS RATE[/font_size],%.1f%%\n[font_size=34]冒险成功率[/font_size]
 SOLD,SOLD,售罄
 PRICE,Price,价格
+PICK_1_OF_3,Pick 1 Of 3 To Purchase,选择一项购买
 FRUIT_UI_TAG,FRUIT,水果
 UPGRADE_COUPON_TAG,UPGRADE\nCOUPON,升级券
 PTS,Item Pts,道具点数

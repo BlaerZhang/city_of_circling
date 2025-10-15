@@ -700,23 +700,16 @@ grid_type = 0
 grid_position = Vector2i(6, 3)
 
 [node name="Grid_5_3" parent="Board/Grids" instance=ExtResource("6_xt382")]
+self_modulate = Color(0.886275, 0.701961, 0.207843, 1)
 position = Vector2(-230, 46)
-texture = ExtResource("9_d4vnq")
 grid_type = 3
 grid_position = Vector2i(5, 3)
 
 [node name="Functional Component" parent="Board/Grids/Grid_5_3" instance=ExtResource("9_pgjt0")]
 prize_source = 18
 
-[node name="Major Fruit Icon" type="Sprite2D" parent="Board/Grids/Grid_5_3"]
-position = Vector2(-23.4699, 24.2907)
+[node name="MBox Icon" type="Sprite2D" parent="Board/Grids/Grid_5_3"]
 texture = ExtResource("22_apgn6")
-
-[node name="Minor Fruit Icon" type="Sprite2D" parent="Board/Grids/Grid_5_3"]
-visible = false
-position = Vector2(40.6224, 37.5141)
-scale = Vector2(0.59, 0.59)
-texture = ExtResource("12_07cyw")
 
 [node name="Grid_6_4" parent="Board/Grids" instance=ExtResource("6_xt382")]
 position = Vector2(-94, 182)
