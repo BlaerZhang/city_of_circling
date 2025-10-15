@@ -1,6 +1,6 @@
 [gd_resource type="Resource" script_class="Item" load_steps=3 format=3 uid="uid://c4h8mmvm8eh56"]
 
-[ext_resource type="Texture2D" uid="uid://1vho1awbxia2" path="res://Assets/Sprites/Icon/1x/mystery_box.png" id="1_ue3yp"]
+[ext_resource type="Texture2D" uid="uid://dhh1rs5jbg50k" path="res://Assets/Sprites/Icon/1x/upgrade coupon mystery box.png" id="1_ue3yp"]
 [ext_resource type="Script" uid="uid://d0fc2fb7vpwyv" path="res://Scripts/item.gd" id="2_7kek3"]
 
 [resource]

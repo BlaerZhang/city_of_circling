@@ -13,5 +13,5 @@ effect_delta_per_level = 1
 upgrade_type = 2
 shop_slot_index = 0
 slot_order = 0
-upgrade_cost_per_level = Array[int]([1, 2, 2, 3, 3])
+upgrade_cost_per_level = Array[int]([1, 2, 2, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3])
 metadata/_custom_type_script = "uid://deas45k8roqd"
