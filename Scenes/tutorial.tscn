@@ -902,7 +902,7 @@ scale = Vector2(1e-05, 1e-05)
 item_name = "upgrade coupon of your choice"
 
 [node name="Resource UI Grid" parent="Board/In-world UI" instance=ExtResource("41_ol5mg")]
-self_modulate = Color(0.156863, 0.298039, 0.764706, 1)
+self_modulate = Color(0.431373, 0.678431, 0.898039, 1)
 layout_mode = 2
 offset_left = -813.58
 offset_top = -894.632
@@ -912,7 +912,7 @@ scale = Vector2(1e-05, 1e-05)
 item_name = "traffic upgrade coupon"
 
 [node name="Resource UI Grid2" parent="Board/In-world UI" instance=ExtResource("41_ol5mg")]
-self_modulate = Color(0.156863, 0.298039, 0.764706, 1)
+self_modulate = Color(0.431373, 0.678431, 0.898039, 1)
 layout_mode = 2
 offset_left = -681.58
 offset_top = -894.632
@@ -922,7 +922,7 @@ scale = Vector2(1e-05, 1e-05)
 item_name = "trade upgrade coupon"
 
 [node name="Resource UI Grid3" parent="Board/In-world UI" instance=ExtResource("41_ol5mg")]
-self_modulate = Color(0.156863, 0.298039, 0.764706, 1)
+self_modulate = Color(0.431373, 0.678431, 0.898039, 1)
 layout_mode = 2
 offset_left = -813.58
 offset_top = -762.632
@@ -932,7 +932,7 @@ scale = Vector2(1e-05, 1e-05)
 item_name = "affairs upgrade coupon"
 
 [node name="Resource UI Grid4" parent="Board/In-world UI" instance=ExtResource("41_ol5mg")]
-self_modulate = Color(0.156863, 0.298039, 0.764706, 1)
+self_modulate = Color(0.431373, 0.678431, 0.898039, 1)
 layout_mode = 2
 offset_left = -681.58
 offset_top = -762.632
