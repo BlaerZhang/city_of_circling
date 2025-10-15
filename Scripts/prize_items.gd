@@ -17,7 +17,10 @@ enum Source
 	Tutorial_Grape,
 	Tutorial_Apple,
 	Tutorial_Shop,
-	Upgrade_Coupon,
+	Upgrade_Affairs,
+	Upgrade_Lottery,
+	Upgrade_Trade,
+	Upgrade_Traffic,
 	Grande,
 }
 

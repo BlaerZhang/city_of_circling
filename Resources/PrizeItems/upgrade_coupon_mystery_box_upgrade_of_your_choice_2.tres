@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="PrizeItems" load_steps=2 format=3 uid="uid://46nvhvakwysl"]
+
+[ext_resource type="Script" uid="uid://bvl7w0dl5jg5h" path="res://Scripts/prize_items.gd" id="1_uvtms"]
+
+[resource]
+script = ExtResource("1_uvtms")
+prize_name_text = "Upgrade Coupon Of Your Choice x2"
+item_list = Dictionary[String, int]({
+"upgrade coupon of your choice": 2
+})
+sources_of_prize = Array[int]([14, 15, 16, 17])
+weight_in_pool = 10.0
+metadata/_custom_type_script = "uid://bvl7w0dl5jg5h"

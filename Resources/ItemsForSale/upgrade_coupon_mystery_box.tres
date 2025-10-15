@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="ItemForSale" load_steps=2 format=3 uid="uid://bm6cu0hmre0ue"]
+
+[ext_resource type="Script" uid="uid://deq76sa884uga" path="res://Scripts/item_for_sale.gd" id="1_jmuvy"]
+
+[resource]
+script = ExtResource("1_jmuvy")
+abstract_collection = false
+item_name = "upgrade coupon mystery box"
+count = 1
+price_range = Vector2i(2, 4)
+belonging_shops = Array[int]([0, 2, 3, 1])
+dynamic_weight = false
+weight_affecting_upgrade_name = ""
+weight_list_per_level = Array[float]([20.0])

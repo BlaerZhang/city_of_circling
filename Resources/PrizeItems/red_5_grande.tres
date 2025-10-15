@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="PrizeItems" load_steps=2 format=3 uid="uid://bxbl75dhqov11"]
+
+[ext_resource type="Script" uid="uid://bvl7w0dl5jg5h" path="res://Scripts/prize_items.gd" id="1_3tupl"]
+
+[resource]
+script = ExtResource("1_3tupl")
+prize_name_text = "Red x5"
+item_list = Dictionary[String, int]({
+"red": 5
+})
+sources_of_prize = Array[int]([18])
+weight_in_pool = 6.0
+metadata/_custom_type_script = "uid://bvl7w0dl5jg5h"

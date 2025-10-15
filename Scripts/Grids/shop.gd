@@ -28,6 +28,13 @@ var sub_pools: Dictionary[String, Array]
 var is_remote_view_unlocked:= false
 var is_rainbow_white_ball_unlocked:= false
 
+var shop_upgrade_coupon_source_map = {
+	ItemForSale.ShopType.Affairs: PrizeItems.Source.Upgrade_Affairs,
+	ItemForSale.ShopType.Traffic: PrizeItems.Source.Upgrade_Traffic,
+	ItemForSale.ShopType.Lottery: PrizeItems.Source.Upgrade_Lottery,
+	ItemForSale.ShopType.Trade: PrizeItems.Source.Upgrade_Trade,
+}
+
 
 func _ready() -> void:
 	load_items_for_sale_to_pools()
@@ -223,7 +230,7 @@ func on_item_slot_pressed(item_slot: Button, item_for_sale: ItemForSale, price: 
 			await wheel_manager.draw_finished
 			GameManager.switch_game_state(GameManager.GameState.Idle)
 		elif item_for_sale.item_name.to_lower() == "upgrade coupon mystery box":
-			wheel_manager.initiate_wheel(PrizeItems.Source.Upgrade_Coupon)
+			wheel_manager.initiate_wheel(shop_upgrade_coupon_source_map[shop_type])
 			await wheel_manager.draw_finished
 			GameManager.switch_game_state(GameManager.GameState.Idle)
 	else:

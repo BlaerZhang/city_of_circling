@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="PrizeItems" load_steps=2 format=3 uid="uid://c8611tnfllx5x"]
+
+[ext_resource type="Script" uid="uid://bvl7w0dl5jg5h" path="res://Scripts/prize_items.gd" id="1_beouc"]
+
+[resource]
+script = ExtResource("1_beouc")
+prize_name_text = "Affairs Upgrade Coupon x2"
+item_list = Dictionary[String, int]({
+"affairs upgrade coupon": 2
+})
+sources_of_prize = Array[int]([14])
+weight_in_pool = 15.0
+metadata/_custom_type_script = "uid://bvl7w0dl5jg5h"

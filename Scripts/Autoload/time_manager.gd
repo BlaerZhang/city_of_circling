@@ -75,7 +75,5 @@ func add_step_time():
 
 func on_item_count_changed(item_name: String, count: int, change_amount: int, source_pos: Vector2):
 	if item_name == "mystery box" && change_amount > 0:
-		current_subminute += 1
-		if current_subminute >= 1:
-			current_subminute = 0
-			add_step_time()
+		add_step_time()
+		add_step_time()
