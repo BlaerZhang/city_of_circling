@@ -1,6 +1,6 @@
 extends Node
 
-@export var start_time: Vector3i = Vector3i(1, 19, 0)
+@export var start_time: Vector3i = Vector3i(1, 18, 0)
 var current_minute: int
 var current_hour: int
 var current_day: int
